@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forge · unit tests</title>
+  <style>
+    body { font: 15px/1.5 system-ui, sans-serif; margin: 24px; background: #fff; color: #111; }
+    .pass { color: #157a3c; } .fail { color: #b42318; font-weight: 700; }
+    pre { background: #f3f4f6; padding: 8px; overflow-x: auto; }
+    @media (prefers-color-scheme: dark) { body { background: #111; color: #eee; } pre { background: #222; } }
+  </style>
+</head>
+<body>
+  <h1>Forge unit tests</h1>
+  <p>Runs the pure calculation, markdown and content-integrity checks. Serve the app folder (see README) and open <code>tests/</code>.</p>
+  <div id="summary"></div>
+  <ol id="log"></ol>
+  <script type="module">
+    import * as C from '../js/calc.js';
+    import { renderMarkdown, scanTokens } from '../js/md.js';
+    import { loadContent, integrityReport, DB } from '../js/content.js';
+    import { resolveSession, scheduleFor, weekPlan, phases, resolveValue, rirToRpe, estimateMinutes } from '../js/engine.js';
+
+    const log = document.getElementById('log');
+    let pass = 0, fail = 0;
+    const ok = (name, cond, detail = '') => {
+      const li = document.createElement('li');
+      li.className = cond ? 'pass' : 'fail';
+      li.textContent = `${cond ? 'PASS' : 'FAIL'} · ${name}${!cond && detail ? ' · ' + detail : ''}`;
+      log.appendChild(li);
+      cond ? pass++ : fail++;
+    };
+    const near = (a, b, tol = 0.05) => Math.abs(a - b) <= tol;
+
+    // ---- strength
+    const e = C.e1rm(100, 5, 0);
+    ok('Epley 100 kg × 5 = 116.7', near(e.epley, 116.67, 0.01), e.epley);
+    ok('Brzycki 100 kg × 5 = 112.5', near(e.brzycki, 112.5, 0.01), e.brzycki);
+    ok('e1RM counts RIR as reps to failure', C.e1rm(100, 3, 2).repsToFailure === 5);
+    ok('loadForReps inverts Epley', near(C.loadForReps(116.667, 5, 0), 100, 0.01));
+    let r = C.doubleProgression({ repMin: 8, repMax: 12, targetRir: 2, increment: 2.5, sets: [{ load: 40, reps: 12, rir: 2 }, { load: 40, reps: 12, rir: 2 }] });
+    ok('Top of range at target effort → +increment', r.action === 'increase' && r.nextLoad === 42.5, JSON.stringify(r));
+    r = C.doubleProgression({ repMin: 8, repMax: 12, targetRir: 2, increment: 2.5, sets: [{ load: 40, reps: 12, rir: 0 }, { load: 40, reps: 12, rir: 0 }] });
+    ok('Top of range but much harder than target → hold', r.action === 'hold' && r.nextLoad === 40, JSON.stringify(r));
+    r = C.doubleProgression({ repMin: 8, repMax: 12, targetRir: 2, increment: 2.5, sets: [{ load: 40, reps: 10, rir: 2 }] });
+    ok('Within range → hold, add reps', r.action === 'hold' && r.nextLoad === 40);
+    r = C.doubleProgression({ repMin: 8, repMax: 12, targetRir: 2, increment: 2.5, sets: [{ load: 40, reps: 5, rir: 0 }] });
+    ok('Far below range → reduce ~10% (rounded down to increment)', r.action === 'decrease' && r.nextLoad === 35, JSON.stringify(r));
+    r = C.doubleProgression({ repMin: 8, repMax: 12, targetRir: 2, increment: 2.5, sets: [{ load: 40, reps: 7, rir: 1 }] });
+    ok('Just below range once → hold', r.action === 'hold');
+    r = C.doubleProgression({ repMin: 8, repMax: 12, targetRir: 2, increment: 2.5, sets: [{ load: 40, reps: 7, rir: 1 }], prevSets: [{ load: 40, reps: 7 }] });
+    ok('Below range two sessions running → reduce', r.action === 'decrease');
+    r = C.doubleProgression({ repMin: 8, repMax: 12, targetRir: 2, increment: 2.5, sets: [{ load: 20, reps: 16, rir: 4 }] });
+    ok('Far too light → jump using e1RM', r.action === 'increase' && r.nextLoad >= 22.5, JSON.stringify(r));
+    r = C.doubleProgression({ repMin: 8, repMax: 12, targetRir: 2, increment: 2.5, sets: [{ load: 40, reps: 10, rir: 2 }, { load: 40, reps: 9, rir: 2 }], prevSets: [{ load: 40, reps: 10 }, { load: 40, reps: 9 }] });
+    ok('No rep gain at same load → stall flag', r.stall === true);
+    ok('Missing data handled', C.doubleProgression({ repMin: 8, repMax: 12, targetRir: 2, increment: 2.5, sets: [] }).action === 'need-data');
+    const ramp = C.rampSets(60, { minLoad: 20, step: 2.5 });
+    ok('Ramp sets increase and stay below work load', ramp.length >= 2 && ramp.every((s, i) => s.load < 60 && (i === 0 || s.load > ramp[i - 1].load)), JSON.stringify(ramp));
+    ok('Ramp sets never below the minimum load', C.rampSets(25, { minLoad: 20, step: 2.5 }).every(s => s.load >= 20));
+
+    // ---- body composition and energy
+    ok('Navy equation (181 cm, neck 38, waist 86) ≈ 16.7%', near(C.navyBodyFat({ sex: 'male', heightCm: 181, neckCm: 38, waistCm: 86 }), 16.71, 0.05));
+    ok('RFM (181, 86) ≈ 21.9%', near(C.relativeFatMass({ sex: 'male', heightCm: 181, waistCm: 86 }), 21.91, 0.01));
+    ok('Deurenberg (31 y, 77 kg, 181 cm) ≈ 19.1%', near(C.deurenbergBodyFat({ sex: 'male', age: 31, weightKg: 77, heightCm: 181 }), 19.13, 0.02));
+    ok('Mifflin–St Jeor (77, 181, 31, M) = 1751', near(C.bmrMifflin({ weightKg: 77, heightCm: 181, age: 31, sex: 'male' }), 1751.25, 0.01));
+    const f = C.ffmi({ weightKg: 77, heightCm: 181, bfPct: 19 });
+    ok('FFMI at 19% ≈ 19.0', near(f.ffmi, 19.04, 0.02));
+    const en = C.energyTargets({ weightKg: 77, heightCm: 181, age: 31, sex: 'male', pal: 1.6, goalPct: 0, proteinGkg: 2, fatGkg: 0.8, fibrePer1000: 14 });
+    ok('Energy: macros sum to target', near(en.protein * 4 + en.fat * 9 + en.carbs * 4, en.target, 0.5));
+    ok('Energy: TDEE = BMR × PAL', near(en.tdee, en.bmr * 1.6, 0.01));
+
+    // ---- weight trend
+    const series = [];
+    for (let i = 0; i < 21; i++) { const d = new Date(Date.UTC(2026, 10, 1 + i)); series.push({ date: d.toISOString().slice(0, 10), kg: 80 - (0.4 / 7) * i }); }
+    const tr = C.weightTrend(series);
+    ok('Trend recovers a −0.4 kg/week slope', near(tr.kgPerWeek, -0.4, 0.001), tr.kgPerWeek);
+    ok('Trend needs ≥8 weigh-ins over ≥13 days', C.weightTrend(series.slice(0, 5)).enough === false);
+    ok('Adjustment: inside band → keep', C.energyAdjustment(tr, [-0.75, -0.25]).action === 'keep');
+    const fast = C.energyAdjustment(tr, [-0.25, -0.1]);
+    ok('Adjustment: losing too fast → eat more (capped)', fast.action === 'increase' && fast.kcal > 0 && fast.kcal <= 250, JSON.stringify(fast));
+    const slow = C.energyAdjustment(C.weightTrend(series.map(s => ({ ...s, kg: 80 }))), [-0.5, -0.25]);
+    ok('Adjustment: not losing → eat less', slow.action === 'decrease' && slow.kcal < 0, JSON.stringify(slow));
+
+    // ---- other
+    ok('HRmax Tanaka (31 y) ≈ 186', near(C.hrMax(31).tanaka, 186.3, 0.01));
+    ok('Karvonen zone uses resting HR', near(C.hrZone(31, 60, 0.6, 0.7).lo, 60 + 126.3 * 0.6, 0.1));
+    ok('Run spike limit = +10%', near(C.runSpikeLimit(30, 0.1), 33, 1e-9));
+    ok('RIR→RPE mapping', rirToRpe('2') === '8' && rirToRpe('1-2') === '8–9');
+    ok('Template placeholders keep numbers numeric', resolveValue('{{x}}', { x: 4 }) === 4 && resolveValue('{{x}} min', { x: 4 }) === '4 min');
+
+    // ---- markdown
+    const ctx = { cite: ids => `[${ids.join(',')}]`, link: (t, id, l) => `<a data-t="${t}">${l || id}</a>` };
+    ok('Markdown escapes HTML', !renderMarkdown('<script>x<\/script><img src=x onerror=alert(1)>', ctx).includes('<script') &&
+      !renderMarkdown('<img src=x onerror=alert(1)>', ctx).includes('<img'));
+    ok('Markdown renders citations', renderMarkdown('Text [@a; @b].', ctx).includes('[a,b]'));
+    ok('Markdown renders tables', renderMarkdown('| a | b |\n|---|---|\n| 1 | 2 |', ctx).includes('<table>'));
+    ok('Markdown renders nested lists', /<ul><li>a<ul><li>b<\/li><\/ul><\/li><\/ul>/.test(renderMarkdown('- a\n  - b', ctx)));
+    ok('Markdown warning callout', renderMarkdown('!> careful', ctx).includes('callout warn'));
+    ok('Token scan finds refs and links', scanTokens('x [@r1] [[ex:a|A]]').refs[0] === 'r1' && scanTokens('[[ex:a|A]]').links[0].id === 'a');
+
+    // ---- live content
+    try {
+      await loadContent();
+      const probs = integrityReport();
+      ok(`Content integrity: every citation and link resolves (${probs.length} problems)`, probs.length === 0, probs.slice(0, 10).join(' | '));
+      let sessions = 0, bad = 0;
+      for (const p of phases()) {
+        for (let w = 1; w <= p.weeks; w++) {
+          for (const d of scheduleFor(p, w)) {
+            if (!d.sessionId) continue;
+            const s = resolveSession(p.id, w, d.sessionId);
+            sessions++;
+            if (!s || !s.warmup.items.length || !s.main.items.length || !s.cooldown.items.length) bad++;
+            for (const it of (s ? s.main.items : [])) if (it.reps && !(it.sets > 0)) bad++;
+          }
+        }
+      }
+      ok(`All ${sessions} scheduled sessions resolve with warm-up, main and cool-down, and sets defined`, bad === 0, `${bad} problems`);
+      const { nextPosition } = await import('../js/engine.js');
+      const np = (phase, week) => JSON.stringify(nextPosition({ phase, week }));
+      ok('Sequencing: end of Phase 3 → Phase 4 week 1', np('p3', 24) === JSON.stringify({ phase: 'p4', week: 1 }), np('p3', 24));
+      ok('Sequencing: end of a Phase 4 cycle wraps to Phase 4 week 1 (never into Maintenance mode)', np('p4', 12) === JSON.stringify({ phase: 'p4', week: 1 }), np('p4', 12));
+      ok('Sequencing: Maintenance mode repeats itself', np('pm', 1) === JSON.stringify({ phase: 'pm', week: 1 }), np('pm', 1));
+      ok('Sequencing: within a phase → next week', np('p1', 5) === JSON.stringify({ phase: 'p1', week: 6 }), np('p1', 5));
+      const longest = [];
+      for (const p of phases()) for (const [sid] of DB.idx.sessions) {
+        const s = resolveSession(p.id, 1, sid);
+        if (s) longest.push([sid, s.minutes, estimateMinutes(s)]);
+      }
+      const over = longest.filter(([, planned, est]) => planned && est > planned + 10);
+      ok('No session estimate exceeds its planned minutes by >10', over.length === 0, JSON.stringify(over.slice(0, 8)));
+    } catch (err) {
+      ok('Content loads', false, err.message);
+    }
+
+    document.getElementById('summary').innerHTML = `<p class="${fail ? 'fail' : 'pass'}">${pass} passed, ${fail} failed</p>`;
+  </script>
+</body>
+</html>

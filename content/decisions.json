@@ -1,0 +1,2503 @@
+{
+  "decisions": [
+    {
+      "id": "D01",
+      "category": "Programme design",
+      "title": "Programme length and phase structure",
+      "context": "You have never trained and want everything from hypertrophy and fat loss to VO₂max and balance. Too short a plan stops just as muscle growth gets going; too complex a plan asks for decisions you cannot yet calibrate. The structure sets when new elements arrive and when you reassess.",
+      "options": [
+        {
+          "name": "One-year programme in five phases, then repeating cycles",
+          "summary": "P0 Orientation (1 week); P1 Foundations (12 weeks, full-body); P2 Development (16 weeks, upper/lower); P3 Athletic (24 weeks, three 8-week emphasis blocks); then repeating 12-week P4 cycles, plus an optional Maintenance mode.",
+          "for": "With volume equated, the [[term:periodisation|periodisation]] model does not change [[term:hypertrophy|hypertrophy]] (ES 0.13), and in untrained people linear and undulating models give the same [[term:1rm|1RM]] gain (ES 0.06) [@Moesgaard2022_periodization], so phases can add volume, skills and conditioning when they become useful. Fibre growth becomes measurable only after several weeks [@Damas2016_JPhysiol_MyoPS] and strength gains decelerate over years in competitive lifters [@Latella2024_longTermStrength]. In one 6-week trial in inactive students, support for variety improved adherence slightly (partial eta-squared 0.05) [@Sylvester2015_varietySupportRCT].",
+          "against": "Phase lengths are pragmatic, untested choices (inference). Habit formation took a median of about two months [@Singh2024_habitFormationTime], so early changes could unsettle a routine that is still forming.",
+          "chosen": true
+        },
+        {
+          "name": "A single 8-12-week novice programme",
+          "summary": "One simple programme, after which you decide what comes next.",
+          "for": "Novices progress on simple training; one very-low-certainty analysis found larger strength effects for non-periodised programmes in untrained young adults (ES 1.72 vs 1.05) [@Polito2021_moderators].",
+          "against": "It ends just as gains become structural (fibre size rose measurably only by week 10) [@Damas2016_JPhysiol_MyoPS] and leaves months 4-12 and your aerobic and athletic goals unplanned.",
+          "chosen": false
+        },
+        {
+          "name": "An open-ended fixed routine",
+          "summary": "The same sessions indefinitely, adding load whenever possible.",
+          "for": "Linear and daily undulating models give the same hypertrophy (d -0.02) [@Grgic2017_LPvsDUP_hypertrophy].",
+          "against": "Monotony works against your boredom risk; in one small trial in trained men, varied exercise selection raised intrinsic motivation without costing gains [@BazValle2019_variationMotivation], and undulation may help 1RM once you are trained (ES 0.61, CI 0.00 to 1.22) [@Moesgaard2022_periodization].",
+          "chosen": false
+        },
+        {
+          "name": "Complex periodisation from the start",
+          "summary": "Block or undulating periodisation with planned hypertrophy, strength and power phases from week 1.",
+          "for": "Periodised plans gave larger 1RM gains (ES 0.43), especially in untrained people [@Williams2017_periodization].",
+          "against": "Those comparisons were not consistently volume-equated; with volume equated the 1RM advantage was smaller (ES 0.31) and there was no hypertrophy benefit [@Moesgaard2022_periodization]; in one small trial in trained men, block periodisation gave smaller muscle and bench-press gains (but larger jump gains) than mixed-quality sessions [@Bartolomei2023_blockVsMixed].",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "Run a one-year programme in five phases (P0 1 week, P1 12 weeks full-body, P2 16 weeks upper/lower, P3 24 weeks in three 8-week emphasis blocks), then repeating 12-week P4 cycles, with an optional Maintenance mode.",
+      "rationale": "The phases are not there to produce a periodisation effect. They add complexity in the order you can absorb it: technique and habit in [[phase:p1]], volume, a four-day split, intervals and run-walk in [[phase:p2]], barbell strength, conditioning and athletic work in [[phase:p3]], then a chosen emphasis in each [[phase:p4]] cycle. ACSM's 2026 position stand includes individualising training to maximise adherence in its primary recommendation [@ACSM2026_position_stand].\n\nEach boundary is a reassessment point, which matters because responses vary widely (biceps size changed by -2% to +59% after identical training, a range partly widened by measurement error) [@Hubal2005_variability]. Short breaks may cost little: in one small bench-press trial in untrained men, 3-week breaks between 6-week blocks did not reduce six-month gains [@Ogasawara2013_periodicVsContinuous], hence [[phase:pm]] Maintenance mode. The link between variety and your own adherence is mostly inference.",
+      "confidence": "moderate",
+      "confidenceNote": "Outcome evidence on periodisation and variability is moderate, and on breaks low (one small trial); the phase lengths and order are pragmatic design choices no trial has tested.",
+      "profileData": [
+        "Never trained: novice adaptations dominate the first months",
+        "Goal order: aesthetics and hypertrophy, fat loss, strength and endurance, then athletic qualities",
+        "Boredom is the main quit risk",
+        "About 60 min at 13:00, before a 16:00-01:00 shift"
+      ],
+      "wouldChange": [
+        "Sessions missed through boredom (introduce variation sooner)",
+        "Progress stalling before week 12 (start Phase 2 earlier)",
+        "Long-term novice trials showing one periodisation model improves hypertrophy or adherence",
+        "A long busy period or injury (switch to Maintenance mode)"
+      ],
+      "refs": [
+        "Moesgaard2022_periodization",
+        "Damas2016_JPhysiol_MyoPS",
+        "Latella2024_longTermStrength",
+        "Sylvester2015_varietySupportRCT",
+        "Singh2024_habitFormationTime",
+        "Polito2021_moderators",
+        "Grgic2017_LPvsDUP_hypertrophy",
+        "BazValle2019_variationMotivation",
+        "Williams2017_periodization",
+        "Bartolomei2023_blockVsMixed",
+        "ACSM2026_position_stand",
+        "Hubal2005_variability",
+        "Ogasawara2013_periodicVsContinuous"
+      ],
+      "related": {
+        "articles": [
+          "sci-progression",
+          "sci-behaviour",
+          "sci-expectations"
+        ],
+        "rules": [
+          "deload",
+          "breaks",
+          "stall"
+        ],
+        "plan": [
+          "monitoring"
+        ],
+        "phases": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4",
+          "pm"
+        ],
+        "items": []
+      }
+    },
+    {
+      "id": "D02",
+      "category": "Safety, measurement, devices, sleep",
+      "title": "Starting without medical clearance (pre-participation screening)",
+      "context": "You are 31, have never trained and report no symptoms, diagnoses or medications. Should a doctor's visit or tests come first, or is a structured self-check enough? A needless barrier delays the start; a missed warning sign matters more when you train alone.",
+      "options": [
+        {
+          "name": "PAR-Q+ self-check, then a gradual start",
+          "summary": "Complete the PAR-Q+; if every answer is NO, start without medical clearance at light-to-moderate intensity, progress gradually, and seek evaluation if any warning symptom appears.",
+          "for": "ACSM screening rests on current activity, symptoms or known cardiovascular, metabolic or renal disease, and intended intensity; it dropped risk-factor counting because the old process caused excessive referrals that could deter exercise [@Riebe2015_ACSMscreening]. On the PAR-Q+, NO to all seven questions clears you and any YES routes to follow-up [@PARQplusCollab2025_PARQplus]. Of 1,670 people screened this way, all were cleared for maximal exercise and none had an adverse event [@Yee2019_PARQplusBPcutpoints].",
+          "against": "It relies on you recognising symptoms. Vigorous exertion by unfit people transiently raises cardiac risk in susceptible individuals [@Franklin2020_AHAexerciseRisk], so a gradual start is still needed.",
+          "chosen": true
+        },
+        {
+          "name": "Routine medical examination and ECG first",
+          "summary": "See a doctor and have a resting ECG or exercise test before the first session.",
+          "for": "Could detect rare silent heart disease and reassure you (inference; no catalogued study tests this in asymptomatic novices).",
+          "against": "Guidance does not require routine clearance for asymptomatic adults, and the old process's excessive referrals were judged a possible barrier to exercise [@Riebe2015_ACSMscreening].",
+          "chosen": false
+        },
+        {
+          "name": "No screening",
+          "summary": "Start training without any health questions.",
+          "for": "Absolute risk at 31 without symptoms is very low (inference), and habitual activity lowers coronary risk overall [@Franklin2020_AHAexerciseRisk].",
+          "against": "Cardiac events are often preceded by warning symptoms [@Riebe2015_ACSMscreening], which is what the few-minute PAR-Q+ asks about [@PARQplusCollab2025_PARQplus].",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "Complete the PAR-Q+ before the first session and, if every answer is NO, start without medical clearance at light-to-moderate intensity, progress gradually, and seek evaluation if any warning symptom appears.",
+      "rationale": "Both the ACSM model and the PAR-Q+ support self-screening without routine referral for people with no symptoms or known disease [@Riebe2015_ACSMscreening; @PARQplusCollab2025_PARQplus], and resistance training is judged safe for adults with and without cardiovascular disease [@Paluch2023_AHAresistanceTraining]. Because you are inactive, the same logic points to a light-to-moderate start (inference from the three factors), which [[phase:p0]] and early [[phase:p1]] provide ([[dec:D07]]).\n\nResidual risk is handled by stop rules rather than tests: chest pain, pressure or discomfort, pain spreading to the jaw, neck, back or arms, unusual breathlessness, or feeling faint means stop at once and call emergency help [@CDC2024_heartAttackSymptoms]. The full list is on [[plan:safety]].",
+      "confidence": "moderate",
+      "confidenceNote": "Upper end of moderate: two current guidance documents and a 1,670-person screening cohort agree, but no trial has compared screening strategies.",
+      "profileData": [
+        "Age 31; no reported symptoms, diagnoses or medications",
+        "Currently inactive (never trained)",
+        "Trains alone, so warning signs must be self-recognised",
+        "Resting blood pressure not yet recorded"
+      ],
+      "wouldChange": [
+        "Any YES answer on the PAR-Q+",
+        "A new symptom, diagnosis or medication (re-screen)",
+        "A resting blood pressure at or above 160/94 mmHg, the cut-point proposed for clearing maximal exercise [@Yee2019_PARQplusBPcutpoints]",
+        "A family history of premature sudden cardiac death (inference: medical review first)"
+      ],
+      "refs": [
+        "Riebe2015_ACSMscreening",
+        "PARQplusCollab2025_PARQplus",
+        "Yee2019_PARQplusBPcutpoints",
+        "Franklin2020_AHAexerciseRisk",
+        "CDC2024_heartAttackSymptoms",
+        "Paluch2023_AHAresistanceTraining"
+      ],
+      "related": {
+        "articles": [
+          "sci-safety"
+        ],
+        "rules": [
+          "illness",
+          "pain"
+        ],
+        "plan": [
+          "safety"
+        ],
+        "phases": [
+          "p0"
+        ],
+        "items": [
+          "test-rhr"
+        ]
+      }
+    },
+    {
+      "id": "D03",
+      "category": "Safety, measurement, devices, sleep",
+      "title": "Baseline assessment battery",
+      "context": "A baseline shows change that the mirror and the scale hide, and each phase boundary needs numbers to reassess against. You train alone, own a consumer [[term:bia|bioelectrical impedance (BIA)]] scale and have no laboratory access, so the tests must be safe solo, cheap and repeatable.",
+      "options": [
+        {
+          "name": "Field tests plus tape, photos and the weight trend",
+          "summary": "Rockport 1.6 km walk, push-ups, pull-ups, standing broad jump, single-leg stance (each leg, eyes open and closed), fingertip-to-floor, knee-to-wall and resting heart rate, plus girths, photos and the morning weight trend.",
+          "for": "The Rockport walk estimates [[term:vo2max|VO₂max]] with a cross-validated SEE of 0.355 L/min [@Kline1987_Rockport]. Timed push-up and modified pull-up tests had a minimal detectable change of about 2 reps [@Negrete2010_UEtestsMDC], and a soldier test battery including max-rep pull-ups had between-day ICCs of 0.87-0.98 [@Lester2014_pullupReliability]. In back-pain patients, fingertip-to-floor correlated with radiographic trunk flexion (r -0.96) and was highly reliable (ICC 0.99) [@Perret2001_fingertip_floor_test], knee-to-wall has a minimal detectable change of about 1.6-1.9 cm [@Powden2015_WBLT_reliability], and best-of-3 single-leg stance is highly reliable [@Springer2007_unipedalstance]. Each 10 bpm higher resting heart rate is associated with 17% higher all-cause mortality (observational) [@Aune2017_RHRmeta].",
+          "against": "Field estimates are imprecise for one person: a single VO₂max estimate is roughly ±9 mL/kg/min (inference: twice the SEE of about 4.6 mL/kg/min at your weight), and heat and heart-rate error shift it. The broad jump rose 12 cm on retest from learning alone (MDC 29 cm, falling to 1 cm after familiarisation) [@MarinJimenez2024_SLJ].",
+          "chosen": true
+        },
+        {
+          "name": "Laboratory testing (DXA, gas-analysis VO₂max)",
+          "summary": "Criterion measures of body composition and aerobic capacity.",
+          "for": "Far more accurate for an individual: against DXA, a foot-to-foot scale erred by an RMSE of 5.6 percentage points of body fat in men [@Nana2022_footBIAvsDXA].",
+          "against": "Costly and hard to repeat, while walk/run field tests correlate with measured VO₂max up to r 0.79 [@MayorgaVega2016_walkrunMA], enough to show the direction of change (inference).",
+          "chosen": false
+        },
+        {
+          "name": "1RM strength tests",
+          "summary": "Work up to a single maximal lift on the main exercises.",
+          "for": "Precise for the tested lift, whereas predicting [[term:1rm|1RM]] from multi-rep sets has error (SEE about 16 kg for leg press from a 5RM) [@Reynolds2006_1RMprediction].",
+          "against": "Maximal free-weight attempts alone are the riskiest form of testing (inference): in US emergency-department data, two-thirds of weight-training injuries came from weights dropping on the lifter, and 90% involved free weights [@Kerr2010_weightTrainingED]. 1RM gains also largely reflect skill in the tested movement [@Saeterbakken2025_taskSpecificityMeta].",
+          "chosen": false
+        },
+        {
+          "name": "Use the BIA scale's outputs",
+          "summary": "Body fat, muscle mass, visceral fat and the other numbers the scale displays.",
+          "for": "Convenient and highly repeatable (precision error 0-0.5 percentage points) [@Siedler2022_15BIAdevices].",
+          "against": "Individual accuracy is poor (SEE 3.1-7.5 points), and even for change the devices had SEE 1.7-2.6 points [@Siedler2022_15BIAdevices], similar to or larger than a novice's likely change over months (inference); meals, fluid and timing distort readings [@Tinsley2021_trackingchange].",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "Record a field battery (Rockport walk, push-ups, pull-ups, broad jump, single-leg stance, fingertip-to-floor, knee-to-wall, resting heart rate) plus girths, photos and the weight trend, with no 1RM testing and no use of BIA outputs other than weight.",
+      "rationale": "Every chosen test can be done alone, has published reliability or validity, and maps onto a goal: aerobic fitness, upper-body strength, power, balance, flexibility or shape. Tape, photos and the weight trend cover body composition (photos are an unvalidated, qualitative record; practical convention). Strength is tracked as [[term:e1rm|estimated 1RM]] from logged sets ([[tool:e1rm]]) instead of maximal solo attempts. Fingertip-to-floor was preferred to the more hamstring-specific straight-leg raise, which is also reliable (MDD 6-7 degrees) [@Neto2015_AKE_SLR_reliability] but needs a second person (practical convention).\n\nYour eyes-open stance times (left 20 s, right 30 s) sit well below the 44 s best-of-3 average for men aged 18-39 tested barefoot with arms crossed and a 45-s cap [@Springer2007_unipedalstance], so each leg is tracked ([[dec:D28]]). Treat changes inside a test's noise as no change.",
+      "confidence": "moderate",
+      "confidenceNote": "Most tests have reasonable reliability data, but several come from soldiers or clinical samples, and none were checked in hot, humid conditions.",
+      "profileData": [
+        "Trains alone; no laboratory access",
+        "Baseline 5 push-ups, 3 pull-ups, 60 s plank",
+        "Single-leg stance left 20 s vs right 30 s (eyes open), 10 vs 15 s (eyes closed)",
+        "Cannot touch toes with straight knees",
+        "Owns a consumer BIA scale"
+      ],
+      "wouldChange": [
+        "Affordable access to DXA or laboratory VO₂max testing",
+        "A coach or reliable spotter (a supervised 1RM becomes reasonable)",
+        "Running 20 min continuously (switch to the 2.4 km run test)",
+        "Published validation of your scale model"
+      ],
+      "refs": [
+        "Kline1987_Rockport",
+        "Negrete2010_UEtestsMDC",
+        "Lester2014_pullupReliability",
+        "Perret2001_fingertip_floor_test",
+        "Powden2015_WBLT_reliability",
+        "Springer2007_unipedalstance",
+        "Aune2017_RHRmeta",
+        "MarinJimenez2024_SLJ",
+        "Nana2022_footBIAvsDXA",
+        "MayorgaVega2016_walkrunMA",
+        "Reynolds2006_1RMprediction",
+        "Kerr2010_weightTrainingED",
+        "Saeterbakken2025_taskSpecificityMeta",
+        "Siedler2022_15BIAdevices",
+        "Tinsley2021_trackingchange",
+        "Neto2015_AKE_SLR_reliability"
+      ],
+      "related": {
+        "articles": [
+          "sci-bodycomp",
+          "sci-flexibility",
+          "sci-strength"
+        ],
+        "rules": [],
+        "plan": [
+          "monitoring"
+        ],
+        "phases": [
+          "p0"
+        ],
+        "items": [
+          "test-rockport",
+          "test-pushup",
+          "test-pullup",
+          "test-broad-jump",
+          "test-sls",
+          "test-ftf",
+          "test-knee-wall",
+          "test-rhr",
+          "test-girths"
+        ]
+      }
+    },
+    {
+      "id": "D04",
+      "category": "Nutrition and body composition",
+      "title": "Energy strategy for Phase 1: recomposition vs surplus vs deficit",
+      "context": "You want visible muscle and less fat, in that order, and you start untrained at about 20% body fat (equations 17-22%, plausible 17-24%) with a navel waist of 86 cm. Eating above, at or below maintenance ([[term:energy-balance|energy balance]]) changes how much of each you get, and how the first months feel.",
+      "options": [
+        {
+          "name": "Recomposition: maintenance to about -300 kcal/day",
+          "summary": "A smoothed weight trend of 0 to -0.25 kg/week with protein 1.6-2.2 g/kg/day; the target changes per phase by rule.",
+          "for": "[[term:recomposition|Recomposition]] is well documented, including beyond the novice stage, according to a narrative review [@Barakat2020_recomp]. Resistance training alone, without a prescribed diet, lowered body fat by 1.46 percentage points and fat mass by 0.55 kg versus control [@Wewege2022_RTbodyFat]. A deficit reduces lean-mass gain (ES -0.57) but not strength gain, and meta-regression put the deficit that abolishes the average lean gain at roughly 500 kcal/day [@Murphy2022_deficitLeanMass]. In adults under 65, extra protein raised lean-mass gain significantly only in trials reaching 1.6 g/kg/day or more [@Nunes2022_proteinLBM].",
+          "against": "Progress is slow and hard to see, because body-composition methods have errors comparable to the changes studied [@Barakat2020_recomp], and even a small deficit trims lean gain somewhat [@Murphy2022_deficitLeanMass].",
+          "chosen": true
+        },
+        {
+          "name": "Surplus ('bulk')",
+          "summary": "Eat 5-20% above maintenance to gain about 0.25-0.5% of body weight per week.",
+          "for": "One bodybuilding narrative review suggests a 10-20% surplus for novices [@Iraki2019_offseason], and in one small trial in trained lifters a 15% surplus raised bench-press 1RM more than maintenance [@Helms2023_surplus].",
+          "against": "In that trial, muscle thickness did not differ between maintenance, +5% and +15%, while skinfolds rose with the larger surplus [@Helms2023_surplus]. Fat made up 50% to over 90% of stored excess energy when untrained people were overfed by about 40% [@Bray2012_overfeedingProtein], and the surplus needed for hypertrophy is unknown [@Slater2019_surplus].",
+          "chosen": false
+        },
+        {
+          "name": "Aggressive deficit (more than 500 kcal/day)",
+          "summary": "Lose 0.5-1% of body weight per week from the start.",
+          "for": "Faster fat loss; with 2.4 g/kg/day protein and intense training, young men gained 1.2 kg lean mass over 4 weeks in a 40% deficit [@Longland2016_highProteinDeficit].",
+          "against": "That trial used a heavy supervised workload; on average, deficits this large abolish lean gain [@Murphy2022_deficitLeanMass]. In one small trial in elite athletes, slower loss (0.7%/week) raised lean mass 2.1% while faster loss did not [@Garthe2011_weightLossRate].",
+          "chosen": false
+        },
+        {
+          "name": "Strict maintenance",
+          "summary": "Eat at maintenance and let training change body composition.",
+          "for": "Simplest, and recomposition still occurs with training alone [@Wewege2022_RTbodyFat].",
+          "against": "Fat loss is slower, and your waist already exceeds the 78 cm first action level proposed for Asian Indian men in one north Indian study [@Misra2006_IndianWaist], though not the 90 cm consensus threshold.",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "In Phase 1, eat at maintenance while calibration continues in weeks 1-2, then from maintenance to about 300 kcal/day below it from week 3 (weight trend 0 to -0.25 kg/week) with protein 1.6-2.2 g/kg/day, changing the target only by the phase rules.",
+      "rationale": "Hypertrophy ranks above fat loss in your goals, and lean gain is the outcome most sensitive to deficit size, so the deficit is capped well below the ~500 kcal/day average at which lean gain disappears [@Murphy2022_deficitLeanMass]. Your 86 cm waist is above the 78 cm action level proposed in one Indian study [@Misra2006_IndianWaist] (though below the 90 cm consensus threshold), which argues against a surplus; Forbes's relation, derived from diet-only changes without training, also predicts that the fat-free share of weight gain falls as body fat rises [@Hall2007_ForbesPratio].\n\nSuccess means waist falling or stable while strength and limb girths rise, even if weight is flat (practical convention), tracked with [[tool:energy]] and [[rule:energy-adjustment]]. Later phases switch strategy via [[rule:phase-nutrition]]; protein details are in [[dec:D19]].",
+      "confidence": "moderate",
+      "confidenceNote": "Meta-analyses support the direction (deficits blunt lean gain; training alone reduces fat), but the cut-offs are between-study averages rather than individual thresholds, and your body-fat estimate is itself uncertain.",
+      "profileData": [
+        "About 20% body fat (equations 17-22%, plausible 17-24%)",
+        "Navel waist 86 cm",
+        "Never trained (largest recomposition potential)",
+        "Goal order: aesthetics and hypertrophy before fat loss"
+      ],
+      "wouldChange": [
+        "A reliable measure showing body fat clearly above ~22% (fat-loss block first) or below ~15% (small surplus); these thresholds are judgement",
+        "Twelve weeks with neither waist nor strength improving",
+        "Weight falling faster than 0.25 kg/week while lifts stall"
+      ],
+      "refs": [
+        "Barakat2020_recomp",
+        "Wewege2022_RTbodyFat",
+        "Murphy2022_deficitLeanMass",
+        "Nunes2022_proteinLBM",
+        "Iraki2019_offseason",
+        "Helms2023_surplus",
+        "Bray2012_overfeedingProtein",
+        "Slater2019_surplus",
+        "Longland2016_highProteinDeficit",
+        "Garthe2011_weightLossRate",
+        "Misra2006_IndianWaist",
+        "Hall2007_ForbesPratio"
+      ],
+      "related": {
+        "articles": [
+          "sci-energy",
+          "sci-protein",
+          "sci-bodycomp"
+        ],
+        "rules": [
+          "energy-adjustment",
+          "phase-nutrition",
+          "energy-availability"
+        ],
+        "plan": [
+          "nutrition",
+          "monitoring"
+        ],
+        "phases": [
+          "p1"
+        ],
+        "items": [
+          "test-girths"
+        ]
+      }
+    },
+    {
+      "id": "D05",
+      "category": "Training structure",
+      "title": "Training split and frequency in Phase 1",
+      "context": "You have about 60 minutes at 13:00 before work, two cardio sessions to fit on other days, and every lift to learn. The split decides how often each muscle and movement is practised and how much fits into each session.",
+      "options": [
+        {
+          "name": "Three non-consecutive full-body sessions (A/B)",
+          "summary": "For example Monday, Wednesday and Friday, alternating two templates, so each muscle is trained 2-3 times a week.",
+          "for": "With weekly volume equated, [[term:training-frequency|training frequency]] does not change [[term:hypertrophy|hypertrophy]] [@Schoenfeld2019_frequency_hypertrophy] and had a negligible effect in a large dose-response model [@Pelland2025_volume_frequency]; split and full-body routines give similar results [@RamosCampo2024_split_vs_fullbody], so the layout can follow schedule and adherence. ACSM advises training all major muscles at least twice weekly [@ACSM2026_position_stand]. Without volume equating, more frequent training went with larger multi-joint 1RM gains [@Grgic2018_frequency_strength].",
+          "against": "Session length caps volume, so priority muscles reach 12-16 weekly sets only after a later change of split (inference).",
+          "chosen": true
+        },
+        {
+          "name": "Two full-body sessions per week",
+          "summary": "Meets the minimum with fewer gym days.",
+          "for": "Meets the ACSM minimum [@ACSM2026_position_stand], and a twice-weekly multi-set prescription ranked top for hypertrophy in a network meta-analysis, although differences between prescriptions were small [@Currier2023_BJSM_NMA].",
+          "against": "Within 60-min sessions, weekly volume tops out near 8-10 sets per muscle, with fewer practice exposures for new lifts (inference).",
+          "chosen": false
+        },
+        {
+          "name": "Four-day upper/lower split from the start",
+          "summary": "Upper and lower body twice a week each.",
+          "for": "Similar outcomes to full-body at equal volume [@RamosCampo2024_split_vs_fullbody], with more room for volume.",
+          "against": "You do not need that volume yet ([[dec:D06]]), and four lifting days plus two cardio days leave one rest day while the first sessions cause the most muscle damage [@Damas2016_JPhysiol_MyoPS].",
+          "chosen": false
+        },
+        {
+          "name": "One muscle group per day (once a week each)",
+          "summary": "A classic five-day body-part split.",
+          "for": "With volume equated, frequency did not change hypertrophy [@Schoenfeld2019_frequency_hypertrophy].",
+          "against": "An earlier, smaller meta-analysis favoured twice weekly over once (ES 0.49 vs 0.30) [@Schoenfeld2016_frequency_hypertrophy], although its larger 2019 update found no volume-equated difference [@Schoenfeld2019_frequency_hypertrophy]; it falls below the ACSM minimum [@ACSM2026_position_stand], concentrates soreness and gives each lift one practice exposure a week.",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "In Phase 1, lift three times a week on non-consecutive days, alternating two full-body templates (A/B), so each muscle is trained two to three times a week.",
+      "rationale": "Once volume is fixed, frequency and split type barely matter, so the deciding factors are practical: three sessions fit your 13:00 slot, split weekly volume into manageable chunks, and give each new lift two or three practice exposures a week. Rest days between sessions fit the finding that muscle protein synthesis was still raised 48 h after a session in a small tracer study of untrained adults [@Phillips1997_MPS_untrained] (mechanistic reasoning). Cardio goes on non-lifting days ([[dec:D11]]). In [[phase:p2]] the split becomes upper/lower ([[dec:D12]]) because the higher volume no longer fits three 60-min sessions.",
+      "confidence": "moderate",
+      "confidenceNote": "Upper end of moderate: several meta-analyses agree that frequency and split matter little at equal volume; the practical arguments (skill practice, scheduling) are inference.",
+      "profileData": [
+        "Never trained: every lift must be learnt",
+        "About 60 min at 13:00 before a 16:00 shift",
+        "Two aerobic sessions per week on non-lifting days",
+        "Boredom risk (two alternating templates add variety)"
+      ],
+      "wouldChange": [
+        "Only two days available (use two longer full-body sessions)",
+        "Boredom threatening adherence (start upper/lower sooner)",
+        "Leg recovery becoming limiting once running starts"
+      ],
+      "refs": [
+        "Schoenfeld2019_frequency_hypertrophy",
+        "Pelland2025_volume_frequency",
+        "RamosCampo2024_split_vs_fullbody",
+        "ACSM2026_position_stand",
+        "Grgic2018_frequency_strength",
+        "Currier2023_BJSM_NMA",
+        "Damas2016_JPhysiol_MyoPS",
+        "Schoenfeld2016_frequency_hypertrophy",
+        "Phillips1997_MPS_untrained"
+      ],
+      "related": {
+        "articles": [
+          "sci-dose"
+        ],
+        "rules": [],
+        "plan": [],
+        "phases": [
+          "p1",
+          "p2"
+        ],
+        "items": []
+      }
+    },
+    {
+      "id": "D06",
+      "category": "Training structure",
+      "title": "Weekly volume and how it ramps",
+      "context": "Weekly sets per muscle are the main growth dial you control. Too few leave growth on the table; too many early on add soreness and time without adding much, and your 60-min sessions must also hold technique practice and warm-up sets.",
+      "options": [
+        {
+          "name": "Low start, then a ramp weighted to priority muscles",
+          "summary": "About 4-6 [[term:fractional-sets|fractional sets]] per muscle per week in weeks 1-2 and 8-12 in weeks 3-11; from Phase 2, 12-16 for priority muscles (lateral and rear deltoids, upper chest, back, arms) and 10-13 for legs; 6-8 for maintenance.",
+          "for": "[[term:hypertrophy|Hypertrophy]] rises with weekly volume with diminishing returns, and counting indirect sets as half fitted best [@Pelland2025_volume_frequency]; each extra weekly set was associated with about 0.37 percentage points more growth, with a borderline trend favouring 10+ sets [@Schoenfeld2017_volume_meta]. ACSM supports 10 or more sets per muscle per week [@ACSM2026_position_stand]. A low start suits week 1, when protein synthesis goes mainly to repairing damage rather than growth in a small mechanistic study [@Damas2016_JPhysiol_MyoPS] (mechanistic reasoning).",
+          "against": "The ramp timing is inference, and responses vary: with 3 sets vs 1 set per exercise, only 13 of 34 people showed a clear extra hypertrophy benefit [@Hammarstrom2020_volume_ribosomes].",
+          "chosen": true
+        },
+        {
+          "name": "High volume (20+ sets) from the start",
+          "summary": "Begin near the top of the dose-response curve.",
+          "for": "The volume slope stays positive at high doses [@Pelland2025_volume_frequency].",
+          "against": "Returns diminish: in trained men 12-20 vs more than 20 weekly sets did not differ for quadriceps or biceps (only triceps favoured more) [@BazValle2022_volume_trained]. Novices already respond to modest doses [@Krieger2010_sets_hypertrophy], and 20+ sets would not fit 60-min sessions.",
+          "chosen": false
+        },
+        {
+          "name": "Minimal single-set training",
+          "summary": "One hard set per exercise, about 4 sets per muscle per week.",
+          "for": "About 4 weekly sets per muscle is effective and time-efficient [@Iversen2021_time_efficient]; low volume already gives large strength gains [@Ralston2017_volume_strength], and in older adults low volume was the most effective for lean mass [@Radaelli2024_older_volume_NMA].",
+          "against": "Multiple sets gave about 40% larger hypertrophy effects than single sets [@Krieger2010_sets_hypertrophy], and the older-adult finding may not transfer to a 31-year-old.",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "Start at about 4-6 fractional sets per muscle per week, rise to 8-12 from week 3, then 12-16 for priority muscles (legs 10-13) from Phase 2, with 6-8 as the maintenance dose.",
+      "rationale": "The dose-response evidence supports reaching at least 10 weekly sets, not starting there. Weeks 1-2 are for technique and for the [[term:repeated-bout-effect|repeated-bout effect]] to blunt later soreness (inference). From [[phase:p2]], extra sets go where your goal needs them: shoulders, upper chest, back and arms shape an athletic upper body, while legs stay at 10-13 because running and plyometrics add lower-body load later (inference). Synergists count 0.5, so direct arm and lateral deltoid sets are still programmed; in one small trial in untrained men, a direct curl gave about twice the elbow-flexor growth of a row [@Mannarino2021_curl_vs_row].\n\nBecause responses vary, volume for a lagging muscle rises only on evidence from your logs and tape ([[rule:lagging-muscle]]). The maintenance dose is covered in [[dec:D18]].",
+      "confidence": "moderate",
+      "confidenceNote": "Dose-response meta-analyses agree on direction and diminishing returns; the exact set numbers and ramp timing are judgement layered on that evidence.",
+      "profileData": [
+        "Never trained",
+        "Aesthetic priorities: lateral and rear deltoids, upper chest, back, arms",
+        "About 60-min sessions",
+        "Running and plyometrics arrive in later phases"
+      ],
+      "wouldChange": [
+        "Logged performance and tape stalled for 3+ weeks with good recovery (add about 20% sets for that muscle)",
+        "Persistent soreness, falling performance or poor sleep (reduce)",
+        "Dose-response trials in untrained men above 20 weekly sets",
+        "More running or sport (trim leg volume)"
+      ],
+      "refs": [
+        "Pelland2025_volume_frequency",
+        "Schoenfeld2017_volume_meta",
+        "ACSM2026_position_stand",
+        "Damas2016_JPhysiol_MyoPS",
+        "Hammarstrom2020_volume_ribosomes",
+        "BazValle2022_volume_trained",
+        "Krieger2010_sets_hypertrophy",
+        "Iversen2021_time_efficient",
+        "Ralston2017_volume_strength",
+        "Radaelli2024_older_volume_NMA",
+        "Mannarino2021_curl_vs_row"
+      ],
+      "related": {
+        "articles": [
+          "sci-dose",
+          "sci-hypertrophy"
+        ],
+        "rules": [
+          "lagging-muscle",
+          "stall",
+          "deload"
+        ],
+        "plan": [
+          "logging"
+        ],
+        "phases": [
+          "p1",
+          "p2",
+          "p4",
+          "pm"
+        ],
+        "items": [
+          "db-lateral-raise",
+          "reverse-pec-deck",
+          "incline-db-press"
+        ]
+      }
+    },
+    {
+      "id": "D07",
+      "category": "Training structure",
+      "title": "How close to failure: effort targets for a solo novice",
+      "context": "How hard each set is matters as much as how many you do. You train alone, so a failed barbell rep has no spotter, and you have never judged effort, so your early estimates of reps left will be rough.",
+      "options": [
+        {
+          "name": "Graded RIR targets by exercise type",
+          "summary": "Phase 0 at about 4 and Phase 1 weeks 1-2 at 3-4 [[term:rir|reps in reserve (RIR)]]; then free-weight compound lifts at 2-3 RIR and never to failure, machines at 1-2 RIR, isolation at 0-2 RIR (the last set may reach failure on machines or cables); RIR calibration in Phase 1 weeks 5 and 9 and Phase 2 weeks 2, 7 and 12, then every 4-6 weeks.",
+          "for": "Getting close to failure matters more than reaching it: [[term:momentary-failure|momentary failure]] vs non-failure gave ES 0.12 (CI -0.13 to 0.37) for hypertrophy [@Refalo2023_failure_hypertrophy], failure did not improve strength [@Grgic2022_failure_meta], and non-failure was slightly better for dynamic strength (SMD 0.24) [@Wu2026_nonfailure_meta]. In one small trial in trained men, failure slowed recovery by roughly 24-48 h [@MoranNavarro2017_failure_recovery]. With light loads, effort mattered most in one small trial (30% 1RM not to failure +2.8% vs to failure +7.8%) [@Lasevicius2022_failure_by_load], so isolation and high-rep sets go closer.",
+          "against": "An exploratory meta-regression found hypertrophy keeps rising as sets end closer to failure [@Robinson2024_RIR_metaregression], so a 2-3 RIR margin on compounds may cost a little growth.",
+          "chosen": true
+        },
+        {
+          "name": "Every set to failure",
+          "summary": "End each set when another rep is impossible.",
+          "for": "Removes guesswork, and in trained subjects failure modestly favoured hypertrophy (ES 0.15) [@Grgic2022_failure_meta].",
+          "against": "In one small trial in trained lifters, sessions felt worse (Feeling Scale +0.3 vs +1.2 with RIR) [@Refalo2025_proximityPerceptual], and most weight-training injuries seen in US emergency departments came from weights dropping on the lifter [@Kerr2010_weightTrainingED], a real risk without a spotter.",
+          "chosen": false
+        },
+        {
+          "name": "Always stop 3 or more reps short",
+          "summary": "A conservative margin on every set.",
+          "for": "Least fatigue: after sets at 3 RIR, bench-press velocity had fully recovered by 24 h [@Refalo2023_proximityFatigue].",
+          "against": "Possibly less hypertrophy [@Robinson2024_RIR_metaregression], especially for light-load sets [@Lasevicius2022_failure_by_load]; and since people under-predict reps left by about 1 [@Halperin2022_RIR_accuracy], a planned 3 RIR may really be 4 (inference).",
+          "chosen": false
+        },
+        {
+          "name": "Percentage-of-1RM loading",
+          "summary": "Loads set as fixed percentages of a tested 1RM.",
+          "for": "Autoregulated and percentage loading gave similar 1RM gains (MD 2.07 kg, CI -0.32 to 4.46) [@Hickmott2022_autoregulation].",
+          "against": "Needs a frequently retested [[term:1rm|1RM]], unsafe alone, and one percentage leaves different people at very different RIR [@Pelland2022_RIR_methods].",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "Start at about 4 RIR in Phase 0 and 3-4 RIR in Phase 1 weeks 1-2, then keep free-weight compound lifts at 2-3 RIR and never to failure, machines at 1-2 RIR and isolation at 0-2 RIR (last set may reach failure on machines or cables), with RIR calibration in Phase 1 weeks 5 and 9 and Phase 2 weeks 2, 7 and 12, then every 4-6 weeks.",
+      "rationale": "The evidence points to a non-linear relation: sets must end reasonably close to failure, but reaching it adds little and costs recovery. The graded scheme puts the hardest efforts where failure is safe (machines, cables, isolation) and keeps a margin where a failed rep is dangerous (free-weight compounds without a spotter). The cautious first weeks reflect that vigorous exertion is riskiest for unfit people [@Franklin2020_AHAexerciseRisk] and that exertional rhabdomyolysis, though uncommon, can follow unaccustomed or poorly prescribed exercise [@Rawson2017_exertionalRhabdo].\n\nNovices can use RIR: experience did not clearly change accuracy [@Remmert2023_RIRtrainedUntrained], but errors grow far from failure and in sets above 12 reps [@Halperin2022_RIR_accuracy]. At each calibration (Phase 1 weeks 5 and 9, Phase 2 weeks 2, 7 and 12, then every 4-6 weeks), take the last set of a safe machine exercise to failure and compare with your estimate ([[rule:rir-calibration]]); the routine itself is untested (inference).",
+      "confidence": "moderate",
+      "confidenceNote": "Meta-analyses agree that failure adds little on average, but most trials used trained or mixed samples; the RIR bands and calibration routine are judgement.",
+      "profileData": [
+        "Trains alone, no spotter",
+        "Never trained: effort judgement unpractised",
+        "Logs load, reps and RPE in Hevy",
+        "Hypertrophy ranks above strength"
+      ],
+      "wouldChange": [
+        "Calibration errors consistently above 2 reps (widen margins or use more machines)",
+        "A reliable spotter or coach",
+        "Any injury",
+        "Trials in true novices showing failure training is clearly better"
+      ],
+      "refs": [
+        "Refalo2023_failure_hypertrophy",
+        "Grgic2022_failure_meta",
+        "Wu2026_nonfailure_meta",
+        "MoranNavarro2017_failure_recovery",
+        "Lasevicius2022_failure_by_load",
+        "Robinson2024_RIR_metaregression",
+        "Refalo2025_proximityPerceptual",
+        "Kerr2010_weightTrainingED",
+        "Refalo2023_proximityFatigue",
+        "Halperin2022_RIR_accuracy",
+        "Hickmott2022_autoregulation",
+        "Pelland2022_RIR_methods",
+        "Franklin2020_AHAexerciseRisk",
+        "Rawson2017_exertionalRhabdo",
+        "Remmert2023_RIRtrainedUntrained"
+      ],
+      "related": {
+        "articles": [
+          "sci-dose",
+          "sci-safety"
+        ],
+        "rules": [
+          "rir-calibration"
+        ],
+        "plan": [
+          "logging",
+          "safety"
+        ],
+        "phases": [
+          "p0",
+          "p1",
+          "p2"
+        ],
+        "items": [
+          "machine-chest-press",
+          "leg-extension",
+          "seated-cable-row",
+          "back-squat"
+        ]
+      }
+    },
+    {
+      "id": "D08",
+      "category": "Training structure",
+      "title": "Exercise selection: machines and dumbbells first, barbells later",
+      "context": "Which exercises you do shapes where you grow and how safely you can train alone. Your goal is an athletic look led by shoulders, upper chest, back and arms, and you start with no lifting skill.",
+      "options": [
+        {
+          "name": "Machines, cables and dumbbells first; barbells from Phase 2",
+          "summary": "Mostly machines, cables and dumbbells in Phase 1; barbell squat and Romanian deadlift in Phase 2 inside a rack with [[term:safety-arms|safety arms]]; exercises chosen for loading at long muscle lengths and for aesthetic priorities.",
+          "for": "Free weights and machines gave similar hypertrophy (SMD -0.055, 95% CI -0.40 to 0.29; only 5 hypertrophy trials) [@Haugen2023_freeVsMachineMeta; @HernandezBelmonte2023_freeVsMachineRCT]. In single small trials, specific choices grew target muscles more: seated vs lying leg curls +14% vs +9% hamstrings [@Maeo2021_seatedVsProneCurl]; overhead vs neutral triceps work +28.5% vs +19.6% long head [@Maeo2023_overheadTriceps]; standing vs seated calf raises +12.4% vs +1.7% lateral gastrocnemius [@Kinoshita2023_standingVsSeatedCalf]; incline pressing grew the upper chest 0.62 cm more [@Chaves2020_inclineVsFlat]; full squats grew glutes +6.7% vs +2.2% [@Kubo2019_squatDepth]. Full [[term:rom|range of motion]] beat partial for lower-limb hypertrophy (ES 0.88) [@Pallares2021_ROMmeta].",
+          "against": "Strength is task-specific, so barbell strength lags while barbells wait [@Saeterbakken2025_taskSpecificityMeta]. Pooled across studies, training at long muscle lengths made only trivial differences to regional growth [@Varovic2025_lengthRegionalMeta].",
+          "chosen": true
+        },
+        {
+          "name": "Barbell-centric novice programme (e.g. 3 x 5 linear progression)",
+          "summary": "A few barbell lifts with load added every session.",
+          "for": "Heavy loads maximise 1RM [@Lopez2021_load_NMA], and free-weight-tested strength improves more with free weights [@Haugen2023_freeVsMachineMeta].",
+          "against": "No hypertrophy advantage [@Haugen2023_freeVsMachineMeta], little direct work for lateral deltoids or arms (inference), and free weights account for most weight-training injuries seen in emergency departments, more often fractures or dislocations [@Kerr2010_weightTrainingED].",
+          "chosen": false
+        },
+        {
+          "name": "Bodyweight only",
+          "summary": "Push-ups, pull-ups, squats and lunges.",
+          "for": "Light loads built muscle similarly when sets were taken to failure [@Schoenfeld2017_load_meta].",
+          "against": "With 5 push-ups and 3 pull-ups you cannot yet dose rep ranges, lower-body loading is limited (inference), and light-load sets work only close to failure [@Lasevicius2022_failure_by_load].",
+          "chosen": false
+        },
+        {
+          "name": "Machines only",
+          "summary": "No free weights at any stage.",
+          "for": "Similar hypertrophy in one trial in trained men [@HernandezBelmonte2023_freeVsMachineRCT], and machine injuries were less often fractures or dislocations [@Kerr2010_weightTrainingED].",
+          "against": "Strength transfers poorly between tasks [@Saeterbakken2025_taskSpecificityMeta], and your later strength, power and athletic goals need free-weight skill (inference).",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "Use machines, cables and dumbbells for most Phase 1 work, add the barbell squat and Romanian deadlift in Phase 2 inside a rack with safety arms, and pick exercises for long-length loading and your aesthetic priorities.",
+      "rationale": "Because modality made no clear difference to hypertrophy, safety and learning set the order: machines and dumbbells let a solo novice push sets hard and bail out safely, and barbell skill is added once patterns are stable ([[dec:D15]]). Within each muscle the choices follow the best trials available: [[ex:incline-db-press]] first in the session (strength favours whichever exercise comes first; hypertrophy was unaffected by order) [@Nunes2021_exerciseOrderMeta], [[ex:db-lateral-raise]] or [[ex:cable-lateral-raise]] 2-3 times a week (equal growth) [@Larsen2025_lateralRaiseDBvsCable], [[ex:oh-cable-triceps]], [[ex:seated-leg-curl]], [[ex:standing-calf-raise]] and deep squats ([[ex:goblet-squat]], later [[ex:back-squat]]). Rated upper-body strength explained over 70% of the variance in rated male bodily attractiveness in cross-sectional data [@Sell2017_strengthAttractiveness], which supports the upper-body emphasis but is culturally limited.\n\nThe long-length bias is a tie-breaker, not a rule: single trials favour it, the regional meta-analysis finds trivial effects.",
+      "confidence": "moderate",
+      "confidenceNote": "Modality equivalence rests on one meta-analysis with wide confidence intervals and one trial in trained men; the muscle-specific choices rest mostly on single small trials, and pooled long-length evidence is weaker than those trials suggest.",
+      "profileData": [
+        "Never trained; trains alone in a well-equipped commercial gym",
+        "Goal 'athletic, not bulky', led by shoulders, upper chest, back and arms",
+        "Baseline 5 push-ups and 3 pull-ups",
+        "Left leg balances worse, so unilateral work starts on the left"
+      ],
+      "wouldChange": [
+        "No rack with safety arms (stay with dumbbells and machines)",
+        "A coach or reliable training partner",
+        "Joint pain with a specific exercise ([[rule:substitution]])",
+        "Better pooled evidence on long-length training"
+      ],
+      "refs": [
+        "Haugen2023_freeVsMachineMeta",
+        "HernandezBelmonte2023_freeVsMachineRCT",
+        "Maeo2021_seatedVsProneCurl",
+        "Maeo2023_overheadTriceps",
+        "Kinoshita2023_standingVsSeatedCalf",
+        "Chaves2020_inclineVsFlat",
+        "Kubo2019_squatDepth",
+        "Pallares2021_ROMmeta",
+        "Saeterbakken2025_taskSpecificityMeta",
+        "Varovic2025_lengthRegionalMeta",
+        "Lopez2021_load_NMA",
+        "Kerr2010_weightTrainingED",
+        "Schoenfeld2017_load_meta",
+        "Lasevicius2022_failure_by_load",
+        "Nunes2021_exerciseOrderMeta",
+        "Larsen2025_lateralRaiseDBvsCable",
+        "Sell2017_strengthAttractiveness"
+      ],
+      "related": {
+        "articles": [
+          "sci-selection"
+        ],
+        "rules": [
+          "substitution"
+        ],
+        "plan": [],
+        "phases": [
+          "p1",
+          "p2",
+          "p3"
+        ],
+        "items": [
+          "incline-db-press",
+          "db-lateral-raise",
+          "cable-lateral-raise",
+          "oh-cable-triceps",
+          "seated-leg-curl",
+          "standing-calf-raise",
+          "goblet-squat",
+          "back-squat",
+          "bb-rdl"
+        ]
+      }
+    },
+    {
+      "id": "D09",
+      "category": "Training structure",
+      "title": "Progression model: double progression, no formal periodisation in Phase 1",
+      "context": "Progression is how the programme keeps asking for slightly more than last time. You need a rule that works without maximal testing, copes with the coarse weight steps of dumbbells and machines, and runs on the data you already log in Hevy.",
+      "options": [
+        {
+          "name": "Double progression, with structure added later",
+          "summary": "[[term:double-progression|Double progression]]: work within a rep range; when every set reaches the top at the target RIR, add the smallest load step and restart at the bottom. Phase 1 is non-periodised, Phase 2 adds mild daily undulation, Phase 3 uses emphasis blocks, and [[term:deload|deloads]] are planned from Phase 2 (P2 week 8, P3 weeks 8 and 16, P4 week 6) and otherwise triggered by fatigue signals.",
+          "for": "In one small trial in trained lifters, progressing reps at a fixed load and progressing load gave similar hypertrophy and strength (squat 1RM difference 2.0 kg, CI -2.4 to 7.8) [@Plotkin2022_loadVsRepProgression], so a rule combining them is reasonable (inference). ACSM's 2009 novice guidance (now superseded) was to raise load 2-10% once the target is exceeded by 1-2 reps [@ACSM2009_progression_models]. Undulation helped 1RM in trained lifters (ES 0.61) but not untrained ones (ES 0.06), and did not change hypertrophy [@Moesgaard2022_periodization; @Grgic2017_LPvsDUP_hypertrophy].",
+          "against": "No long-term novice trial has tested this exact scheme (inference), and the rule depends on RIR ratings, which err by about 1 rep on average [@Halperin2022_RIR_accuracy].",
+          "chosen": true
+        },
+        {
+          "name": "Add load every session (linear progression)",
+          "summary": "A fixed increment each time a lift is repeated.",
+          "for": "Simple and plausible early on, when strength gains are fastest (shown in competitive lifters) [@Latella2024_longTermStrength].",
+          "against": "No head-to-head novice data, no built-in rule for when increases must stop, and with light dumbbells one step can be a large percentage jump (inference).",
+          "chosen": false
+        },
+        {
+          "name": "Percentage-of-1RM programming",
+          "summary": "Sets prescribed as percentages of a tested maximum.",
+          "for": "Gave similar 1RM and muscle-thickness gains to RPE-based loading in trained lifters [@Helms2018_RPEvsPercent].",
+          "against": "Needs a valid, frequently updated [[term:1rm|1RM]], which changes quickly in novices and is risky to test alone, and one percentage yields very different RIR across people [@Pelland2022_RIR_methods].",
+          "chosen": false
+        },
+        {
+          "name": "Pure RPE autoregulation",
+          "summary": "Choose each day's load by feel, without rep ranges.",
+          "for": "Autoregulated loading matched percentage-based loading for 1RM [@Hickmott2022_autoregulation], with a possible small squat advantage for RPE [@Helms2018_RPEvsPercent].",
+          "against": "Rep-prediction accuracy varied enormously between studies (I² 97.9%) [@Halperin2022_RIR_accuracy], so rep ranges are a useful guard-rail while you learn.",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "Use double progression throughout, keep Phase 1 non-periodised, add mild daily undulation in Phase 2 and emphasis blocks in Phase 3, and take deloads when fatigue signals appear, plus the planned deload weeks from Phase 2 (P2 week 8, P3 weeks 8 and 16, P4 week 6).",
+      "rationale": "Double progression needs no 1RM test, absorbs day-to-day variation in readiness, and turns your Hevy log into a clear prompt: top of the range at the target RIR means add load ([[rule:double-progression]], [[tool:progression]]). Because periodisation does not change hypertrophy and undulation helps strength only in trained lifters, structure arrives once you are past the novice stage, mainly for variety and strength ([[dec:D16]]).\n\nApart from the planned deload weeks in Phases 2-4, deloads are triggered by stalls, joint irritation or poor recovery ([[rule:stall]], [[rule:deload]]): in one small trial, reduced-volume weeks did not impair hypertrophy in untrained men [@Pancar2026_deloadUntrained], in another a full week off probably left strength slightly lower in trained lifters [@Coleman2024_deloadRCT], and expert consensus frames deloads as fatigue management [@Bell2023_deloadDelphi]. The triggers themselves are judgement, not validated.",
+      "confidence": "moderate",
+      "confidenceNote": "Progression and periodisation trials are short and mostly in trained or mixed samples; the scheme is consistent with them, but its increments and deload triggers are judgement.",
+      "profileData": [
+        "Never trained: fast early gains",
+        "Trains alone: no maximal testing",
+        "Logs load, reps and RPE in Hevy",
+        "Baseline 5 push-ups and 3 pull-ups (progressed by variation before load)",
+        "Boredom risk"
+      ],
+      "wouldChange": [
+        "A novice trial of 6 months or more showing another scheme clearly better",
+        "Repeated failed progressions in your logs (smaller increments or wider rep ranges)",
+        "Access to a coach or a bar-velocity device"
+      ],
+      "refs": [
+        "Plotkin2022_loadVsRepProgression",
+        "ACSM2009_progression_models",
+        "Moesgaard2022_periodization",
+        "Grgic2017_LPvsDUP_hypertrophy",
+        "Halperin2022_RIR_accuracy",
+        "Latella2024_longTermStrength",
+        "Helms2018_RPEvsPercent",
+        "Pelland2022_RIR_methods",
+        "Hickmott2022_autoregulation",
+        "Pancar2026_deloadUntrained",
+        "Coleman2024_deloadRCT",
+        "Bell2023_deloadDelphi"
+      ],
+      "related": {
+        "articles": [
+          "sci-progression"
+        ],
+        "rules": [
+          "double-progression",
+          "stall",
+          "deload",
+          "rir-calibration"
+        ],
+        "plan": [
+          "logging"
+        ],
+        "phases": [
+          "p1",
+          "p2",
+          "p3"
+        ],
+        "items": [
+          "push-up",
+          "pull-up"
+        ]
+      }
+    },
+    {
+      "id": "D10",
+      "category": "Warm-up, flexibility, recovery",
+      "title": "Warm-up and cool-down design (and where stretching goes)",
+      "context": "You train at 13:00, an hour after waking, which is early in your biological day, and you cannot touch your toes. The warm-up must prepare you to lift well in limited time; the cool-down is the most reliable slot for the stretching your flexibility goal needs.",
+      "options": [
+        {
+          "name": "Graded warm-up; stretching after training, for range of motion",
+          "summary": "Warm-up: 6 min easy cardio, dynamic drills, 2 x 30 s single-leg balance per leg (left first) and [[term:ramp-up-sets|ramp-up sets]]. Cool-down: 2 min easy, then [[term:static-stretching|static stretching]] (hamstrings every session, about 5 min per leg per week at about 7/10), aimed at range of motion, not recovery.",
+          "for": "Warming up improved performance in 79% of criteria studied [@Fradkin2010_warmup_performance]; high-load specific warm-ups enhance upper-body strength [@McCrary2015_upperbody_warmup], and in one trial in trained men, warm-up sets near the working load slightly beat a few light reps [@Ribeiro2020_specific_warmup_RT]. Body temperature was the factor most often linked to time-of-day differences, and an extended morning warm-up was judged the best way to reduce them [@Kusumoto2021_diurnal_variation]. Stretch training increases [[term:rom|range of motion (ROM)]] (ES about 1.0) [@Konrad2024_chronic_stretch_ROM], possibly helped by at least about 5 min per week [@Thomas2018_stretch_dose_ROM] (the larger meta-analysis found no clear dose effect [@Konrad2024_chronic_stretch_ROM]) and, in one small calf trial, by higher intensity (6-7/10: +40% vs +15% ROM) [@Nakamura2021_HI_vs_LI_SS]. Balance training reduced sports injuries (RR 0.55) [@Lauersen2014_injury_prevention].",
+          "against": "In one small study in trained men, an extended morning warm-up raised core temperature to evening levels yet did not restore evening lifting performance [@Pullinger2019_morning_warmup_lifts], so the longer cardio may help less than hoped. The routine uses about 10-12 minutes of a 60-min session (inference).",
+          "chosen": true
+        },
+        {
+          "name": "Static stretching or foam rolling as the warm-up",
+          "summary": "Hold stretches or roll before lifting.",
+          "for": "Short holds cost little (under 30 s: -1.1%) [@Kay2012_acute_static_stretch], and pre-rolling slightly improved flexibility (+4%) [@Wiewelhove2019_foam_rolling_meta].",
+          "against": "Holds of 60 s or more cut maximal strength substantially (ES -0.84) [@Warneke2024_stretch_force_deficit], and neither stretching nor rolling improved acute ROM more than other warm-up activities (ES 0.01) [@Warneke2024_FR_stretch_warmup_ROM].",
+          "chosen": false
+        },
+        {
+          "name": "No warm-up",
+          "summary": "Start with the first working set.",
+          "for": "Saves several minutes (inference).",
+          "against": "Loses the performance benefit [@Fradkin2010_warmup_performance]; in one small trial in trained people, a general plus specific warm-up gave an 8.4% higher leg-press 1RM than a specific warm-up alone [@Abad2011_general_specific_warmup].",
+          "chosen": false
+        },
+        {
+          "name": "Long active cool-down for recovery",
+          "summary": "10-15 min of easy cardio and stretching to speed recovery.",
+          "for": "Speeds blood lactate clearance and may aid cardiovascular recovery [@VanHooren2018_cooldown].",
+          "against": "Active cool-downs largely fail to improve next-day performance or soreness [@VanHooren2018_cooldown], and post-exercise stretching did not meaningfully improve strength recovery or soreness [@Afonso2021_postexercise_stretch_recovery; @Herbert2011_Cochrane_stretch_DOMS].",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "Warm up with 6 min of easy cardio, dynamic drills, 2 x 30 s of single-leg balance per leg and ramp-up sets; cool down with 2 min easy and static stretching (hamstrings every session), used for range of motion rather than recovery.",
+      "rationale": "Warming up reliably helps; the question is what it should contain. The cardio block raises body temperature, which matters most early in your biological day; making it slightly longer than usual is a practical judgement, because the extended-warm-up evidence is mixed. Dynamic drills prepare joints without the strength cost of long static holds [@Behm2016_acute_stretching], ramp-up sets rehearse the first lifts ([[rule:ramp-up]], [[tool:warmup]]), and 2 x 30 s of single-leg balance per leg, left leg first, builds balance practice into every session ([[dec:D28]]).\n\nStretching goes after lifting, where it costs nothing. Its aim is chronic range of motion for your toe-touch limitation ([[dec:D27]]), not recovery, for which the evidence is null. Full-range strength training improves ROM about as much as stretching [@Afonso2021_STvsStretchMeta], so the lifting and the stretching work together.",
+      "confidence": "moderate",
+      "confidenceNote": "Warm-up and stretching meta-analyses are reasonably consistent; the cardio duration for an early-biological-day session and the exact stretch dose are judgement.",
+      "profileData": [
+        "Trains at 13:00, one hour after waking at 12:00",
+        "Cannot touch toes with straight knees",
+        "Left leg balances worse (20 vs 30 s eyes open)",
+        "About 60 min per session"
+      ],
+      "wouldChange": [
+        "Training moved to 2-3 h after waking (shorten the cardio block)",
+        "Fingertip-to-floor reaching the floor (switch to maintenance stretching)",
+        "Trials showing post-exercise stretching aids recovery",
+        "Heavy days feeling under-prepared (add ramp-up sets)"
+      ],
+      "refs": [
+        "Fradkin2010_warmup_performance",
+        "McCrary2015_upperbody_warmup",
+        "Ribeiro2020_specific_warmup_RT",
+        "Kusumoto2021_diurnal_variation",
+        "Konrad2024_chronic_stretch_ROM",
+        "Thomas2018_stretch_dose_ROM",
+        "Nakamura2021_HI_vs_LI_SS",
+        "Lauersen2014_injury_prevention",
+        "Pullinger2019_morning_warmup_lifts",
+        "Kay2012_acute_static_stretch",
+        "Wiewelhove2019_foam_rolling_meta",
+        "Warneke2024_stretch_force_deficit",
+        "Warneke2024_FR_stretch_warmup_ROM",
+        "Abad2011_general_specific_warmup",
+        "VanHooren2018_cooldown",
+        "Afonso2021_postexercise_stretch_recovery",
+        "Herbert2011_Cochrane_stretch_DOMS",
+        "Behm2016_acute_stretching",
+        "Afonso2021_STvsStretchMeta"
+      ],
+      "related": {
+        "articles": [
+          "sci-flexibility",
+          "sci-recovery"
+        ],
+        "rules": [
+          "ramp-up"
+        ],
+        "plan": [],
+        "phases": [
+          "p1",
+          "p2",
+          "p3"
+        ],
+        "items": [
+          "wu-cardio-easy",
+          "wu-leg-swing-fb",
+          "wu-wgs",
+          "wu-bw-squat",
+          "bal-sls",
+          "st-ham-supine",
+          "st-ham-bench",
+          "cd-easy"
+        ]
+      }
+    },
+    {
+      "id": "D11",
+      "category": "Conditioning and athletic qualities",
+      "title": "Aerobic training in Phase 1: modality, dose and intensity without a heart-rate monitor",
+      "context": "[[term:vo2max|VO₂max]] and endurance rank just below hypertrophy and fat loss, and you start untrained. Phase 1 has to build an aerobic base and teach you to judge effort without hurting the three lifting sessions. You have no heart-rate monitor, sit through a 16:00-01:00 desk shift and face daytime heat.",
+      "options": [
+        {
+          "name": "Two RPE-guided sessions a week on non-lifting days",
+          "summary": "A steady session building from 20 to 35 min at [[term:rpe|RPE]] 3-4 (you can still talk in full sentences: the [[term:talk-test|talk test]]) and, from week 7, 6-8 x 1 min hard / 2 min easy. Any machine you like, incline treadmill walking by default. Steps: 8,000-10,000 a day, never below 7,000.",
+          "for": "Untrained people showed no measurable hypertrophy or maximal-strength cost from added aerobic work [@Schumann2021_concurrentMA; @Petre2021_trainingStatusMA], and continuous and interval training both raise VO₂max by about 5 mL/kg/min [@Milanovic2015_HITvsCET_VO2maxMA]. The point where speech first becomes difficult sits near the [[term:ventilatory-threshold|ventilatory threshold]] [@Persinger2004_talkTest; @ReedPipe2014_talkTestReview], and RPE tracks blood lactate (r = 0.83) [@Scherr2013_RPE].",
+          "against": "40-70 min a week is below the WHO range of 150-300 min of moderate activity [@Bull2020_WHOguidelines] unless brisk walking within your steps fills the gap (inference).",
+          "chosen": true
+        },
+        {
+          "name": "No cardio in Phase 1",
+          "summary": "Lift only and start aerobic work in Phase 2.",
+          "for": "An older meta-analysis found smaller hypertrophy gains with concurrent training (ES 0.85 vs 1.23) [@Wilson2012_concurrentMA].",
+          "against": "Newer pooled data show no such cost [@Schumann2021_concurrentMA], and unfit people gain VO₂max fastest [@Milanovic2015_HITvsCET_VO2maxMA].",
+          "chosen": false
+        },
+        {
+          "name": "Intervals only",
+          "summary": "Two short [[term:hiit|HIIT]] sessions a week from week 1.",
+          "for": "HIIT beat [[term:mict|moderate-intensity continuous training (MICT)]] for VO₂max by 1.39 mL/kg/min [@Strauss2026_CochraneHIIT], and [[term:zone-2|zone 2]] work has no special status [@Storoschuk2025_zone2Review].",
+          "against": "That edge is low certainty [@Strauss2026_CochraneHIIT]; a beginner must learn pacing first, and hard sessions add fatigue in the sorest early weeks of lifting (inference).",
+          "chosen": false
+        },
+        {
+          "name": "Daily long sessions, or running from day one",
+          "summary": "45-60 min on most days, or running as the main mode.",
+          "for": "A higher dose leaves fewer non-responders: 69% at one 60-min session a week, none at four or five [@MonteroLundby2017_nonresponse].",
+          "against": "Longer and more frequent endurance work correlated with smaller strength and size gains [@Wilson2012_concurrentMA], and novices are injured about twice as often per running hour as recreational runners [@Videbaek2015_runningInjuryIncidence].",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "Do two aerobic sessions a week on non-lifting days at RPE 3-4, building from 20 to 35 min with short intervals from week 7, on any machine (incline walking by default), and walk 8,000-10,000 steps a day (floor 7,000).",
+      "rationale": "The dose is one that builds fitness without measurable [[term:interference-effect|interference]] in beginners [@Schumann2021_concurrentMA].\n\nIntensity is set by feel because heart-rate zones would rest on an age-predicted [[term:hrmax|HRmax]] (about 186 bpm at 31 by the Tanaka equation [@Tanaka2001_HRmax], 191 by the HUNT equation) with a standard error of about 11 bpm, so roughly ±20 bpm for an individual [@Nes2013_HUNT_HRmax]. RPE and the talk test cost nothing and work on any machine.\n\nSteady work first, with intervals from week 7, is practical convention: you learn pacing while early lifting soreness settles. Incline walking needs no skill, has low impact and works indoors in the heat; running waits for Phase 2 ([[dec:D14]]). Steps add daily movement: mortality risk levelled off at about 8,000-10,000 a day in adults under 60 (observational) [@Paluch2022_stepsMortalityMA].",
+      "confidence": "moderate",
+      "confidenceNote": "The interference and VO₂max findings are moderate certainty; session lengths, the week-7 interval start and the walking default are practical convention.",
+      "profileData": [
+        "Untrained; VO₂max ranks below hypertrophy and fat loss",
+        "No heart-rate monitor",
+        "Three lifting days, a 16:00-01:00 desk shift and a hot climate"
+      ],
+      "wouldChange": [
+        "Buying a chest-strap heart-rate monitor",
+        "No gain in the Rockport test or resting heart rate by week 12",
+        "Cardio fatigue spilling into lifting sessions"
+      ],
+      "refs": [
+        "Schumann2021_concurrentMA",
+        "Petre2021_trainingStatusMA",
+        "Milanovic2015_HITvsCET_VO2maxMA",
+        "Persinger2004_talkTest",
+        "ReedPipe2014_talkTestReview",
+        "Scherr2013_RPE",
+        "Bull2020_WHOguidelines",
+        "Wilson2012_concurrentMA",
+        "Strauss2026_CochraneHIIT",
+        "Storoschuk2025_zone2Review",
+        "MonteroLundby2017_nonresponse",
+        "Videbaek2015_runningInjuryIncidence",
+        "Nes2013_HUNT_HRmax",
+        "Paluch2022_stepsMortalityMA",
+        "Tanaka2001_HRmax"
+      ],
+      "related": {
+        "articles": [
+          "sci-aerobic",
+          "sci-concurrent"
+        ],
+        "rules": [
+          "cardio-progression"
+        ],
+        "plan": [
+          "activity"
+        ],
+        "phases": [
+          "p1"
+        ],
+        "items": [
+          "cardio-steady",
+          "cardio-int-intro",
+          "test-rockport",
+          "test-rhr"
+        ]
+      }
+    },
+    {
+      "id": "D12",
+      "category": "Training structure",
+      "title": "Upper/lower split and volume for aesthetic priorities (Phase 2)",
+      "context": "Phase 2 (16 weeks) starts shaping the look you want: athletic, not bulky. That look comes mostly from the lateral and rear deltoids, upper chest, back and arms. Giving those muscles 12-16 [[term:hard-sets|weekly sets]] while still training legs is hard to fit into three sessions between 13:00 and work at 16:00.",
+      "options": [
+        {
+          "name": "Four upper/lower sessions, priority muscles first",
+          "summary": "Upper A, lower A, upper B, lower B. Priority muscles get 12-16 [[term:fractional-sets|fractional sets]] a week, lateral raises appear on three days, each day opens with a priority exercise, and legs get about 10-13 sets.",
+          "for": "Hypertrophy rises with weekly volume, with diminishing returns [@Pelland2025_volume_frequency]; at equal volume, split and [[term:training-frequency|frequency]] barely matter [@Schoenfeld2019_frequency_hypertrophy; @RamosCampo2024_split_vs_fullbody]. Cues of upper-body strength explained over 70% of the variance in rated male attractiveness [@Sell2017_strengthAttractiveness], and a V-shaped torso was the main predictor in urban samples [@Swami2005_WCRcrossCultural].",
+          "against": "A fourth gym day costs time, exercise order did not change hypertrophy overall [@Nunes2021_exerciseOrderMeta], and the perception studies are cross-sectional with preferences that varied by setting [@Swami2005_WCRcrossCultural].",
+          "chosen": true
+        },
+        {
+          "name": "Stay full-body three times a week",
+          "summary": "Keep the Phase 1 structure and add sets.",
+          "for": "Full-body and split routines give similar strength and hypertrophy at equal volume [@RamosCampo2024_split_vs_fullbody].",
+          "against": "The added sets would make three sessions too long for your schedule, with the last sets done tired (inference).",
+          "chosen": false
+        },
+        {
+          "name": "Push/pull/legs, six days a week",
+          "summary": "Each muscle twice a week over six shorter sessions.",
+          "for": "Without volume matching, higher frequency gave a modest hypertrophy edge, explained by the extra volume it allowed [@Schoenfeld2019_frequency_hypertrophy].",
+          "against": "With volume accounted for, frequency had a negligible, uncertain effect [@Pelland2025_volume_frequency], and six lifting days leave no day for intervals or rest (inference).",
+          "chosen": false
+        },
+        {
+          "name": "Body-part split",
+          "summary": "Each muscle once a week over five sessions.",
+          "for": "Weekly frequency did not change hypertrophy at equal volume [@Schoenfeld2019_frequency_hypertrophy].",
+          "against": "Five gym days, all of a muscle's 12-16 sets in one session, and fewer weekly practice exposures for lifts you are still learning (inference).",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "Train four upper/lower sessions a week, with 12-16 weekly sets for the lateral and rear deltoids, upper chest, back and arms (lateral raises on three days, a priority exercise first) and about 10-13 for the legs.",
+      "rationale": "Split and frequency matter little once weekly volume is matched [@Schoenfeld2019_frequency_hypertrophy; @RamosCampo2024_split_vs_fullbody], so the split is a logistics choice: four sessions hold the higher volume, end before work and leave days for intervals and run-walk ([[dec:D13]], [[dec:D14]]).\n\nVolume is the [[term:hypertrophy|hypertrophy]] lever [@Pelland2025_volume_frequency], so extra sets go where they change your silhouette most, while legs stay at a moderate dose that suits the 'not bulky' aim (inference). The priority list rests on cross-sectional perception research and your stated preference, not on outcome trials.\n\nA priority exercise goes first so its sets are done fresh (practical convention); doing an exercise first also favours its strength gains [@Nunes2021_exerciseOrderMeta].",
+      "confidence": "moderate",
+      "confidenceNote": "The split, frequency and volume findings are moderate certainty; the priority list rests on low-certainty perception studies and your preference, and set numbers are convention.",
+      "profileData": [
+        "Aesthetics first: 'athletic, not bulky'",
+        "Phase 1 full-body training completed",
+        "Sessions at 13:00, work at 16:00"
+      ],
+      "wouldChange": [
+        "A priority muscle lagging behind (see the lagging-muscle rule)",
+        "Only three training days available",
+        "Wanting more leg development"
+      ],
+      "refs": [
+        "Pelland2025_volume_frequency",
+        "Schoenfeld2019_frequency_hypertrophy",
+        "RamosCampo2024_split_vs_fullbody",
+        "Sell2017_strengthAttractiveness",
+        "Swami2005_WCRcrossCultural",
+        "Nunes2021_exerciseOrderMeta"
+      ],
+      "related": {
+        "articles": [
+          "sci-dose",
+          "sci-selection",
+          "sci-expectations"
+        ],
+        "rules": [
+          "lagging-muscle",
+          "size-control",
+          "double-progression"
+        ],
+        "plan": [],
+        "phases": [
+          "p2"
+        ],
+        "items": [
+          "incline-db-press",
+          "db-lateral-raise",
+          "cable-lateral-raise",
+          "reverse-pec-deck",
+          "lat-pulldown",
+          "oh-cable-triceps"
+        ]
+      }
+    },
+    {
+      "id": "D13",
+      "category": "Conditioning and athletic qualities",
+      "title": "Interval protocol for VO2max (4 x 4) and scheduling around lifting",
+      "context": "[[term:vo2max|VO₂max]] is one of your goals and a strong marker of health, but lifting has priority and time is limited. Phase 2 adds one hard session aimed squarely at VO₂max while running is still being introduced and you have no heart-rate monitor.",
+      "options": [
+        {
+          "name": "One 4 x 4-min session a week on a non-lifting day",
+          "summary": "4 x 4 min at [[term:rpe|RPE]] 8-9 with 3-min easy recoveries (3-min intervals in weeks 1-3; 6 x 2 min in the Phase 3 strength block), on a bike, rower or incline treadmill until running is established. A second weekly session is added if VO₂max stops improving.",
+          "for": "Long intervals (2 min or more) with at least 15 min of hard work gave the largest VO₂max effects and were the only formats to beat continuous training [@Wen2019_HIITprotocolsMA]; 4 x 4 raised VO₂max 7.2% in 8 weeks in moderately trained men [@Helgerud2007_4x4RCT] and beat sprint intervals head to head in well-trained men [@Hov2022_HIITvsSIT_RCT].",
+          "against": "Those trials used three sessions a week, and non-response falls as dose rises (69% non-responders with one 60-min session a week) [@MonteroLundby2017_nonresponse].",
+          "chosen": true
+        },
+        {
+          "name": "Steady training only",
+          "summary": "Longer [[term:mict|moderate-intensity continuous training (MICT)]] instead of intervals.",
+          "for": "Waist reduction did not differ from interval training [@Strauss2026_CochraneHIIT], and the sessions are more comfortable.",
+          "against": "Smaller VO₂max gains: intervals beat continuous training by 1.2 mL/kg/min, and by 2.2 with longer intervals [@Milanovic2015_HITvsCET_VO2maxMA].",
+          "chosen": false
+        },
+        {
+          "name": "Sprint intervals (all-out 20-30 s)",
+          "summary": "Short maximal efforts ([[term:sit|SIT]]).",
+          "for": "Very time-efficient: about +3.6 mL/kg/min (8%), similar to continuous training [@Gist2014_SITmeta].",
+          "against": "4 x 4 beat sprint formats in two head-to-head trials in well-trained runners from one research group [@Hov2022_HIITvsSIT_RCT; @Helgerud2023_HIITvsSIT_femaleRCT], all-out treadmill sprinting caused 8 injuries versus none with 4 x 4 [@Helgerud2023_HIITvsSIT_femaleRCT], and the SIT comparisons carry unclear risk of bias [@Bonafiglia2021_SITvsMICTbias].",
+          "chosen": false
+        },
+        {
+          "name": "Two sessions a week, one after lifting",
+          "summary": "Double the interval dose by adding a session to a lifting day.",
+          "for": "More dose means fewer non-responders [@MonteroLundby2017_nonresponse], and exercise order within a session did not change VO₂max or lower-body hypertrophy [@Eddens2018_sequenceMA].",
+          "against": "Same-session work blunted explosive strength unless the modes were 3 h or more apart [@Schumann2021_concurrentMA], and added HIIT slightly reduced lower-body strength gains (ES -0.25) [@Sabag2018_HIITconcurrentMA].",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "Do one 4 x 4-min interval session a week at RPE 8-9 with 3-min easy recoveries, on a non-lifting day and on a bike, rower or incline treadmill until running is established, adding a second session if VO₂max stalls.",
+      "rationale": "Long intervals gave the largest VO₂max gains [@Wen2019_HIITprotocolsMA; @Helgerud2007_4x4RCT]. VO₂max gains come largely from expanded red-cell volume and [[term:stroke-volume|stroke volume]] [@Lundby2017_biologyVO2max], and several minutes near maximal heart rate load exactly that system (mechanistic reasoning); against no exercise, interval training adds about 6 mL/kg/min [@Strauss2026_CochraneHIIT].\n\nThe cardio dossier suggested two sessions a week. One was chosen because hypertrophy ranks higher and time is limited, a trade against the dose-response for non-response [@MonteroLundby2017_nonresponse], so the plan adds a second session if your field tests stall ([[rule:cardio-progression]]). A separate day protects explosive strength [@Schumann2021_concurrentMA]. The shorter opening intervals and the 6 x 2 strength-block variant are practical convention.",
+      "confidence": "moderate",
+      "confidenceNote": "Several RCTs and meta-analyses favour long intervals, but the 4 x 4 trials are small, mostly running-based and used three sessions a week; one session is a pragmatic dose.",
+      "profileData": [
+        "VO₂max ranks below hypertrophy and fat loss",
+        "Untrained, so large gains are likely",
+        "Four lifting days in Phase 2; running not yet established"
+      ],
+      "wouldChange": [
+        "Field tests not improving over a block (add a second session)",
+        "Endurance becoming a higher priority",
+        "Joint pain on one machine (change modality)"
+      ],
+      "refs": [
+        "Wen2019_HIITprotocolsMA",
+        "Helgerud2007_4x4RCT",
+        "Hov2022_HIITvsSIT_RCT",
+        "MonteroLundby2017_nonresponse",
+        "Strauss2026_CochraneHIIT",
+        "Milanovic2015_HITvsCET_VO2maxMA",
+        "Gist2014_SITmeta",
+        "Helgerud2023_HIITvsSIT_femaleRCT",
+        "Bonafiglia2021_SITvsMICTbias",
+        "Eddens2018_sequenceMA",
+        "Schumann2021_concurrentMA",
+        "Sabag2018_HIITconcurrentMA",
+        "Lundby2017_biologyVO2max"
+      ],
+      "related": {
+        "articles": [
+          "sci-aerobic",
+          "sci-concurrent"
+        ],
+        "rules": [
+          "cardio-progression"
+        ],
+        "plan": [
+          "activity"
+        ],
+        "phases": [
+          "p2",
+          "p3"
+        ],
+        "items": [
+          "cardio-int-4x4",
+          "cardio-int-intro",
+          "test-run-2400",
+          "test-rockport"
+        ]
+      }
+    },
+    {
+      "id": "D14",
+      "category": "Conditioning and athletic qualities",
+      "title": "Introducing running: run-walk and the spike rule",
+      "context": "Running is the most portable aerobic exercise and the 2.4 km test needs it, but new runners are injured often and you have never run regularly. Phase 2 introduces one run a week; the question is how to dose it.",
+      "options": [
+        {
+          "name": "Run-walk with a session-spike cap",
+          "summary": "A weekly run-walk starting at 8 min of running in total; no session's running more than about 10% above your longest run of the previous 30 days; treadmill in heat; comfortable cushioned shoes; [[term:pain-monitoring|pain monitoring]]; about 24 min continuous by week 15 (or 2 x 12 min with a 1-min walk if continuous feels too big a step).",
+          "for": "In 5,200 mostly experienced adult runners, sessions 10-30% longer than the 30-day longest run carried 1.64 times the injury rate and spikes above 100% 2.28 times, while weekly load ratios showed no excess risk [@Frandsen2025_spikes]. Harder shoes raised injury risk (SHR 1.52), mainly in lighter runners [@Malisoux2020_cushioning].",
+          "against": "The spike data are observational and the cap is untested in a trial [@Frandsen2025_spikes]; the shoe evidence overall is low certainty [@Relph2022_shoesCochrane].",
+          "chosen": true
+        },
+        {
+          "name": "Continuous running from the start",
+          "summary": "Run without walk breaks from week 1.",
+          "for": "Untrained men raised VO₂max 21.5% in 12 weeks of moderate continuous running, partly through weight loss [@Milanovic2015_untrainedMenRunningRCT].",
+          "against": "Novices are injured about twice as often per running hour as recreational runners [@Videbaek2015_runningInjuryIncidence], and in one small trial in obese novices a larger starting dose trended towards more injuries [@Bertelsen2018_starttorun].",
+          "chosen": false
+        },
+        {
+          "name": "The '10% weekly rule'",
+          "summary": "Raise weekly distance by no more than 10%.",
+          "for": "Progression above 30% over two weeks trended towards more distance-related injuries (HR 1.59, p = 0.07) [@Nielsen2014_progression].",
+          "against": "A graded 10%-rule programme did not reduce injuries (20.8% vs 20.3%) [@Buist2008_GRONORUN], and weekly load ratios were not linked to risk [@Frandsen2025_spikes].",
+          "chosen": false
+        },
+        {
+          "name": "No running (cycling only)",
+          "summary": "Keep all aerobic work on the bike or rower.",
+          "for": "No running injuries, and one meta-analysis found that running, but not cycling, reduced strength and size gains [@Wilson2012_concurrentMA].",
+          "against": "A newer analysis found no difference between running and cycling [@Schumann2021_concurrentMA], and you would lose the most portable mode and the run test (inference).",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "Run once a week in Phase 2 with run-walk sessions that start at 8 min of running and never exceed your longest run of the previous 30 days by more than about 10%, building to about 24 min continuous by week 15 (or 2 x 12 min with a 1-min walk if continuous feels too big a step).",
+      "rationale": "The best evidence points at single-session spikes rather than weekly progression: the 10% rule did not prevent injuries [@Buist2008_GRONORUN], while sessions well beyond the recent longest run carried more risk [@Frandsen2025_spikes]. That cohort is observational, so the cap is a precaution, not a proven intervention. A small start follows a trend in a small trial [@Bertelsen2018_starttorun] (very low certainty); walk breaks are practical convention.\n\nComfortable cushioned shoes are cheap insurance at your body mass [@Malisoux2020_cushioning]; choosing shoes by foot type is not supported [@Relph2022_shoesCochrane; @Nielsen2014_pronation]. The treadmill in heat and the pain rules are practical convention ([[rule:running]], [[rule:pain]], [[tool:running]]).",
+      "confidence": "low",
+      "confidenceNote": "Low to moderate: the high novice injury rate is well established, but the spike rule rests on one observational cohort, shoe evidence is low certainty, and the 8-to-24-min progression is convention.",
+      "profileData": [
+        "Has never run regularly",
+        "Body mass about 77 kg, in the lighter group of the cushioning trial",
+        "Hot daytime climate"
+      ],
+      "wouldChange": [
+        "Pain that persists or worsens under the pain rule",
+        "A running goal such as a 5 km race",
+        "A trial testing session-spike limits"
+      ],
+      "refs": [
+        "Frandsen2025_spikes",
+        "Malisoux2020_cushioning",
+        "Relph2022_shoesCochrane",
+        "Milanovic2015_untrainedMenRunningRCT",
+        "Videbaek2015_runningInjuryIncidence",
+        "Bertelsen2018_starttorun",
+        "Nielsen2014_progression",
+        "Buist2008_GRONORUN",
+        "Wilson2012_concurrentMA",
+        "Schumann2021_concurrentMA",
+        "Nielsen2014_pronation"
+      ],
+      "related": {
+        "articles": [
+          "sci-athletic",
+          "sci-aerobic"
+        ],
+        "rules": [
+          "running",
+          "pain"
+        ],
+        "plan": [
+          "safety"
+        ],
+        "phases": [
+          "p2"
+        ],
+        "items": [
+          "cardio-runwalk",
+          "test-run-2400",
+          "wu-run-drills"
+        ]
+      }
+    },
+    {
+      "id": "D15",
+      "category": "Training structure",
+      "title": "Barbell lifts with safety arms vs machines only",
+      "context": "You train alone, so nobody can spot or rescue a failed lift. Barbell squats, Romanian deadlifts and bench presses build strength in those movements, while machines are safer places to push hard. The question is whether barbells belong in your programme, and under what conditions.",
+      "options": [
+        {
+          "name": "Barbells inside a rack with safety arms, never to failure",
+          "summary": "Barbell squat and Romanian deadlift from Phase 2; barbell bench press only in the Phase 3 strength block; [[term:safety-arms|safety arms]] always set; barbell sets stop at 2-3 [[term:rir|reps in reserve (RIR)]]; near-failure sets on machines.",
+          "for": "Hypertrophy was similar with free weights and machines (wide confidence intervals), but strength gains are specific to the trained movement [@Haugen2023_freeVsMachineMeta; @Saeterbakken2025_taskSpecificityMeta]. Weights dropping on the lifter caused 65.5% of weight-training injuries seen in US emergency departments [@Kerr2010_weightTrainingED], the hazard safety arms address.",
+          "against": "It needs a free rack and technique practice, no study has tested safety arms (inference), and barbells added no clear hypertrophy benefit [@Haugen2023_freeVsMachineMeta].",
+          "chosen": true
+        },
+        {
+          "name": "Machines only",
+          "summary": "No barbell work at all.",
+          "for": "Similar hypertrophy [@Haugen2023_freeVsMachineMeta], and machine injuries were less often fractures or dislocations (9.7% vs 23.6%) [@Kerr2010_weightTrainingED].",
+          "against": "Barbell strength would lag, because strength gains are largely specific to the movement trained [@Saeterbakken2025_taskSpecificityMeta].",
+          "chosen": false
+        },
+        {
+          "name": "Free barbells without safeties, sets to failure",
+          "summary": "Treat barbell lifts like machines and push sets to [[term:momentary-failure|momentary failure]].",
+          "for": "In an exploratory meta-regression, hypertrophy increased as sets ended closer to failure [@Robinson2024_RIR_metaregression].",
+          "against": "Reaching failure adds little over stopping close [@Refalo2023_failure_hypertrophy], barely mattered with heavy loads in one trial [@Lasevicius2022_failure_by_load] and delayed recovery by 24-48 h in another [@MoranNavarro2017_failure_recovery]; alone, a failed squat or bench can trap you (inference).",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "Use the barbell squat and Romanian deadlift from Phase 2 and the barbell bench press only in the Phase 3 strength block, always inside a rack with safety arms and never to failure, and keep near-failure sets for machines.",
+      "rationale": "You do not need barbells for muscle [@Haugen2023_freeVsMachineMeta], but strength is largely skill in the tested movement [@Saeterbakken2025_taskSpecificityMeta], and barbell competence serves the strength block and later years.\n\nInjury rates in weight-training sports are low, with bodybuilding at 0.24-1 per 1,000 h [@Keogh2017_weightTrainingInjury]; the specific solo risk is a load you cannot complete, and dropped weights dominate emergency-department data [@Kerr2010_weightTrainingED]. Safety arms and a 2-3 RIR ceiling remove most of that risk at little cost, since in one trial failure added almost nothing to growth with heavy loads [@Lasevicius2022_failure_by_load]; the safety benefit itself is inference. Near-failure effort moves to machines, where failing is harmless ([[dec:D07]]). The bench press comes last because a bar stuck on the chest is the most dangerous solo failure (inference).",
+      "confidence": "moderate",
+      "confidenceNote": "Hypertrophy equivalence and strength specificity are meta-analytic findings; the benefit of safety arms and of stopping short of failure is inference from injury-mechanism data.",
+      "profileData": [
+        "Trains alone with no spotter",
+        "Novice: barbell technique still to be learned",
+        "Strength ranks below hypertrophy and fat loss"
+      ],
+      "wouldChange": [
+        "No rack with safety arms available (use machines or a Smith machine)",
+        "A reliable training partner who can spot",
+        "Pain with barbell lifts under the pain rule"
+      ],
+      "refs": [
+        "Haugen2023_freeVsMachineMeta",
+        "Saeterbakken2025_taskSpecificityMeta",
+        "Kerr2010_weightTrainingED",
+        "Robinson2024_RIR_metaregression",
+        "Refalo2023_failure_hypertrophy",
+        "Lasevicius2022_failure_by_load",
+        "MoranNavarro2017_failure_recovery",
+        "Keogh2017_weightTrainingInjury"
+      ],
+      "related": {
+        "articles": [
+          "sci-safety",
+          "sci-selection",
+          "sci-strength"
+        ],
+        "rules": [
+          "substitution",
+          "rir-calibration",
+          "pain"
+        ],
+        "plan": [
+          "safety"
+        ],
+        "phases": [
+          "p2",
+          "p3"
+        ],
+        "items": [
+          "back-squat",
+          "bb-rdl",
+          "bb-bench-press",
+          "hack-squat",
+          "machine-chest-press"
+        ]
+      }
+    },
+    {
+      "id": "D16",
+      "category": "Training structure",
+      "title": "Phase 3 block structure",
+      "context": "By Phase 3 you will have trained for about 29 weeks, novice gains will be slowing, and strength, power and conditioning join the goals. You also need variety to stay engaged. The question is how to organise the 24 weeks.",
+      "options": [
+        {
+          "name": "Three 8-week emphasis blocks with mixed sessions",
+          "summary": "Hypertrophy; strength and power; physique and conditioning. Blocks 1 and 2 end with a planned deload week (weeks 8 and 16), anchor exercises stay fixed within a block, and every week still trains all qualities.",
+          "for": "In one small trial in trained men, mixing qualities within sessions beat classical blocks for fat-free mass, muscle thickness and bench 1RM (+8.6% vs +2%) [@Bartolomei2023_blockVsMixed]. Heavier loads raise [[term:1rm|1RM]] more [@Lopez2021_load_NMA], and planned, reasoned variation can aid regional growth while random rotation may blunt it [@Kassiano2022_variationSR].",
+          "against": "No trial tests this exact design, and periodisation gives no hypertrophy advantage [@Moesgaard2022_periodization], so the blocks mainly serve focus and variety (inference).",
+          "chosen": true
+        },
+        {
+          "name": "Continue non-periodised training",
+          "summary": "Keep the Phase 2 structure.",
+          "for": "Periodised and non-periodised training gave similar hypertrophy at equal volume [@Moesgaard2022_periodization].",
+          "against": "Periodised plans gave larger 1RM gains (ES 0.43; 0.31 with volume equated) [@Williams2017_periodization; @Moesgaard2022_periodization], and strength now matters to you.",
+          "chosen": false
+        },
+        {
+          "name": "Classical block periodisation",
+          "summary": "One quality per block, with large shifts in volume and load.",
+          "for": "It improved vertical jump more than mixed sessions (+7.2% vs +1.2%) [@Bartolomei2023_blockVsMixed].",
+          "against": "It lost to mixed sessions for muscle and bench strength in the same trial [@Bartolomei2023_blockVsMixed].",
+          "chosen": false
+        },
+        {
+          "name": "Daily undulating periodisation only",
+          "summary": "Rotate heavy, moderate and light days without blocks.",
+          "for": "Undulating beat linear periodisation for 1RM in trained people [@Moesgaard2022_periodization].",
+          "against": "No hypertrophy difference from linear models (d -0.02) [@Grgic2017_LPvsDUP_hypertrophy], and you already undulate mildly from Phase 2 (inference).",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "Run Phase 3 as three 8-week emphasis blocks (hypertrophy; strength and power; physique and conditioning), the first two ending with a planned deload week, anchor exercises fixed within each block and all qualities still trained every week.",
+      "rationale": "With volume matched, [[term:periodisation|periodisation]] adds a little strength but no muscle [@Moesgaard2022_periodization; @Williams2017_periodization; @Grgic2017_LPvsDUP_hypertrophy], so the blocks are built for focus and variety rather than extra growth.\n\nTraining every quality each week follows the one head-to-head trial, in which mixed sessions beat classical blocks for muscle and bench strength [@Bartolomei2023_blockVsMixed]; it was a single small study in trained men. The strength-and-power block uses heavier loads because they raise 1RM more, while growth is similar across loads [@Lopez2021_load_NMA]. Anchors stay fixed so progress is trackable and variation stays systematic [@Kassiano2022_variationSR]. The lighter weeks (weeks 8 and 16) are planned [[term:deload|deloads]] (practical convention; [[rule:deload]]).",
+      "confidence": "low",
+      "confidenceNote": "Low to moderate: the periodisation meta-analyses agree, but the block-versus-mixed comparison is one small trial in trained men, and block length and order are practical choices.",
+      "profileData": [
+        "About 29 weeks trained by the start of Phase 3",
+        "Needs variety to stay engaged",
+        "Strength and power become active goals"
+      ],
+      "wouldChange": [
+        "Anchor lifts stalling in the strength block (see the stall rule)",
+        "Losing motivation within a block",
+        "Injury limiting heavy loading"
+      ],
+      "refs": [
+        "Bartolomei2023_blockVsMixed",
+        "Lopez2021_load_NMA",
+        "Kassiano2022_variationSR",
+        "Moesgaard2022_periodization",
+        "Williams2017_periodization",
+        "Grgic2017_LPvsDUP_hypertrophy"
+      ],
+      "related": {
+        "articles": [
+          "sci-progression",
+          "sci-strength",
+          "sci-athletic"
+        ],
+        "rules": [
+          "deload",
+          "stall"
+        ],
+        "plan": [],
+        "phases": [
+          "p3"
+        ],
+        "items": [
+          "back-squat",
+          "bb-bench-press",
+          "trap-bar-deadlift",
+          "plyo-box-jump"
+        ]
+      }
+    },
+    {
+      "id": "D17",
+      "category": "Conditioning and athletic qualities",
+      "title": "Power, agility, balance and coordination: how to train them",
+      "context": "Power, agility, balance and coordination are your lowest priorities, but they shape how athletic you move, and your left leg balances worse than your right (20 vs 30 s eyes open, 10 vs 15 s eyes closed). The aim is to train them without taking time from the main goals.",
+      "options": [
+        {
+          "name": "Small doses inside existing sessions",
+          "summary": "Single-leg balance in every warm-up (left first) plus [[term:unilateral|unilateral]] lifts; [[term:plyometrics|plyometrics]] in Phase 3 lower-body warm-ups (about 36 contacts, well under 250 a week); brief agility drills in Block 3; coordination through a skill you enjoy, such as dance or a martial art.",
+          "for": "Plyometrics improve countermovement jump height (+8.7%) [@Markovic2007_vertjump], [[term:rsi|reactive strength]] (ES 0.54) [@RamirezCampillo2023_RSI] and balance (ES 0.46) [@Ramachandran2021_plyobalance], with larger stiffness gains below 250 jumps a week [@Moran2023_stiffness]. Dance improved musculoskeletal function more than other exercise [@FongYan2018_danceMA].",
+          "against": "The balance dose is far below the 11-15 min three times a week that worked best [@Lesinski2015_balanceDR], and balance gains barely transfer beyond the practised task [@Kummel2016_specificity].",
+          "chosen": true
+        },
+        {
+          "name": "Dedicated balance sessions",
+          "summary": "11-15 min, three times a week, for 11-12 weeks.",
+          "for": "The most effective dose in a dose-response meta-analysis [@Lesinski2015_balanceDR]; [[term:proprioception|proprioceptive]] training reduced sports injuries (RR 0.55) [@Lauersen2014_injury_prevention].",
+          "against": "Gains stay specific to the trained task [@Kummel2016_specificity], and plyometrics improved balance about as much as balance training [@Ramachandran2021_plyobalance].",
+          "chosen": false
+        },
+        {
+          "name": "Agility-ladder programmes",
+          "summary": "Regular ladder and cone footwork sessions.",
+          "for": "Many training forms improve change-of-direction ability [@NygaardFalch2019_COD].",
+          "against": "No form is superior and the skill is task-specific [@NygaardFalch2019_COD]; without a sport, ladder practice mostly improves ladder practice (inference).",
+          "chosen": false
+        },
+        {
+          "name": "Ignore these goals",
+          "summary": "Lift and do cardio only.",
+          "for": "Strength training alone strongly reduced sports injuries (RR 0.34) [@Lauersen2018_strength].",
+          "against": "Your balance asymmetry would go unaddressed, and plyometrics improved reactive strength beyond what active controls achieved [@RamirezCampillo2023_RSI].",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "Train these qualities in small doses inside existing sessions: single-leg balance in every warm-up (left side first), unilateral lifts, low-volume plyometrics in Phase 3 warm-ups, brief agility drills in Block 3, and coordination through a skill you enjoy.",
+      "rationale": "These qualities are task-specific: balance training improves the practised task but not others [@Kummel2016_specificity], and change-of-direction ability follows training that resembles the target task [@NygaardFalch2019_COD]. Ranked last, they get small doses placed where they cost little time.\n\nPlyometrics probably give the broadest return per minute (inference) [@Markovic2007_vertjump; @Ramachandran2021_plyobalance]; the low contact count is also a joint-load precaution, because most trials did not report injuries [@RamirezCampillo2023_RSI] (inference). Strength training remains the main injury-prevention tool [@Lauersen2018_strength]. For coordination, dance improved body composition and musculoskeletal function [@FongYan2018_danceMA] and combat sports improved long jump and flexibility in students [@HernandezMartinez2025_combatsports]; which you choose should follow enjoyment (inference). Expect only modest change in the single-leg test ([[dec:D28]]).",
+      "confidence": "low",
+      "confidenceNote": "Low to moderate: single effects (plyometrics on jumping, balance training on the trained task) are meta-analytic, but transfer evidence is weak and the embedded doses are smaller than those studied.",
+      "profileData": [
+        "Left leg balances worse (20 vs 30 s eyes open; 10 vs 15 s eyes closed)",
+        "Agility, coordination and balance rank last",
+        "Needs variety to stay engaged"
+      ],
+      "wouldChange": [
+        "Single-leg asymmetry unchanged after 12 weeks (add dedicated practice)",
+        "Taking up a sport with specific agility demands",
+        "Joint pain with jumping under the pain rule"
+      ],
+      "refs": [
+        "Markovic2007_vertjump",
+        "RamirezCampillo2023_RSI",
+        "Ramachandran2021_plyobalance",
+        "Moran2023_stiffness",
+        "FongYan2018_danceMA",
+        "Lesinski2015_balanceDR",
+        "Kummel2016_specificity",
+        "Lauersen2014_injury_prevention",
+        "NygaardFalch2019_COD",
+        "Lauersen2018_strength",
+        "HernandezMartinez2025_combatsports"
+      ],
+      "related": {
+        "articles": [
+          "sci-athletic"
+        ],
+        "rules": [
+          "pain"
+        ],
+        "plan": [],
+        "phases": [
+          "p1",
+          "p3"
+        ],
+        "items": [
+          "bal-sls",
+          "bal-sl-reach",
+          "plyo-pogo",
+          "plyo-box-jump",
+          "agi-shuffle",
+          "test-sls"
+        ]
+      }
+    },
+    {
+      "id": "D18",
+      "category": "Training structure",
+      "title": "Long-term continuation and maintenance doses",
+      "context": "After the first year you need a way to keep progressing and a fallback for busy periods, travel or illness. Knowing the smallest dose that keeps muscle, strength and [[term:vo2max|VO₂max]] lets you protect your gains without all-or-nothing thinking.",
+      "options": [
+        {
+          "name": "Repeating 12-week cycles with a defined maintenance dose",
+          "summary": "12-week cycles with a chosen emphasis; maintenance at about 6-8 [[term:hard-sets|hard sets]] per muscle a week at usual effort plus one interval and one steady session; Maintenance mode (about one-third of usual volume, main lifts at 2-3 RIR) for busy periods. The two doses answer different questions: 6-8 sets a week holds one muscle you are happy with while the rest of the programme continues indefinitely; Maintenance mode is a short-term holding pattern for the whole body when time is scarce.",
+          "for": "In one small trial in young adults, one-third (even one-ninth) of the training dose preserved hypertrophy for 32 weeks [@Bickel2011_maintenanceDose], and endurance held with two sessions a week when intensity was kept [@Spiering2021_minimalDose].",
+          "against": "Maintenance data are few and small, and 6-8 sets exceeds the reported minimum for younger people (one set per exercise once a week), so it costs some extra time [@Spiering2021_minimalDose].",
+          "chosen": true
+        },
+        {
+          "name": "Open-ended routine without cycles",
+          "summary": "Keep training the same way indefinitely.",
+          "for": "In one small trial, six months of continuous training gave gains similar to training with planned breaks [@Ogasawara2013_periodicVsContinuous].",
+          "against": "The continuous group's rate of gain slowed after six weeks [@Ogasawara2013_periodicVsContinuous], and there are no planned reassessments or variety (inference).",
+          "chosen": false
+        },
+        {
+          "name": "Stop completely when busy",
+          "summary": "Pause training and restart later.",
+          "for": "Gains during retraining after a 3-week break were rapid [@Ogasawara2013_periodicVsContinuous].",
+          "against": "Strength and power fall with time off, more with longer breaks [@Bosquet2013_detrainingMeta], and lean-mass gains were no longer present after detraining [@Zhang2026_detrainingBodyComp].",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "After the first year, train in repeating 12-week cycles with a chosen emphasis, hold gains with about 6-8 hard sets per muscle a week plus one interval and one steady session when progress is not the aim, and switch to Maintenance mode (main lifts at 2-3 RIR) rather than stopping in busy periods.",
+      "rationale": "Adaptations are cheaper to keep than to build. In one small trial, one-third of the original dose kept hypertrophy in young adults [@Bickel2011_maintenanceDose], and strength and size can be held with very low volume if loads stay heavy [@Spiering2021_minimalDose]. Maintenance mode sits near the roughly 4 weekly sets per muscle proposed as a time-efficient minimum [@Iversen2021_time_efficient]; the 6-8-set dose leaves a margin because the data are sparse (inference).\n\nStopping is the worst option: [[term:detraining|detraining]] costs strength [@Bosquet2013_detrainingMeta] and lean mass [@Zhang2026_detrainingBodyComp]. Short breaks are probably not disasters, since regain was quick in one small trial [@Ogasawara2013_periodicVsContinuous] ([[rule:breaks]]). The 12-week cycle gives regular reassessment and planned variety (practical convention).",
+      "confidence": "moderate",
+      "confidenceNote": "Maintenance and detraining data come from a few small trials, one meta-analysis and narrative reviews, mostly in previously untrained people; cycle length and set numbers are practical choices.",
+      "profileData": [
+        "Long desk shifts make busy periods likely",
+        "Multi-year aesthetic goal",
+        "Age 31: young-adult maintenance data apply"
+      ],
+      "wouldChange": [
+        "Strength or girths falling in Maintenance mode (raise the dose)",
+        "A new long-term goal such as a sport or race",
+        "Illness or injury forcing a full break (see the illness and breaks rules)"
+      ],
+      "refs": [
+        "Bickel2011_maintenanceDose",
+        "Spiering2021_minimalDose",
+        "Ogasawara2013_periodicVsContinuous",
+        "Bosquet2013_detrainingMeta",
+        "Zhang2026_detrainingBodyComp",
+        "Iversen2021_time_efficient"
+      ],
+      "related": {
+        "articles": [
+          "sci-progression"
+        ],
+        "rules": [
+          "breaks",
+          "illness",
+          "deload"
+        ],
+        "plan": [
+          "logging"
+        ],
+        "phases": [
+          "p4",
+          "pm"
+        ],
+        "items": [
+          "cardio-int-4x4",
+          "cardio-steady"
+        ]
+      }
+    },
+    {
+      "id": "D19",
+      "category": "Nutrition and body composition",
+      "title": "Protein target and distribution",
+      "context": "Protein supplies the amino acids for [[term:mps|muscle protein synthesis (MPS)]] while you pursue [[term:recomposition|body recomposition]] ([[dec:D04]]). You eat four meals across a 12:00-04:00 waking day, probably with legumes supplying part of the protein.",
+      "options": [
+        {
+          "name": "About 1.8 g/kg a day (range 1.6-2.2) over four meals",
+          "summary": "About 140 g a day at 77 kg (floor about 125 g), 2.0-2.4 g/kg (about 170 g) in any dedicated fat-loss block, and about 30-45 g (at least about 0.4 g/kg) per meal, the last a protein-rich meal before sleep.",
+          "for": "Added protein during training raised [[term:ffm|fat-free mass]] by 0.30 kg, with no further gain above about 1.62 g/kg/day [@Morton2018_proteinRT]; under 65, the benefit appeared only at 1.6 g/kg/day or more [@Nunes2022_proteinLBM]. In a deficit, intake above the recommended dietary allowance (RDA) cut lean-mass loss by 0.36 kg [@Hudson2020_aboveRDA].",
+          "against": "The breakpoint comes from comparisons between trials rather than within them [@Morton2018_proteinRT], so intake above 1.6 g/kg is insurance that costs food and money (inference).",
+          "chosen": true
+        },
+        {
+          "name": "The RDA (0.8 g/kg a day)",
+          "summary": "About 62 g a day.",
+          "for": "It is the cheapest option, and without training or dieting, extra protein did not change lean mass [@Hudson2020_aboveRDA].",
+          "against": "With resistance training, intake above the RDA added 0.77 kg of lean mass [@Hudson2020_aboveRDA].",
+          "chosen": false
+        },
+        {
+          "name": "About 1.2 g/kg a day",
+          "summary": "About 90-95 g a day.",
+          "for": "Lean mass rose most steeply below about 1.3 g/kg/day (+0.39 kg per extra 0.1 g/kg) [@Tagawa2021_doseLBM], and strength gains levelled off at about 1.5 g/kg/day [@Tagawa2022_doseStrength].",
+          "against": "Under 65, the lean-mass benefit was significant only at 1.6 g/kg/day or more [@Nunes2022_proteinLBM], and lean mass kept rising, more slowly, above 1.3 g/kg/day [@Tagawa2021_doseLBM].",
+          "chosen": false
+        },
+        {
+          "name": "3 g/kg a day or more",
+          "summary": "About 230 g a day or more.",
+          "for": "Lean, trained people in larger deficits may need 2.3-3.1 g/kg of fat-free mass [@Helms2014_deficit; @Jager2017_ISSNprotein], and diets of 1.5 g/kg/day or more did not change kidney function in healthy adults over the trials' durations [@Devries2018_kidney].",
+          "against": "Muscle gain did not rise above about 1.6 g/kg/day [@Morton2018_proteinRT]; 3.1 g/kg of fat-free mass is only about 2.5 g/kg of your body mass; and such intakes are costly, filling and crowd out carbohydrate (inference).",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "Eat about 1.8 g of protein per kg of body mass a day (about 140 g; range 1.6-2.2, floor about 125 g) and 2.0-2.4 g/kg in any dedicated fat-loss block, spread as about 30-45 g (at least about 0.4 g/kg) over your four meals with a protein-rich meal before sleep.",
+      "rationale": "Extra protein helps only alongside training or a deficit [@Hudson2020_aboveRDA], and its benefit flattens near 1.6 g/kg/day [@Morton2018_proteinRT] without stopping dead [@Tagawa2021_doseLBM]. Aiming about 0.2 g/kg higher covers that uncertainty, logging error and the lower digestibility of legume protein [@Kashyap2019_legumeTID] (inference). A deficit raises the need, more so as you get leaner [@Helms2014_deficit], hence the higher fat-loss band ([[rule:phase-nutrition]]).\n\nPer meal, in acute tracer studies, MPS after leg exercise was near-maximal at about 20 g, with the surplus oxidised [@Witard2014_wheyDose], but 40 g beat 20 g by about 20% after whole-body training [@Macnaughton2016_20v40], so there is no hard ceiling. Four meals of about 0.4 g/kg [@SchoenfeldAragon2018_perMeal] are a reliable route to the total rather than a proven lever, since meal frequency did not change body composition [@Schoenfeld2015_mealFreq]. Pre-sleep protein improved strength and quadriceps size over 12 weeks, though total intake also differed [@Snijders2015_presleep]; meal times are in [[dec:D20]].",
+      "confidence": "moderate",
+      "confidenceNote": "The dose findings come from several moderate-certainty meta-analyses; the fat-loss band, per-meal amounts and pre-sleep timing rest on small trials, consensus and inference.",
+      "profileData": [
+        "About 77 kg; fat-free mass about 61 kg",
+        "Novice in recomposition (D04)",
+        "Four meals over a 12:00-04:00 day, probably including legumes"
+      ],
+      "wouldChange": [
+        "A trial in untrained men showing more lean-mass gain above about 2 g/kg/day",
+        "A kidney diagnosis or a clinician's advice to limit protein",
+        "Body mass changing by 2 kg or more (recalculate the grams)"
+      ],
+      "refs": [
+        "Morton2018_proteinRT",
+        "Nunes2022_proteinLBM",
+        "Hudson2020_aboveRDA",
+        "Tagawa2021_doseLBM",
+        "Tagawa2022_doseStrength",
+        "Helms2014_deficit",
+        "Jager2017_ISSNprotein",
+        "Devries2018_kidney",
+        "Kashyap2019_legumeTID",
+        "Witard2014_wheyDose",
+        "Macnaughton2016_20v40",
+        "SchoenfeldAragon2018_perMeal",
+        "Schoenfeld2015_mealFreq",
+        "Snijders2015_presleep"
+      ],
+      "related": {
+        "articles": [
+          "sci-protein",
+          "sci-energy"
+        ],
+        "rules": [
+          "phase-nutrition"
+        ],
+        "plan": [
+          "nutrition"
+        ],
+        "phases": [
+          "p1",
+          "p2",
+          "p3",
+          "p4",
+          "pm"
+        ],
+        "items": []
+      }
+    },
+    {
+      "id": "D20",
+      "category": "Nutrition and body composition",
+      "title": "Meal timing around a 13:00 session and a late schedule",
+      "context": "You wake at 12:00, train at about 13:00, work 16:00-01:00 and sleep at 04:00, so your first meal sits close to training and your last close to bed. Meal times decide whether you train after a fast of about 10 h and whether late eating disturbs your sleep.",
+      "options": [
+        {
+          "name": "Four meals anchored to training, work and sleep",
+          "summary": "Meal 1 at about 12:15, 45 min before training: easy to digest, 30-40 g protein and 40-70 g carbohydrate, little fat or fibre. Meal 2 at about 14:45 after training; meal 3 at the work break (19:30-20:00); meal 4 eaten between about 01:15 and 02:00 (finished by about 02:00, so about 2 h before the 04:00 bedtime), protein-rich.",
+          "for": "Carbohydrate before lifting helped in 6 of 19 acute studies, mainly against fasted controls [@Henselmans2022_carbRT], your state after the night, and the pre-exercise meal sets how urgent post-exercise protein is [@Kerksick2017_ISSNtiming].",
+          "against": "Fed and fasted training did not differ significantly for muscle or strength in four small trials [@Vieira2025_fastedRT], and in a cross-sectional survey, eating within 3 h of bed was linked to more night waking (odds ratio 1.61) [@Chung2020_mealProximitySleep].",
+          "chosen": true
+        },
+        {
+          "name": "Fasted training",
+          "summary": "Water only before the session; first meal afterwards.",
+          "for": "Four small trials found no significant difference in [[term:ffm|fat-free mass]], [[term:hypertrophy|hypertrophy]] or strength, and more fat loss with fasted training ([[term:smd|SMD]] -1.00) [@Vieira2025_fastedRT].",
+          "against": "The certainty is very low and the intervals wide [@Vieira2025_fastedRT], carbohydrate helped mainly against fasted controls [@Henselmans2022_carbRT], and you would go about 13 h without food by meal 2 (inference).",
+          "chosen": false
+        },
+        {
+          "name": "Three larger meals",
+          "summary": "About 45-55 g protein at each meal.",
+          "for": "Meal frequency did not change body composition with energy and protein matched [@Schoenfeld2015_mealFreq], and 100 g of protein gave a longer anabolic response than 25 g [@Trommelen2023_100g].",
+          "against": "Consensus favours 20-40 g every 3-4 h [@Kerksick2017_ISSNtiming], and on your day one of the pre-training, post-training or post-work meals would go (inference).",
+          "chosen": false
+        },
+        {
+          "name": "Time-restricted eating",
+          "summary": "All food within an 8-10-h window, for example 12:00-20:00.",
+          "for": "In resistance-trained people it cut fat mass slightly (-1.25 kg) without a significant change in fat-free mass [@Ali2026_TRE_RT].",
+          "against": "The fat-free-mass interval was wide (-0.80 to +1.34 kg) [@Ali2026_TRE_RT], and an 8-h window on your day drops either the post-work meal (about 16 h without food) or the meals around training (inference).",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "Eat a light protein-and-carbohydrate meal at about 12:15, 45 min before training, the main meal at about 14:45 after it, a meal at the work break (about 19:30-20:00) and a protein-rich meal at about 01:15-02:00 that ends at least about 2 h before your 04:00 bedtime.",
+      "rationale": "Timing is secondary to the daily total: once total protein was accounted for, protein around the session did not change hypertrophy or strength [@Schoenfeld2013_timing]. The schedule serves the target in [[dec:D19]] and fits three features of your day.\n\nMeal 1 ends a fast of about 10 h. Liver glycogen falls overnight while muscle glycogen is largely kept (established physiology), so the benefit is probably small, but it avoids the fasted state in which carbohydrate helped [@Henselmans2022_carbRT]. Keeping it light is practical convention; if early eating makes you nauseous, train fasted, except before 4 x 4 intervals, and eat within an hour afterwards.\n\nMeal 2 refuels you before work, as post-exercise protein reliably raises [[term:mps|muscle protein synthesis (MPS)]] [@Kerksick2017_ISSNtiming].\n\nMeal 4 doubles as pre-sleep protein, though a timing benefit beyond total intake is unproven [@Snijders2015_presleep; @Reis2020_presleepProteinSR]. Links between late eating and night waking weakened as the gap widened from 1 h to 2-3 h [@Iao2021_bedtimeEatingATUS]; a 3-h rule would push the meal into your shift, so about 2 h is the compromise (inference; [[plan:sleep]]).",
+      "confidence": "low",
+      "confidenceNote": "Low to moderate: total protein outweighing timing is moderate certainty, but fed versus fasted training rests on four very-low-certainty trials, the sleep gap on cross-sectional data, and the clock times are convention.",
+      "profileData": [
+        "Wakes 12:00 and trains 13:00, after a fast of about 10 h",
+        "Works 16:00-01:00 and sleeps 04:00-12:00",
+        "About 140 g protein a day over four meals (D19)"
+      ],
+      "wouldChange": [
+        "Nausea or reflux when eating soon after waking (train fasted)",
+        "Hevy logs showing equal performance fed and fasted over 4-6 sessions",
+        "More night waking after late meals in your sleep diary (move meal 4 earlier or shrink it)",
+        "New work or sleep hours"
+      ],
+      "refs": [
+        "Henselmans2022_carbRT",
+        "Kerksick2017_ISSNtiming",
+        "Vieira2025_fastedRT",
+        "Chung2020_mealProximitySleep",
+        "Schoenfeld2015_mealFreq",
+        "Trommelen2023_100g",
+        "Ali2026_TRE_RT",
+        "Schoenfeld2013_timing",
+        "Snijders2015_presleep",
+        "Reis2020_presleepProteinSR",
+        "Iao2021_bedtimeEatingATUS"
+      ],
+      "related": {
+        "articles": [
+          "sci-protein",
+          "sci-sleep"
+        ],
+        "rules": [],
+        "plan": [
+          "nutrition",
+          "sleep"
+        ],
+        "phases": [
+          "p1",
+          "p2",
+          "p3",
+          "p4",
+          "pm"
+        ],
+        "items": [
+          "cardio-int-4x4"
+        ]
+      }
+    },
+    {
+      "id": "D21",
+      "category": "Nutrition and body composition",
+      "title": "Supplement stack: keep, remove, add",
+      "context": "Your stack is creatine, vitamin D3, vitamin K2, folic acid, vitamin B12, magnesium glycinate, omega-3 and L-theanine, plus about 100 mg of caffeine before training. Each costs money, several have upper intake limits, and supplements sold in India have documented label and contamination problems [@Philips2024_CitizensProteinProject]. Which items earn a place for a novice training for [[term:hypertrophy|hypertrophy]] and fat loss who wakes at 12:00 and sleeps at 04:00?",
+      "options": [
+        {
+          "name": "Evidence-graded stack",
+          "summary": "Keep creatine, D3 and B12; make caffeine, magnesium, omega-3, L-theanine and whey optional; drop K2 and folic acid; add nothing else.",
+          "for": "Creatine adds lean mass (+1.14 kg, 95% CI 0.69 to 1.59, partly intracellular water) and strength (Hedges g about 0.55) beyond training alone [@Desai2024_creatineBodyComp; @Wang2026_creatineThreeLevelMA]. In pooled Indian surveys, vitamin D deficiency affected about 67% of adults [@Siddiqee2021_SouthAsiaVitDPrevalence] and B12 deficiency about 53% across age groups [@Venkatesh2021_IndiaMicronutrientDeficiency], so low doses are cheap insurance.",
+          "against": "1,000 IU/day of D3 exceeds the dietary reference intake, which the Endocrine Society conditionally suggests healthy adults under 75 avoid for disease prevention [@Demay2024_EndoSocVitDGuideline].",
+          "chosen": true
+        },
+        {
+          "name": "Keep everything",
+          "summary": "Continue every item as now.",
+          "for": "No change to routine; most items are low risk at modest doses.",
+          "against": "Functional vitamin K insufficiency clusters in children and adults over 40 [@Theuwissen2014_vitKStatusHealthy]; omega-3 did not add muscle mass with training, though it improved strength in four small trials [@Uchida2024_omega3RT_MA]; magnesium's sleep data are low certainty and from older adults with insomnia [@Mah2021_magnesiumInsomniaMA]; theanine's effects are small and uncertain [@Payne2025_theanineMA]. Unneeded folic acid can mask B12 deficiency (mechanism).",
+          "chosen": false
+        },
+        {
+          "name": "Creatine only",
+          "summary": "Stop everything except creatine and ordinary coffee.",
+          "for": "Spends only on the item with outcome evidence for muscle and strength [@Desai2024_creatineBodyComp].",
+          "against": "Drops cheap cover against vitamin D and B12 deficiency, both common in India; your indoor, largely nocturnal day limits sun exposure (inference).",
+          "chosen": false
+        },
+        {
+          "name": "Test first",
+          "summary": "Blood tests for vitamin D and B12 before deciding.",
+          "for": "Individualises the doses.",
+          "against": "Routine 25(OH)D testing is advised against in healthy adults [@Demay2024_EndoSocVitDGuideline], and the chosen doses are well below upper limits, so safe without a test (inference).",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "Keep creatine (5 g/day), vitamin D3 (1,000 IU/day) and vitamin B12; make caffeine, magnesium, omega-3, L-theanine and whey optional; stop vitamin K2 and folic acid; and add nothing else.",
+      "rationale": "The verdicts follow the supplements dossier; the daily schedule is on [[plan:supplements]].\n\n| Item | Verdict | Dose and timing |\n|---|---|---|\n| Creatine monohydrate | Keep | 5 g/day with a meal, every day |\n| Vitamin D3 | Keep | 1,000 IU/day with a fat-containing meal; never over 4,000 IU/day unprescribed |\n| Vitamin B12 | Keep | 250-500 µg/day |\n| Caffeine | Optional | 150-200 mg at 12:00 on training days; none after 19:00 |\n| Magnesium glycinate | Optional | 4-week trial, 100-200 mg elemental with meal 4; total supplemental magnesium no more than 350 mg/day |\n| Omega-3 | Optional | 250-500 mg/day EPA+DHA only if you eat fewer than 2 oily-fish meals a week; never above 1 g/day |\n| L-theanine | Optional | 100-200 mg with the 12:00 caffeine, if you value it |\n| Whey | Optional (food) | Only to close a protein gap ([[dec:D19]]) |\n| K2, folic acid | Remove | Unless a doctor prescribed them |\n| Beta-alanine, nitrate, citrulline, HMB | Do not add | None |\n| Ashwagandha | Avoid | Including in blends |\n| Melatonin | Not routinely | Fix the sleep set-up first ([[dec:D22]]) |\n\n**Creatine** raises muscle [[term:phosphocreatine|phosphocreatine]], which regenerates ATP during hard sets; loading and daily dose did not change the effect [@Wang2026_creatineThreeLevelMA]. Serum creatinine rises by about 0.13 mg/dL with no significant change in eGFR (8 trials, wide interval) [@Tsiaras2026_creatineKidneyMA], and in one small 12-week trial 5 g/day left DHT and hair unchanged [@Lak2025_creatineHairRCT].\n\n**Caffeine** blocks [[term:adenosine|adenosine]] receptors. Your 1.3 mg/kg is below the minimum effective dose of about 2 mg/kg [@Guest2021_ISSNcaffeine]. About 217 mg needs 13.2 h before bed and 107 mg 8.8 h [@Gardiner2023_caffeineSleepMA]: roughly 14:45 and 19:10 for a 04:00 bedtime.\n\n**Ashwagandha** offers an uncertain benefit (prediction interval -0.40 to 1.33) [@Li2026_ashwagandhaPerformanceMA] against documented cholestatic liver injury in Indian patients, including deaths in people with existing liver disease [@Philips2023_ashwagandhaHILI_India]. **HMB** had no significant effect on fat-free mass or strength in young adults [@Jakubowski2020_HMByoungMA]. If you buy whey, choose a mainstream sports whey: these were mostly label-accurate, unlike pharmacy protein powders [@Philips2025_CitizensProteinProject2].",
+      "confidence": "moderate",
+      "confidenceNote": "High for keeping creatine and dropping folic acid; moderate for the D3 and B12 doses, which rest on population prevalence rather than your own status; low for the optional items. Your products' actual doses are unknown, so the upper-limit checks are provisional.",
+      "profileData": [
+        "About 77 kg: 150-200 mg of caffeine is 2.0-2.6 mg/kg",
+        "Wakes 12:00, trains 13:00, sleeps 04:00 (caffeine cut-offs)",
+        "Lives in India: high deficiency prevalence, variable product quality",
+        "Indoor night shift: little sun exposure",
+        "Omnivorous diet (B12 and omega-3 verdicts)"
+      ],
+      "wouldChange": [
+        "Kidney disease or an eGFR below 60: stop creatine and see a doctor",
+        "A prescription or documented deficiency of vitamin D, B12 or folate",
+        "Normal B12 and methylmalonic acid tests while eating animal foods daily: drop B12",
+        "Oily fish twice a week: drop the omega-3 capsule",
+        "Falling asleep taking over about 30 min: cut any second caffeine dose, then halve the first"
+      ],
+      "refs": [
+        "Philips2024_CitizensProteinProject",
+        "Desai2024_creatineBodyComp",
+        "Wang2026_creatineThreeLevelMA",
+        "Siddiqee2021_SouthAsiaVitDPrevalence",
+        "Venkatesh2021_IndiaMicronutrientDeficiency",
+        "Demay2024_EndoSocVitDGuideline",
+        "Theuwissen2014_vitKStatusHealthy",
+        "Uchida2024_omega3RT_MA",
+        "Mah2021_magnesiumInsomniaMA",
+        "Payne2025_theanineMA",
+        "Tsiaras2026_creatineKidneyMA",
+        "Lak2025_creatineHairRCT",
+        "Guest2021_ISSNcaffeine",
+        "Gardiner2023_caffeineSleepMA",
+        "Li2026_ashwagandhaPerformanceMA",
+        "Philips2023_ashwagandhaHILI_India",
+        "Jakubowski2020_HMByoungMA",
+        "Philips2025_CitizensProteinProject2"
+      ],
+      "related": {
+        "articles": [
+          "sci-supplements",
+          "sci-protein",
+          "sci-sleep"
+        ],
+        "rules": [],
+        "plan": [
+          "supplements",
+          "nutrition",
+          "sleep"
+        ],
+        "phases": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4",
+          "pm"
+        ],
+        "items": []
+      }
+    },
+    {
+      "id": "D22",
+      "category": "Safety, measurement, devices, sleep",
+      "title": "Sleep schedule: keep 04:00-12:00 or shift it",
+      "context": "Your shift ends at 01:00, you sleep about 04:00-12:00 and you train at 13:00. Sleep affects [[term:mps|muscle protein synthesis (MPS)]], training performance and how much of the weight lost in a deficit is fat. Should the late window stay, move earlier, or flex on days off?",
+      "options": [
+        {
+          "name": "Fixed 04:00-12:00 every day",
+          "summary": "The same 8-h window every day, at least 7 h asleep; a dark, quiet, cool room; bright light after waking, dim light after work; a caffeine cut-off.",
+          "for": "Adults are advised to sleep at least 7 h regularly [@Watson2015_sleepDurationConsensus]. In 60,977 adults, more regular sleep timing went with 20-48% lower mortality, and regularity predicted mortality better than duration did [@Windred2024_sleepRegularityMortality]. A late but fixed schedule has almost no [[term:social-jetlag|social jetlag]] (inference).",
+          "against": "Those data are observational and from older adults (mean age 63) [@Windred2024_sleepRegularityMortality], and a later modelled [[term:circadian-rhythm|circadian]] phase was also associated with higher mortality (aHR 1.13-1.20) [@Windred2024_lightExposureMortality].",
+          "chosen": true
+        },
+        {
+          "name": "Shift the window earlier",
+          "summary": "Move sleep towards 03:00-11:00 or earlier.",
+          "for": "In one small trial in night owls, fixed earlier sleep and wake times, morning light and fixed meal and caffeine times advanced sleep by about 2 h without shortening it and improved mood and morning grip strength [@FacerChilds2019_nightOwlPhaseAdvance].",
+          "against": "Your work ends at 01:00, so an earlier bedtime would probably cut sleep (inference); no trial has tested this in late, non-shift workers.",
+          "chosen": false
+        },
+        {
+          "name": "Flexible on days off",
+          "summary": "Fixed on workdays, sleep whenever suits on days off.",
+          "for": "Social convenience.",
+          "against": "That is social jetlag, linked in mostly cross-sectional data to slightly higher BMI (+0.49 kg/m²) and waist (+1.11 cm), though not to diabetes [@Bouman2022_socialJetlagMetabolicMA; @Arab2023_socialJetlagObesityMA]; irregular timing is also the pattern tied to higher mortality [@Windred2024_sleepRegularityMortality].",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "Keep a fixed 04:00-12:00 sleep window (±30 min) every day, including days off, with 8 h in bed in a dark, quiet, cool room, bright light after waking, dim light after work and a caffeine cut-off.",
+      "rationale": "Your schedule is late but stable, and the evidence that matters is about duration and regularity, not clock time.\n\n**Why protect it.** In a small crossover trial, one night without sleep cut next-day MPS by 18% [@Lamon2021_sleepDeprivationMPS]; 6 h or less reduced exercise performance by about 7.6% [@Craven2022_sleepLossPerformanceMA]; in a 14-day deficit in 10 overweight adults, 5.5 h rather than 8.5 h of sleep opportunity cut fat loss from 1.4 to 0.6 kg and raised fat-free mass loss from 1.5 to 2.4 kg [@Nedeltcheva2010_sleepCaloricRestriction]. These are harsher than your 7-8 h; the aim is to keep what you have, especially in fat-loss blocks.\n\n**The bedroom.** Sunrise falls inside your sleep. Consensus sets 1 lux or less at the eye during sleep [@Brown2022_lightRecommendations], and one night of sleep with 100 lux of room light raised heart rate and next-morning insulin resistance [@Mason2022_lightDuringSleep]: use blackout curtains or an eye mask. Masks and earplugs improved subjective sleep, mainly in ICU studies [@Locihova2017_earplugsEyeMask], and heat increases wakefulness [@OkamotoMizuno2012_thermalEnvironment], so cool the room.\n\n**Light and caffeine.** Light sets the clock through [[term:melanopsin|melanopsin]] cells in the retina: get daylight within 1-2 h of waking and keep light dim from 01:00 (consensus thresholds mapped onto your day, which is inference) [@Brown2022_lightRecommendations]. Caffeine cut-offs follow sleep data [@Gardiner2023_caffeineSleepMA] and are set in [[dec:D21]]. Training an hour after waking leaves some [[term:sleep-inertia|sleep inertia]], one reason the warm-up is longer ([[dec:D10]]). If insomnia persists, CBT for insomnia is the recommended first treatment [@Qaseem2016_ACPinsomniaGuideline].",
+      "confidence": "moderate",
+      "confidenceNote": "Duration and bedroom advice rest on consensus and laboratory studies; the regularity case is one large cohort (association, not proof of cause); applying light thresholds to a 04:00 bedtime is inference.",
+      "profileData": [
+        "Sleeps about 04:00-12:00 (7-8 h)",
+        "Desk shift 16:00-01:00 sets the earliest realistic bedtime",
+        "Trains at 13:00, one hour after waking",
+        "Hypertrophy and fat-loss priorities",
+        "Hot climate: bedroom cooling matters"
+      ],
+      "wouldChange": [
+        "A sleep diary showing under 7 h on many nights, or a PSQI score above 5",
+        "A change in work hours",
+        "Trial evidence on advancing the schedule of late, non-shift workers",
+        "Insomnia persisting despite these measures (see a doctor)"
+      ],
+      "refs": [
+        "Watson2015_sleepDurationConsensus",
+        "Windred2024_sleepRegularityMortality",
+        "Windred2024_lightExposureMortality",
+        "FacerChilds2019_nightOwlPhaseAdvance",
+        "Bouman2022_socialJetlagMetabolicMA",
+        "Arab2023_socialJetlagObesityMA",
+        "Lamon2021_sleepDeprivationMPS",
+        "Craven2022_sleepLossPerformanceMA",
+        "Nedeltcheva2010_sleepCaloricRestriction",
+        "Brown2022_lightRecommendations",
+        "Mason2022_lightDuringSleep",
+        "Locihova2017_earplugsEyeMask",
+        "OkamotoMizuno2012_thermalEnvironment",
+        "Gardiner2023_caffeineSleepMA",
+        "Qaseem2016_ACPinsomniaGuideline"
+      ],
+      "related": {
+        "articles": [
+          "sci-sleep",
+          "sci-supplements"
+        ],
+        "rules": [
+          "stall"
+        ],
+        "plan": [
+          "sleep",
+          "supplements"
+        ],
+        "phases": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4",
+          "pm"
+        ],
+        "items": [
+          "wu-cardio-easy"
+        ]
+      }
+    },
+    {
+      "id": "D23",
+      "category": "Nutrition and body composition",
+      "title": "Body-composition monitoring: tape and weight trends vs BIA outputs",
+      "context": "You own a foot-to-foot [[term:bia|bioelectrical impedance (BIA)]] scale that reports body fat, muscle, water, visceral fat and more. During [[term:recomposition|recomposition]] ([[dec:D04]]) scale weight may barely move while fat falls and muscle rises, so you need measures that show slow change without being swamped by noise. Which numbers should drive decisions?",
+      "options": [
+        {
+          "name": "Weight trend, tape and photos",
+          "summary": "Daily morning weight as a 7-day average and multi-week trend; navel waist weekly; girths and photos every 4 weeks; a [[term:navy-method|Navy-equation]] estimate as a secondary trend; the BIA scale used only for weight.",
+          "for": "Self-weighing added -1.7 kg (95% CI -2.6 to -0.8) within structured programmes [@Madigan2015_selfweighingMA] and was not linked overall to worse mood or disordered eating, though it had a small negative association with self-esteem [@Benn2016_selfweighingpsych]. [[term:whtr|Waist-to-height ratio]] discriminated cardiometabolic risk better than BMI [@Ashwell2012_WHtR].",
+          "against": "No source reviewed quantified the reliability of self-measured waist; photos judged by eye are unvalidated (the only photo study tested an AI algorithm on standardised smartphone images) [@Nana2022_footBIAvsDXA]; and circumference equations underestimated DXA body fat by about 4-6 percentage points in soldiers [@McClung2025_CBEvsDXA].",
+          "chosen": true
+        },
+        {
+          "name": "Use the BIA outputs",
+          "summary": "Decide on the scale's body-fat, muscle and visceral-fat figures.",
+          "for": "Highly repeatable: precision error 0-0.5% body fat across 15 devices [@Siedler2022_15BIAdevices].",
+          "against": "Individual error was 3.1-7.5% body fat, and 1.7-2.6% even for change over 12-16 weeks, probably more than a novice changes in a few months (inference) [@Siedler2022_15BIAdevices]; food, fluid and timing distort readings [@Kerr2017_foodfluid; @Tinsley2021_trackingchange]; your model has no published validation.",
+          "chosen": false
+        },
+        {
+          "name": "Periodic DXA scans",
+          "summary": "A [[term:dxa|DXA]] scan at baseline and at each phase end.",
+          "for": "Tracked change more robustly when pre-test standardisation slipped [@Tinsley2021_trackingchange].",
+          "against": "Has its own error, cost and access in India were not assessed, and it gives no weekly signal (inference).",
+          "chosen": false
+        },
+        {
+          "name": "Weekly weighing",
+          "summary": "One weigh-in a week instead of daily.",
+          "for": "Daily and weekly weighing instructions gave similar weight loss [@Madigan2015_selfweighingMA], with less burden.",
+          "against": "Weight cycles by about 0.3% within each week, about 0.23 kg for you [@Maher2023_weightfluctuation]; four readings a month cannot separate that from a 0 to -0.25 kg/week target.",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "Track daily morning weight as a 7-day average and multi-week trend, navel waist weekly, girths and photos every 4 weeks, and a Navy-equation body-fat estimate as a secondary trend, using the BIA scale for weight only.",
+      "rationale": "Use measures whose error is smaller than the change you are looking for, and act on trends, never on single readings.\n\n**Why not the BIA numbers.** The scale measures only weight and the [[term:impedance|impedance]] of a current path up one leg and down the other; fat, muscle, water and visceral fat come from proprietary equations [@Nunez1997_legtolegBIA] that hold only in the population they were built in and at normal hydration [@Kyle2004_BIAprinciples]. [[term:ffm|Fat-free mass]] is inferred from water through a fixed hydration constant of about 0.73 [@Wang1999_hydrationConstant], so starting creatine or eating a salty meal reads as tissue change.\n\n**How to measure.** Weigh after waking and voiding, before food, caffeine or training, and change intake only on 2-4-week trends ([[rule:energy-adjustment]]). Measure waist at the navel, the site the Navy equation uses: site barely changes risk associations but shifts your value by 5 cm (86 vs 81 cm) [@Ross2008_waistprotocol], so never mix sites. Your ratio is 0.475, under 0.5, but your waist exceeds the 78 cm first action level proposed for Indian men in one study [@Misra2006_IndianWaist], though not the 90 cm consensus threshold. Body fat is shown as a range (about 17-22% across equations; working estimate about 20%, plausible 17-24%) because circumference equations underestimated DXA by about 4-6 percentage points on average [@McClung2025_CBEvsDXA] and each also carries individual error; its value lies in the trend. Photos stay a private record, never a number (practical convention). [[tool:bodycomp]] and [[tool:checkin]] do the arithmetic.",
+      "confidence": "moderate",
+      "confidenceNote": "High that single BIA readings are unreliable for an individual; moderate for the overall system, which no study has tested as a package.",
+      "profileData": [
+        "181 cm, about 77 kg, BMI 23.5",
+        "Navel waist 86 cm, narrowest 81 cm, neck 38 cm",
+        "Body fat about 20% (equations 17-22%, plausible 17-24%)",
+        "Owns a Renpho Elis 1 foot-to-foot BIA scale",
+        "Recomposition target 0 to -0.25 kg/week; takes creatine"
+      ],
+      "wouldChange": [
+        "A published validation of your scale against DXA showing small error for change",
+        "Affordable DXA access at the end of each phase",
+        "Distress or compulsive weighing: switch to weekly weighing",
+        "Validation of circumference equations in South Asian men"
+      ],
+      "refs": [
+        "Madigan2015_selfweighingMA",
+        "Benn2016_selfweighingpsych",
+        "Ashwell2012_WHtR",
+        "Nana2022_footBIAvsDXA",
+        "McClung2025_CBEvsDXA",
+        "Siedler2022_15BIAdevices",
+        "Kerr2017_foodfluid",
+        "Tinsley2021_trackingchange",
+        "Maher2023_weightfluctuation",
+        "Nunez1997_legtolegBIA",
+        "Kyle2004_BIAprinciples",
+        "Wang1999_hydrationConstant",
+        "Ross2008_waistprotocol",
+        "Misra2006_IndianWaist"
+      ],
+      "related": {
+        "articles": [
+          "sci-bodycomp",
+          "sci-energy"
+        ],
+        "rules": [
+          "energy-adjustment",
+          "phase-nutrition"
+        ],
+        "plan": [
+          "monitoring",
+          "logging"
+        ],
+        "phases": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4",
+          "pm"
+        ],
+        "items": [
+          "test-girths"
+        ]
+      }
+    },
+    {
+      "id": "D24",
+      "category": "Conditioning and athletic qualities",
+      "title": "Daily steps and breaking up sitting",
+      "context": "Your desk shift runs 16:00-01:00, so most of your waking day after training is spent seated. Walking adds to energy expenditure through [[term:neat|non-exercise activity thermogenesis (NEAT)]], which matters for fat loss, and daily steps are among the best-studied markers of long-term health. What target should you set, and should sitting be broken up?",
+      "options": [
+        {
+          "name": "7,000 floor, 8,000-10,000 target, walking breaks",
+          "summary": "At least 7,000 steps daily, aiming for 8,000-10,000, raised gradually from your measured baseline; a 2-5 min walk every 30-60 min of the shift.",
+          "for": "Versus 2,000 steps/day, 7,000 was associated with 47% lower all-cause mortality (HR 0.53, 95% CI 0.46-0.60), with curves flattening around 5,000-7,000 [@Ding2025_stepsHealthDoseResponse]; in adults under 60, risk fell until about 8,000-10,000 and then plateaued [@Paluch2022_stepsMortalityMA].",
+          "against": "These are cohort associations, so the benefit of adding steps is inferred, and the break interval is practical convention with no catalogued trial behind it.",
+          "chosen": true
+        },
+        {
+          "name": "10,000 steps from day one",
+          "summary": "A fixed 10,000-step target from the first week.",
+          "for": "No clear upper limit was seen within the observed range: each extra 1,000 steps/day went with 15% lower mortality (HR 0.85) [@Banach2023_stepsMortalityMA].",
+          "against": "Most of the association is captured by 7,000-10,000 [@Ding2025_stepsHealthDoseResponse; @Paluch2022_stepsMortalityMA]; a sudden jump adds time and lower-leg load on top of five weekly sessions (inference).",
+          "chosen": false
+        },
+        {
+          "name": "Structured exercise only",
+          "summary": "No step target; rely on lifting and cardio sessions.",
+          "for": "WHO advises 150-300 min/week of moderate activity plus strength work on 2 or more days [@Bull2020_WHOguidelines], which your sessions only partly supply (about 40-70 aerobic minutes a week in Phase 1; [[dec:D11]]).",
+          "against": "Sitting over 8 h/day carried no excess risk only in the most active quarter of people, at roughly 60-75 min/day of moderate activity; with low activity it went with up to 59% higher mortality (HR 1.59) [@Ekelund2016_sittingActivityMortality]. Your sessions fall well short of 60-75 min/day.",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "Walk at least 7,000 steps every day with a target of 8,000-10,000, built up gradually, and take a short walking break every 30-60 minutes of the desk shift.",
+      "rationale": "Steps are cheap, low-fatigue activity that fits around lifting and your shift.\n\n**Why these numbers.** The dose-response curves are steep at low counts and flatten later: risk reduction was detectable from about 2,500 steps/day, and the largest estimated benefit for mortality was at about 8,800 [@Stens2023_stepsDoseResponseMA]. A 7,000 floor keeps most of the association on busy days, and 8,000-10,000 covers the plateau for your age [@Paluch2022_stepsMortalityMA]. That adding steps causes the benefit is inference.\n\n**Why break up sitting.** Your shift makes long [[term:sedentary-time|sedentary time]] unavoidable, and in over a million adults the excess risk of long sitting was concentrated in people who were also inactive [@Ekelund2016_sittingActivityMortality]. A short walk every 30-60 min adds steps during work hours (practical convention; no catalogued trial tests the interval).\n\n**Why gradually.** Raise the daily average by about 1,000 steps a week from your first-week baseline (practical convention). Steps also support fat loss by raising NEAT, by an amount that varies between people; the energy check in [[tool:energy]] uses your logged average. A tracker modestly raises step counts (SMD 0.24) [@Brickwood2019_trackersMA], but a phone is enough ([[dec:D25]]).",
+      "confidence": "moderate",
+      "confidenceNote": "Consistent across several large meta-analyses, but all observational; the break interval and the ramp rate are practical convention.",
+      "profileData": [
+        "Desk shift 16:00-01:00, mostly seated",
+        "Fat loss is a high priority",
+        "Three lifting and two cardio sessions a week planned",
+        "Aged 31: the under-60 plateau of 8,000-10,000 applies"
+      ],
+      "wouldChange": [
+        "Trials showing that raising steps in young adults changes health or body composition",
+        "Foot, shin or knee pain as steps rise: hold the target",
+        "A baseline already above 10,000: keep it",
+        "Very hot weather: walk indoors or on a treadmill"
+      ],
+      "refs": [
+        "Ding2025_stepsHealthDoseResponse",
+        "Paluch2022_stepsMortalityMA",
+        "Banach2023_stepsMortalityMA",
+        "Bull2020_WHOguidelines",
+        "Ekelund2016_sittingActivityMortality",
+        "Stens2023_stepsDoseResponseMA",
+        "Brickwood2019_trackersMA"
+      ],
+      "related": {
+        "articles": [
+          "sci-aerobic",
+          "sci-energy",
+          "sci-behaviour"
+        ],
+        "rules": [
+          "energy-adjustment"
+        ],
+        "plan": [
+          "activity",
+          "monitoring"
+        ],
+        "phases": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4",
+          "pm"
+        ],
+        "items": []
+      }
+    },
+    {
+      "id": "D25",
+      "category": "Safety, measurement, devices, sleep",
+      "title": "Whether to buy a wearable, and what it is good for",
+      "context": "Your cardio is paced by the [[term:talk-test|talk test]] and [[term:rpe|rating of perceived exertion (RPE)]] ([[dec:D11]]), your phone can count steps, and you were considering a screenless wrist band (Google Fitbit Air). A wearable adds step, heart-rate and sleep data, but each output has a different accuracy, and acting on the wrong one, such as a calorie figure, misleads diet decisions.",
+      "options": [
+        {
+          "name": "Optional; use only the accurate outputs",
+          "summary": "No purchase needed. If you buy one, use steps, resting heart rate and sleep timing; use a chest strap for interval heart rate; ignore calories and sleep stages.",
+          "for": "Major brands counted steps accurately in the laboratory [@Fuller2020_wearablesSR]; wrist optical heart rate is reasonable at rest, with errors about 30% larger during activity [@Bent2020_PPGinaccuracy]; sleep-staging Fitbits did not differ significantly from polysomnography for total sleep time [@Haghayegh2019_FitbitSleep].",
+          "against": "No independent validation of the Fitbit Air was found, and it gates advanced features behind a subscription [@GoogleHelp2026_FitbitAir].",
+          "chosen": true
+        },
+        {
+          "name": "Buy a tracker and act on everything",
+          "summary": "Use its calories, sleep stages and heart-rate zones to steer diet and training.",
+          "for": "Tracker-based interventions raised daily steps (SMD 0.24, 95% CI 0.16-0.33) [@Brickwood2019_trackersMA].",
+          "against": "No brand estimated energy expenditure accurately [@Fuller2020_wearablesSR]; consumer trackers detect wake poorly (specificity 0.18-0.54) and give inconsistent stages [@Chinoy2021_consumerSleepTrackers].",
+          "chosen": false
+        },
+        {
+          "name": "Chest strap only",
+          "summary": "A Bluetooth strap paired with your phone for exercise heart rate.",
+          "for": "Agreed almost perfectly with ECG (rc 0.996), while wrist devices ranged 0.67-0.92 [@Gillinov2017_HRmonitors].",
+          "against": "No steps or sleep data, and your intervals are prescribed by RPE anyway ([[dec:D13]]).",
+          "chosen": false
+        },
+        {
+          "name": "Phone only",
+          "summary": "Count steps with the phone; no device.",
+          "for": "Free and already with you.",
+          "against": "The only phone step study in the catalogue was very low quality, with limits of agreement of -573 to +377 steps over a 1,500-step walk [@Caputo2021_smartphoneSteps].",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "A wearable is not needed; if you buy one, use it for step and resting-heart-rate trends and sleep timing, add a chest strap if you want accurate interval heart rate, and ignore its calorie and sleep-stage estimates.",
+      "rationale": "Nothing in the programme depends on a device: effort is set by RPE and the talk test, resting heart rate can be counted by hand ([[ex:test-rhr]]), and a phone counts steps well enough to follow a trend (inference).\n\n**What a wrist band does well.** Steps come from an accelerometer. Optical heart rate reads blood-volume pulses through the skin: clean at rest, noisier when the wrist moves or grips a bar [@Bent2020_PPGinaccuracy]. Resting heart rate is worth tracking as a slow trend: each 10 bpm higher was associated with 17% higher all-cause mortality (RR 1.17, 48 studies) [@Aune2017_RHRmeta]; in these observational data it is a marker, partly of fitness, not a proven cause.\n\n**What it does badly.** Energy expenditure is modelled, not measured, so device calories must never set your intake ([[dec:D04]]). Sleep stages are rough estimates [@Haghayegh2019_FitbitSleep], although bed and wake times are useful on your 04:00-12:00 schedule.\n\n**Interval heart rate.** If you want it for the 4 x 4 sessions or the Rockport walk test ([[ex:test-rockport]]), a chest strap paired with your phone is the accurate option [@Gillinov2017_HRmonitors].",
+      "confidence": "moderate",
+      "confidenceNote": "The pattern (good steps and resting heart rate, poor calories and sleep stages) is consistent across reviews, but validation lags new models, so results for older devices may not transfer to the one you buy.",
+      "profileData": [
+        "Cardio intensity set by talk test and RPE",
+        "Sleeps 04:00-12:00: sleep timing is useful",
+        "Was considering a screenless Google Fitbit Air",
+        "Budget of about INR 20,000 a month for food",
+        "Resting heart rate not yet recorded"
+      ],
+      "wouldChange": [
+        "Independent validation of the device you are considering",
+        "A switch to heart-rate-zone training",
+        "Evidence that wearable calorie estimates are accurate enough to guide intake",
+        "Budget pressure: phone tracking is free"
+      ],
+      "refs": [
+        "Fuller2020_wearablesSR",
+        "Bent2020_PPGinaccuracy",
+        "Haghayegh2019_FitbitSleep",
+        "GoogleHelp2026_FitbitAir",
+        "Brickwood2019_trackersMA",
+        "Chinoy2021_consumerSleepTrackers",
+        "Gillinov2017_HRmonitors",
+        "Caputo2021_smartphoneSteps",
+        "Aune2017_RHRmeta"
+      ],
+      "related": {
+        "articles": [
+          "sci-bodycomp",
+          "sci-aerobic",
+          "sci-sleep"
+        ],
+        "rules": [
+          "cardio-progression"
+        ],
+        "plan": [
+          "monitoring",
+          "activity",
+          "sleep"
+        ],
+        "phases": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4",
+          "pm"
+        ],
+        "items": [
+          "test-rhr",
+          "test-rockport",
+          "cardio-int-4x4"
+        ]
+      }
+    },
+    {
+      "id": "D26",
+      "category": "Nutrition and body composition",
+      "title": "The aesthetic goal: feasibility and expectations",
+      "context": "Your first priority is aesthetics: an athletic, not bulky look. A goal stated as a look, or as someone else's physique, cannot be measured, has no timeline and invites comparison with images whose conditions you cannot know. The programme needs an operational version of the goal and honest expectations about pace.",
+      "options": [
+        {
+          "name": "Operational goal on a multi-year horizon",
+          "summary": "A lean athletic look defined by trends: shoulder-to-waist ratio rising, navel waist about 78-82 cm, strength and girths rising; a [[term:ffmi|fat-free mass index (FFMI)]] of 21-22 at a lean body-fat level as an illustration only.",
+          "for": "In urban samples a V-shaped torso (low waist-to-chest ratio) was the main predictor of rated male attractiveness [@Swami2005_WCRcrossCultural], and rated strength explained over 70% of the variance in bodily attractiveness [@Sell2017_strengthAttractiveness]; both map onto girths you can measure.",
+          "against": "These perception studies are cross-sectional, culturally limited and based on ratings of images, so they describe preferences, not what you will achieve.",
+          "chosen": true
+        },
+        {
+          "name": "Match a reference physique by a deadline",
+          "summary": "Copy a chosen physique within, say, a year.",
+          "for": "Concrete and motivating.",
+          "against": "Responses vary enormously: biceps size change after identical training ranged from -2% to +59% [@Hubal2005_variability], and the average whole-body muscle gain over about 10 weeks was 1.53 kg [@Benito2020_wholeBodyHypertrophy]. The conditions behind any photographed physique cannot be known.",
+          "chosen": false
+        },
+        {
+          "name": "A single number",
+          "summary": "A scale-weight or body-fat-percentage target.",
+          "for": "Simple to state and check.",
+          "against": "Weight cannot separate muscle from fat during recomposition, and circumference body-fat estimates were biased by about 4-6 percentage points against DXA [@McClung2025_CBEvsDXA], wider than the gap between 'lean' and 'very lean' (inference).",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "Define the goal operationally (rising shoulder-to-waist ratio, navel waist about 78-82 cm, rising strength and girths) on a multi-year horizon, using FFMI 21-22 at a lean body-fat level only as an illustration of the destination.",
+      "rationale": "A measurable goal shows progress and can be adjusted; a picture does neither.\n\n**Where you start.** At 181 cm, about 77 kg and an estimated 20% body fat (plausible 17-24%), your FFMI is about 18.8 kg/m² (plausible 17.9-19.5; arithmetic from your measurements), close to the median of 18.9 for men aged 18-34 [@Schutz2002_FFMIpercentiles].\n\n**How far and how fast.** In one study drug-free men rarely exceeded a height-normalised FFMI of about 25, a finding its authors called preliminary [@Kouri1995_FFMI], and even in very large athletes muscle relative to height appears to plateau [@Abe2018_upperLimit]. FFMI 21-22 sits well inside that range: about 69-72 kg of [[term:ffm|fat-free mass]] at your height, roughly 7-10 kg more than your estimated 61.6 kg now (arithmetic, inference). With early gains of about 1.5 kg of muscle in 9-10 weeks [@Benito2020_wholeBodyHypertrophy], slowing with training age (inference), that is a multi-year project, and your own rate may be far from the average [@Hubal2005_variability].\n\n**Size and perception.** Ratings showed no inverted U: the strongest-looking men were rated most attractive [@Sell2017_strengthAttractiveness], yet men overestimate the muscularity women prefer [@Lei2021_muscularityMisperception]. Neither supports chasing extreme size or fearing it. Becoming bulky by accident is unlikely for a drug-free novice (inference), and [[rule:size-control]] lets you hold a muscle group that gets ahead of the look you want. A navel waist of 78-82 cm also brings you to or near the 78 cm first action level proposed for Indian men in one study [@Misra2006_IndianWaist]. The programme compares you with no actor or public figure.",
+      "confidence": "low",
+      "confidenceNote": "Largely inference: the targets combine cross-sectional reference data, preliminary FFMI limits, short studies of novices and perception research from limited cultural samples.",
+      "profileData": [
+        "Priority 1: aesthetics, 'athletic, not bulky'",
+        "181 cm, about 77 kg, body fat about 20% (plausible 17-24%)",
+        "Navel waist 86 cm",
+        "FFMI about 18.8 kg/m² (plausible 17.9-19.5)",
+        "Never trained: early gains ahead"
+      ],
+      "wouldChange": [
+        "A DXA scan giving a firmer fat-free-mass baseline",
+        "Your first 6-12 months of girth and strength trends",
+        "A change in the look you are aiming for",
+        "Waist reaching 78-82 cm before the shoulder-to-waist ratio moves: shift emphasis to upper-body growth"
+      ],
+      "refs": [
+        "Swami2005_WCRcrossCultural",
+        "Sell2017_strengthAttractiveness",
+        "Hubal2005_variability",
+        "Benito2020_wholeBodyHypertrophy",
+        "McClung2025_CBEvsDXA",
+        "Schutz2002_FFMIpercentiles",
+        "Kouri1995_FFMI",
+        "Abe2018_upperLimit",
+        "Lei2021_muscularityMisperception",
+        "Misra2006_IndianWaist"
+      ],
+      "related": {
+        "articles": [
+          "sci-expectations",
+          "sci-selection",
+          "sci-bodycomp",
+          "sci-behaviour"
+        ],
+        "rules": [
+          "size-control",
+          "lagging-muscle"
+        ],
+        "plan": [
+          "monitoring"
+        ],
+        "phases": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4",
+          "pm"
+        ],
+        "items": [
+          "test-girths"
+        ]
+      }
+    },
+    {
+      "id": "D27",
+      "category": "Warm-up, flexibility, recovery",
+      "title": "Flexibility strategy for the toe-touch limitation",
+      "context": "You cannot touch your toes with straight knees. Flexibility is in your lowest priority group, so the strategy must cost little time while still improving hamstring range, which also makes deep [[term:hip-hinge|hip-hinge]] and squat positions easier to reach.",
+      "options": [
+        {
+          "name": "Loaded full range plus cool-down stretching",
+          "summary": "Romanian deadlifts and seated leg curls through full range as the main tool; hamstring static stretching in every cool-down, including the aerobic sessions (2 x 30 s per leg in 5-6 sessions a week, about 5-6 min per leg per week at about 7/10); an optional 5-min daily home routine; a monthly fingertip-to-floor test.",
+          "for": "Resistance training improved [[term:rom|range of motion (ROM)]] (ES 0.73), more in untrained people (ES 1.04), and matched stretching [@Alizadeh2023_RT_ROM; @Afonso2021_STvsStretchMeta]. Weekly stretching time of at least about 5 min was associated with ROM gains [@Thomas2018_stretch_dose_ROM].",
+          "against": "No pooled comparison shows that combining the two beats either alone: resistance training plus stretching equalled stretching alone (ES -0.001) [@Alizadeh2023_RT_ROM].",
+          "chosen": true
+        },
+        {
+          "name": "Stretching only",
+          "summary": "A dedicated stretching programme as the main tool.",
+          "for": "Stretch training increased ROM with an effect size of about 1.0 [@Konrad2024_chronic_stretch_ROM].",
+          "against": "No better than resistance training for ROM [@Afonso2021_STvsStretchMeta], and it builds none of the muscle you are training for.",
+          "chosen": false
+        },
+        {
+          "name": "PNF stretching",
+          "summary": "Contract-relax [[term:pnf|PNF]] stretching instead of static holds.",
+          "for": "PNF and static stretching gave larger gains than ballistic or dynamic stretching [@Konrad2024_chronic_stretch_ROM].",
+          "against": "In another dataset static protocols outperformed PNF [@Thomas2018_stretch_dose_ROM]; PNF usually needs a partner, and you train alone (practical convention).",
+          "chosen": false
+        },
+        {
+          "name": "Resistance training alone",
+          "summary": "Rely on full-range lifting; no stretching.",
+          "for": "Similar pooled ROM gain to stretching, at no extra time [@Alizadeh2023_RT_ROM].",
+          "against": "Part of the toe-touch limit is tolerance of end-range stretch, which direct stretching trains [@Magnusson1996_stretch_tolerance], so dropping it gives up a cheap second route (inference).",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "Use full-range loaded hamstring work (Romanian deadlift, seated leg curl) as the main tool, add hamstring static stretching to every cool-down, offer an optional 5-minute daily home routine, and re-test fingertip-to-floor monthly.",
+      "rationale": "Loading and stretching both increase range, and combining them costs only a few minutes a session.\n\n**Mechanism.** Short-term gains from [[term:static-stretching|static stretching]] come mainly from higher [[term:stretch-tolerance|stretch tolerance]]: after 3 weeks of hamstring stretching in a small study of 7 adults, stiffness at a fixed angle was unchanged while the tolerated angle and torque rose [@Magnusson1996_stretch_tolerance]. In a calf study, stretching at 6-7/10 discomfort also cut muscle stiffness (57% vs 24% at low intensity) [@Nakamura2021_HI_vs_LI_SS]. Loaded work at long muscle lengths, such as the [[ex:db-rdl|Romanian deadlift]] and [[ex:seated-leg-curl|seated leg curl]], trains the same end range under tension. Part of a straight-leg limit may be neural: nerve-directed stretching raised ankle range by 9.9° by lowering sciatic-nerve stiffness [@Andrade2020_muscle_nerve_stretching]; its relevance to your toe-touch is inference.\n\n**Dose and placement.** About 5 min per leg per week, spread over sessions, matches the dose associated with gains in one review [@Thomas2018_stretch_dose_ROM]. The stretch sits in the cool-down for range, not recovery: post-exercise stretching did not reduce soreness or speed strength recovery [@Afonso2021_postexercise_stretch_recovery].\n\n**Measuring it.** In back-pain patients, the fingertip-to-floor test was valid (r -0.96 against radiographic trunk flexion), reliable (ICC 0.99) and responsive [@Perret2001_fingertip_floor_test], so a monthly [[ex:test-ftf]] is enough.",
+      "confidence": "moderate",
+      "confidenceNote": "Several meta-analyses agree that stretching and resistance training both improve ROM, but dose findings conflict (one meta-analysis found no moderation by volume or intensity [@Konrad2024_chronic_stretch_ROM]) and the neural share of your limit is unknown.",
+      "profileData": [
+        "Cannot touch toes with straight knees",
+        "Flexibility is in the lowest priority group",
+        "Sessions of about 60 min, 3-4 a week",
+        "Trains alone (no partner for PNF)"
+      ],
+      "wouldChange": [
+        "No change in fingertip-to-floor distance after about 12 weeks: add the daily home routine",
+        "Tingling, numbness or pain spreading down the leg during stretches: stop and get assessed",
+        "Evidence that stretching adds nothing to resistance training in untrained people"
+      ],
+      "refs": [
+        "Alizadeh2023_RT_ROM",
+        "Afonso2021_STvsStretchMeta",
+        "Thomas2018_stretch_dose_ROM",
+        "Konrad2024_chronic_stretch_ROM",
+        "Magnusson1996_stretch_tolerance",
+        "Nakamura2021_HI_vs_LI_SS",
+        "Andrade2020_muscle_nerve_stretching",
+        "Afonso2021_postexercise_stretch_recovery",
+        "Perret2001_fingertip_floor_test"
+      ],
+      "related": {
+        "articles": [
+          "sci-flexibility",
+          "sci-selection"
+        ],
+        "rules": [
+          "pain"
+        ],
+        "plan": [
+          "monitoring"
+        ],
+        "phases": [
+          "p1",
+          "p2",
+          "p3",
+          "p4",
+          "pm"
+        ],
+        "items": [
+          "db-rdl",
+          "bb-rdl",
+          "seated-leg-curl",
+          "st-ham-supine",
+          "st-ham-bench",
+          "test-ftf"
+        ]
+      }
+    },
+    {
+      "id": "D28",
+      "category": "Warm-up, flexibility, recovery",
+      "title": "Balance asymmetry: single-leg work, left side first",
+      "context": "Your left leg balances worse than your right: 20 vs 30 s with eyes open and 10 vs 15 s with eyes closed. Balance is in your lowest priority group, but single-leg control matters for lunges and split squats now and for running and jumping later. How much time should it get, and how should the gap be read?",
+      "options": [
+        {
+          "name": "Brief practice in warm-ups, left first",
+          "summary": "2 x 30 s of single-leg stance per leg in each warm-up, left side first; unilateral lower-body exercises started with the left leg; a standardised re-test each month.",
+          "for": "Balance training improves the trained task (SMD 0.79, 95% CI 0.48-1.10) [@Kummel2016_specificity], so practising the stance you test is the most direct route; unilateral training improves unilateral strength more than bilateral training does (ES 0.65) [@Kassiano2025_uniVsBiMeta].",
+          "against": "The weekly dose is far below the most effective dose in the dose-response meta-analysis [@Lesinski2015_balanceDR], so progress may be slower.",
+          "chosen": true
+        },
+        {
+          "name": "Dedicated balance programme",
+          "summary": "Separate balance sessions at the 'optimal' dose.",
+          "for": "The most effective parameters for steady-state balance were 11-12 weeks, 3 sessions a week and 11-15 min per session; untrained people improved with ES 0.82 [@Lesinski2015_balanceDR].",
+          "against": "About 35-45 min a week for a low-priority goal, and the gains stay specific to the tasks trained [@Kummel2016_specificity].",
+          "chosen": false
+        },
+        {
+          "name": "Unstable-surface training",
+          "summary": "Wobble boards, foam pads or similar.",
+          "for": "A varied challenge that improves balance on the surface you train on (inference from task specificity).",
+          "against": "Balance gains did not transfer meaningfully to untrained tasks, even similar ones (SMD -0.07 to 0.18) [@Kummel2016_specificity]; no catalogued trial shows that unstable-surface work improves stance on a stable floor.",
+          "chosen": false
+        },
+        {
+          "name": "Ignore it",
+          "summary": "No specific balance work.",
+          "for": "Healthy people's dominant and non-dominant legs perform the same on average [@Schorderet2021_dominance], so part of your gap may be test noise.",
+          "against": "For the same reason, a gap that persists under standard testing is larger than expected, and your eyes-open times are well below the norm for men aged 18-39 (best of 3: 44.4 s) [@Springer2007_unipedalstance]; the fix costs about 2 minutes a session.",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "Practise single-leg stance (2 x 30 s per leg) in every warm-up starting with the left leg, start unilateral lower-body exercises with the left leg, and re-test both legs monthly with a standard protocol, expecting gains mainly on the practised task.",
+      "rationale": "Practise the task you want to improve, a little and often, and let unilateral strength work do the rest.\n\n**Read the gap first.** The norms use a strict protocol: barefoot, arms crossed, 45 s maximum, best of 3 trials [@Springer2007_unipedalstance]. Your baseline may not have followed it, so the first standardised [[ex:test-sls]] sets the real starting point. Your eyes-closed times (10 and 15 s) sit within the wide normal range for men aged 18-39 (16.9 ± 13.9 s) [@Springer2007_unipedalstance]; the eyes-open times are the clearer shortfall.\n\n**Mechanism.** Single-leg stance integrates [[term:proprioception|proprioception]], vision and vestibular input into small ankle and hip corrections, and practice tunes that control for the practised task. Gains are specific: the trained task improved while untrained tasks barely changed [@Kummel2016_specificity]. Expect your stance times to rise; do not expect automatic transfer to running or sport.\n\n**Left first.** Starting [[term:unilateral|unilateral]] sets on the weaker side gives it your freshest effort and lets it set the rep target for the right (practical convention). [[ex:bal-sls]] in the warm-up and [[ex:split-squat]], [[ex:reverse-lunge]] and [[ex:sl-rdl]] in training carry the work.",
+      "confidence": "low",
+      "confidenceNote": "Specificity and dose findings come from low-certainty meta-analyses, and whether your asymmetry is real or partly test noise is unknown until a standardised re-test.",
+      "profileData": [
+        "Single-leg stance: left 20 s vs right 30 s eyes open, 10 vs 15 s eyes closed",
+        "Balance is in the lowest priority group",
+        "Unilateral lower-body exercises from Phase 1",
+        "Running and plyometrics start later (Phases 2-3)"
+      ],
+      "wouldChange": [
+        "A standardised re-test with both legs within a few seconds: drop the left-first rule for balance",
+        "Both legs reaching the 45-s eyes-open ceiling: progress to eyes-closed or reach drills",
+        "A past ankle injury, dizziness or numbness: get assessed",
+        "Evidence that brief warm-up practice transfers to dynamic balance"
+      ],
+      "refs": [
+        "Kummel2016_specificity",
+        "Kassiano2025_uniVsBiMeta",
+        "Lesinski2015_balanceDR",
+        "Schorderet2021_dominance",
+        "Springer2007_unipedalstance"
+      ],
+      "related": {
+        "articles": [
+          "sci-athletic"
+        ],
+        "rules": [],
+        "plan": [
+          "monitoring"
+        ],
+        "phases": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4",
+          "pm"
+        ],
+        "items": [
+          "bal-sls",
+          "bal-sl-reach",
+          "test-sls",
+          "split-squat",
+          "reverse-lunge",
+          "sl-rdl",
+          "bulgarian-split-squat",
+          "step-up"
+        ]
+      }
+    },
+    {
+      "id": "D29",
+      "category": "Warm-up, flexibility, recovery",
+      "title": "Recovery tools: what to use and what to avoid",
+      "context": "Ice baths, massage guns, foam rollers and compression garments are widely marketed for recovery. You are a novice whose top priority is muscle growth, training alone on a fixed budget, so a tool is worth using only if it does not blunt adaptation and gives a benefit you would notice.",
+      "options": [
+        {
+          "name": "Basics first; tools optional for comfort",
+          "summary": "No regular cold-water immersion after lifting; massage or foam rolling optional for comfort; no compression garments; sleep, nutrition and sensible progression as the main levers.",
+          "for": "The basics probably carry the largest effects (inference): in a small trial, one night without sleep cut [[term:mps|muscle protein synthesis (MPS)]] by 18% [@Lamon2021_sleepDeprivationMPS], and 6 h of sleep or less reduced performance by about 7.6% [@Craven2022_sleepLossPerformanceMA].",
+          "against": "You give up the small reductions in [[term:doms|delayed-onset muscle soreness (DOMS)]] that several tools provide [@Dupuy2018_recovery_techniques_meta].",
+          "chosen": true
+        },
+        {
+          "name": "Regular cold-water immersion",
+          "summary": "Cold-water immersion after most lifting sessions.",
+          "for": "Water immersion and cryotherapy reduced DOMS and markers of muscle damage [@Dupuy2018_recovery_techniques_meta].",
+          "against": "In one trial in 21 active men, muscle mass and strength rose more with active recovery than with cold water, and type II fibre area (+17%) increased only with active recovery [@Roberts2015_CWI_RT_adaptation]; pooled data favour no immersion for hypertrophy (posterior probability of a negative effect 0.957) [@Pinero2024_CWI_hypertrophy_meta] and show smaller strength gains (ES -0.23) [@Grgic2023_CWI_strength_meta].",
+          "chosen": false
+        },
+        {
+          "name": "Massage, foam rolling or compression as routine",
+          "summary": "A recovery routine after every session.",
+          "for": "Massage was the most effective method for DOMS and perceived fatigue [@Dupuy2018_recovery_techniques_meta]; foam rolling after exercise reduced perceived muscle pain (g 0.47) [@Wiewelhove2019_foam_rolling_meta].",
+          "against": "Massage did not improve strength, jump, sprint or endurance [@Davis2020_massage_meta]; foam-rolling effects were minor overall [@Wiewelhove2019_foam_rolling_meta]; compression had no strength-sparing effect at any time point [@Negyesi2022_compression_meta].",
+          "chosen": false
+        },
+        {
+          "name": "Long cool-down or stretching for recovery",
+          "summary": "An extended active cool-down or post-session stretching to speed recovery.",
+          "for": "Active cool-downs speed blood lactate clearance [@VanHooren2018_cooldown].",
+          "against": "They are largely ineffective for next-day performance and soreness [@VanHooren2018_cooldown], and stretching reduced soreness by a clinically trivial amount [@Herbert2011_Cochrane_stretch_DOMS].",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "Avoid regular cold-water immersion after lifting, treat massage and foam rolling as optional comfort measures, skip compression garments, and rely on sleep, nutrition and sensible progression for recovery.",
+      "rationale": "Recovery for a novice is mostly about not undermining adaptation and letting your own repair processes work.\n\n**Why cold water is avoided.** Growth depends on the signalling that follows each session. In a small biopsy study (mechanistic data), cold-water immersion after lifting blunted the rise in Pax7+ [[term:satellite-cells|satellite cells]] and the phosphorylation of p70S6K, a downstream target of [[term:mtorc1|mTORC1]], over 2-48 h [@Roberts2015_CWI_RT_adaptation]. Limb-only immersion attenuated strength gains (ES -0.31), while whole-body immersion showed no clear difference (ES -0.08, wide interval) [@Grgic2023_CWI_strength_meta]. An ordinary cool shower in hot weather is not what these trials tested (inference).\n\n**Why soreness is not the target.** DOMS peaks in your first weeks and fades through the [[term:repeated-bout-effect|repeated-bout effect]], which the gentle start in [[dec:D07]] relies on. Massage and foam rolling can make you feel better and are fine if you enjoy them, but they restore performance little if at all [@Davis2020_massage_meta; @Wiewelhove2019_foam_rolling_meta]. The cool-down stretch is there for range, not recovery ([[dec:D27]]).\n\n**The real levers.** Protect the sleep window ([[dec:D22]]), meet your protein target ([[dec:D19]]), progress gradually ([[dec:D09]]) and take a [[rule:deload]] when fatigue accumulates.",
+      "confidence": "moderate",
+      "confidenceNote": "The case against routine cold water rests on one well-controlled trial and two low-certainty meta-analyses that agree in direction; evidence on massage, foam rolling and compression is low certainty but consistently shows small, mostly subjective effects.",
+      "profileData": [
+        "Hypertrophy is the top training priority",
+        "Novice: soreness will be highest in the first weeks",
+        "Trains alone on a fixed budget",
+        "Hot climate makes cold water tempting"
+      ],
+      "wouldChange": [
+        "Competing in several events in one day, where short-term recovery outweighs long-term adaptation",
+        "Trials showing that whole-body immersion does not blunt hypertrophy",
+        "Soreness that still limits training after the first 4-6 weeks: review volume and progression first"
+      ],
+      "refs": [
+        "Lamon2021_sleepDeprivationMPS",
+        "Craven2022_sleepLossPerformanceMA",
+        "Dupuy2018_recovery_techniques_meta",
+        "Roberts2015_CWI_RT_adaptation",
+        "Pinero2024_CWI_hypertrophy_meta",
+        "Grgic2023_CWI_strength_meta",
+        "Wiewelhove2019_foam_rolling_meta",
+        "Davis2020_massage_meta",
+        "Negyesi2022_compression_meta",
+        "VanHooren2018_cooldown",
+        "Herbert2011_Cochrane_stretch_DOMS"
+      ],
+      "related": {
+        "articles": [
+          "sci-recovery",
+          "sci-flexibility",
+          "sci-sleep"
+        ],
+        "rules": [
+          "deload",
+          "stall"
+        ],
+        "plan": [
+          "sleep",
+          "nutrition"
+        ],
+        "phases": [
+          "p0",
+          "p1",
+          "p2",
+          "p3",
+          "p4",
+          "pm"
+        ],
+        "items": [
+          "cd-easy"
+        ]
+      }
+    }
+  ]
+}

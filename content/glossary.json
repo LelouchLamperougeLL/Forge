@@ -1,0 +1,1096 @@
+{
+  "terms": [
+    {
+      "id": "rir",
+      "term": "Repetitions in reserve (RIR)",
+      "aliases": [
+        "RIR",
+        "reps in reserve",
+        "repetitions in reserve"
+      ],
+      "definition": "The number of further repetitions you judge you could have completed with good technique when you end a set: stopping when 2 more were possible is 2 RIR, and 0 RIR is [[term:momentary-failure|momentary failure]]. It is a self-estimate, and on average people underestimate how many repetitions they have left by about one (0.95 reps, with very wide variation between studies), with accuracy improving as the set gets closer to failure [@Halperin2022_RIR_accuracy]. RIR is the main way effort is prescribed and logged in this programme, because hypertrophy appears to increase as sets end closer to failure while fatigue rises steeply at failure itself [@Robinson2024_RIR_metaregression; @Refalo2023_proximityFatigue]; see [[dec:D07]] and [[rule:rir-calibration]]."
+    },
+    {
+      "id": "rpe",
+      "term": "Rating of perceived exertion (RPE)",
+      "aliases": [
+        "RPE",
+        "Borg scale",
+        "RIR-based RPE",
+        "perceived exertion"
+      ],
+      "definition": "A self-rating of how hard exercise feels. For aerobic work the Borg scales (6-20 or 0-10) rate whole-body effort and track physiological strain only moderately well, with weighted validity coefficients of about 0.6 against heart rate, blood lactate and %VO₂max [@Chen2002_RPEvalidityMA]. For lifting, the RPE you log in Hevy is the RIR-based 1-10 version, in which RPE = 10 minus [[term:rir|RIR]], so RPE 8 means you could have done 2 more repetitions (practical convention)."
+    },
+    {
+      "id": "1rm",
+      "term": "One-repetition maximum (1RM)",
+      "aliases": [
+        "1RM",
+        "one-rep max",
+        "one repetition maximum",
+        "%1RM"
+      ],
+      "definition": "The heaviest load you can lift once, through the full range and with acceptable technique, on a given exercise. It is the standard measure of maximal dynamic strength, and training loads are often expressed as a percentage of it (%1RM). Testing a true 1RM alone carries risk and adds little for a novice, so this programme tracks strength through [[term:e1rm|estimated 1RM]] from ordinary sets instead (practical convention); see [[tool:e1rm]]."
+    },
+    {
+      "id": "e1rm",
+      "term": "Estimated 1RM (e1RM)",
+      "aliases": [
+        "e1RM",
+        "estimated one-rep max",
+        "predicted 1RM",
+        "Epley",
+        "Brzycki"
+      ],
+      "definition": "A prediction of your [[term:1rm|1RM]] from a submaximal set, calculated from the load and the repetitions completed (plus [[term:rir|RIR]], if counted) with an equation such as Epley's or Brzycki's. Predictions are most accurate from sets of about 10 repetitions or fewer, and each equation tends to over- or under-predict systematically, so treat e1RM as a trend line rather than a true maximum [@Reynolds2006_1RMprediction; @Mayhew1995_trainingLevels]. The programme uses it to compare strength across sets with different loads and rep counts; see [[tool:e1rm]]."
+    },
+    {
+      "id": "hypertrophy",
+      "term": "Hypertrophy",
+      "aliases": [
+        "muscle hypertrophy",
+        "muscle growth"
+      ],
+      "definition": "An increase in muscle size, mainly through growth in the cross-sectional area of existing fibres as myofibrillar and other proteins accumulate. Early increases in measured muscle size partly reflect swelling (oedema) from muscle damage, and true contractile growth probably begins around weeks 3-4 of training [@Damas2016_EJAP_oedema; @DeFreitas2011_timeCourse]. Low loads (60% 1RM or less) and high loads produced similar hypertrophy when sets were taken to failure [@Schoenfeld2017_load_meta], which is why this programme prescribes effort ([[term:rir|RIR]]) rather than one fixed hypertrophy load; see [[sci:sci-hypertrophy]]."
+    },
+    {
+      "id": "mps",
+      "term": "Muscle protein synthesis (MPS)",
+      "aliases": [
+        "MPS",
+        "MyoPS",
+        "myofibrillar protein synthesis",
+        "fractional synthetic rate",
+        "FSR"
+      ],
+      "definition": "The rate at which new protein is built into skeletal muscle, usually measured as a fractional synthetic rate (%/h or %/day) from stable-isotope tracer incorporation; myofibrillar protein synthesis (MyoPS) is the contractile fraction. After a hard resistance session in eight untrained adults, mixed-muscle synthesis was about 112% above rest at 3 h, 65% at 24 h and 34% at 48 h [@Phillips1997_MPS_untrained], although in the first weeks much of this synthesis goes to repairing damage, and it tracks later growth only once damage subsides [@Damas2016_JPhysiol_MyoPS]. Muscle is gained when repeated rises in MPS, supported by dietary protein, exceed [[term:mpb|muscle protein breakdown]] over weeks; see [[sci:sci-protein]]."
+    },
+    {
+      "id": "mpb",
+      "term": "Muscle protein breakdown (MPB)",
+      "aliases": [
+        "MPB",
+        "muscle proteolysis",
+        "net protein balance"
+      ],
+      "definition": "The rate at which muscle proteins are degraded, mainly through the ubiquitin-proteasome system, the autophagy-lysosome pathway and calpains. Resistance exercise raises breakdown as well as synthesis (by about 31% at 3 h in untrained adults), so in the fasted state net protein balance stays negative and eating is needed for net gain [@Phillips1997_MPS_untrained]. Net balance ([[term:mps|MPS]] minus MPB), summed over days and weeks, decides whether muscle is gained or lost."
+    },
+    {
+      "id": "mtorc1",
+      "term": "mTORC1",
+      "aliases": [
+        "mechanistic target of rapamycin complex 1",
+        "mTOR"
+      ],
+      "definition": "The mechanistic target of rapamycin complex 1, the Raptor-containing kinase complex that integrates amino-acid, energy and growth-factor signals and drives translation initiation and ribosome biogenesis through S6K1 and 4E-BP1. In skeletal muscle, mechanical loading activates it, and mTORC1-driven increases in [[term:mps|MPS]] are considered the key, though not the only, route from resistance exercise to [[term:hypertrophy|hypertrophy]] [@Wackerhage2019_stimuli_sensors]. [[term:leucine|Leucine]] is a direct amino-acid input to this complex, which is part of why protein dose and quality matter (mechanistic reasoning)."
+    },
+    {
+      "id": "mechanotransduction",
+      "term": "Mechanotransduction",
+      "aliases": [
+        "mechanosensing",
+        "mechanical tension",
+        "mechanical signalling"
+      ],
+      "definition": "The conversion of mechanical force into biochemical signals. In muscle, tension is thought to be sensed at costameres, by the filamin-C/BAG3 chaperone-assisted pathway and through deformation of the nucleus, which in turn activate [[term:mtorc1|mTORC1]], Hippo and other pathways that start the growth response; the exact sensors in human muscle are still unresolved [@Wackerhage2019_stimuli_sensors]. This is the mechanistic basis for prescribing sets that put high tension on the target muscle, rather than chasing sweat or fatigue for its own sake (inference)."
+    },
+    {
+      "id": "satellite-cells",
+      "term": "Satellite cells",
+      "aliases": [
+        "muscle stem cells",
+        "Pax7+ cells"
+      ],
+      "definition": "Muscle-resident stem cells (Pax7-positive) that sit between the fibre membrane and the basal lamina; when activated they proliferate and fuse with fibres, repairing them or donating new nuclei. In one training study, the people with the greatest fibre growth (about 58%) had more satellite cells at baseline, expanded them by 117% and added the most myonuclei, while non-responders grew little [@Petrella2008_satellite_cells]. They are part of the explanation for why individuals differ so much in how much muscle they gain from the same programme."
+    },
+    {
+      "id": "myonuclear-domain",
+      "term": "Myonuclear domain",
+      "aliases": [
+        "myonuclear domain size",
+        "myonuclei",
+        "muscle memory"
+      ],
+      "definition": "The volume (or cross-sectional area) of cytoplasm served by each nucleus in a multinucleated muscle fibre. As fibres grow, nuclei are added from [[term:satellite-cells|satellite cells]], and a meta-analysis found myonuclei were added even with fibre growth of 10% or less, which challenges the idea of a fixed domain ceiling [@Conceicao2018_myonuclearAddition]. Whether added nuclei are kept during [[term:detraining|detraining]], giving a muscle memory that speeds regrowth, is supported by one human study [@Cumming2024_myonuclearPermanence] and not by others [@Psilander2019_muscleMemory; @Rahmati2022_myonuclearMeta]."
+    },
+    {
+      "id": "motor-unit",
+      "term": "Motor unit",
+      "aliases": [
+        "motor units",
+        "MU",
+        "rate coding",
+        "motor unit recruitment"
+      ],
+      "definition": "One alpha motor neuron together with all the muscle fibres it innervates; it is the smallest unit of force the nervous system can switch on. Force is graded by recruiting more motor units and by raising their discharge (firing) rate, which is called rate coding. A fibre adapts to training only if its motor unit is recruited, so how hard a set is, not just the weight on the bar, determines how much of a muscle it trains (mechanistic reasoning)."
+    },
+    {
+      "id": "size-principle",
+      "term": "Size principle (Henneman)",
+      "aliases": [
+        "Henneman's size principle",
+        "orderly recruitment"
+      ],
+      "definition": "Motor units are recruited in a fixed order as force demand rises, from small, low-threshold units with slow, fatigue-resistant fibres to large, high-threshold units with fast, forceful fibres. With a light load the largest units are brought in mainly as earlier ones fatigue, so light sets must end close to failure to train them: sets to failure with light or heavy loads depleted glycogen similarly in type I and type II fibres [@Morton2019_fibre_activation], whereas light-load sets stopped well short of failure produced little growth [@Lasevicius2022_failure_by_load]. This is why effort targets matter more as loads get lighter (inference)."
+    },
+    {
+      "id": "neural-adaptation",
+      "term": "Neural adaptation",
+      "aliases": [
+        "neural adaptations",
+        "neuromuscular adaptation",
+        "motor learning"
+      ],
+      "definition": "Changes in how the nervous system drives muscle, including recruiting [[term:motor-unit|motor units]] at lower force thresholds, higher discharge rates, better coordination between muscles and simply learning the movement. These changes explain most of the strength gained in the first weeks of training, before [[term:hypertrophy|hypertrophy]] contributes much [@MoritaniDeVries1979_neuralVsHypertrophy; @DelVecchio2019_motorUnits; @Skarabot2021_neural_review]. Expect your loads to rise quickly in [[phase:p1|Phase 1]] before your muscles look different; see [[sci:sci-strength]]."
+    },
+    {
+      "id": "hard-sets",
+      "term": "Hard sets (training volume)",
+      "aliases": [
+        "hard set",
+        "working set",
+        "effective set",
+        "weekly sets",
+        "training volume"
+      ],
+      "definition": "A working set taken close enough to failure to be a real growth stimulus, by common convention ending within about 4 [[term:rir|RIR]] or closer; warm-up and [[term:ramp-up-sets|ramp-up sets]] do not count (practical convention). Counting hard sets per muscle per week is the standard way to measure hypertrophy volume: in a large dose-response meta-regression, both hypertrophy and strength rose with weekly sets, but with diminishing returns [@Pelland2025_volume_frequency]. Weekly hard sets per muscle is the volume number this programme sets and ramps; see [[dec:D06]]."
+    },
+    {
+      "id": "fractional-sets",
+      "term": "Fractional set counting",
+      "aliases": [
+        "fractional sets",
+        "direct and indirect sets",
+        "indirect volume"
+      ],
+      "definition": "A way of counting volume in which a set counts as 1 for the muscles it trains directly and as 0.5 for muscles that contribute indirectly; a row, for example, counts as half a set for the biceps. In a large dose-response meta-regression, counting indirect sets as 0.5 fitted the data best [@Pelland2025_volume_frequency], and in one trial rows grew the elbow flexors roughly half as much as curls did [@Mannarino2021_curl_vs_row]. It stops compound lifts from inflating, or being left out of, the weekly set count for their secondary muscles; see [[dec:D06]]."
+    },
+    {
+      "id": "training-frequency",
+      "term": "Training frequency",
+      "aliases": [
+        "frequency",
+        "sessions per week",
+        "sessions per muscle per week"
+      ],
+      "definition": "How many times per week a muscle, or a lift, is trained. When weekly volume is the same, training a muscle more often does not produce clearly more hypertrophy [@Schoenfeld2019_frequency_hypertrophy], and the strength advantage of higher frequency also disappears [@Grgic2018_frequency_strength]. Frequency is therefore mainly a way to divide weekly volume into sessions short and fresh enough to do well, which is how this programme uses it; see [[dec:D05]]."
+    },
+    {
+      "id": "momentary-failure",
+      "term": "Momentary (muscular) failure",
+      "aliases": [
+        "failure",
+        "muscular failure",
+        "concentric failure",
+        "task failure",
+        "0 RIR"
+      ],
+      "definition": "The point in a set at which, despite maximal effort, you cannot complete the lifting (concentric) phase of another repetition with the intended technique, that is 0 [[term:rir|RIR]]. In trained people, sets taken to failure grew the quadriceps no more than sets stopped 1-2 repetitions short, but caused more acute fatigue and more discomfort [@Refalo2024_FAILvsRIRhypertrophy; @Refalo2023_proximityFatigue; @Refalo2025_proximityPerceptual]. Training alone, failure on lifts such as the barbell squat or bench press is a safety problem, so it is reserved for exercises that can fail safely (practical convention); see [[dec:D07]]."
+    },
+    {
+      "id": "progressive-overload",
+      "term": "Progressive overload",
+      "aliases": [
+        "overload",
+        "progression"
+      ],
+      "definition": "Gradually increasing what you ask of a muscle (load, repetitions, sets or exercise difficulty) as it adapts, so the training stays challenging. Adding repetitions at a fixed load and adding load at fixed repetitions produced similar muscle and strength gains over 8 weeks in one trial [@Plotkin2022_loadVsRepProgression], so either can drive progress. In this programme overload is applied through [[term:double-progression|double progression]]; see [[sci:sci-progression]]."
+    },
+    {
+      "id": "double-progression",
+      "term": "Double progression",
+      "aliases": [
+        "double-progression model",
+        "rep-range progression"
+      ],
+      "definition": "A progression method built on a repetition range, for example 8-12: you keep the same load and add repetitions from session to session until every set reaches the top of the range at the target effort, then increase the load and start again near the bottom. It applies [[term:progressive-overload|progressive overload]] without percentages or testing, which suits a novice training alone (practical convention); a similar rule (add load when you exceed the target by 1-2 repetitions) appears in the ACSM progression guidance [@ACSM2009_progression_models]. It is the default progression rule here; see [[rule:double-progression]] and [[tool:progression]]."
+    },
+    {
+      "id": "periodisation",
+      "term": "Periodisation",
+      "aliases": [
+        "periodization",
+        "linear periodisation",
+        "undulating periodisation",
+        "DUP",
+        "block periodisation"
+      ],
+      "definition": "Planned, systematic variation of training variables (load, volume, exercise selection, emphasis) over weeks or months; common models are linear, undulating (load and repetitions change from session to session) and block periodisation. With volume equated, periodised programmes gave slightly larger 1RM gains than non-periodised ones (effect size 0.31) but no difference in hypertrophy [@Moesgaard2022_periodization]. [[phase:p1|Phase 1]] therefore uses no formal periodisation, only [[term:double-progression|double progression]]; see [[dec:D09]] and, for later blocks, [[dec:D16]]."
+    },
+    {
+      "id": "deload",
+      "term": "Deload",
+      "aliases": [
+        "deload week",
+        "recovery week"
+      ],
+      "definition": "A planned short period of reduced training stress, usually lower volume, load or effort for about a week, meant to shed accumulated fatigue and restore readiness to train; this definition comes from expert consensus, not outcome data [@Bell2023_deloadDelphi]. In one trial, a week off after 4 weeks of hard training left muscle-thickness gains no different from training straight through [@Coleman2024_deloadRCT]. See [[rule:deload]] for when this programme uses one."
+    },
+    {
+      "id": "detraining",
+      "term": "Detraining",
+      "aliases": [
+        "training cessation",
+        "breaks from training",
+        "maintenance dose"
+      ],
+      "definition": "The partial loss of training adaptations when training stops or is cut back too far. In a meta-analysis, stopping resistance training reduced maximal force (SMD -0.46) and submaximal strength (SMD -0.62), with larger losses the longer the break [@Bosquet2013_detrainingMeta], yet over 6 months muscle growth was similar whether training was continuous or interrupted by 3-week breaks [@Ogasawara2013_periodicVsContinuous]. A much smaller dose, about one-third of the original, preserved muscle size in young adults [@Bickel2011_maintenanceDose]; see [[rule:breaks]] and [[tool:breaks]]."
+    },
+    {
+      "id": "rom",
+      "term": "Range of motion (ROM)",
+      "aliases": [
+        "ROM",
+        "full range of motion",
+        "partial range of motion",
+        "partials"
+      ],
+      "definition": "The arc through which a joint, or an exercise, moves; full ROM in a lift means moving from the muscle's longest to its shortest working position, while partials cover only part of that arc. Across studies, full ROM gave slightly better strength and hypertrophy than partial ROM overall, but the differences were trivial to small (SMD about 0.05-0.2) [@Wolf2023_partialFullMeta], and partials done at long muscle lengths can match or beat full ROM (see [[term:lengthened-partials|lengthened partials]]). ROM also means joint flexibility, as in your toe-touch limitation; see [[sci:sci-selection]] and [[dec:D27]]."
+    },
+    {
+      "id": "lengthened-partials",
+      "term": "Lengthened partials",
+      "aliases": [
+        "long-length partials",
+        "stretched-position partials",
+        "LPs"
+      ],
+      "definition": "Repetitions performed only through the part of the range where the target muscle is longest (most stretched), for example the bottom half of a calf raise. Some trials found greater growth than with full [[term:rom|ROM]], such as medial gastrocnemius +15.2% versus +6.7% [@Kassiano2023_calfLP; @Pedrosa2022_kneeExtLP], while others in trained people found similar results [@Wolf2025_LPupperPeerJ; @Plotkin2026_LPvsFullMSSE]. They are an option for extending a set or for exercises where the stretched position is the useful part, not a replacement for learning full-range technique (practical convention)."
+    },
+    {
+      "id": "concentric",
+      "term": "Concentric contraction",
+      "aliases": [
+        "concentric",
+        "concentric phase",
+        "positive",
+        "lifting phase"
+      ],
+      "definition": "A muscle action in which the muscle shortens while producing force, as when the weight goes up in a curl. It is the phase in which [[term:momentary-failure|failure]] occurs, because muscles can produce less force while shortening than while lengthening or holding. Eccentric-only and concentric-only training produced statistically similar hypertrophy in a meta-analysis, with very low certainty [@daSilva2025_ecc_vs_con], so normal repetitions that include both phases are used throughout."
+    },
+    {
+      "id": "eccentric",
+      "term": "Eccentric contraction",
+      "aliases": [
+        "eccentric",
+        "eccentric phase",
+        "negative",
+        "lowering phase",
+        "lengthening contraction"
+      ],
+      "definition": "A muscle action in which the muscle lengthens while producing force, as when you lower a weight under control. Muscles are strongest eccentrically, and unaccustomed eccentric work is the main cause of [[term:doms|DOMS]]; one damaging bout protected against damage from a repeat bout for 6-9 months [@Nosaka2001_RBE_duration]. Controlling the lowering is part of good technique, but a deliberately slow eccentric is not needed for growth: shorter and longer eccentric phases produced similar hypertrophy [@Amdi2025_eccentric_duration]."
+    },
+    {
+      "id": "isometric",
+      "term": "Isometric contraction",
+      "aliases": [
+        "isometric",
+        "isometric hold",
+        "static contraction"
+      ],
+      "definition": "A muscle action in which the muscle produces force without changing length, as in a plank, a [[term:bracing|brace]] or a pause at the bottom of a squat. In this programme isometric holds are used mainly for trunk endurance and balance work, for example [[ex:plank]], [[ex:side-plank]] and [[ex:bal-sls]]. Your 60 s plank baseline is an isometric endurance measure ([[ex:test-plank]])."
+    },
+    {
+      "id": "tempo",
+      "term": "Tempo",
+      "aliases": [
+        "repetition tempo",
+        "repetition duration",
+        "rep speed",
+        "cadence"
+      ],
+      "definition": "The speed of each phase of a repetition, often written as four numbers in seconds, for example 3-1-1-0 for lowering, pause at the bottom, lifting and pause at the top. Hypertrophy was similar across total repetition durations of about 0.5 to 8 s when sets went to failure, while very slow repetitions (over 10 s) appeared inferior [@Schoenfeld2015_rep_duration]. In practice a controlled lowering and a smooth, deliberate lift are enough, and exact tempo counts matter far less than effort and load (practical convention); see [[sci:sci-dose]]."
+    },
+    {
+      "id": "superset",
+      "term": "Superset",
+      "aliases": [
+        "supersets",
+        "paired sets",
+        "antagonist superset"
+      ],
+      "definition": "Two exercises performed back to back with little or no rest between them, followed by rest after the pair; usually the exercises train different or opposing muscles, such as a row paired with a press. Supersets matched traditional sets for repetitions and volume load in less time [@Zhang2025_superset_meta], although in one 10-week trial traditional sets gave slightly larger strength gains on pulling exercises [@Iversen2024_superset_RCT]. They are a tool for saving time when a session runs long (practical convention); see [[sci:sci-dose]]."
+    },
+    {
+      "id": "compound-exercise",
+      "term": "Compound (multi-joint) exercise",
+      "aliases": [
+        "compound exercise",
+        "compound lift",
+        "multi-joint exercise"
+      ],
+      "definition": "An exercise that moves two or more joints and trains several muscle groups at once, such as a squat, leg press, row, pull-up or press. Compound lifts train a lot of muscle with heavy loads in little time, and time-efficient programmes are built around at least one leg press or squat, one upper-body push and one upper-body pull [@Iversen2021_time_efficient]. They are the backbone of most resistance programmes, including this one; see [[dec:D08]]."
+    },
+    {
+      "id": "isolation-exercise",
+      "term": "Isolation (single-joint) exercise",
+      "aliases": [
+        "isolation exercise",
+        "single-joint exercise",
+        "accessory exercise"
+      ],
+      "definition": "An exercise that moves essentially one joint and targets one muscle group, such as a curl, leg extension or lateral raise. Isolation work fills gaps that compound lifts leave: in one small trial, curls grew the elbow flexors about twice as much as rows did (11.1% versus 5.2%) [@Mannarino2021_curl_vs_row]. In this programme it is used for muscles that matter for the aesthetic goal but get little direct work from compound lifts, such as the side delts and arms (practical convention)."
+    },
+    {
+      "id": "unilateral",
+      "term": "Unilateral exercise",
+      "aliases": [
+        "unilateral",
+        "single-limb exercise",
+        "single-leg",
+        "single-arm",
+        "bilateral"
+      ],
+      "definition": "An exercise in which one limb works at a time, such as a split squat, single-leg Romanian deadlift or one-arm row; bilateral exercises use both limbs together. Unilateral and bilateral training appear to build similar muscle, although the estimate is very imprecise [@Kassiano2025_uniVsBiMeta], and unilateral training improves single-limb strength and jumping more [@Xin2026_uniVsBiMultilevel]. In this programme unilateral work also addresses your balance asymmetry, so you always start with the weaker left side; see [[dec:D28]]."
+    },
+    {
+      "id": "bracing",
+      "term": "Bracing",
+      "aliases": [
+        "brace",
+        "core bracing",
+        "trunk bracing",
+        "intra-abdominal pressure"
+      ],
+      "definition": "Deliberately stiffening the trunk before and during a lift: you take a breath into the belly and tighten the abdominal and back muscles all round, as if about to be poked in the stomach, which raises intra-abdominal pressure and helps hold the spine in position under load (practical convention). For most sets a moderate brace with continued breathing is enough, and a brief breath-hold ([[term:valsalva|Valsalva manoeuvre]]) is kept for the heaviest repetitions (practical convention). See [[sci:sci-safety]]."
+    },
+    {
+      "id": "valsalva",
+      "term": "Valsalva manoeuvre",
+      "aliases": [
+        "Valsalva",
+        "Valsalva maneuver",
+        "breath-hold"
+      ],
+      "definition": "Forcefully trying to breathe out against a closed glottis, which raises pressure in the chest and abdomen; lifters use a brief version to stiffen the trunk for heavy repetitions. It sharply raises blood pressure: during leg presses to failure in five experienced bodybuilders, mean peak arterial pressure reached 320/250 mmHg [@MacDougall1985_BPheavyLifting]. Keep breath-holds to one or two repetitions, avoid them if you have high blood pressure, and stop the set if you feel dizzy or your vision dims (practical convention); see [[sci:sci-safety]]."
+    },
+    {
+      "id": "doms",
+      "term": "Delayed-onset muscle soreness (DOMS)",
+      "aliases": [
+        "DOMS",
+        "muscle soreness",
+        "delayed onset muscle soreness"
+      ],
+      "definition": "The dull ache and tenderness that appear hours after unaccustomed or eccentric-heavy exercise, typically peak at 1-3 days and fade within about a week. It is classed as an overexertion-related functional muscle disorder without a structural tear [@MuellerWohlfahrt2013_Munich_consensus], and in rats soreness developed even when the contractions caused no measurable damage, with bradykinin B2-receptor signalling implicated [@Mizumura2024_DOMS_neurochemistry]. Expect soreness in the first weeks and whenever an exercise is new; it fades with repetition and is not a measure of how effective a session was (practical convention); see [[sci:sci-recovery]]."
+    },
+    {
+      "id": "repeated-bout-effect",
+      "term": "Repeated-bout effect",
+      "aliases": [
+        "RBE",
+        "repeated bout effect"
+      ],
+      "definition": "The protection against muscle damage and soreness that follows a first bout of unaccustomed, especially [[term:eccentric|eccentric]], exercise: repeating the bout causes less soreness, swelling and strength loss. After a single bout, protection was still present at 6 months, faster strength recovery persisted at 9 months, and none remained at 12 months [@Nosaka2001_RBE_duration]; proposed mechanisms include neural adaptation, altered muscle mechanics, extracellular-matrix remodelling and biochemical signalling [@Hyldahl2017_repeated_bout_effect]. It is why soreness is worst in your first weeks and after adding a new exercise, and why new exercises start at lower effort (practical convention)."
+    },
+    {
+      "id": "ramp-up-sets",
+      "term": "Ramp-up (warm-up) sets",
+      "aliases": [
+        "ramp-up sets",
+        "warm-up sets",
+        "specific warm-up",
+        "feeder sets"
+      ],
+      "definition": "Lighter sets of the exercise you are about to do, with progressively heavier loads and few repetitions, performed before the working sets to rehearse technique and prepare the muscles and joints; they do not count as [[term:hard-sets|hard sets]]. In one study, a specific warm-up of 8 repetitions at about 50% and 3 at about 70% of estimated 1RM was used, and adding 20 min of easy cycling before it raised leg-press 1RM by a further 8.4% [@Abad2011_general_specific_warmup]. See [[rule:ramp-up]] and [[tool:warmup]] for the scheme used here."
+    },
+    {
+      "id": "safety-arms",
+      "term": "Safety arms (spotter arms)",
+      "aliases": [
+        "safety arms",
+        "spotter arms",
+        "safety pins",
+        "safety straps",
+        "power rack"
+      ],
+      "definition": "Adjustable horizontal bars or straps on a power rack or squat stand, set just below the lowest point of the lift, so that if you fail a repetition you can lower the bar onto them instead of being trapped under it. They are what make barbell squats and bench presses reasonable to train alone, provided they are set at the right height and tested with an empty bar first (practical convention); see [[dec:D15]]."
+    },
+    {
+      "id": "hip-hinge",
+      "term": "Hip hinge",
+      "aliases": [
+        "hinge",
+        "hinge pattern",
+        "hip-dominant movement"
+      ],
+      "definition": "A movement pattern in which you bend mainly at the hips, pushing them back while the spine stays neutral and the knees stay slightly bent, so the hamstrings and glutes lengthen under load. It is the basis of the Romanian deadlift, the [[ex:back-extension|45-degree back extension]] and the [[ex:kb-swing|kettlebell swing]], and is usually learned first with a dowel along the back (practical convention). Loaded hinging may also help your toe-touch limitation, since resistance training through a full range improved flexibility about as much as stretching in a meta-analysis [@Alizadeh2023_RT_ROM]; see [[ex:db-rdl]] and [[dec:D27]]."
+    },
+    {
+      "id": "vo2max",
+      "term": "VO₂max",
+      "aliases": [
+        "VO2max",
+        "VO2peak",
+        "maximal oxygen uptake",
+        "aerobic capacity",
+        "cardiorespiratory fitness",
+        "CRF"
+      ],
+      "definition": "The maximal rate at which your body can take up and use oxygen during whole-body exercise, usually expressed in mL of oxygen per kg of body mass per minute (mL/kg/min); it is the standard measure of cardiorespiratory fitness. By the [[term:fick-principle|Fick principle]] it equals maximal cardiac output multiplied by the maximal arterial-venous oxygen difference. Higher fitness is strongly associated with lower mortality, about 13% lower all-cause risk per 1-[[term:met|MET]] increment [@Kodama2009_CRFmortalityMA], which is why VO₂max is a programme priority; see [[sci:sci-aerobic]]."
+    },
+    {
+      "id": "mict",
+      "term": "Moderate-intensity continuous training (MICT)",
+      "aliases": [
+        "MICT",
+        "steady-state cardio",
+        "continuous training",
+        "LISS"
+      ],
+      "definition": "Steady aerobic exercise held at one moderate intensity, such as 20-60 min of brisk walking, cycling or easy running at a pace where you can still talk in full sentences. Compared with [[term:hiit|HIIT]] it produced slightly smaller VO₂max gains (about 1.4 mL/kg/min less, low certainty) [@Strauss2026_CochraneHIIT] but similar gains in muscle mitochondrial content [@Molmen2024_mitoCapillaryMetaRegression], and it is easy to recover from alongside lifting (inference). The steady sessions in this programme are MICT; see [[ex:cardio-steady]] and [[dec:D11]]."
+    },
+    {
+      "id": "hiit",
+      "term": "High-intensity interval training (HIIT)",
+      "aliases": [
+        "HIIT",
+        "HIT",
+        "aerobic intervals",
+        "4 x 4",
+        "interval training"
+      ],
+      "definition": "Repeated hard but submaximal work bouts, typically 1-4 min at about 85-95% of [[term:hrmax|HRmax]], separated by easy recovery. In sedentary adults HIIT raised VO₂max by about 6 mL/kg/min versus no exercise, and by about 1.4 mL/kg/min more than [[term:mict|MICT]] (low certainty) [@Strauss2026_CochraneHIIT]; the 4 x 4-min format at 90-95% HRmax with 3-min active recoveries raised VO₂max by 7.2% in 8 weeks in moderately trained men [@Helgerud2007_4x4RCT]. It is the programme's main tool for raising VO₂max; see [[ex:cardio-int-4x4]] and [[dec:D13]]."
+    },
+    {
+      "id": "sit",
+      "term": "Sprint interval training (SIT)",
+      "aliases": [
+        "SIT",
+        "sprint intervals",
+        "all-out sprints"
+      ],
+      "definition": "Very short all-out or supramaximal efforts, typically 10-30 s, separated by several minutes of easy recovery. SIT improved aerobic capacity by about 3.6 mL/kg/min (about 8%), similar to continuous training in far less time [@Gist2014_SITmeta], but 4 x 4-min intervals improved VO₂max more in direct comparisons, and all-out treadmill sprints caused 8 training injuries in one trial versus none with longer intervals [@Hov2022_HIITvsSIT_RCT; @Helgerud2023_HIITvsSIT_femaleRCT]. In this programme sprints are done on a bike, where that injury risk is probably far lower (inference); see [[ex:cardio-sprint]]."
+    },
+    {
+      "id": "ventilatory-threshold",
+      "term": "Ventilatory threshold (VT1)",
+      "aliases": [
+        "VT1",
+        "first ventilatory threshold",
+        "aerobic threshold",
+        "ventilatory threshold"
+      ],
+      "definition": "The exercise intensity at which breathing first rises out of proportion to oxygen uptake, because extra CO₂ released when bicarbonate buffers the protons accompanying lactate accumulation starts to drive ventilation; it sits close to the [[term:lactate-threshold|lactate threshold]]. It marks the upper edge of comfortable, conversational exercise, and the last stage at which speech is still comfortable on the [[term:talk-test|talk test]] matched VT1 for workload, VO₂ and heart rate, mostly in studies of heart patients [@Vieira2022_talkTestSR]. Without lab testing, the talk test is how you find it (practical convention)."
+    },
+    {
+      "id": "lactate-threshold",
+      "term": "Lactate threshold",
+      "aliases": [
+        "LT",
+        "LT1",
+        "anaerobic threshold",
+        "blood lactate threshold"
+      ],
+      "definition": "The exercise intensity at which blood lactate first rises clearly above resting levels, because lactate production by working muscle starts to outpace its oxidation and clearance elsewhere; lactate is a shuttled fuel, not a waste product, and the threshold marks a shift toward greater glycolytic flux and fast-fibre recruitment. In lab tests it corresponded to a Borg rating of about 11 (light) on the 6-20 scale [@Scherr2013_RPE]. It sits close to [[term:ventilatory-threshold|VT1]], so the [[term:talk-test|talk test]] is a usable proxy for both (practical convention)."
+    },
+    {
+      "id": "talk-test",
+      "term": "Talk test",
+      "aliases": [
+        "talk-test",
+        "conversational pace"
+      ],
+      "definition": "A field method for gauging aerobic intensity by speaking: if you can talk comfortably in full sentences you are below the first ventilatory threshold, when speech first becomes difficult you are around it, and when you can manage only a few words you are above it. The point at which speech first became difficult fell at almost the same intensity as the ventilatory threshold in lab tests [@Persinger2004_talkTest], and the method works across walking, cycling and other modes but is impractical during hard intervals [@ReedPipe2014_talkTestReview]. It is the main way you set steady-session intensity without a heart-rate monitor; see [[dec:D11]]."
+    },
+    {
+      "id": "hrmax",
+      "term": "Maximum heart rate (HRmax)",
+      "aliases": [
+        "HRmax",
+        "maximal heart rate",
+        "max heart rate",
+        "220 minus age",
+        "Tanaka formula"
+      ],
+      "definition": "The highest heart rate you can reach during maximal exertion. Age-based equations give only a rough guide: Tanaka's 208 - 0.7 x age gives about 186 bpm for a 31-year-old [@Tanaka2001_HRmax], but about 95% of people lie within roughly 21 bpm either side of any equation's estimate [@Nes2013_HUNT_HRmax]. This is why the programme sets intensity mainly with the [[term:talk-test|talk test]] and [[term:rpe|RPE]] rather than with percentages of a predicted HRmax (practical convention)."
+    },
+    {
+      "id": "hrr",
+      "term": "Heart-rate reserve (HRR)",
+      "aliases": [
+        "HRR",
+        "heart rate reserve",
+        "Karvonen method"
+      ],
+      "definition": "The difference between maximal and resting heart rate (HRmax minus resting heart rate). In the Karvonen method, a target heart rate is set as resting heart rate plus a chosen percentage of HRR, which allows for differences in resting heart rate better than a plain percentage of [[term:hrmax|HRmax]] (practical convention). Because your HRmax is only estimated, an HRR-based target carries the same uncertainty; your resting heart rate is tracked separately as a fitness marker ([[ex:test-rhr]])."
+    },
+    {
+      "id": "zone-2",
+      "term": "Zone 2",
+      "aliases": [
+        "zone 2 training",
+        "Z2"
+      ],
+      "definition": "A training intensity just below the first lactate or [[term:ventilatory-threshold|ventilatory threshold]], done continuously or in long bouts; the definition comes from expert consensus [@Sitko2025_zone2Consensus]. Its popularity rests largely on observational data from elite athletes training very high volumes, and training studies do not show it to be optimal for mitochondrial or cardiorespiratory gains when weekly time is limited [@Storoschuk2025_zone2Review]; common markers such as fixed percentages of HRmax also disagree widely between individuals [@Meixner2025_zone2MarkerVariability]. Your easy conversational sessions roughly correspond to zone 2, but they are not treated as special (inference); see [[sci:sci-aerobic]]."
+    },
+    {
+      "id": "concurrent-training",
+      "term": "Concurrent training",
+      "aliases": [
+        "concurrent training",
+        "combined training",
+        "hybrid training"
+      ],
+      "definition": "Doing resistance and aerobic training in the same programme, either in the same session or on different days. In a meta-analysis, adding aerobic training to strength training did not reduce hypertrophy (SMD -0.01) or maximal strength (SMD -0.06), but it did blunt explosive strength (SMD -0.28), mainly when both were done in the same session rather than at least 3 h apart [@Schumann2021_concurrentMA]. For your goals concurrent training is the plan, not a compromise; see [[sci:sci-concurrent]]."
+    },
+    {
+      "id": "interference-effect",
+      "term": "Interference effect",
+      "aliases": [
+        "interference",
+        "concurrent training interference"
+      ],
+      "definition": "The idea that aerobic training blunts the strength, power or hypertrophy gains from resistance training done alongside it. Mechanistically, endurance signalling such as [[term:ampk|AMPK]] activation could inhibit [[term:mtorc1|mTORC1]], but this has not been shown in acute human studies [@Fyfe2014_interferenceReview; @Apro2015_AMPKmTORC1]; in outcome data the effect is small and concentrated in explosive strength, and running blunted type I fibre growth whereas cycling did not [@Schumann2021_concurrentMA; @Lundberg2022_fiberMA]. The programme limits it by keeping aerobic volume moderate and separating hard intervals from leg training where possible (practical convention); see [[dec:D13]]."
+    },
+    {
+      "id": "ampk",
+      "term": "AMPK",
+      "aliases": [
+        "AMP-activated protein kinase"
+      ],
+      "definition": "AMP-activated protein kinase, the cell's energy sensor: it is activated when AMP:ATP and ADP:ATP ratios rise, as during sustained or intense contraction, and it switches on ATP-generating processes such as glucose uptake and fatty-acid oxidation and, over repeated sessions, [[term:mitochondrial-biogenesis|mitochondrial biogenesis]] through [[term:pgc1a|PGC-1α]]. It can inhibit [[term:mtorc1|mTORC1]] via TSC2 and Raptor phosphorylation, the molecular basis of the [[term:interference-effect|interference]] hypothesis, yet interval cycling that raised muscle AMPK activity by about 90% did not blunt S6K1 activation by a following resistance session [@Apro2015_AMPKmTORC1]."
+    },
+    {
+      "id": "pgc1a",
+      "term": "PGC-1α",
+      "aliases": [
+        "PGC-1alpha",
+        "PGC1a",
+        "peroxisome proliferator-activated receptor gamma coactivator 1-alpha"
+      ],
+      "definition": "Peroxisome proliferator-activated receptor gamma coactivator 1-alpha, a transcriptional coactivator (working with NRF1/2, ERRα and others) regarded as a master regulator of [[term:mitochondrial-biogenesis|mitochondrial biogenesis]]; contraction activates and induces it through [[term:ampk|AMPK]], p38 MAPK, CaMKII and related signals. Acute exercise raises nuclear PGC-1α protein and mRNA in an intensity-dependent way, but with training the protein plateaus within a few sessions and then tracks training volume [@Granata2018_PGC1aPrescription]. Acute signalling of this kind does not necessarily predict long-term adaptation [@Granata2018_mitoContentVsFunction]."
+    },
+    {
+      "id": "mitochondrial-biogenesis",
+      "term": "Mitochondrial biogenesis",
+      "aliases": [
+        "mitochondrial adaptation",
+        "mitochondrial content",
+        "mitochondrial density"
+      ],
+      "definition": "The growth of new mitochondrial mass and components within the existing mitochondrial network, coordinated between the nuclear and mitochondrial genomes through [[term:pgc1a|PGC-1α]], NRF1/2 and TFAM, which raises the muscle's capacity for oxidative ATP production. After adjustment for training dose, mitochondrial content rose similarly with continuous training (23%), [[term:hiit|HIIT]] (27%) and [[term:sit|SIT]] (27%), with SIT needing far less exercise time [@Molmen2024_mitoCapillaryMetaRegression]; training volume appears to govern content, whereas intensity matters more for respiratory function [@Granata2018_mitoContentVsFunction]. It is one of the peripheral adaptations behind better endurance (inference)."
+    },
+    {
+      "id": "stroke-volume",
+      "term": "Stroke volume",
+      "aliases": [
+        "SV",
+        "cardiac output",
+        "Q"
+      ],
+      "definition": "The volume of blood the left ventricle ejects per beat; cardiac output is stroke volume multiplied by heart rate. Maximal heart rate does not differ with habitual activity [@Tanaka2001_HRmax], so a larger maximal stroke volume, driven largely by expansion of plasma and red-cell volume, is the main central route to a higher [[term:vo2max|VO₂max]] [@Lundby2017_biologyVO2max]; longer aerobic intervals raised maximal stroke volume by about 14% in a meta-analysis [@Rosenblat2022_centralPeripheralMA]. This is the physiological reason the programme uses 4-min intervals rather than only short sprints (inference)."
+    },
+    {
+      "id": "fick-principle",
+      "term": "Fick principle",
+      "aliases": [
+        "Fick equation",
+        "arterial-venous oxygen difference",
+        "a-vO2 difference"
+      ],
+      "definition": "Oxygen uptake equals blood flow multiplied by the oxygen extracted from it: VO₂ = cardiac output x (arterial minus mixed-venous O₂ content). It splits [[term:vo2max|VO₂max]] into a central part (cardiac output, set by heart rate and [[term:stroke-volume|stroke volume]]) and a peripheral part (extraction, set by capillaries and mitochondria). In young men training for 12 weeks, 56% of the VO₂max gain came from higher maximal cardiac output and 44% from a wider arterial-venous O₂ difference, with the first 3 weeks relying mostly on extraction [@Murias2010_timeCourse]."
+    },
+    {
+      "id": "met",
+      "term": "MET (metabolic equivalent)",
+      "aliases": [
+        "MET",
+        "METs",
+        "metabolic equivalent",
+        "MET-hours",
+        "MET-minutes"
+      ],
+      "definition": "A unit of energy expenditure in which 1 MET is the resting rate, conventionally 3.5 mL O₂/kg/min or about 1 kcal/kg/h, so an activity rated 6 METs costs six times resting. Fitness can be expressed in METs too: each 1-MET higher maximal aerobic capacity, roughly 1 km/h faster running speed, was associated with 13% lower all-cause mortality [@Kodama2009_CRFmortalityMA]. MET-hours per week are used to summarise total activity in guidelines and research (see [[term:sedentary-time|sedentary time]])."
+    },
+    {
+      "id": "plyometrics",
+      "term": "Plyometrics",
+      "aliases": [
+        "plyometric training",
+        "plyos",
+        "jump training"
+      ],
+      "definition": "Jumping, hopping, bounding and throwing exercises that use the [[term:ssc|stretch-shortening cycle]]: a rapid eccentric loading immediately followed by an explosive concentric action. Plyometric training improved the [[term:rsi|reactive strength index]] (ES 0.54) and balance (ES 0.46) and produced small-to-moderate hypertrophy in meta-analyses [@RamirezCampillo2023_RSI; @Ramachandran2021_plyobalance; @Arntz2022_hypertrophy]. In this programme it starts with low-amplitude, low-volume drills such as [[ex:plyo-pogo]] and [[ex:plyo-box-jump]] (stepping down), progressing only as landing quality allows; see [[dec:D17]]."
+    },
+    {
+      "id": "ssc",
+      "term": "Stretch-shortening cycle",
+      "aliases": [
+        "SSC",
+        "stretch-shortening cycle",
+        "elastic recoil"
+      ],
+      "definition": "The sequence in which a pre-activated muscle-tendon unit is first stretched (eccentric) and then immediately shortens (concentric); it is the basic muscle action of running and jumping, with a strong stretch-reflex contribution, and exhaustive SSC exercise causes a second dip in function that is often lowest on day 2 [@Nicol2006_SSC]. Elastic energy stored in tendons during the stretch and returned during shortening makes the action more forceful and economical than a concentric action alone (mechanistic reasoning). Training it is the purpose of [[term:plyometrics|plyometrics]]."
+    },
+    {
+      "id": "rsi",
+      "term": "Reactive strength index",
+      "aliases": [
+        "RSI",
+        "reactive strength"
+      ],
+      "definition": "A measure of reactive, springy ability: jump height divided by ground-contact time, usually from a drop jump or repeated hops, so it rewards jumping high while spending little time on the ground. Plyometric training improved RSI moderately (ES 0.54, moderate certainty) [@RamirezCampillo2023_RSI]. It is not tested formally in this programme; the standing broad jump ([[ex:test-broad-jump]]) is the simpler power marker you use (practical convention)."
+    },
+    {
+      "id": "proprioception",
+      "term": "Proprioception",
+      "aliases": [
+        "proprioceptive training",
+        "balance training",
+        "kinaesthesia",
+        "position sense"
+      ],
+      "definition": "The sense of the position and movement of your body parts, from muscle spindles, Golgi tendon organs, joint and skin receptors; together with vision and the vestibular system it underlies balance. Balance (proprioceptive) training lowered sports-injury risk in a meta-analysis of trials (RR 0.55) [@Lauersen2014_injury_prevention], but its benefits are largely specific to the task practised (SMD 0.79 for the trained task, near zero for untrained tasks) [@Kummel2016_specificity]. This is why the programme trains single-leg balance directly, starting with your weaker left leg; see [[ex:bal-sls]] and [[dec:D28]]."
+    },
+    {
+      "id": "static-stretching",
+      "term": "Static stretching",
+      "aliases": [
+        "static stretch",
+        "passive stretching",
+        "hold stretches"
+      ],
+      "definition": "Holding a muscle in a lengthened position, usually for 15-60 s, either passively (gravity, a strap) or by actively holding the position. Done for 60 s or more per muscle immediately before exercise it reduced maximal performance by about 4.6%, whereas holds under 60 s cost about 1% [@Behm2016_acute_stretching]; done regularly it is one of the most effective ways to increase [[term:rom|range of motion]] [@Konrad2024_chronic_stretch_ROM]. This programme places static stretching where it does not blunt the session's main lifts; see [[dec:D10]] and [[dec:D27]]."
+    },
+    {
+      "id": "dynamic-stretching",
+      "term": "Dynamic stretching",
+      "aliases": [
+        "dynamic stretch",
+        "mobility drills",
+        "active stretching"
+      ],
+      "definition": "Moving a joint repeatedly and under control through its range, going a little further each time, as in leg swings or the world's greatest stretch, rather than holding a position. Immediately before performance it gave a small improvement on average (+1.3%), compared with -3.7% for static stretching [@Behm2016_acute_stretching], which is why it forms part of the warm-up here; see [[ex:wu-leg-swing-fb]] and [[tool:warmup]]. For long-term flexibility it was less effective than static or PNF stretching [@Konrad2024_chronic_stretch_ROM]."
+    },
+    {
+      "id": "pnf",
+      "term": "PNF stretching",
+      "aliases": [
+        "PNF",
+        "proprioceptive neuromuscular facilitation",
+        "contract-relax",
+        "hold-relax"
+      ],
+      "definition": "Proprioceptive neuromuscular facilitation stretching: a stretch combined with a contraction of the stretched muscle (contract-relax) or of its antagonist, for example pressing the leg into a strap for about 5 s, relaxing, then easing further into the hamstring stretch. Over weeks, PNF and static stretching produced larger [[term:rom|ROM]] gains than ballistic or dynamic stretching [@Konrad2024_chronic_stretch_ROM], though immediately afterwards performance fell by about 4.4%, much as with long static holds [@Behm2016_acute_stretching]. It is an option for your hamstrings with a strap; see [[ex:st-ham-supine]] and [[dec:D27]]."
+    },
+    {
+      "id": "stretch-tolerance",
+      "term": "Stretch tolerance",
+      "aliases": [
+        "sensory theory",
+        "tolerance to stretch"
+      ],
+      "definition": "Your willingness to accept the sensation of stretch, measured as the greatest stretch force or joint angle you will tolerate before stopping. Flexibility gains from 3-8 weeks of stretching come mostly from higher stretch tolerance, with trivial changes in muscle stiffness, architecture or tendon properties [@Weppler2010_sensory_theory; @Freitas2018_chronic_stretch_mechanics]. Your toe-touch limit will probably improve first through this sensory route (inference), and gains partly reverse within 2-6 weeks of stopping [@Konrad2025_detraining_ROM]; see [[dec:D27]]."
+    },
+    {
+      "id": "tdee",
+      "term": "Total daily energy expenditure (TDEE)",
+      "aliases": [
+        "TDEE",
+        "total energy expenditure",
+        "TEE",
+        "maintenance calories"
+      ],
+      "definition": "The energy you use in a day: [[term:ree|resting energy expenditure]] (the largest component for most people) plus the [[term:tef|thermic effect of food]] plus activity energy, which includes both exercise and [[term:neat|NEAT]]. It is measured in free-living people with doubly labelled water and can be estimated from equations, such as those of the US National Academies, that use age, height, weight and activity category [@NASEM2023_EER]. Your actual maintenance intake is best found from body-weight trends over 2-3 weeks rather than from any formula (practical convention); see [[tool:energy]] and [[sci:sci-energy]]."
+    },
+    {
+      "id": "ree",
+      "term": "Resting energy expenditure (REE/BMR)",
+      "aliases": [
+        "REE",
+        "BMR",
+        "RMR",
+        "basal metabolic rate",
+        "resting metabolic rate",
+        "Mifflin-St Jeor"
+      ],
+      "definition": "The energy your body uses at rest, awake and fasted, to keep organs and tissues running; basal metabolic rate (BMR) is the same idea measured under stricter conditions. It scales mainly with fat-free mass, and the Mifflin-St Jeor equation gives about 1,750 kcal/day at your starting size (77 kg, 181 cm, 31 years) [@Mifflin1990_REE]. Equations can be wrong by hundreds of kcal for an individual: all eight tested underestimated measured REE in a small study of 30 Indian male professional weightlifters, by 375-636 kcal/day [@Joseph2017_IndianWeightlifterREE], so treat any estimate as a starting point."
+    },
+    {
+      "id": "pal",
+      "term": "Physical activity level (PAL)",
+      "aliases": [
+        "PAL",
+        "activity factor",
+        "activity multiplier"
+      ],
+      "definition": "Total daily energy expenditure divided by resting (or basal) energy expenditure, a unitless index of how active your day is: a PAL of 1.5 means you use 1.5 times your resting expenditure. Energy-requirement equations such as those of the US National Academies use activity categories from inactive to very active, and even so their prediction error for an individual man is about 340 kcal/day [@NASEM2023_EER]. With a desk job plus regular training you will probably fall in a low-active to active band, which is why weight trends, not the category, set your intake (inference); see [[tool:energy]]."
+    },
+    {
+      "id": "tef",
+      "term": "Thermic effect of food (TEF)",
+      "aliases": [
+        "TEF",
+        "diet-induced thermogenesis",
+        "DIT",
+        "specific dynamic action"
+      ],
+      "definition": "The rise in energy expenditure after eating, from digesting, absorbing, processing and storing nutrients. It is conventionally estimated at about 10% of daily energy intake (practical convention) and is highest for protein, much of whose cost is protein synthesis and urea production (mechanistic reasoning). It is a minor part of [[term:tdee|TDEE]], and meal frequency had no clear effect on body composition when energy and protein intake were equal [@Schoenfeld2015_mealFreq], so there is no need to eat often to raise it."
+    },
+    {
+      "id": "neat",
+      "term": "Non-exercise activity thermogenesis (NEAT)",
+      "aliases": [
+        "NEAT",
+        "non-exercise activity",
+        "daily movement"
+      ],
+      "definition": "The energy you spend on everything other than sleeping, eating and deliberate exercise, such as walking around, standing, fidgeting and chores. It varies enormously between people: during overfeeding, two-thirds of the rise in daily energy expenditure came from NEAT, and NEAT changes explained the roughly 10-fold differences between people in fat gain [@Levine1999_NEAT]. For a desk worker, daily steps are the most practical NEAT lever, which is why the programme tracks them; see [[dec:D24]] and [[plan:activity]]."
+    },
+    {
+      "id": "energy-balance",
+      "term": "Energy balance",
+      "aliases": [
+        "calorie balance",
+        "energy deficit",
+        "energy surplus",
+        "calorie deficit",
+        "calorie surplus"
+      ],
+      "definition": "The difference between energy intake and total energy expenditure over time: a sustained surplus is stored (as fat, and partly as lean tissue if you train), and a sustained deficit is drawn from body stores. The relationship is dynamic, because expenditure changes as weight changes, so the static 3,500 kcal per pound (about 7,700 kcal per kg) rule grossly overestimates weight loss over time [@Thomas2013_3500kcalRule]; each sustained change in intake of about 24 kcal/day eventually shifts weight by about 1 kg, half of it within a year [@Hall2011_energyImbalance]. Your intake is adjusted from your measured weight trend; see [[rule:energy-adjustment]] and [[sci:sci-energy]]."
+    },
+    {
+      "id": "energy-availability",
+      "term": "Energy availability",
+      "aliases": [
+        "EA",
+        "low energy availability",
+        "LEA"
+      ],
+      "definition": "The dietary energy left for the body's other functions after the energy cost of exercise is subtracted, expressed per kg of [[term:ffm|fat-free mass]]: (energy intake minus exercise energy expenditure) divided by FFM, in kcal/kg FFM/day. Values below about 30 are linked to physiological disruption in controlled studies of women, and extrapolated data in men suggest that prolonged values under about 25 cause muscle loss and hormonal disturbance [@Fagerberg2018_LEAmale]. It is the guard rail on how aggressive any fat-loss phase may be; see [[rule:energy-availability]]."
+    },
+    {
+      "id": "reds",
+      "term": "Relative energy deficiency in sport (REDs)",
+      "aliases": [
+        "REDs",
+        "RED-S",
+        "relative energy deficiency"
+      ],
+      "definition": "A syndrome of impaired health and performance caused by problematic low [[term:energy-availability|energy availability]]; it occurs in men as well as women, and recent data highlight low carbohydrate availability and an interplay with mental health [@Mountjoy2023_REDs]. The consensus distinguishes short, benign, adaptable periods of low energy availability from prolonged, problematic ones [@Mountjoy2023_REDs]. It becomes relevant if you diet hard while training a lot; persistent fatigue, falling performance, low libido and poor sleep are reasons to eat more and review the plan (practical convention); see [[rule:energy-availability]]."
+    },
+    {
+      "id": "recomposition",
+      "term": "Body recomposition",
+      "aliases": [
+        "recomp",
+        "recomposition"
+      ],
+      "definition": "Gaining muscle and losing fat at the same time, so body composition improves while body weight changes little. It is not confined to novices or people with obesity [@Barakat2020_recomp]: resistance training alone, usually without a prescribed diet change, reduced body fat by about 1.5 percentage points on average [@Wewege2022_RTbodyFat], and young men eating 2.4 g protein/kg/day gained 1.2 kg of lean mass while losing 4.8 kg of fat in a large deficit [@Longland2016_highProteinDeficit]. Whether Phase 1 aims for recomposition, a surplus or a deficit is set out in [[dec:D04]]."
+    },
+    {
+      "id": "adaptive-thermogenesis",
+      "term": "Adaptive thermogenesis",
+      "aliases": [
+        "metabolic adaptation",
+        "metabolic slowdown",
+        "starvation mode"
+      ],
+      "definition": "A fall in energy expenditure during weight loss that is larger than the loss of body tissue would predict. In a modern controlled study modelled on the Minnesota Starvation Experiment (32 non-obese young men, 3 weeks at half their energy needs), resting expenditure fell by 266 kcal/day, of which about 108 kcal/day (72 kcal/day after accounting for the composition of lost tissue) was adaptive, alongside falls in sympathetic activity, leptin, insulin, T3 and testosterone [@Muller2015_MinnesotaRevisited]; together with appetite changes, this response is thought to defend body fat and favour regain [@Rosenbaum2010_adaptiveThermogenesis]. In moderate fat-loss phases it is real but modest, which is one more reason intake is adjusted from your actual weight trend (inference)."
+    },
+    {
+      "id": "ffm",
+      "term": "Fat-free mass (FFM)",
+      "aliases": [
+        "FFM",
+        "lean body mass",
+        "LBM",
+        "lean mass"
+      ],
+      "definition": "Everything in the body that is not fat: muscle, organs, bone, water, glycogen and connective tissue; lean body mass is nearly the same thing. Skeletal muscle is only part of FFM, so a short-term change in FFM can reflect water and glycogen as much as muscle. FFM is the main determinant of resting energy expenditure, explaining 64% of its variance in the data behind the Mifflin-St Jeor equation [@Mifflin1990_REE]."
+    },
+    {
+      "id": "ffmi",
+      "term": "Fat-free mass index (FFMI)",
+      "aliases": [
+        "FFMI",
+        "normalised FFMI",
+        "lean mass index"
+      ],
+      "definition": "Fat-free mass divided by height squared (kg/m²), the lean-tissue counterpart of BMI; Kouri's normalised version also adjusts to a height of 1.80 m. The median in young Caucasian men is about 18.9 kg/m² [@Schutz2002_FFMIpercentiles], and among self-reported drug-free lifters values extended up to a fairly well-defined limit of about 25 [@Kouri1995_FFMI]. It helps set realistic expectations for how much muscle a natural lifter can add; see [[sci:sci-expectations]] and [[dec:D26]]."
+    },
+    {
+      "id": "bia",
+      "term": "Bioelectrical impedance analysis (BIA)",
+      "aliases": [
+        "BIA",
+        "smart scale",
+        "body-fat scale",
+        "foot-to-foot BIA"
+      ],
+      "definition": "Estimating body water, fat-free mass and fat from the body's opposition to a small alternating current, as bathroom smart scales and handheld devices do. BIA is valid only with population-specific equations and standardised conditions [@Kyle2004_BIAprinciples]; a foot-to-foot device had individual 95% limits of agreement of about 5.7 percentage points of body fat either way [@Nickerson2019_FFBIAmen], and unstandardised readings (after food, drink or exercise) blunted or exaggerated real changes [@Tinsley2021_trackingchange]. In this programme BIA body-fat numbers are treated as rough trends at best, and tape measurements and weight trends take priority; see [[dec:D23]]."
+    },
+    {
+      "id": "impedance",
+      "term": "Impedance, resistance and reactance",
+      "aliases": [
+        "impedance",
+        "resistance",
+        "reactance",
+        "Z",
+        "R",
+        "Xc"
+      ],
+      "definition": "Impedance (Z) is the body's total opposition to an alternating current. It has two parts: resistance (R), which mainly reflects how much water and electrolyte the current passes through, and reactance (Xc), which reflects the capacitance of cell membranes and so the amount of intact cell mass. BIA devices convert these raw values into body-composition estimates with prediction equations, which is where much of the error enters, whereas raw resistance and reactance normalised for height can be interpreted directly [@Norman2012_phaseAngle]; see [[term:phase-angle|phase angle]]."
+    },
+    {
+      "id": "phase-angle",
+      "term": "Phase angle",
+      "aliases": [
+        "PhA",
+        "BIA phase angle"
+      ],
+      "definition": "The arctangent of reactance over resistance, in degrees: a raw BIA output that reflects cell-membrane integrity and the balance of intracellular to extracellular water. Because it avoids error-prone body-composition equations it has clinical use, as a prognostic marker for mortality and complications in disease [@Norman2012_phaseAngle]. On a consumer scale it is too noisy to guide training or diet decisions (inference); see [[term:impedance|impedance]] and [[dec:D23]]."
+    },
+    {
+      "id": "dxa",
+      "term": "DXA",
+      "aliases": [
+        "DEXA",
+        "dual-energy X-ray absorptiometry",
+        "DXA scan"
+      ],
+      "definition": "Dual-energy X-ray absorptiometry: a low-dose scan that uses the different attenuation of two X-ray energies to divide the body into fat, lean soft tissue and bone mineral, region by region. It is a common laboratory reference for body composition, and in a comparison of methods it was more robust than BIA when the pre-test conditions (food, drink, activity) were not controlled [@Tinsley2021_trackingchange]. You do not need one for this programme, but if you have scans, repeat them on the same machine under the same conditions (practical convention)."
+    },
+    {
+      "id": "whtr",
+      "term": "Waist-to-height ratio",
+      "aliases": [
+        "WHtR",
+        "waist to height ratio",
+        "waist-to-height"
+      ],
+      "definition": "Waist circumference divided by height, both in the same units. It predicted diabetes and cardiovascular disease slightly better than BMI (mean AUROC 0.704 versus 0.671), and a boundary of 0.5 worked across sexes and countries, giving the simple rule of keeping your waist below half your height [@Browning2010_WHtRboundary; @Ashwell2012_WHtR]. It is especially useful in South Asian populations, who carry more abdominal fat at a given BMI [@Misra2009_AsianIndianConsensus]; see [[ex:test-girths]] and [[dec:D23]]."
+    },
+    {
+      "id": "navy-method",
+      "term": "US Navy circumference method",
+      "aliases": [
+        "Navy method",
+        "Navy body fat",
+        "Hodgdon equation",
+        "circumference method"
+      ],
+      "definition": "A body-fat estimate for men from height and the difference between waist and neck circumference (the Hodgdon equation used by the US Navy). Against DXA, waist-minus-neck predicted body fat better than BMI or waist alone [@Friedl1997_circumferenceDXA], but circumference equations underestimated DXA body fat in men by roughly 4-6 percentage points on average [@McClung2025_CBEvsDXA]. Its value here is in tracking change with the same tape and technique, not in the absolute number (practical convention); see [[dec:D23]]."
+    },
+    {
+      "id": "rfm",
+      "term": "Relative fat mass (RFM)",
+      "aliases": [
+        "RFM",
+        "relative fat mass"
+      ],
+      "definition": "A body-fat estimate from height and waist alone; for men, RFM = 64 - 20 x (height / waist), with both in the same units. It predicted DXA body fat better than BMI in a large US sample [@Woolcott2018_RFM] and showed no systematic bias against DXA in an external validation [@GuzmanLeon2019_RFMvalidation]. Like other tape-based estimates it is most useful as a trend; see [[dec:D23]]."
+    },
+    {
+      "id": "leucine",
+      "term": "Leucine",
+      "aliases": [
+        "Leu",
+        "leucine threshold",
+        "BCAA"
+      ],
+      "definition": "An essential branched-chain amino acid that is both a substrate for protein synthesis and a signal: sensed through Sestrin2 and the Rag GTPases, it activates [[term:mtorc1|mTORC1]] and so switches on [[term:mps|MPS]]. Position stands suggest meals of 20-40 g (about 0.25 g/kg) of high-quality protein containing roughly 700-3,000 mg of leucine [@Jager2017_ISSNprotein]. Plant proteins are generally lower in leucine than animal and dairy proteins, so plant-based meals usually need a larger serving to reach the same dose (inference); see [[dec:D19]]."
+    },
+    {
+      "id": "diaas",
+      "term": "DIAAS",
+      "aliases": [
+        "Digestible Indispensable Amino Acid Score",
+        "PDCAAS",
+        "protein quality",
+        "ileal digestibility"
+      ],
+      "definition": "The Digestible Indispensable Amino Acid Score, the FAO's preferred measure of protein quality: for each indispensable (essential) amino acid, the true ileal digestible amount per gram of protein is compared with a reference requirement pattern, and the lowest ratio (the limiting amino acid) sets the score. Digestibility varies by food and population: in Indian adults, true ileal indispensable-amino-acid digestibility was about 86-92% for egg and chicken but 63-75% for legumes such as mung bean and chickpea [@Kashyap2018_eggMeatTID; @Kashyap2019_legumeTID]. Lower-scoring proteins still count; you simply need more of them, or a mix of sources, to reach the same amino-acid intake (practical convention); see [[sci:sci-protein]]."
+    },
+    {
+      "id": "phosphocreatine",
+      "term": "Phosphocreatine system",
+      "aliases": [
+        "PCr",
+        "phosphocreatine",
+        "creatine phosphate",
+        "ATP-PCr system",
+        "phosphagen system"
+      ],
+      "definition": "The fastest route by which muscle regenerates ATP: creatine kinase transfers a phosphate from phosphocreatine (PCr) to ADP, buffering ATP in the first seconds of maximal effort and shuttling high-energy phosphate from mitochondria to myofibrils. PCr stores are small, so they fall sharply within seconds of all-out effort and are rebuilt over minutes of rest, which is part of why rest between hard sets and sprints matters (mechanistic reasoning). Creatine supplementation raises intramuscular creatine and improves high-intensity performance and training adaptations [@Kreider2017_ISSNcreatine]; see [[sci:sci-supplements]]."
+    },
+    {
+      "id": "adenosine",
+      "term": "Adenosine",
+      "aliases": [
+        "sleep pressure",
+        "homeostatic sleep drive",
+        "process S"
+      ],
+      "definition": "A purine nucleoside that builds up in the brain with time awake and promotes sleepiness through A1 and A2A receptors; it is widely accepted as an endogenous sleep-regulatory substance, and caffeine reduces sleepiness by blocking its receptors [@Reichert2022_adenosineCaffeine]. This is why caffeine late in your waking day can disturb sleep: in athletes, evening caffeine (3-6 mg/kg) reduced sleep efficiency by about 5%, although that estimate was fragile [@Kocak2025_eveningCaffeineAthletesSleep]. With a 04:00 bedtime, caffeine timing is set relative to your sleep, not the clock; see [[dec:D22]] and [[plan:sleep]]."
+    },
+    {
+      "id": "circadian-rhythm",
+      "term": "Circadian rhythm",
+      "aliases": [
+        "circadian clock",
+        "body clock",
+        "circadian timing"
+      ],
+      "definition": "A roughly 24-hour cycle in physiology and behaviour generated by an internal clock: a transcription-translation feedback loop in which CLOCK-BMAL1 activates transcription and the PER-CRY complex represses it, with metabolism both a major output and an input that feeds back on the clock [@Laothamatas2023_clockMechanism]. A master clock in the hypothalamic suprachiasmatic nucleus, set mainly by light, keeps the clocks in other tissues aligned. Your 04:00-12:00 sleep is a late but workable schedule as long as it is regular and your light exposure matches it (inference); see [[sci:sci-sleep]] and [[dec:D22]]."
+    },
+    {
+      "id": "melanopsin",
+      "term": "Melanopsin and ipRGCs",
+      "aliases": [
+        "melanopsin",
+        "ipRGCs",
+        "intrinsically photosensitive retinal ganglion cells",
+        "melanopic EDI",
+        "melanopic lux"
+      ],
+      "definition": "Melanopsin is the photopigment of intrinsically photosensitive retinal ganglion cells (ipRGCs), a small set of retinal neurons most sensitive to blue-cyan light (around 480 nm) that signal light levels to the circadian clock and other non-visual systems. Because these effects follow melanopic light rather than ordinary brightness, expert recommendations call for at least 250 lux melanopic EDI at eye level during the day, no more than 10 lux in the 3 h before bed and no more than 1 lux during sleep [@Brown2022_lightRecommendations]. For you that means bright light soon after waking at 12:00 and dim, warm light from about 01:00 (inference); see [[plan:sleep]]."
+    },
+    {
+      "id": "sleep-inertia",
+      "term": "Sleep inertia",
+      "aliases": [
+        "grogginess on waking",
+        "post-waking grogginess"
+      ],
+      "definition": "The grogginess and impaired alertness and cognition immediately after waking, which fade with time awake and are worse after sleep loss or when you wake at an unfavourable circadian time [@Hilditch2019_sleepInertiaReview]. After a full night's sleep, alertness and cognitive throughput recovered along exponential curves, approaching normal after about 2-4 h, and getting up, showering, breakfast and room light did not abolish the impairment [@Jewett1999_sleepInertiaTimeCourse]. Because you train about an hour after waking, a thorough warm-up matters and your first sets may feel harder than they are (inference); see [[sci:sci-sleep]]."
+    },
+    {
+      "id": "chronotype",
+      "term": "Chronotype",
+      "aliases": [
+        "morningness-eveningness",
+        "night owl",
+        "early bird",
+        "evening type",
+        "morning type"
+      ],
+      "definition": "Your individual preference for the timing of sleep and activity, from early (morning) to late (evening) types, reflecting the phase of your internal clock relative to the light-dark cycle. Performance follows internal time rather than clock time: late chronotypes were significantly impaired in the morning compared with early types on sleepiness, vigilance and grip strength [@FacerChilds2018_chronotype]. Eveningness is associated with slightly higher mortality in observational data (HR 1.10 for definite evening versus definite morning types) [@Knutson2018_chronotypeMortality], which may partly reflect the clash between late body clocks and social schedules rather than lateness itself (inference); see [[sci:sci-sleep]]."
+    },
+    {
+      "id": "social-jetlag",
+      "term": "Social jetlag",
+      "aliases": [
+        "weekend sleep shift",
+        "sleep timing variability"
+      ],
+      "definition": "The difference in sleep timing between work days and free days, usually measured as the shift in mid-sleep, as if you crossed time zones every weekend. In high-quality studies it was associated with slightly higher BMI (+0.49 kg/m²) and waist circumference (+1.1 cm) [@Bouman2022_socialJetlagMetabolicMA], although these are small, observational associations with very high heterogeneity. Keeping your 04:00-12:00 schedule on days off as well is the simplest way to avoid it (practical convention); see [[dec:D22]]."
+    },
+    {
+      "id": "cbt-i",
+      "term": "CBT for insomnia (CBT-I)",
+      "aliases": [
+        "CBT-I",
+        "cognitive behavioural therapy for insomnia",
+        "sleep restriction therapy",
+        "stimulus control"
+      ],
+      "definition": "Cognitive behavioural therapy for insomnia: a structured, multi-session treatment that combines sleep restriction, stimulus control, work on unhelpful thoughts and beliefs about sleep, and sleep-hygiene advice. The American College of Physicians recommends it as the initial treatment for all adults with chronic insomnia disorder, ahead of medication (strong recommendation, moderate-quality evidence) [@Qaseem2016_ACPinsomniaGuideline]. If you develop persistent trouble falling or staying asleep, this, rather than supplements, is the evidence-based route (practical convention); see [[plan:sleep]]."
+    },
+    {
+      "id": "sedentary-time",
+      "term": "Sedentary time",
+      "aliases": [
+        "sedentary behaviour",
+        "sitting time",
+        "prolonged sitting"
+      ],
+      "definition": "Time spent awake sitting or reclining at very low energy expenditure (about 1.5 [[term:met|METs]] or less), such as desk work, driving and screen time; it is distinct from physical inactivity, which means not meeting activity guidelines. In a harmonised meta-analysis of over a million adults, sitting more than 8 h/day was associated with higher mortality in less active people, but those in the most active quartile (about 60-75 min/day of moderate activity) showed no excess risk [@Ekelund2016_sittingActivityMortality]. With a 9-hour desk shift, daily steps and short walking breaks are how you offset it; see [[dec:D24]] and [[plan:activity]]."
+    },
+    {
+      "id": "smd",
+      "term": "Standardised mean difference (SMD)",
+      "aliases": [
+        "SMD",
+        "effect size",
+        "ES",
+        "Cohen's d",
+        "Hedges' g"
+      ],
+      "definition": "The difference between two group means divided by a pooled standard deviation, which puts outcomes measured on different scales (muscle thickness in mm, cross-sectional area in cm²) onto one unitless scale; Cohen's d and Hedges' g are versions of it. By loose convention 0.2 is small, 0.5 moderate and 0.8 large, but what matters is what the difference means in real units (practical convention). Most effect sizes quoted in this programme as SMD, ES, d or g are of this kind."
+    },
+    {
+      "id": "confidence-interval",
+      "term": "95% confidence interval",
+      "aliases": [
+        "95% CI",
+        "CI",
+        "confidence interval",
+        "credible interval",
+        "CrI"
+      ],
+      "definition": "A range computed from the data that would contain the true value in 95% of repeated studies done the same way; informally, the range of effects reasonably compatible with the data. A narrow interval means a precise estimate, and an interval for a difference that crosses zero (or 1 for a ratio) means the data are also compatible with no effect. Bayesian analyses report credible intervals (CrI) instead, which can be read in much the same practical way."
+    },
+    {
+      "id": "meta-analysis",
+      "term": "Meta-analysis",
+      "aliases": [
+        "meta-analyses",
+        "meta-regression",
+        "pooled analysis",
+        "pooled estimate"
+      ],
+      "definition": "A statistical method that combines the results of several studies of the same question into one pooled estimate, weighting each study by its precision (the inverse of its variance); a random-effects model, the usual choice when studies differ in population and protocol, allows the true effect itself to vary between studies. Meta-regression goes further and tests whether the effect changes with a study-level variable such as weekly sets or proximity to failure, which is where the dose-response estimates behind [[term:hard-sets|hard sets]] and [[term:rir|RIR]] come from; because those comparisons are made between studies rather than within them, they are observational and can be confounded by other differences between the studies. A pooled result is only as good as the studies it combines, so read its [[term:confidence-interval|confidence interval]], [[term:i2|I²]] and [[term:grade|GRADE]] certainty along with the headline [[term:smd|SMD]]."
+    },
+    {
+      "id": "rct",
+      "term": "Randomised controlled trial (RCT)",
+      "aliases": [
+        "RCT",
+        "RCTs",
+        "randomised trial",
+        "randomized controlled trial",
+        "crossover trial",
+        "controlled trial"
+      ],
+      "definition": "A study in which participants are allocated by chance to an intervention or a comparison, so that known and unknown confounders are balanced on average and a difference in outcome can be attributed to the intervention; it is the strongest single-study design for cause and effect. Variants include crossover trials, in which each person receives every condition in turn, and within-person designs, in which one limb is trained one way and the other limb another way. Training trials are often small and short and cannot blind participants to what they are doing, so a single trial is weaker evidence than the label suggests and a [[term:meta-analysis|meta-analysis]] of several carries more weight (inference). Outcome claims in this programme rest on RCTs and their meta-analyses where these exist, and mechanistic or observational evidence is labelled as such."
+    },
+    {
+      "id": "grade",
+      "term": "GRADE certainty",
+      "aliases": [
+        "GRADE",
+        "certainty of evidence",
+        "quality of evidence",
+        "evidence certainty"
+      ],
+      "definition": "GRADE (Grading of Recommendations, Assessment, Development and Evaluation) is the most widely used system for rating how confident one can be that an estimated effect is close to the true effect, on four levels: high, moderate, low and very low. A body of evidence from [[term:rct|RCTs]] starts at high and one from observational studies at low; it is rated down for risk of bias, inconsistency (see [[term:i2|I²]]), indirectness, imprecision and publication bias, and observational evidence can be rated up, for example for a large effect or a dose-response gradient. Low certainty means the true effect may be substantially different from the estimate, not that the intervention does not work. Certainty ratings quoted in this programme use these four levels, applied informally to single studies as well as to pooled evidence."
+    },
+    {
+      "id": "i2",
+      "term": "I² (heterogeneity)",
+      "aliases": [
+        "I2",
+        "I-squared",
+        "heterogeneity",
+        "between-study heterogeneity"
+      ],
+      "definition": "A measure of inconsistency in a [[term:meta-analysis|meta-analysis]]: the percentage of the variation in study results that reflects real differences between studies rather than chance, calculated as I² = (Q - df) / Q x 100%, where Q is Cochran's heterogeneity statistic and df is the number of studies minus 1 (negative values are set to 0). By loose convention about 25%, 50% and 75% indicate low, moderate and high heterogeneity (practical convention), but I² is a proportion, not a size: it does not tell you how far the true effects differ in real units (the between-study standard deviation, tau, or a prediction interval does that), and it is imprecise when only a few studies are pooled. When a pooled effect in this programme is described as highly heterogeneous, read it as an average over studies that genuinely disagree, and so as a weaker guide to what will happen to you (inference)."
+    },
+    {
+      "id": "rhabdomyolysis",
+      "term": "Exertional rhabdomyolysis",
+      "aliases": [
+        "rhabdomyolysis",
+        "rhabdo",
+        "exertional rhabdo",
+        "muscle breakdown"
+      ],
+      "definition": "Breakdown of skeletal muscle fibres after unaccustomed or excessive exercise, which releases creatine kinase and myoglobin into the blood; the main danger is kidney injury, which is why dark urine is a warning sign [@Backer2022_exertionalRhabdoSR; @Rawson2017_exertionalRhabdo]. It is uncommon but well documented after unaccustomed, excessive or punitive exercise, with heat, drugs, infection and some inherited myopathies as co-factors, and creatine monohydrate does not appear to trigger it [@Rawson2017_exertionalRhabdo]; in a systematic review of case series covering 772 athletes, most patients were young men (mean age 28.7 years), 14.8% of cases followed weightlifting and creatine kinase averaged about 31,000 IU/L [@Backer2022_exertionalRhabdoSR]. It is one reason the programme ramps volume and effort gradually over your first weeks and avoids high-volume, eccentric-heavy or circuit-style sessions early on (practical convention); muscle pain or swelling far beyond normal [[term:doms|DOMS]], marked weakness or dark urine after a session need same-day medical assessment and no further training until you are cleared (inference); see [[dec:D06]] and [[plan:safety]]."
+    },
+    {
+      "id": "pain-monitoring",
+      "term": "Pain-monitoring model",
+      "aliases": [
+        "pain monitoring",
+        "pain-monitoring",
+        "pain-guided activity",
+        "pain-guided training",
+        "Silbernagel model"
+      ],
+      "definition": "A way of continuing to train with a painful overuse problem, such as a tendinopathy, instead of resting completely: pain is rated during exercise, afterwards and the next morning, and loading continues while it stays within an agreed acceptable limit and does not increase from week to week, and is reduced when it does not. In a randomised trial in Achilles tendinopathy, continuing running and jumping under such a model, alongside the same tendon-loading exercises, gave the same improvement as 6 weeks of active rest with no harm detected [@Silbernagel2007_painMonitoringRCT], and in a tiny pilot trial (15 people) in patellar tendinopathy, pain-guided activity was feasible and gave better treatment compliance than pain-free activity restriction (86% versus 67%) [@Sprague2021_painGuidedActivity]. In this programme the same logic applies to minor aches: modify the exercise (lighter load, shorter range or an alternative) while discomfort is mild, settles by the next day and is not rising week to week, and stop it and get assessed for sharp or joint-line pain, swelling, numbness, weakness, pain that changes how you move or pain that worsens over 1-2 weeks (practical convention); see [[rule:pain]]."
+    }
+  ]
+}

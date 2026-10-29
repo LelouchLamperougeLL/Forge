@@ -1,0 +1,432 @@
+{
+  "params": {
+    "progression": {
+      "tooEasyExtraReps": 3,
+      "reduceFraction": 0.1,
+      "rirTolerance": 1,
+      "increments": [
+        {
+          "label": "Dumbbells",
+          "value": "the next pair (usually +1 to +2.5 kg per hand)"
+        },
+        {
+          "label": "Machines and cables",
+          "value": "the next pin (often 2.5–5 kg); use add-on plates if the jump is too big"
+        },
+        {
+          "label": "Barbell upper-body lifts",
+          "value": "+2.5 kg (about 2–5%)"
+        },
+        {
+          "label": "Barbell lower-body lifts",
+          "value": "+2.5 to +5 kg (about 3–7%)"
+        },
+        {
+          "label": "Leg press",
+          "value": "+5 to +10 kg"
+        },
+        {
+          "label": "Push-ups and pull-ups",
+          "value": "+1 rep per set, then a harder variant or +2.5 kg added load"
+        }
+      ]
+    },
+    "rampScheme": [
+      {
+        "pct": 0.5,
+        "reps": 8
+      },
+      {
+        "pct": 0.7,
+        "reps": 4
+      },
+      {
+        "pct": 0.85,
+        "reps": 2,
+        "minWork": 60
+      }
+    ],
+    "timing": {
+      "secondsPerSet": 45,
+      "transitionSeconds": 60,
+      "rampSetSeconds": 60,
+      "rampSets": 2,
+      "drillSeconds": 40
+    },
+    "transition": {
+      "minAdherencePct": 80
+    },
+    "running": {
+      "spikeMax": 0.1
+    },
+    "energy": {
+      "defaultPal": 1.6,
+      "defaultGoal": "recomp",
+      "proteinGkg": 1.8,
+      "proteinHint": "1.6–2.2 g/kg; 2.0–2.4 during a dedicated fat-loss phase",
+      "fatGkg": 1.0,
+      "fibrePer1000": 14,
+      "trendWindowDays": 21,
+      "adjust": {
+        "kcalPerKg": 7700,
+        "maxStep": 200,
+        "minStep": 100,
+        "tolerancePct": 0.13
+      },
+      "pal": [
+        {
+          "value": 1.4,
+          "label": "1.4 · desk job, little walking (your situation before training)"
+        },
+        {
+          "value": 1.5,
+          "label": "1.5 · desk job plus about 8,000 steps a day"
+        },
+        {
+          "value": 1.6,
+          "label": "1.6 · training 3–4 days a week plus about 8,000 steps (Phase 1)"
+        },
+        {
+          "value": 1.7,
+          "label": "1.7 · training 5–6 days a week plus 8,000–10,000 steps (Phases 2–3)"
+        },
+        {
+          "value": 1.8,
+          "label": "1.8 · very active (long hikes, sport on top of training)"
+        }
+      ],
+      "goals": [
+        {
+          "id": "calibrate",
+          "label": "Calibrate (eat as usual)",
+          "pct": 0,
+          "band": [
+            -0.15,
+            0.15
+          ],
+          "note": "Phase 0 and Phase 1 weeks 1–2: no change. A stable weight while you log food tells you your real maintenance intake."
+        },
+        {
+          "id": "recomp",
+          "label": "Recomposition (maintenance to about −300 kcal)",
+          "pct": -6,
+          "band": [
+            -0.33,
+            0
+          ],
+          "note": "The waist should fall or hold while lifts rise; a flat scale weight is fine if the waist is shrinking."
+        },
+        {
+          "id": "cut",
+          "label": "Dedicated fat loss (−300 to −500 kcal)",
+          "pct": -15,
+          "band": [
+            -0.7,
+            -0.5
+          ],
+          "note": "Never faster than 1% a week; protein 2.0–2.4 g/kg; at most 8–16 weeks, then at least 4–8 weeks at maintenance."
+        },
+        {
+          "id": "maintain",
+          "label": "Maintenance",
+          "pct": 0,
+          "band": [
+            -0.15,
+            0.15
+          ],
+          "note": "Weight stable; adjust only if the trend drifts beyond the band for two reviews."
+        },
+        {
+          "id": "lean-gain",
+          "label": "Lean gain (+5–10%)",
+          "pct": 7,
+          "band": [
+            0.12,
+            0.32
+          ],
+          "note": "If the navel waist rises by more than about 1 cm a month, reduce intake by 100–150 kcal."
+        }
+      ]
+    },
+    "breaks": [
+      {
+        "maxDays": 7,
+        "loadPct": 100,
+        "loadLabel": "unchanged",
+        "setsLabel": "unchanged",
+        "title": "Up to 1 week off",
+        "advice": "Resume exactly where you left off. Short interruptions probably cost very little: in one small trial in untrained men, even repeated 3-week breaks did not reduce 24-week gains [@Ogasawara2013_periodicVsContinuous]."
+      },
+      {
+        "maxDays": 21,
+        "loadPct": 90,
+        "loadLabel": "about 90% of previous working loads (or 2 fewer reps) for one week",
+        "setsLabel": "unchanged",
+        "title": "1–3 weeks off",
+        "advice": "Then resume normal progression. Strength losses grow with the length of a break [@Bosquet2013_detrainingMeta], so a few weeks off costs relatively little (inference)."
+      },
+      {
+        "maxDays": 56,
+        "loadPct": 80,
+        "loadLabel": "about 80% of previous working loads",
+        "setsLabel": "one set fewer per exercise in the first week",
+        "title": "3–8 weeks off",
+        "advice": "Go back 2–3 weeks within your current phase. Previous loads usually return within 2–4 weeks (practical convention): in one small trial, regains after 3-week breaks were rapid [@Ogasawara2013_periodicVsContinuous], and in another about 60% of a strength gain was still present after 20 weeks off [@Psilander2019_muscleMemory]. Rebuild steady aerobic work before intervals."
+      },
+      {
+        "maxDays": 9999,
+        "loadPct": 70,
+        "loadLabel": "about 70% of previous loads; re-find loads with the effort targets",
+        "setsLabel": "Phase 1 volumes",
+        "title": "More than 8 weeks off",
+        "advice": "Restart Phase 1 at week 3 (week 1 after an illness or injury), progress back towards previous loads, and repeat the baseline tests after 4 weeks."
+      }
+    ],
+    "intensityZones": [
+      {
+        "name": "Easy",
+        "rpe": "2–3 /10 (Borg 9–11)",
+        "talk": "Can chat freely",
+        "hrmax": [
+          0.57,
+          0.7
+        ],
+        "hrr": [
+          0.4,
+          0.55
+        ],
+        "use": "Warm-ups, recoveries, cool-downs"
+      },
+      {
+        "name": "Steady (moderate)",
+        "rpe": "3–4 /10 (Borg 11–13)",
+        "talk": "Full sentences, slightly breathless",
+        "hrmax": [
+          0.7,
+          0.8
+        ],
+        "hrr": [
+          0.55,
+          0.7
+        ],
+        "use": "Steady and long sessions, hikes"
+      },
+      {
+        "name": "Tempo (comfortably hard)",
+        "rpe": "5–6 /10 (Borg 13–15)",
+        "talk": "Short phrases only",
+        "hrmax": [
+          0.8,
+          0.88
+        ],
+        "hrr": [
+          0.7,
+          0.8
+        ],
+        "use": "Tempo work (optional in Phase 3)"
+      },
+      {
+        "name": "Hard intervals",
+        "rpe": "7–9 /10 (Borg 15–17)",
+        "talk": "A few words at a time",
+        "hrmax": [
+          0.88,
+          0.95
+        ],
+        "hrr": [
+          0.8,
+          0.92
+        ],
+        "use": "4 × 4 and 2-minute intervals"
+      },
+      {
+        "name": "Very hard",
+        "rpe": "9–10 /10 (Borg 18–20)",
+        "talk": "Cannot talk",
+        "hrmax": [
+          0.95,
+          1.0
+        ],
+        "hrr": [
+          0.92,
+          1.0
+        ],
+        "use": "Not prescribed (tests only)"
+      }
+    ],
+    "bodycompSEE": {
+      "navy": "3–4 points; tends to read about 4–6 points below DXA in men",
+      "rfm": "3–4 points",
+      "deurenberg": "about 4 points (SEE 4.1)"
+    }
+  },
+  "rules": [
+    {
+      "id": "double-progression",
+      "category": "Strength and muscle",
+      "title": "Double progression (how loads go up)",
+      "tool": "progression",
+      "summary": "Stay at a load until **every working set reaches the top of the rep range at, or easier than, the target effort**. Then add the smallest load increment and work back up from the bottom of the range.",
+      "trigger": "Every session, for every exercise prescribed as a rep range (e.g. 3 × 8–12 at 2 reps in reserve).",
+      "action": "1. Open last session's log for the exercise (load, reps and RPE of each working set).\n2. **All sets at the top of the range, average effort no harder than about 1 rep beyond target** → add the smallest increment (see the increment guide in the calculator) and aim for the bottom of the range.\n3. **Within the range** → keep the load; add at least one rep in total, starting with the earliest set you can.\n4. **Top of the range but much harder than intended** (e.g. reached failure when the target was 2 in reserve) → keep the load until the top of the range comes at the target effort.\n5. **First set more than 2 reps below the range, or below it for two sessions running** → reduce the load by about 10% and rebuild.\n6. **Clearly too light** (3+ reps above the range, or 3+ more reps in reserve than intended) → jump to the load the calculator estimates from your set.",
+      "data": "From your logging app: load, reps and RPE (or RIR) for every working set of the last one or two sessions of that exercise. RPE = 10 − RIR (RPE 8 means about 2 reps left).",
+      "example": "Leg press, target 3 × 10–15 at 2 in reserve. Last session: 100 kg × 15, 15, 15 at RPE 7.5–8. → All sets at the top at about the target effort: next session 105–110 kg, aiming for 10–12 reps per set, then build back towards 15.",
+      "rationale": "In one 8-week trial in trained lifters, progressing repetitions at a fixed load and progressing load at a fixed repetition target produced similar hypertrophy and strength [@Plotkin2022_loadVsRepProgression], so combining them (reps first, then load) is a simple, self-limiting progression that a logging app can track (inference). The ACSM progression guidance (expert consensus) adds 2–10% load once the target is exceeded by 1–2 reps [@ACSM2009_progressionModels]. People misjudge reps in reserve by about one rep on average [@Halperin2022_RIR_accuracy], hence the one-rep tolerance. Hypertrophy is similar across a wide range of loads when sets are hard [@Lopez2021_load_NMA], so the exact load matters less than steady progression at an appropriate effort."
+    },
+    {
+      "id": "stall",
+      "category": "Strength and muscle",
+      "title": "Stall rule (when an exercise stops progressing)",
+      "tool": "progression",
+      "summary": "Three consecutive sessions with no gain in reps or load on an exercise is a stall. Check the basics first; change the exercise or the rep range second; deload only if several lifts stall together with signs of fatigue.",
+      "trigger": "The progression calculator flags 'no improvement on the previous session' for the same exercise three times in a row (same load, no more total reps).",
+      "action": "1. **Check the basics** for the last 2–3 weeks: sleep (are you getting about 7–8 hours?), energy intake (is weight falling faster than your phase band?), protein, session timing, and whether the set-up (seat, grip, depth) has stayed the same.\n2. **If only this exercise has stalled:** change its rep target by 2–4 reps (e.g. 8–12 → 6–10) for 3–4 weeks, or swap to a listed alternative at the next block change ([[rule:substitution]]).\n3. **If several lifts have stalled and you feel unusually tired** → apply the [[rule:deload]].\n4. **If you are in an energy deficit and most lifts have stalled** → raise intake by 100–200 kcal/day towards maintenance ([[rule:phase-nutrition]]).",
+      "data": "Last 3 sessions of the exercise (load × reps × RPE), your weight trend from the check-in tool, and a quick note on sleep and fatigue.",
+      "rationale": "Energy deficits blunt lean-mass gains roughly in proportion to their size (gains disappear on average near a 500 kcal/day deficit) although strength is largely preserved [@Murphy2022_deficitLeanMass]. Changing exercises occasionally may broaden hypertrophy and raised motivation in one small trial, but excessive, random rotation may slow progress [@Kassiano2022_variationSR; @BazValle2019_variationMotivation]. Stalls in novices are usually solved by these basics long before any advanced method is needed (inference)."
+    },
+    {
+      "id": "rir-calibration",
+      "category": "Effort",
+      "title": "Calibrating your effort ratings (RIR)",
+      "summary": "Every 4–6 weeks, take the last set of one safe machine exercise to momentary failure and compare the reps you actually had left with the reps you thought you had left.",
+      "trigger": "Phase 1 weeks 5 and 9 and Phase 2 weeks 2, 7 and 12, then roughly every 4–6 weeks; any time your ratings feel like guesses.",
+      "action": "1. Choose a machine exercise where failure is safe (leg press with stops set, chest press, pulldown, leg curl).\n2. On the last set, when you would normally stop, note your estimate: 'I have about X reps left'.\n3. Keep going with good form until you cannot complete another rep.\n4. Reps actually completed after that point = your true RIR. If it was 2 or more higher than your estimate, you have been stopping too early: push the next sets a little closer. If lower, you have been overestimating: be more conservative on free weights.\n5. Write the comparison in the exercise notes.",
+      "data": "Predicted RIR and actual extra reps, in your logging app's notes.",
+      "rationale": "People under-predict their reps to failure by about one rep on average, with large differences between individuals and larger errors on sets of more than 12 reps; accuracy tended to improve closer to failure and in later sets, while training experience made no clear difference [@Halperin2022_RIR_accuracy]. Because hypertrophy tended to increase as sets ended closer to failure in an exploratory meta-regression [@Robinson2024_RIR_metaregression], an accurate sense of effort should make every prescription more effective (inference). Using machines keeps the calibration safe without a spotter."
+    },
+    {
+      "id": "ramp-up",
+      "category": "Strength and muscle",
+      "title": "Ramp-up (warm-up) sets",
+      "tool": "warmup",
+      "summary": "Before the first working set of each main lift, do 2–3 lighter sets of decreasing reps: about 50% × 8, 70% × 4, and (for working loads of 60 kg or more) 85% × 2. Rest about a minute between them. They are not logged as working sets.",
+      "trigger": "The first exercise of each movement pattern in a session (marked 'Ramp-up sets first' on the session page).",
+      "action": "Use the [[tool:warmup|ramp-up calculator]] with your first working load. Move briskly; ramp-up sets should feel easy and never approach failure. Isolation exercises later in the session need no ramp-up beyond one light set if the joint feels stiff.",
+      "data": "Your planned working load for the exercise.",
+      "rationale": "Adding a general warm-up to a specific one (sets at about 50% and 70% of estimated 1RM) raised leg-press 1RM by 8.4% in a small crossover trial in trained people [@Abad2011_general_specific_warmup], and in trained men a specific warm-up reaching about 80% of the training load slightly raised bar velocity in the following sets [@Ribeiro2020_specific_warmup_RT]. Ramp-up sets also rehearse the exact movement before it is loaded heavily."
+    },
+    {
+      "id": "deload",
+      "category": "Recovery",
+      "title": "Deload (lighter week)",
+      "summary": "A planned or triggered week of about half the sets at the usual exercises, with loads unchanged or about 10% lighter and 3–4 reps in reserve.",
+      "trigger": "**Planned:** Phase 2 week 8; Phase 3 weeks 8 and 16; Phase 4 week 6. **Triggered (two or more of):** reps or estimated 1RM down on several lifts for two consecutive sessions; joint pain that persists between sessions; a week or more of unusual fatigue, poor sleep or low motivation.",
+      "action": "1. Same days and exercises; half the working sets; same loads or about 10% lighter; stop every set 3–4 reps short of failure.\n2. Cardio: keep easy sessions; halve the number of intervals.\n3. Use the week to choose accessory swaps for the next block.\n4. Resume normal training the following week. No deload is planned in Phase 1 because loads are still modest and novices are expected to recover quickly (inference).",
+      "data": "Recent logged performance (rep and load trends), pain notes, sleep and energy notes.",
+      "rationale": "Deloads are defined by expert consensus as periods of reduced training stress to relieve fatigue [@Bell2023_deloadDelphi]. Experimental evidence is thin: in one small trial in untrained men a reduced-volume deload made no clear difference to hypertrophy or strength [@Pancar2026_deloadUntrained], and in trained lifters a full week off did not clearly change hypertrophy but probably slightly reduced strength gains [@Coleman2024_deloadRCT]. Their presumed value is managing fatigue as loads rise (inference; effects on injury risk are untested), which is why they are reduced-volume weeks rather than complete rest."
+    },
+    {
+      "id": "breaks",
+      "category": "Recovery",
+      "title": "Returning after missed training",
+      "tool": "breaks",
+      "summary": "Up to a week off: carry on. One to three weeks: one week at about 90% of previous loads. Longer: step back within the programme and rebuild; regaining is usually faster than first gaining (inference).",
+      "trigger": "Any interruption: illness, travel, work or motivation.",
+      "action": "Enter the number of days in the [[tool:breaks|break calculator]] and follow the row it shows. After illness, also follow [[rule:illness]].",
+      "data": "Days since your last full session; your last logged working loads.",
+      "rationale": "Strength declines with time off in a dose-dependent way [@Bosquet2013_detrainingMeta] but much more slowly than it is gained: in one trial adults kept most of a 16-week strength gain through 32 weeks without training [@Bickel2011_maintenanceDose]. In one small trial in untrained men, training in 6-week blocks separated by 3-week breaks produced similar 24-week gains to continuous training [@Ogasawara2013_periodicVsContinuous]. In another, after 20 weeks off muscle size had returned to baseline but about 60% of the strength gain remained, although the previously trained leg did not regain faster than an untrained one [@Psilander2019_muscleMemory]. Whether a specific cellular 'muscle memory' exists in humans is still debated [@Rahmati2022_myonuclearMeta]."
+    },
+    {
+      "id": "lagging-muscle",
+      "category": "Strength and muscle",
+      "title": "Lagging-muscle rule",
+      "summary": "If a priority muscle's girth has not changed after at least 12 weeks of good adherence while others have, add 2–4 weekly sets (about 20–30%) for it for the next 8–12 weeks, without exceeding about 20 hard sets per week for any one muscle.",
+      "trigger": "Monthly tape measurements (relaxed and flexed arm, chest, shoulders, thigh) and photos show no change in one area after ≥12 weeks with ≥80% adherence, while performance on that muscle's exercises has stalled.",
+      "action": "1. Confirm the measurement is real: same site, same time of day, same tape tension, averaged over two measurements.\n2. Add 2–4 sets per week for that muscle, e.g. an extra 2–3 sets of lateral raises on a lower-body day, or a third arm exercise.\n3. Cap: do not take any single muscle above about 20 hard sets per week; returns diminish steeply beyond roughly 18–20 weekly sets [@Pelland2025_volume_frequency]. If the muscle is already there, look at sleep, energy intake and exercise selection instead.\n4. Keep everything else unchanged; reassess after 8–12 weeks.",
+      "data": "Tape measurements (monthly), photos, and logged volume for that muscle.",
+      "rationale": "Hypertrophy rises with weekly sets with diminishing returns [@Pelland2025_volume_frequency; @Schoenfeld2017_volume_meta], and within the same untrained people 3 sets rather than 1 gave larger average gains, though only 13 of 34 showed a clear individual hypertrophy benefit [@Hammarstrom2020_volume_ribosomes]. Individual responses vary enormously [@Hubal2005_variability], so a targeted, time-limited volume increase is a reasonable first step before concluding a muscle 'does not respond' (inference)."
+    },
+    {
+      "id": "size-control",
+      "category": "Strength and muscle",
+      "title": "Size control: staying athletic, not bulky",
+      "summary": "When a muscle looks the way you want, drop its direct work to a maintenance dose (about 6–8 hard sets per week, same effort) and move the time to other goals.",
+      "trigger": "You are satisfied with an area's size in photos and tape ratios (e.g. shoulder-to-waist).",
+      "action": "1. Reduce that muscle's weekly sets to about 6–8, keeping loads and effort.\n2. Keep full range of motion on every exercise.\n3. If you are happy with your whole physique, move nutrition to maintenance ([[rule:phase-nutrition]]) and consider [[phase:p4|Phase 4]] emphases such as running or a skill.",
+      "data": "Monthly photos and girths; your weekly set counts per muscle (count sets in your logging app).",
+      "rationale": "Weekly volume is the main dose lever for hypertrophy [@Pelland2025_volume_frequency], and far less training maintains muscle and strength than built them [@Spiering2021_minimalDose; @Bickel2011_maintenanceDose]. Resistance training increased range of motion about as much as stretching in a meta-analysis of 55 studies [@Alizadeh2023_RT_ROMmeta], so size control is about appearance, not flexibility."
+    },
+    {
+      "id": "substitution",
+      "category": "Exercise selection",
+      "title": "Swapping an exercise",
+      "summary": "Swap to an exercise from the 'alternatives' list on the exercise page: same muscles, same rep range. Keep a block's anchor lifts fixed so progress stays measurable.",
+      "trigger": "Equipment busy or missing; an exercise is painful; boredom; a new block.",
+      "action": "1. Pick an alternative from the exercise page.\n2. Log it as a separate exercise in your app (do not overwrite the old history).\n3. Start about 10% lighter than you expect, then use double progression.\n4. **Pain** (not effort) during an exercise → stop it today, use a pain-free alternative, and follow [[rule:pain]].\n5. For boredom, swap accessories at block changes or lighter weeks; avoid changing anchor lifts more often than every 6–8 weeks.",
+      "data": "Exercise history in your logging app.",
+      "rationale": "Machines and free weights produced similar hypertrophy in a meta-analysis (only 5 hypertrophy studies, wide confidence interval) [@Haugen2023_freeVsMachineMeta], so swaps probably do not cost muscle, but strength is largely specific to the exercise trained [@Saeterbakken2025_taskSpecificityMeta], so loads on a new variant start lower and climb quickly (inference). Varying exercises raised motivation in one small trial in trained men [@BazValle2019_variationMotivation], and planned rather than excessive, random rotation avoids a possible slowdown in gains [@Kassiano2022_variationSR]."
+    },
+    {
+      "id": "energy-adjustment",
+      "category": "Nutrition",
+      "title": "Adjusting energy intake from your weight trend",
+      "tool": "checkin",
+      "summary": "Every 2–4 weeks compare your weight trend (% of body weight per week) with your phase's target band. Change intake by 100–200 kcal/day only when the trend is outside the band beyond normal noise at two consecutive reviews.",
+      "trigger": "Weekly check-in; decisions every 2–4 weeks.",
+      "action": "1. Weigh every morning under the standard protocol ([[plan:monitoring]]) and enter the values (or weekly averages from the scale app) in the [[tool:checkin|check-in tool]].\n2. The tool computes the 7-day average and the trend over the last 3 weeks.\n3. **Inside the band:** no change. **Just outside (within ~0.1 kg/week):** re-check in 2 weeks. **Outside at two reviews:** change average daily intake by 100–200 kcal (or add or remove about 2,000–4,000 daily steps, never going below 7,000).\n4. Expect maintenance to fall by roughly 24 kcal/day per kg of weight lost, and loss to slow over months; that is physiology, not failure.\n5. During recomposition, a stable weight with a shrinking waist and rising lifts is success; judge by the waist too.",
+      "data": "Daily morning weight; waist at the navel weekly; logged intake while calibrating.",
+      "rationale": "Self-reported intake can be badly under-reported (by about half in one small study of people with obesity) [@Lichtman1992_underreporting], so the scale trend, not the food log, is the arbiter. Day-to-day weight swings (often 1–2 kg; practical observation) come from water, glycogen and gut contents [@Kreitzman1992_glycogenWater], and weight also follows a weekly cycle [@Orsama2014_weightRhythms], so only multi-week trends are informative. The static 7,700 kcal per kg rule overestimates change beyond the first weeks because expenditure adapts [@Thomas2013_3500kcalRule; @Hall2011_energyImbalance]; adaptive thermogenesis in lean men is real but modest [@Muller2015_MinnesotaRevisited]. Small, infrequent adjustments avoid chasing noise."
+    },
+    {
+      "id": "phase-nutrition",
+      "category": "Nutrition",
+      "title": "Choosing the energy goal for each phase",
+      "summary": "Recomposition by default; switch to a small surplus once you are lean enough and recomposition stalls; use a dedicated fat-loss block only if you want faster leaning; maintenance otherwise.",
+      "trigger": "At every phase transition, and whenever a review shows the current goal no longer fits.",
+      "action": "1. **Recomposition** (maintenance to about −300 kcal/day; weight 0 to −0.25 kg/week): default from Phase 1 week 3 (weeks 1–2 continue the maintenance calibration) and while your waist at the navel keeps falling and lifts progress.\n2. **Lean gain** (+5–10%, about +150–300 kcal/day; +0.1–0.25 kg/week): when your navel waist is around 82 cm or less and you are happy with your leanness in photos, *or* when recomposition has stalled (waist flat for 6+ weeks with good adherence and stalled lifts). If the navel waist rises more than about 1 cm a month, cut the surplus by 100–150 kcal. The 82 cm threshold is a judgement-based starting point, not an evidence-derived cut-off.\n3. **Dedicated fat loss** (−300 to −500 kcal/day; 0.5–0.7% of body weight per week, never above 1%): optional, for 8–16 weeks at most, with protein 2.0–2.4 g/kg/day; then at least 4–8 weeks at maintenance.\n4. **Maintenance**: busy periods, after a fat-loss block, or when you are happy with your physique.\n5. **Guardrail:** stop any deficit and return to maintenance if you notice persistent fatigue, low mood, poor sleep, falling strength, frequent illness or reduced libido ([[rule:energy-availability]]).",
+      "data": "Weight trend, weekly navel waist, monthly photos and girths, and lift progress.",
+      "rationale": "Resistance training in a deficit produces smaller lean-mass gains than training at energy balance, and the average gain disappears near a 500 kcal/day deficit, while strength is mostly preserved [@Murphy2022_deficitLeanMass]. Simultaneous fat loss and muscle gain is documented in novices and even in trained people (narrative review) [@Barakat2020_recomp], and resistance training alone lowered body fat by about 1.5 percentage points on average in randomised trials [@Wewege2022_RTbodyFat]. Slower weight loss favoured lean-mass retention in a small trial in elite athletes [@Garthe2011_weightLossRate], and high protein allowed lean gain even in a large deficit in a short trial [@Longland2016_highProteinDeficit]. In a very small trial in trained lifters, a larger surplus did not add measurable muscle over a smaller one but mainly added fat [@Helms2023_surplus]. Physical activity is the most consistent correlate of keeping weight off long term [@Paixao2020_registries]."
+    },
+    {
+      "id": "energy-availability",
+      "category": "Nutrition",
+      "title": "Energy-availability guardrail",
+      "summary": "During any deficit, keep energy availability (intake minus exercise energy) above about 30 kcal per kg of fat-free mass per day (about 1,800 kcal/day for you) and watch for warning signs.",
+      "trigger": "Any deficit, especially a dedicated fat-loss block.",
+      "action": "1. Estimate: average daily intake minus estimated exercise energy (roughly 200–400 kcal on training days). Keep the result above about 1,800 kcal/day (30 kcal × ~61 kg fat-free mass); never let it fall below about 1,500 (25 kcal/kg FFM).\n2. Monthly self-check: persistent fatigue, low mood, poor sleep, falling strength, frequent illness or injury, reduced libido. Two or more → return to maintenance for 2–4 weeks and, if they persist, see a doctor.\n3. Avoid contest-style leanness; define your goal by waist, photos and performance.",
+      "data": "Logged intake, training log, weekly self-check.",
+      "rationale": "Low energy availability impairs health and performance in men as well as women (IOC consensus) [@Mountjoy2023_REDs]. In lean men after three weeks of severe restriction, thyroid hormone, leptin, testosterone and sympathetic activity all fell [@Muller2015_MinnesotaRevisited], and male physique athletes in very low energy availability lost a large share of weight as muscle (case-study evidence) [@Fagerberg2018_LEAmale]. The warning-sign list is a judgement-based screen, not a validated instrument."
+    },
+    {
+      "id": "running",
+      "category": "Conditioning",
+      "title": "Running progression and the spike rule",
+      "tool": "running",
+      "summary": "No run (total running time or distance) more than about 10% longer than your longest run of the previous 30 days. Start with run–walk, progress only while any pain stays at 3/10 or below and settles by the next morning, and run on a treadmill when it is hot.",
+      "trigger": "Every session that includes running.",
+      "action": "1. Before each run, check the limit with the [[tool:running|run tool]].\n2. Follow the Phase 2 run–walk table; repeat a step rather than skipping ahead after a missed week.\n3. **Pain monitoring:** pain up to 3/10 that settles by the next morning is acceptable; more than that, or pain that lingers, means repeat the previous step; pain that persists beyond a week, or changes how you run, means stop running and see a physiotherapist.\n4. Shoes: choose by comfort; cushioned neutral shoes are a reasonable default.\n5. At 13:00 in Indian heat, run on the gym treadmill; run outdoors only when it is cool.",
+      "data": "Running time or distance per session (your logging app or phone), pain notes.",
+      "rationale": "Novice runners are injured about twice as often per hour as experienced runners, and the popular '10% weekly rule' did not prevent injuries in a randomised trial [@Videbaek2015_runningInjuryIncidence; @Buist2008_GRONORUN]. In 5,205 runners followed for 18 months, single sessions more than 10% longer than the longest of the previous 30 days were followed by more overuse injuries (observational; mostly experienced runners) [@Frandsen2025_spikes]. Starting with small volumes may help (one small, inconclusive trial in novice runners with obesity) [@Bertelsen2018_starttorun]. Matching shoes to foot type does not prevent injury, and softer cushioning was associated with fewer injuries in a large blinded trial [@Relph2022_shoesCochrane; @Malisoux2020_cushioning]."
+    },
+    {
+      "id": "cardio-progression",
+      "category": "Conditioning",
+      "title": "Aerobic progression and the non-responder check",
+      "summary": "Steady sessions grow by about 5 minutes every two weeks; intervals follow the plan (1-minute, then 3- and 4-minute efforts). If your fitness test has not improved after 12 weeks of good adherence, add a weekly aerobic session before concluding you respond poorly.",
+      "trigger": "Each aerobic session; each reassessment week.",
+      "action": "1. **Intensity:** steady = full sentences (RPE 3–4/10); intervals = only a few words (RPE 7–9/10). Heart-rate targets, if you buy a monitor, are approximate ([[tool:intensity]]).\n2. **Progression:** follow the durations and interval counts in each week's plan.\n3. **Non-response check:** if the walking or run test improves less than about 4% after 12 weeks with ≥80% of aerobic sessions done, add a third weekly aerobic session (another interval session or 40 minutes steady) for the next 12 weeks.\n4. If lower-body lifts stall for 3+ weeks while aerobic work is high, reduce interval work for a block: drop any extra interval session you added under the non-response check, otherwise do 3 instead of 4 intervals, and keep interval sessions at least a day away from leg sessions.",
+      "data": "Session type, duration, intensity (machine settings or pace), RPE; test results.",
+      "rationale": "Interval training raised VO₂max in sedentary adults by about 6 mL/kg/min versus no exercise, with a small extra gain over steady training (about 1.4 mL/kg/min, low certainty) [@Strauss2026_CochraneHIIT]; the extra benefit came mainly from intervals of at least 2 minutes and at least 15 minutes of hard work per session [@Wen2019_HIITprotocolsMA; @Helgerud2007_4x4RCT]. In a dose trial, apparent non-response fell from 69% with one weekly session to 0% with four to five, and disappeared when non-responders added two sessions [@MonteroLundby2017_nonresponse]. The talk test and RPE track ventilatory and lactate thresholds well enough for training, whereas age-predicted maximum heart rate can be off by about ±20 bpm for an individual [@Persinger2004_talkTest; @Scherr2013_RPE; @Nes2013_HUNT_HRmax]. At these doses, aerobic work did not blunt maximal strength or hypertrophy, although explosive strength was slightly lower when both were done in the same session [@Schumann2021_concurrentMA]."
+    },
+    {
+      "id": "pain",
+      "category": "Safety",
+      "title": "Pain rule",
+      "summary": "Rate any pain in a joint, tendon or one specific spot from 0 to 10 during the exercise and again the next morning. Up to 3/10 that has settled by the next morning and is not rising week to week is acceptable; more than that means modify the exercise and hold its progression; sharp pain, pain that changes how you move, or pain that persists means stop that exercise and get it assessed. Ordinary muscle soreness and the burn of a hard set do not count.",
+      "trigger": "Any pain in a joint, a tendon or one specific spot during or after a session; a sudden sharp or stabbing pain at a precise moment in a set; or a niggle that is still there the next morning. Not the diffuse ache of [[term:doms|delayed-onset muscle soreness (DOMS)]] or the burn of a hard set.",
+      "action": "1. Rate the pain 0-10 (0 = none, 10 = worst imaginable) during the exercise and again the next morning, and write it in the Hevy note for that exercise (for example ‘R shoulder 3/10, gone next morning’).\n2. **0-3/10, settled by the next morning and not worse than last week:** continue as planned.\n3. **4-5/10, or still present the next morning:** modify that exercise at the next session: reduce the load by about 10-20%, shorten the [[term:rom|range of motion]], slow the lowering, or switch to a variant that does not hurt ([[rule:substitution]]). Hold its progression until two sessions in a row are back at 0-3/10.\n4. **Above 5/10, sharp or stabbing, or changing how you move:** stop that exercise for the day and replace it with a pain-free alternative; the rest of the session can go ahead if it is pain-free.\n5. **Book a physiotherapist or doctor within days** for sharp or joint-line pain, limping or altered movement, swelling, numbness, tingling or weakness, pain not settled after about 7 days, or pain that keeps worsening over 1-2 weeks despite modification.\n6. **Get same-day care** for the red flags on [[plan:safety]]: chest pain or pressure, fainting, dark urine with severe muscle pain or swelling, confusion in heat.\n7. Running pain follows the running-specific version in [[rule:running]].",
+      "data": "| Pain during the exercise | Next morning | Week-to-week trend | Action |\n|---|---|---|---|\n| 0-3/10 | Back to normal | Stable or falling | Continue |\n| 0-3/10 | Still present | Any | Modify; hold progression |\n| 4-5/10 | Any | Any | Modify; hold progression |\n| Above 5/10, sharp, or altering movement | Any | Any | Stop that exercise today |\n| Any | Not settled after about 7 days | Or rising over 1-2 weeks | Physiotherapist or doctor |\n\nScale: 0 = no pain, 10 = worst imaginable. Load reduction when modifying: about 10-20%. Return to progression: two consecutive sessions at 0-3/10. All thresholds are practical convention (low confidence); the numeric limits of the published pain-monitoring model were not verified for this programme.",
+      "rationale": "Pain is used as a guide to load rather than an automatic stop signal (the [[term:pain-monitoring|pain-monitoring model]]). In a small randomised controlled trial (38 patients) in Achilles tendinopathy, continued running and jumping guided by pain monitoring improved function about as much as six weeks of rest (VISA-A-S 57 to 85 vs 57 to 91 at 12 months, no significant difference), and no harm was detected [@Silbernagel2007_painMonitoringRCT]. At five years 80% had fully recovered, and fear of movement correlated with poorer recovery (r = −0.59) [@Silbernagel2010_achilles5yr]. In a 15-person pilot trial, pain-guided activity was feasible and treatment compliance was higher than with pain-free restriction (86% vs 67%; exploratory) [@Sprague2021_painGuidedActivity]. DOMS is excluded because consensus classes it as a diffuse, self-limiting functional disorder that usually resolves within a week, whereas a partial muscle tear presents with sudden sharp pain at a precise moment and well-localised tenderness [@MuellerWohlfahrt2013_Munich_consensus]. Limits: the trials were in tendon patients, not healthy beginners; the numbers are practical convention; and the referral thresholds are inference from these sources plus general clinical practice (confidence: low)."
+    },
+    {
+      "id": "illness",
+      "category": "Safety",
+      "title": "Illness rule",
+      "summary": "Use the ‘neck check’. Symptoms only above the neck and no fever: an easy session is optional. Fever, body aches, chest symptoms, or vomiting and diarrhoea: no training until 24-48 h after the fever has gone (or 24 h of normal eating and drinking after a stomach bug). Return over three sessions. This is consensus practice in sports medicine, not tested evidence.",
+      "trigger": "Any acute illness: cold symptoms, sore throat, fever, cough, body aches, vomiting or diarrhoea, or a confirmed infection such as influenza or COVID-19; and any chest pain, palpitations, fainting or unusual breathlessness during or after an illness.",
+      "action": "1. If you feel unwell, take your temperature before deciding.\n2. **Above the neck only** (runny or blocked nose, sneezing, mild sore throat) and no fever: an easy session is optional, at about half the planned sets, 3-4 [[term:rir|reps in reserve (RIR)]], conversational cardio only, no intervals and no sets to failure. Stop if you feel worse during it.\n3. **Below the neck or whole-body** (fever of 38 °C or above or feeling feverish, chills, body aches, chest congestion or a chesty cough, shortness of breath, vomiting or diarrhoea): no training. Rest, drink and eat.\n4. **Restart** only after 24-48 h without fever, without fever-reducing medicine, and after a stomach bug only once you have eaten and drunk normally for 24 h.\n5. **Ramp back:** session 1 at about 50-60% of the planned sets at RIR 3 with easy cardio, indoors; session 2 at about 75% at RIR 2-3; session 3 back to the plan if the first two felt normal. Avoid outdoor sessions in heat during the first week back.\n6. **Chest pain, palpitations, fainting or unusual breathlessness** during or after an illness: do not train; see a doctor first.\n7. Mark missed sessions as skipped and do not double up to catch up. After more than about 2 weeks off, hand over to [[rule:breaks]].",
+      "data": "| Item | Value |\n|---|---|\n| Fever threshold | 38 °C or above, or feeling feverish: no training |\n| Fever-free before restarting | 24-48 h, without fever-reducing medicine |\n| After vomiting or diarrhoea | 24 h of normal eating and drinking |\n| Optional session with above-neck symptoms | About 50% of planned sets, RIR 3-4, easy cardio only |\n| Return ramp | About 50-60%, then 75%, then 100% of planned sets over three sessions |\n| Hand-over to the breaks rule | More than about 2 weeks off |\n\nAll values are practical convention, not tested thresholds.",
+      "rationale": "No source in this programme’s evidence base tests training during or after common infections, so this rule is consensus practice in sports medicine (the ‘neck check’) and is labelled as such. Three sourced points support caution. Infections are among the listed causes of [[term:rhabdomyolysis|rhabdomyolysis]], alongside unaccustomed exercise and temperature extremes [@Rawson2017_exertionalRhabdo]. Most exertional heat illness is preventable by recognising and modifying risk factors [@Roberts2021_ACSMheatIllness]; being ill or dehydrated is commonly listed among them (general consensus; not stated in the abstract read). Vigorous exertion can briefly raise the risk of acute cardiac events in susceptible individuals [@Franklin2020_AHAexerciseRisk], and viral myocarditis is the classic reason for the ‘no training with a fever’ convention (background clinical knowledge, not sourced here). The return ramp is inference: a few days off cost little adaptation, whereas pushing through an infection risks a longer lay-off."
+    }
+  ]
+}

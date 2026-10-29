@@ -1,0 +1,939 @@
+{
+  "title": "Foundations to Athletic: a one-year programme, then continuation cycles",
+  "tagline": "Muscle and shape first, fat loss alongside, then fitness, power and skill, for a man who has never trained and trains alone.",
+  "timelineNote": "Phase 4 then repeats in 12-week cycles; Maintenance mode is used only for busy or disrupted periods",
+  "overview": "**What this is.** A structured programme in five phases. It is designed around your priorities (aesthetics, hypertrophy, fat loss, then strength, endurance and VO₂max, then agility, coordination, flexibility, balance and mobility), your schedule (waking 12:00, training about 13:00, work 16:00–01:00), solo training in a well-equipped gym, and the evidence on how untrained people adapt.\n\n**The shape of the year.**\n\n| Phase | Weeks | Training | Main aim |\n|---|---|---|---|\n| 0 · Orientation | 1 | 2 light technique sessions, a baseline test day, 1 easy aerobic | Learn the gym, measure your starting point, calibrate nutrition |\n| 1 · Foundations | 12 | 3 full-body sessions + 2 aerobic | Technique, first muscle and strength, slow fat loss |\n| 2 · Development | 16 | 4 upper/lower sessions + intervals + run–walk | More volume for priority muscles, barbell lifts, VO₂max, a running base |\n| 3 · Athletic | 24 | 4 upper/lower + intervals + long session; plyometrics and agility in warm-ups | Hypertrophy block, strength-and-power block, physique-and-conditioning block |\n| 4 · Continuation | 12, repeating | Same structure, your choice of emphasis | Keep progressing or hold your shape |\n\n**How it works day to day.** Every session has three parts: a warm-up, the main training and a cool-down with stretching. Sessions are designed to fit roughly 60–65 minutes so you can eat and get ready before work. Loads are never prescribed as fixed kilograms; you find your own and progress them with [[rule:double-progression|double progression]], judging effort in [[term:rir|repetitions in reserve]]. Fat loss is driven by a modest energy deficit and verified by your waist and weight trends, not by the scale's body-fat number.\n\n**What you log elsewhere.** In your workout app: exercise, load, reps and an effort rating (RPE) for every working set, plus short notes. On your scale or in the [[tool:checkin|check-in tool]]: morning body weight. With the tape: waist every week, all girths and photos every four.",
+  "outcomes": "These are **population averages and ranges from research in untrained adults**, not predictions for you. Individual responses vary several-fold [@Hubal2005_variability; @Ahtiainen2016_heterogeneity], and part of the apparent variation is measurement error [@Dankel2019_trueVariability]. Use them to calibrate expectations, then trust your own trend data after about 8–12 weeks.\n\n| Horizon | Strength | Muscle | Fat and waist | Aerobic fitness | Confidence |\n|---|---|---|---|---|---|\n| End of Phase 1 (≈3 months) | Working loads on most lifts +20–50% (inference from typical novice progress; largely neural and skill learning early) [@Skarabot2021_neural_review] | About +1.5 kg lean mass per ~10 weeks on average [@Benito2020_wholeBodyHypertrophy]; individual range roughly 0 to >3 kg (inference) | Depends on the deficit; see the nutrition plan | VO₂max rises within weeks; supervised training adds about 5–6 mL·kg^−1^·min^−1^ on average [@Milanovic2015_HITvsCET_VO2maxMA; @Strauss2026_CochraneHIIT] | Moderate (strength, VO₂max); low (individual muscle gain) |\n| End of Phase 2 (≈7 months) | Continued gains, slowing; barbell lifts learned | Trained muscles typically 5–10% larger than at the start, wide range [@Ahtiainen2016_heterogeneity; @Hubal2005_variability] | Leaner if the deficit was kept; waist the main marker | Able to run about 24 min continuously (planned progression) | Low to moderate |\n| End of Phase 3 (≈1 year) | Large relative gains; progress per month now clearly slower | Plausibly 2–5 kg lean mass over the year with good adherence (inference, not a measured average) | Lean, maintainable body-fat range | Higher VO₂max; HIIT and run fitness | Low (inference) |\n| Years 2+ | Small, steady gains | Each year adds less than the one before; the approximate drug-free upper limit seen in one small study (normalised FFMI ≈ 25) is many years and ~18–24 kg of fat-free mass away [@Kouri1995_FFMI] | Maintenance | Maintained or improved | Low |\n\nThe goal is an athletic, lean look rather than maximal size. Because muscle accrues slowly, \"too bulky\" is not a near-term risk, and you control it directly: once a muscle looks the way you want, its weekly sets drop to a maintenance dose (see [[rule:size-control]]).",
+  "principles": "- **Progressive overload, measured.** Add reps, then load, within each exercise's rep range ([[rule:double-progression]]).\n- **Hard but not reckless.** Most sets end 1–3 reps short of failure; free-weight compound lifts never go to failure, because you train alone (safety convention). Getting close to failure matters for growth; reaching it adds little [@Robinson2024_RIR_metaregression; @Refalo2023_failure_hypertrophy].\n- **Volume where it matters for your look.** Shoulders (especially the lateral deltoid), upper chest, back width and arms get the most weekly sets; legs get enough for athletic proportions, running and hiking [@Pelland2025_volume_frequency].\n- **Full range of motion.** It builds muscle at least as well as partial ranges [@Pallares2021_ROMmeta] and improves flexibility about as much as stretching; muscle gained this way does not make you stiff [@Alizadeh2023_RT_ROMmeta; @Afonso2021_STvsStretchMeta].\n- **Aerobic work that supports, not competes.** At these doses, aerobic training does not measurably blunt muscle or strength gains in untrained people [@Schumann2021_concurrentMA; @Petre2021_trainingStatusMA], and it is scheduled on separate days.\n- **Variety with anchors.** A few anchor lifts stay fixed within a block so progress is visible; accessories rotate between blocks to keep training interesting [@Kassiano2022_variationSR; @BazValle2019_variationMotivation].\n- **Decisions from trends.** Weight (7-day average), waist (weekly), logged performance and tape measures drive adjustments; single readings never do.",
+  "blocks": {
+    "wu-full-a": {
+      "minutes": 10,
+      "items": [
+        { "ref": "wu-cardio-easy", "dose": "6 min: start easy (RPE 2–3), finish moderate (RPE 4–5)", "timer": 360 },
+        { "ref": "wu-cat-camel", "dose": "8 slow cycles" },
+        { "ref": "wu-leg-swing-fb", "dose": "10 per leg" },
+        { "ref": "wu-wgs", "dose": "3 per side" },
+        { "ref": "wu-bw-squat", "dose": "6 reps, 2–3 s pause at the bottom" },
+        { "ref": "bal-sls", "dose": "2 × 30 s per leg, left first", "timer": { "type": "hold", "seconds": 30, "sets": 2, "sides": true } }
+      ],
+      "rationale": "**Why a two-layer warm-up.** A general layer (easy cardio) raises muscle temperature; a specific layer (dynamic drills, then lighter ramp-up sets of your first exercises) rehearses the movements you are about to load. Warm-ups improved short-term performance in most outcomes studied [@Fradkin2010_warmup_performance], loaded movement-specific warm-ups improved upper-body strength and power [@McCrary2015_upperbody_warmup], and adding a general warm-up before a specific one increased leg-press strength in a small crossover trial [@Abad2011_general_specific_warmup].\n\n**Why it is a little longer for you.** You train about an hour after waking, which is biologically early in your day. Body temperature is the factor most often linked to time-of-day performance differences, and warm-ups (an extended one judged most effective) reduced the early-day deficit across studies [@Kusumoto2021_diurnal_variation], although in one small lifting study an extended morning warm-up did not fully close it [@Pullinger2019_morning_warmup_lifts]. Applying this to a late sleeper is an inference.\n\n**Why dynamic, not long static, stretches here.** Holding static stretches of 60 s or more per muscle just before lifting reduces strength and power by about 4–5%; dynamic stretching slightly improves it [@Behm2016_acute_stretching]. Long static stretching is saved for the cool-down.\n\n**Why balance practice.** Balance gains are specific to the task practised [@Kummel2016_specificity], and your eyes-open single-leg stance (especially on the left) is well below the average for men your age [@Springer2007_UPST]; a minute of practice every session builds that specific skill.\n\n**Mechanisms.** Higher muscle temperature speeds enzyme kinetics and nerve conduction and lowers tissue viscosity; ramp-up sets add task-specific neural rehearsal. These are physiological explanations; the outcome evidence above is what justifies the routine."
+    },
+    "wu-full-b": {
+      "minutes": 10,
+      "items": [
+        { "ref": "wu-cardio-easy", "dose": "6 min: start easy (RPE 2–3), finish moderate (RPE 4–5)", "timer": 360 },
+        { "ref": "wu-band-pull-apart", "dose": "15 reps" },
+        { "ref": "wu-scap-pushup", "dose": "10 reps" },
+        { "ref": "wu-leg-swing-lat", "dose": "10 per leg" },
+        { "ref": "wu-ankle-rock", "dose": "10 per side" },
+        { "ref": "wu-glute-bridge", "dose": "10 reps, 1 s squeeze" },
+        { "ref": "bal-sls", "dose": "2 × 30 s per leg, left first", "timer": { "type": "hold", "seconds": 30, "sets": 2, "sides": true } }
+      ],
+      "rationale": "Same logic as the A warm-up: a general layer to raise muscle temperature (longer because you train soon after waking), dynamic drills for the joints used today (shoulder blades and upper back for pressing and pulling; ankles and hips for the leg press and split squat), balance practice, then ramp-up sets on the first lifts [@Fradkin2010_warmup_performance; @Abad2011_general_specific_warmup; @Behm2016_acute_stretching; @Kummel2016_specificity]."
+    },
+    "wu-upper": {
+      "minutes": 10,
+      "items": [
+        { "ref": "wu-cardio-easy", "dose": "6 min (rower or cross-trainer preferred): easy to moderate", "timer": 360 },
+        { "ref": "wu-band-pull-apart", "dose": "15 reps" },
+        { "ref": "wu-band-dislocate", "dose": "8–10 reps" },
+        { "ref": "wu-scap-pushup", "dose": "10 reps" },
+        { "ref": "wu-open-book", "dose": "6 per side" },
+        { "ref": "bal-sls", "dose": "2 × 30 s per leg, left first; progress to eyes closed", "timer": { "type": "hold", "seconds": 30, "sets": 2, "sides": true } }
+      ],
+      "rationale": "General warm-up, then shoulder-girdle and thoracic drills that prepare the joints you will load, then ramp-up sets on the first press and pull. Balance practice stays in every warm-up because the skill is task-specific and improves with frequent practice [@Kummel2016_specificity; @Lesinski2015_balanceDR]. See the full-body warm-up for the evidence on warm-up structure [@Fradkin2010_warmup_performance; @McCrary2015_upperbody_warmup]."
+    },
+    "wu-lower": {
+      "minutes": 10,
+      "items": [
+        { "ref": "wu-cardio-easy", "dose": "6 min (bike or incline walk): easy to moderate", "timer": 360 },
+        { "ref": "wu-leg-swing-fb", "dose": "10 per leg" },
+        { "ref": "wu-leg-swing-lat", "dose": "10 per leg" },
+        { "ref": "wu-wgs", "dose": "3 per side" },
+        { "ref": "wu-hip-9090", "dose": "5 per side" },
+        { "ref": "wu-bw-squat", "dose": "6 reps, 2–3 s pause at the bottom" },
+        { "ref": "bal-sls", "dose": "2 × 30 s per leg, left first; progress to eyes closed", "timer": { "type": "hold", "seconds": 30, "sets": 2, "sides": true } }
+      ],
+      "rationale": "Lower-body sessions begin with the heaviest, most technical lifts (squat or Romanian deadlift), so the warm-up raises temperature, takes the hips and ankles through the range you will load, and finishes with three ramp-up sets. Dynamic rather than static stretching is used before lifting [@Behm2016_acute_stretching; @Abad2011_general_specific_warmup; @Ribeiro2020_specific_warmup_RT]."
+    },
+    "wu-lower-athletic": {
+      "minutes": 12,
+      "items": [
+        { "ref": "wu-cardio-easy", "dose": "6 min (bike or incline walk): easy to moderate", "timer": 360 },
+        { "ref": "wu-leg-swing-fb", "dose": "10 per leg" },
+        { "ref": "wu-wgs", "dose": "3 per side" },
+        { "ref": "wu-bw-squat", "dose": "6 reps, 2–3 s pause at the bottom" },
+        { "ref": "wu-glute-bridge", "dose": "10 reps" },
+        { "ref": "bal-sl-reach", "dose": "2 rounds × 3 reaches per leg, left first", "weeks": { "to": 8 } },
+        { "ref": "plyo-pogo", "dose": "2 × 12 contacts", "weeks": { "from": 9 } },
+        { "ref": "plyo-box-jump", "dose": "3 × 4 (step down)", "weeks": { "from": 9, "to": 16 } },
+        { "ref": "plyo-lateral-bound", "dose": "2 × 5 per side (stick each landing)", "weeks": { "from": 17 } },
+        { "ref": "agi-ladder", "dose": "2 patterns × 3 passes", "weeks": { "from": 17 } }
+      ],
+      "rationale": "In Phase 3 the lower-body warm-up also carries the athletic work. Plyometric training reliably improves jumping and reactive strength and also improves balance about as much as balance training does; modest volumes (well under 250 contacts per week) are sufficient [@Markovic2007_vertjump; @RamirezCampillo2023_RSI; @Moran2023_stiffness; @Ramachandran2021_plyobalance]. Change-of-direction and coordination gains are task-specific [@NygaardFalch2019_COD], so ladder and bounding drills are brief primers; the bigger coordination payoff is from a skill you enjoy (dance or a martial art). Doing jumps when fresh, before heavy lifting, keeps landing quality high (practical inference)."
+    },
+    "wu-cardio": {
+      "minutes": 6,
+      "items": [
+        { "ref": "wu-cardio-easy", "dose": "4 min easy on the machine you will use", "timer": 240 },
+        { "ref": "wu-leg-swing-fb", "dose": "10 per leg" },
+        { "ref": "wu-ankle-rock", "dose": "10 per side" }
+      ],
+      "rationale": "A short progressive start lets heart rate, breathing and muscle blood flow rise gradually before steady work. Dynamic leg drills prepare the hips and ankles. Static stretching is kept for afterwards [@Behm2016_acute_stretching; @Fradkin2010_warmup_performance]."
+    },
+    "wu-intervals": {
+      "minutes": 10,
+      "items": [
+        { "ref": "wu-cardio-easy", "dose": "8 min: 4 min easy, then 4 min moderate (RPE 5)", "timer": 480 },
+        { "ref": "wu-leg-swing-fb", "dose": "10 per leg" },
+        { "ref": "wu-pickups", "dose": "2 × 20 s at interval effort, 40 s easy between", "timer": { "type": "intervals", "work": 20, "recover": 40, "reps": 2 } }
+      ],
+      "rationale": "Hard intervals need a thorough, progressive warm-up: easy then moderate work raises temperature and speeds oxygen-uptake kinetics, and two short pick-ups rehearse the target intensity so the first interval is not a shock. This follows consensus warm-up structure [@Boullosa2026_warmup_Delphi] and the general warm-up evidence [@Fradkin2010_warmup_performance]."
+    },
+    "wu-run": {
+      "minutes": 10,
+      "items": [
+        { "ref": "wu-cardio-easy", "dose": "5 min brisk walk", "timer": 300 },
+        { "ref": "wu-leg-swing-fb", "dose": "10 per leg" },
+        { "ref": "wu-ankle-rock", "dose": "10 per side" },
+        { "ref": "wu-glute-bridge", "dose": "10 reps, 2 s squeeze at the top" },
+        { "ref": "side-plank", "dose": "20 s per side", "timer": { "type": "hold", "seconds": 20, "sets": 1, "sides": true } },
+        { "ref": "wu-run-drills", "dose": "A-skip and high knees, 2 × 15 m each" }
+      ],
+      "rationale": "Brisk walking eases you into running; ankle and hip drills prepare the tissues that take most of running's load; short drills rehearse a tall, quick stride. Warm-ups help performance [@Fradkin2010_warmup_performance], but warming up as such has not been shown to prevent running injuries [@Boullosa2026_warmup_Delphi]. The glute bridge and side plank are a brief stand-in for the one pre-run routine with trial support: in adult novice runners, a physiotherapist-supervised hip-and-core programme done before runs lowered injury incidence compared with static stretching (HR 0.66, 95% CI 0.45–0.97), whereas an ankle-and-foot programme did not help [@Leppanen2024_RunRCT]. Your short, unsupervised version is an approximation of that programme, not the tested intervention (inference)."
+    },
+    "wu-test": {
+      "minutes": 12,
+      "items": [
+        { "ref": "wu-cardio-easy", "dose": "8 min progressive: easy to moderate", "timer": 480 },
+        { "ref": "wu-leg-swing-fb", "dose": "10 per leg" },
+        { "ref": "wu-leg-swing-lat", "dose": "10 per leg" },
+        { "ref": "wu-wgs", "dose": "3 per side" },
+        { "ref": "wu-scap-pushup", "dose": "10 reps" }
+      ],
+      "rationale": "Tests are only comparable if the warm-up is identical every time, because temperature and warm-up length change both performance and flexibility measurements [@Kusumoto2021_diurnal_variation; @Edwards2026_diurnal_flexibility]. Keep this routine, the time of day and the order of tests the same at every assessment."
+    },
+    "cd-full-a": {
+      "minutes": 8,
+      "items": [
+        { "ref": "cd-easy", "dose": "2 min easy walk or cycle", "timer": 120 },
+        { "ref": "st-ham-supine", "dose": "2 × 30 s per leg at a strong but tolerable stretch (about 7/10)", "timer": { "type": "hold", "seconds": 30, "sets": 2, "sides": true } },
+        { "ref": "st-hip-flexor", "dose": "2 × 30 s per side", "timer": { "type": "hold", "seconds": 30, "sets": 2, "sides": true } },
+        { "ref": "st-lat-bench", "dose": "2 × 30 s", "timer": { "type": "hold", "seconds": 30, "sets": 2, "sides": false } }
+      ],
+      "rationale": "**What the cool-down is for, honestly.** An active cool-down does not meaningfully speed recovery, prevent soreness or prevent injury [@VanHooren2018_cooldown], and stretching does not reduce muscle soreness or speed strength recovery to a worthwhile degree [@Herbert2011_Cochrane_stretch_DOMS; @Afonso2021_postexercise_stretch_recovery]. The two minutes of easy movement are for comfort as heart rate and breathing settle.\n\n**Why stretch here, then.** Regular static stretching reliably increases range of motion (about 1 standard deviation versus control across 77 studies) [@Konrad2024_chronic_stretch_ROM], and after training is the point where long static holds cannot blunt your lifting. Your toe-touch limitation makes the hamstrings the priority: they are stretched in every session, giving roughly 5 minutes per leg per week, the weekly dose associated with gains [@Thomas2018_stretch_dose_ROM]. In one small calf-stretching trial, a strong stretch (6–7/10) produced larger gains than a gentle one [@Nakamura2021_HI_vs_LI_SS], although intensity did not clearly change the effect across studies [@Konrad2024_chronic_stretch_ROM]. Hip flexors are included because you sit at a desk for nine hours.\n\n**Mechanism.** In programmes of a few weeks, range improves mainly through greater tolerance of the stretch sensation (a nervous-system change) [@Magnusson1996_stretch_tolerance; @Freitas2018_chronic_stretch_mechanics]; more intense or higher-volume programmes can also reduce muscle stiffness and slightly lengthen fascicles [@Nakamura2021_HI_vs_LI_SS; @Panidi2023_stretch_architecture_meta]."
+    },
+    "cd-full-b": {
+      "minutes": 8,
+      "items": [
+        { "ref": "cd-easy", "dose": "2 min easy walk or cycle", "timer": 120 },
+        { "ref": "st-ham-bench", "dose": "2 × 30 s per leg, about 7/10 intensity", "timer": { "type": "hold", "seconds": 30, "sets": 2, "sides": true } },
+        { "ref": "st-calf-wall", "dose": "2 × 30 s per leg (one straight-knee, one bent-knee)", "timer": { "type": "hold", "seconds": 30, "sets": 2, "sides": true } },
+        { "ref": "st-pec-doorway", "dose": "2 × 30 s per side", "timer": { "type": "hold", "seconds": 30, "sets": 2, "sides": true } }
+      ],
+      "rationale": "Same purpose as cool-down A: comfort, plus accumulating weekly stretching for range of motion rather than recovery [@Konrad2024_chronic_stretch_ROM; @VanHooren2018_cooldown]. Hamstrings again (every session), calves (squat depth, running) and chest (pressing posture). Loaded full-range lifting also improves flexibility about as much as stretching does [@Alizadeh2023_RT_ROM], so the stretching tops up what the training already provides."
+    },
+    "cd-upper": {
+      "minutes": 8,
+      "items": [
+        { "ref": "cd-easy", "dose": "2 min easy walk or cycle", "timer": 120 },
+        { "ref": "st-pec-doorway", "dose": "2 × 30 s per side", "timer": { "type": "hold", "seconds": 30, "sets": 2, "sides": true } },
+        { "ref": "st-lat-bench", "dose": "2 × 30 s", "timer": { "type": "hold", "seconds": 30, "sets": 2, "sides": false } },
+        { "ref": "st-ham-supine", "dose": "2 × 30 s per leg, about 7/10 intensity", "timer": { "type": "hold", "seconds": 30, "sets": 2, "sides": true } }
+      ],
+      "rationale": "Chest and lat stretches after pressing and pulling; the hamstring stretch keeps your weekly hamstring dose on every training day [@Thomas2018_stretch_dose_ROM; @Konrad2024_chronic_stretch_ROM]. The cool-down is for comfort and range of motion, not for recovery [@VanHooren2018_cooldown]."
+    },
+    "cd-lower": {
+      "minutes": 8,
+      "items": [
+        { "ref": "cd-easy", "dose": "2 min easy walk or cycle", "timer": 120 },
+        { "ref": "st-ham-supine", "dose": "2 × 30 s per leg, about 7/10 intensity", "timer": { "type": "hold", "seconds": 30, "sets": 2, "sides": true } },
+        { "ref": "st-hip-flexor", "dose": "2 × 30 s per side", "timer": { "type": "hold", "seconds": 30, "sets": 2, "sides": true } },
+        { "ref": "st-quad", "dose": "1 × 30 s per side", "timer": { "type": "hold", "seconds": 30, "sets": 1, "sides": true } },
+        { "ref": "st-glute-fig4", "dose": "1 × 30 s per side", "timer": { "type": "hold", "seconds": 30, "sets": 1, "sides": true } }
+      ],
+      "rationale": "After squats, hinges and lunges: hamstrings (your priority), hip flexors (desk job), quadriceps and glutes. Static stretching is done after, not before, heavy leg work [@Behm2016_acute_stretching; @Konrad2024_chronic_stretch_ROM]."
+    },
+    "cd-cardio": {
+      "minutes": 9,
+      "items": [
+        { "ref": "cd-easy", "dose": "3 min easy", "timer": 180 },
+        { "ref": "st-calf-wall", "dose": "2 × 30 s per leg (straight and bent knee)", "timer": { "type": "hold", "seconds": 30, "sets": 2, "sides": true } },
+        { "ref": "st-ham-bench", "dose": "2 × 30 s per leg, about 7/10 intensity", "timer": { "type": "hold", "seconds": 30, "sets": 2, "sides": true } },
+        { "ref": "st-quad", "dose": "1 × 30 s per side", "timer": { "type": "hold", "seconds": 30, "sets": 1, "sides": true } }
+      ],
+      "rationale": "Easy movement lets breathing and heart rate settle; the stretches target the muscles most used in walking, running and cycling and keep your hamstring dose going on non-lifting days [@Thomas2018_stretch_dose_ROM]. As elsewhere, the purpose is range of motion, not faster recovery [@VanHooren2018_cooldown]."
+    }
+  },
+  "phases": [
+    {
+      "id": "p0", "short": "P0", "name": "Phase 0 · Orientation", "navName": "Orientation", "weeks": 1, "color": "p0", "durationLabel": "1 week",
+      "energyGoal": "calibrate",
+      "tagline": "Learn the gym, measure your starting point, and calibrate your nutrition before changing anything.",
+      "purpose": "Three jobs in one week. (1) **Learn**: practise the main movement patterns with deliberately light loads so technique is learned before effort rises. (2) **Measure**: record a standardised baseline (body measurements and photos, resting heart rate, an aerobic walking test, push-ups, pull-ups, a jump, balance and flexibility tests) so every later decision rests on your own data. (3) **Calibrate**: keep eating as you normally do while weighing yourself daily and logging food, because your weight has been stable for six months, which means your current intake roughly equals your current expenditure; that observed number is more accurate than any equation.\n\nVery light first sessions should also limit the severe soreness that unaccustomed training causes (inference), and a first exposure protects against soreness from later bouts: after one damaging bout of an arm exercise, a repeat bout 6 months later caused less soreness (the repeated-bout effect) [@Nosaka2001_RBE_duration; @Hyldahl2017_repeated_bout_effect].",
+      "structure": "- **Mon** Technique session A · **Tue** Baseline test session · **Thu** Technique session B · **Sat** Easy aerobic session (learn the talk test).\n- Every day: weigh in under the standard protocol; log everything you eat and drink; walk as usual.\n- One morning this week: tape measurements and photos ([[ex:test-girths]]) and resting heart rate on three mornings ([[ex:test-rhr]]).\n- Effort: stop every set with about **4 reps in reserve**. This week is about learning positions and machine settings, not about effort.",
+      "entry": ["You have read [[plan:safety|Safety and stop rules]] and answered the pre-exercise screening questions; nothing in them requires a medical check first.", "You have a workout-logging app set up and know how to record load, reps and RPE for each set."],
+      "progression": "No progression within this week. Choose loads you could lift about 14 times and stop at 10.",
+      "advance": ["All four sessions completed (or rescheduled within the next week).", "Baseline measurements and tests recorded.", "At least 5 days of food logging and 6 morning weigh-ins recorded (needed to estimate your maintenance intake)."],
+      "repeat": ["If you missed the baseline tests or more than one technique session, repeat the week."],
+      "regress": ["If any movement causes pain (not muscular effort), stop that exercise, use the listed alternative and read the pain rules before Phase 1."],
+      "expected": [
+        { "metric": "Muscle soreness", "value": "Mild to moderate for 1–3 days after the first sessions", "certainty": "probable", "note": "Normal; it lessens quickly with repeated sessions [@Hyldahl2017_repeated_bout_effect]." },
+        { "metric": "Technique", "value": "Comfortable set-up on every machine and the main free-weight patterns", "certainty": "inference" }
+      ],
+      "nutrition": "Do not change your diet yet. Log everything (weighing food where practical) and weigh yourself every morning; keep doing both through Phase 1 weeks 1–2, because a reliable weight trend needs 2–3 weeks of data. At the end of that period the [[tool:energy|energy tool]] gives an equation-based estimate, and your logged intake at stable weight gives an observed one; the [[plan:nutrition|nutrition plan]] explains how the two are combined.",
+      "conditioning": "One easy aerobic session to learn how moderate intensity feels using the talk test and the RPE scale. Keep walking as usual.",
+      "decisions": ["D01", "D02", "D03"],
+      "science": [],
+      "defaults": { "sets": { "primary": 2, "machine": 2, "unilateral": 2, "isolation": 2, "core": 2 }, "rir": { "primary": "4", "machine": "4", "unilateral": "4", "isolation": "3–4", "core": "—" }, "params": { "z2min": 20, "z2sec": 1200 } },
+      "weekPlans": [
+        { "w": 1, "title": "Learn and measure", "tests": ["Body measurements and photos, one morning: [[ex:test-girths]]", "Resting heart rate on 3 mornings: [[ex:test-rhr]]", "Baseline test session (Tuesday): walking test, push-ups, pull-ups, broad jump, balance and flexibility"], "notes": "Light week. Learn machine settings (seat heights, pin positions) and write them in your logging app's exercise notes. Weigh in every morning; log food every day; do not diet yet." }
+      ],
+      "schedule": [ ["p0-learn-a", "p0-baseline", null, "p0-learn-b", null, "p0-aerobic", null] ]
+    },
+    {
+      "id": "p1", "short": "P1", "name": "Phase 1 · Foundations", "navName": "Foundations", "weeks": 12, "color": "p1", "durationLabel": "12 weeks",
+      "energyGoal": "recomp",
+      "tagline": "Three full-body sessions and two aerobic sessions a week: technique, first muscle and strength, slow fat loss.",
+      "purpose": "Build technique and the habit, gain your first muscle and strength, and lose fat slowly at the same time (recomposition). Untrained people respond to modest volumes, so weekly sets start low and rise in steps [@Pelland2025_volume_frequency; @Schoenfeld2017_volume_meta]. Full-body sessions three times a week train every muscle 2–3 times per week, which gives frequent practice of each movement; with volume equal, frequency itself makes little difference to growth [@Schoenfeld2019_frequency_hypertrophy; @RamosCampo2024_split_vs_fullbody], so the choice is about practice and fitting volume into 60-minute sessions.",
+      "structure": "- **Strength:** three full-body sessions (A and B alternate: A-B-A one week, B-A-B the next) on Monday, Wednesday and Friday, about 60–65 minutes each including warm-up and cool-down.\n- **Aerobic:** Tuesday steady session (20 → 35 min); Saturday steady session in weeks 1–6, then introductory intervals in weeks 7–11. Any steady session can be swapped for a brisk hike, dance class or martial-arts class of similar effort and duration.\n- **Rest:** Thursday and Sunday (walk; aim for your step target).\n- **Exercise order:** the first exercise of each session is the one you most want to improve; accessories are paired in supersets of non-competing muscles to save time without reducing volume [@Zhang2025_superset_meta].\n- **Weekly sets per muscle:** about 4–6 in weeks 1–2, 8–12 in weeks 3–11, counting a set fully for the main muscle and half for synergists [@Pelland2025_volume_frequency].",
+      "entry": ["Phase 0 completed: baseline recorded, technique sessions done.", "Maintenance calorie estimate available (from logging plus weigh-ins, or the energy tool)."],
+      "progression": "Use [[rule:double-progression|double progression]] on every exercise: stay at a load until every working set reaches the top of the rep range at the target effort, then add the smallest increment. Effort targets tighten over the phase: **weeks 1–2** about 3–4 reps in reserve (RIR); **weeks 3–6** 2–3 RIR on free weights, about 2 on machines; **weeks 7–11** 2–3 RIR on free weights, 1–2 on machines, 0–2 on isolation exercises (last set may reach failure on machines and cables only). Free-weight compound lifts never go to failure because you train alone (safety convention); stopping short of failure costs little or no strength [@Robinson2024_RIR_metaregression]. In weeks 5 and 9, take the last set of one machine exercise to failure to check your RIR estimates, which are typically off by about one rep [@Halperin2022_RIR_accuracy] ([[rule:rir-calibration]]).",
+      "advance": ["At least 80% of planned sessions completed over the phase (the app counts your 'done' ticks).", "Technique self-check passed on the goblet squat, dumbbell presses and Romanian deadlift (filmed from the side; see each exercise's error list).", "Loads or reps improved on most exercises since week 3.", "No unresolved pain that changes how you move."],
+      "repeat": ["Adherence was below 80%: repeat weeks 7–12.", "Most lifts stalled for 3+ weeks despite good sleep and nutrition: repeat weeks 7–12 after reviewing the stall rule.", "You feel technique on the dumbbell and hinge patterns is not yet consistent."],
+      "regress": ["A break of more than 3 weeks: go back 2–3 weeks (restart at week 3 if the break exceeded 8 weeks) with loads reduced per [[rule:breaks]].", "An injury or illness that stopped training for more than 3 weeks: return to week 3 once cleared; shorter interruptions follow [[rule:breaks]] and [[rule:illness]]."],
+      "repeatWeeks": 6,
+      "expected": [
+        { "metric": "Strength", "value": "Working loads +20–50% on most lifts", "certainty": "probable", "note": "The range is an inference from typical novice progress (leg-press 1RM rose about 21% on average, range −8 to +60%, over 20–24 weeks of twice-weekly training in one pooled analysis [@Ahtiainen2016_heterogeneity]). Mostly neural and skill learning in the first weeks [@Skarabot2021_neural_review; @DelVecchio2019_motorUnits]." },
+        { "metric": "Lean mass", "value": "About +1–2 kg on average (individual range ≈ 0 to >3 kg, inference)", "certainty": "uncertain", "note": "Average ≈ +1.5 kg over ~10 weeks [@Benito2020_wholeBodyHypertrophy]; lean-mass gains were smaller during an energy deficit [@Murphy2022_deficitLeanMass]." },
+        { "metric": "Muscle size seen on the tape", "value": "Small; early 'swelling' in weeks 1–4 is partly fluid, not muscle", "certainty": "probable", "note": "[@Damas2016_EJAP_oedema]" },
+        { "metric": "VO₂max", "value": "Clear rise (several mL·kg⁻¹·min⁻¹ possible)", "certainty": "probable", "note": "[@Strauss2026_CochraneHIIT; @Milanovic2015_HITvsCET_VO2maxMA]" },
+        { "metric": "Push-ups / pull-ups", "value": "Likely clear improvement from 5 / 3", "certainty": "inference" },
+        { "metric": "Toe-touch distance", "value": "Several centimetres closer", "certainty": "probable", "note": "Training through full range plus stretching [@Alizadeh2023_RT_ROM; @Konrad2024_chronic_stretch_ROM]." }
+      ],
+      "nutrition": "Weeks 1–2: keep eating as in Phase 0 and keep logging and weighing daily, which completes the calibration of your maintenance intake (set the check-in tool's goal to 'Calibrate'). From week 3: recomposition, a small energy deficit with high protein, aiming for slow weight loss while strength rises. Targets, the weight-trend band and the adjustment rule are in the [[plan:nutrition|nutrition plan]] and the [[tool:checkin|check-in tool]].",
+      "conditioning": "Two aerobic sessions per week plus daily steps. Steady sessions build from 20 to 35 minutes at a conversational effort; from week 7 the Saturday session becomes short intervals (1 minute hard, 2 minutes easy), a first exposure to high intensity. Balance practice is in every warm-up; hamstring stretching in every cool-down.",
+      "decisions": ["D04", "D05", "D06", "D07", "D08", "D09", "D10", "D11"],
+      "science": [],
+      "defaults": {
+        "sets": { "primary": 3, "machine": 3, "unilateral": 2, "isolation": 2, "core": 2, "skill": 3 },
+        "rir": { "primary": "2–3", "machine": "2", "unilateral": "2–3", "isolation": "1–2", "core": "—", "skill": "2+" },
+        "params": { "z2min": 25, "z2sec": 1500, "intReps": 6 }
+      },
+      "weekPlans": [
+        { "from": 1, "to": 2, "title": "Learn the movements", "sets": { "primary": 2, "machine": 2, "isolation": 2, "core": 2, "skill": 2 }, "rir": { "primary": "3–4", "machine": "3", "isolation": "3–4", "skill": "3+" }, "params": { "z2min": 20, "z2sec": 1200 }, "notes": "Two sets per exercise, stopping 3–4 reps short of failure. Settle on loads: if a set felt like more than 5 reps in reserve, go heavier next time. Expect some soreness after the first sessions; it fades quickly. Nutrition: no change yet; keep logging food and weighing daily to finish calibrating your maintenance intake." },
+        { "from": 3, "to": 4, "title": "Build the base", "params": { "z2min": 25, "z2sec": 1500 }, "notes": "Three sets on the main lifts; split squats, calf raises and arm work start. Add load whenever every set reaches the top of its rep range at the target effort. Waist every week; all girths and photos at the end of week 4." },
+        { "from": 5, "to": 6, "title": "Build the base", "params": { "z2min": 30, "z2sec": 1800 }, "notes": "Week 5: calibrate your effort estimates once (last set of the leg press or chest press to momentary failure, see the RIR calibration rule). Waist every week." },
+        { "from": 7, "to": 11, "title": "Build volume", "sets": { "isolation": 3, "core": 3 }, "rir": { "machine": "1–2", "isolation": "0–2", "skill": "2" }, "params": { "z2min": 35, "z2sec": 2100, "intReps": 6 }, "notes": "Isolation exercises go to 3 sets; machines may be taken to 1 rep in reserve and isolation exercises to failure on the last set (machines and cables only). Saturday becomes intervals. Waist every week; all girths and photos at week 8. Week 9: repeat the RIR calibration.",
+          "schedule": [ ["p1-a", "p1-aero", "p1-b", null, "p1-a", "p1-int", null], ["p1-b", "p1-aero", "p1-a", null, "p1-b", "p1-int", null] ] },
+        { "from": 9, "to": 11, "params": { "intReps": 8 } },
+        { "w": 12, "title": "Reassess", "sets": { "primary": 2, "machine": 2, "unilateral": 2, "isolation": 2, "core": 2, "skill": 2 }, "rir": { "primary": "2–3", "machine": "2–3", "unilateral": "2–3", "isolation": "2", "skill": "2+" }, "params": { "z2min": 20, "z2sec": 1200 }, "tests": ["Repeat the baseline test session (Tuesday) under identical conditions", "All girths and photos; waist at navel and narrowest", "Phase transition checklist"], "notes": "A lighter week to consolidate and to test fairly. Compare every result with your baseline, then work through the transition checklist.",
+          "schedule": [ ["p1-a", "p1-test", null, "p1-b", null, "p1-aero", null] ] }
+      ],
+      "schedule": [
+        ["p1-a", "p1-aero", "p1-b", null, "p1-a", "p1-aero", null],
+        ["p1-b", "p1-aero", "p1-a", null, "p1-b", "p1-aero", null]
+      ]
+    },
+    {
+      "id": "p2", "short": "P2", "name": "Phase 2 · Development", "navName": "Development", "weeks": 16, "color": "p2", "durationLabel": "16 weeks",
+      "energyGoal": "recomp",
+      "tagline": "Upper/lower split four days a week, barbell lifts, 4 × 4 intervals and a run–walk base.",
+      "purpose": "Raise weekly volume for the muscles that shape an athletic upper body (lateral and rear deltoids, upper chest, back width, arms) to about 12–16 sets, keep legs at roughly 10–13 for proportion and running, learn the barbell squat and Romanian deadlift in a rack with safety arms, and build aerobic fitness with intervals that meet the criteria linked to the largest VO₂max gains (intervals of ≥2 minutes, ≥15 minutes of hard work, sustained over weeks) [@Wen2019_HIITprotocolsMA; @Helgerud2007_4x4RCT; @Strauss2026_CochraneHIIT]. Running starts as run–walk, and each run stays within about 10% of your longest run in the previous 30 days.",
+      "structure": "- **Mon** Upper A (heavier pressing) · **Tue** Lower A (squat) · **Wed** 4 × 4 intervals · **Thu** Upper B (pull-up and pulling emphasis) · **Fri** Lower B (hinge and single-leg) · **Sat** run–walk (or a hike, ride or dance class of similar length) · **Sun** rest.\n- Each muscle is trained twice a week; each upper session starts with a different priority lift, and some accessories sit on lower days (a third lateral-raise exposure) [@Nunes2021_exerciseOrderMeta].\n- Mild daily undulation: the first lift on 'A' days uses lower reps (heavier), 'B' days moderate reps.\n- Aerobic work is on separate days from lifting, which avoids the small same-session interference seen for explosive strength [@Schumann2021_concurrentMA].\n- Interval sessions use the bike, rower or incline treadmill walking (not running) until you can run 20 minutes continuously.",
+      "entry": ["Phase 1 advance criteria met (or Phase 1 repeated).", "You can perform the goblet squat and dumbbell Romanian deadlift with consistent technique at 2 reps in reserve."],
+      "progression": "Double progression continues. On the main barbell lifts, keep 2–3 reps in reserve and never grind a rep without safety arms in place. Weeks 1–3 introduce the barbell at moderate reps (8–10); from week 9 the first lift on A days moves to 5–8 reps. The planned lighter week (week 8) halves sets; take extra lighter weeks only when the [[rule:deload]] triggers. If a priority muscle's girth has not changed after 12 weeks of good adherence, add 2–4 sets per week for it ([[rule:lagging-muscle]]).",
+      "advance": ["At least 80% of planned sessions completed.", "Barbell squat and Romanian deadlift performed with consistent technique (filmed check) at the prescribed effort.", "Continuous running of about 20+ minutes reached (or a deliberate choice to keep aerobic work on other machines).", "No unresolved pain."],
+      "repeat": ["Adherence below 80% or a long disruption: repeat weeks 9–16.", "Running progression stalled or interrupted by niggles: repeat the run–walk weeks you missed before progressing."],
+      "regress": ["Recurrent pain with barbell lifts: return to the Phase 1 dumbbell/machine versions for those patterns for 4 weeks and reassess technique.", "A break of more than 3 weeks: go back 2–3 weeks with reduced loads per [[rule:breaks]]; after more than 8 weeks, restart Phase 1 at week 3."],
+      "repeatWeeks": 8,
+      "expected": [
+        { "metric": "Muscle", "value": "Continued slow gain; the clearest changes in shoulder, chest and arm girths", "certainty": "uncertain", "note": "Gains slowed after the first 6 weeks of continuous training in one small trial [@Ogasawara2013_periodicVsContinuous]; individual responses vary widely [@Hubal2005_variability]." },
+        { "metric": "VO₂max", "value": "Further rise; 4 × 4 intervals add a little more than continuous training alone", "certainty": "probable", "note": "HIIT vs continuous ≈ +1.4 mL·kg⁻¹·min⁻¹ on average, low certainty [@Strauss2026_CochraneHIIT]." },
+        { "metric": "Running", "value": "About 24 min continuous by week 15", "certainty": "inference", "note": "Planned progression; injuries are common in novice runners whatever the plan [@Videbaek2015_runningInjuryIncidence]." },
+        { "metric": "Pull-ups", "value": "Sets of 6–8 bodyweight reps for many people by the end", "certainty": "inference" }
+      ],
+      "nutrition": "At the start of this phase the [[rule:phase-nutrition]] decides between continuing the recomposition deficit and switching to maintenance or a small surplus, based on your waist and body-fat trend at the end of Phase 1.",
+      "conditioning": "Wednesday: 4 × 4-minute intervals at a hard effort (RPE 8–9) with 3-minute easy recoveries (3-minute intervals in weeks 1–3). Saturday: run–walk, each run within ~10% of your longest run in the previous 30 days ([[rule:running]]); swap for a hike or dance class when you prefer, but repeat a run–walk step you skipped rather than jumping ahead. Daily steps continue.",
+      "decisions": ["D12", "D13", "D14", "D15"],
+      "science": [],
+      "defaults": {
+        "sets": { "main": 3, "secondary": 3, "isolation": 3, "priority": 3, "core": 3 },
+        "rir": { "main": "2–3", "secondary": "1–2", "isolation": "0–2", "priority": "0–2", "core": "—" },
+        "params": { "mainReps": "6–10", "pullReps": "4–8", "intReps": 4, "intWork": 240, "rwReps": 8, "rwRun": 60, "rwWalk": 120, "rwText": "8 × (1:00 run / 2:00 walk)" }
+      },
+      "weekPlans": [
+        { "from": 1, "to": 3, "title": "Transition to upper/lower", "sets": { "secondary": 2, "isolation": 2, "core": 2 }, "rir": { "secondary": "2", "isolation": "1–2", "priority": "1–2" }, "params": { "mainReps": "8–10", "intWork": 180 }, "notes": "New split, new barbell lifts: keep reps moderate and effort conservative while you learn the squat and Romanian deadlift in the rack. Set the safety arms every time. Week 2: RIR calibration on a machine exercise." },
+        { "w": 1, "params": { "rwReps": 8, "rwRun": 60, "rwWalk": 120, "rwText": "8 × (1:00 run / 2:00 walk) = 8:00 running" } },
+        { "w": 2, "params": { "rwReps": 7, "rwRun": 75, "rwWalk": 120, "rwText": "7 × (1:15 run / 2:00 walk) = 8:45 running" } },
+        { "w": 3, "params": { "rwReps": 6, "rwRun": 95, "rwWalk": 105, "rwText": "6 × (1:35 run / 1:45 walk) = 9:30 running" } },
+        { "from": 4, "to": 7, "title": "Accumulate", "notes": "Full volume. Waist every week; girths and photos at week 4. Week 7: RIR calibration on a machine exercise." },
+        { "w": 4, "params": { "rwReps": 5, "rwRun": 125, "rwWalk": 90, "rwText": "5 × (2:05 run / 1:30 walk) = 10:25 running" } },
+        { "w": 5, "params": { "rwReps": 5, "rwRun": 135, "rwWalk": 90, "rwText": "5 × (2:15 run / 1:30 walk) = 11:15 running" } },
+        { "w": 6, "params": { "rwReps": 4, "rwRun": 185, "rwWalk": 90, "rwText": "4 × (3:05 run / 1:30 walk) = 12:20 running" } },
+        { "w": 7, "params": { "rwReps": 4, "rwRun": 200, "rwWalk": 90, "rwText": "4 × (3:20 run / 1:30 walk) = 13:20 running" } },
+        { "w": 8, "title": "Lighter week", "deload": true, "sets": { "main": 2, "secondary": 2, "isolation": 1, "priority": 2, "core": 1 }, "rir": { "main": "3–4", "secondary": "3", "isolation": "2–3", "priority": "2–3" }, "params": { "mainReps": "6–8", "intReps": 3, "rwReps": 4, "rwRun": 180, "rwWalk": 90, "rwText": "4 × (3:00 run / 1:30 walk) = 12:00 running" }, "notes": "Half the sets, more reps in reserve, same exercises and loads (or ~10% lighter). Use the week to swap any accessory you are bored with for a listed alternative. All girths and photos." },
+        { "from": 9, "to": 15, "title": "Build", "sets": { "main": 4, "priority": 4 }, "rir": { "isolation": "0–1", "priority": "0–1" }, "params": { "mainReps": "5–8" }, "notes": "The first lift on A days moves to 5–8 reps (heavier). Priority muscles get a 4th set. Waist every week; girths and photos at week 12. Week 12: RIR calibration." },
+        { "w": 9, "params": { "rwReps": 3, "rwRun": 290, "rwWalk": 90, "rwText": "3 × (4:50 run / 1:30 walk) = 14:30 running" } },
+        { "w": 10, "params": { "rwReps": 3, "rwRun": 315, "rwWalk": 90, "rwText": "3 × (5:15 run / 1:30 walk) = 15:45 running" } },
+        { "w": 11, "params": { "rwReps": 3, "rwRun": 345, "rwWalk": 90, "rwText": "3 × (5:45 run / 1:30 walk) = 17:15 running" } },
+        { "w": 12, "params": { "rwReps": 2, "rwRun": 565, "rwWalk": 120, "rwText": "2 × (9:25 run / 2:00 walk) = 18:50 running" } },
+        { "w": 13, "params": { "rwReps": 2, "rwRun": 615, "rwWalk": 120, "rwText": "2 × (10:15 run / 2:00 walk) = 20:30 running" } },
+        { "w": 14, "params": { "rwReps": 2, "rwRun": 675, "rwWalk": 120, "rwText": "2 × (11:15 run / 2:00 walk) = 22:30 running" } },
+        { "w": 15, "params": { "rwReps": 1, "rwRun": 1440, "rwWalk": 0, "rwText": "24:00 continuous easy running (if that feels like too big a step from 11-minute bouts, run 2 × 12:00 with a 1:00 walk this week and go continuous next week)" } },
+        { "w": 16, "title": "Reassess", "sets": { "main": 2, "secondary": 2, "isolation": 2, "priority": 2, "core": 2 }, "rir": { "main": "2–3", "secondary": "2–3", "isolation": "2", "priority": "2" }, "params": { "mainReps": "6–8", "intReps": 3 }, "tests": ["Test session (Wednesday): 2.4 km run test if you can run 20+ min continuously (otherwise the walking test), push-ups, pull-ups, broad jump, balance and flexibility", "All girths and photos", "Phase transition checklist"], "notes": "Lighter lifting so the tests reflect fitness, not fatigue.",
+          "schedule": [ ["p2-ua", "p2-la", "p2-test", "p2-ub", "p2-lb", null, null] ] }
+      ],
+      "schedule": [ ["p2-ua", "p2-la", "p2-hiit", "p2-ub", "p2-lb", "p2-run", null] ]
+    },
+    {
+      "id": "p3", "short": "P3", "name": "Phase 3 · Athletic", "navName": "Athletic", "weeks": 24, "color": "p3", "durationLabel": "24 weeks (3 blocks of 8)",
+      "energyGoal": "lean-gain",
+      "tagline": "Three 8-week blocks: hypertrophy, strength and power, then physique and conditioning, with jumps and agility built into warm-ups.",
+      "purpose": "Keep building muscle while adding the athletic qualities on your list: maximal strength, power, agility and conditioning. Rotating emphasis in blocks provides planned variety (your stated risk is boredom) without random exercise-hopping, which can slow progress [@Kassiano2022_variationSR]. Periodisation model matters little for hypertrophy; a heavier block mainly helps maximal strength [@Moesgaard2022_periodization; @Currier2026_ACSMpositionStand].",
+      "structure": "- Same weekly frame as Phase 2: Upper A, Lower A, intervals, Upper B, Lower B, long session, rest.\n- **Block 1 (weeks 1–8) Hypertrophy:** main lifts 6–10 reps; new exercise variants (Smith-machine incline press, chin-ups, cable curls, reverse lunges).\n- **Block 2 (weeks 9–16) Strength and power:** main lifts 4–6 reps at 2–3 reps in reserve (barbell bench press and trap-bar deadlift enter, always with safety arms or a trap bar); jump training in lower-body warm-ups (≈36 contacts per session).\n- **Block 3 (weeks 17–24) Physique and conditioning:** main lifts 6–10 reps; an extra set for your chosen priority muscles; agility and bounding drills in lower warm-ups; intervals plus a tempo or long session.\n- Weeks 8 and 16 are lighter; week 24 is a full reassessment.",
+      "entry": ["Phase 2 advance criteria met.", "Comfortable with the barbell squat, Romanian deadlift and pull-ups (assisted or bodyweight) at the prescribed effort."],
+      "progression": "Double progression within each block. At each block change, start the new rep range about 2 reps in reserve below your estimated limit (use the [[tool:e1rm|e1RM tool]] from your logged sets). In Block 2, heavy sets stay at 2–3 reps in reserve: you train alone, and strength gains are similar without failure [@Grgic2022_failure_meta; @Wu2026_nonfailure_meta].",
+      "advance": ["At least 80% of planned sessions completed.", "Reassessment done (week 24) and goals reviewed with the [[tool:transition|transition checklist]]."],
+      "repeat": ["If a block was badly disrupted, repeat that block before moving on."],
+      "regress": ["Recurrent joint pain with heavy (4–6 rep) work: return to Block 1 rep ranges for those lifts.", "A break of more than 3 weeks: go back 2–3 weeks with reduced loads per [[rule:breaks]]; after more than 8 weeks, restart Phase 1 at week 3."],
+      "repeatWeeks": 8,
+      "expected": [
+        { "metric": "Maximal strength", "value": "Clearer gains in Block 2 on the trained lifts (strength is specific to load and exercise)", "certainty": "probable", "note": "[@Lopez2021_load_NMA; @Saeterbakken2025_taskSpecificityMeta]" },
+        { "metric": "Jump and agility", "value": "Improved jump distance/height and drill times; mostly specific to what is practised", "certainty": "probable", "note": "[@Markovic2007_vertjump; @NygaardFalch2019_COD]" },
+        { "metric": "Muscle", "value": "Slower than year one; small yearly gains become the norm", "certainty": "probable", "note": "Inference from the slowing seen within single trials and the approximate natural upper limit [@Ogasawara2013_periodicVsContinuous; @Kouri1995_FFMI]." }
+      ],
+      "nutrition": "If you met the leanness criterion, a small energy surplus supports muscle gain with limited fat gain; otherwise stay at maintenance or a small deficit. The [[rule:phase-nutrition]] decides.",
+      "conditioning": "Intervals weekly (4 × 4 in Blocks 1 and 3; 6 × 2 minutes very hard in Block 2), plus a long session (continuous run, hike, ride or a dance or martial-arts class). Jumps and agility live in the lower-body warm-ups.",
+      "decisions": ["D16", "D17"],
+      "science": [],
+      "defaults": {
+        "sets": { "main": 3, "secondary": 3, "isolation": 3, "priority": 4, "core": 3 },
+        "rir": { "main": "2–3", "secondary": "1–2", "isolation": "0–1", "priority": "0–1", "core": "—" },
+        "params": { "mainReps": "6–10", "intReps": 4, "intWork": 240, "intRecover": 180, "intText": "4 × 4:00 hard (RPE 8–9) / 3:00 easy", "longMin": 40, "longSec": 2400 }
+      },
+      "weekPlans": [
+        { "from": 1, "to": 7, "title": "Block 1 · Hypertrophy", "notes": "New variants for the main lifts; rebuild loads over the first two weeks. Long run 40–45 minutes easy (or a hike, ride or class)." },
+        { "w": 8, "title": "Lighter week", "deload": true, "sets": { "main": 2, "secondary": 2, "isolation": 1, "priority": 2, "core": 1 }, "rir": { "main": "3–4", "secondary": "3", "isolation": "2–3", "priority": "2–3" }, "params": { "intReps": 3 }, "notes": "Half the sets. Girths and photos. Choose the exercises for Block 2 from the listed options." },
+        { "from": 9, "to": 15, "title": "Block 2 · Strength and power", "sets": { "main": 4 }, "rir": { "main": "2–3" }, "params": { "mainReps": "4–6", "intReps": 6, "intWork": 120, "intRecover": 120, "intText": "6 × 2:00 very hard (RPE 9) / 2:00 easy", "longMin": 45, "longSec": 2700 }, "notes": "Heavier main lifts (4–6 reps) with safety arms set every time; jumps in lower warm-ups. Do not take heavy barbell sets to failure." },
+        { "w": 16, "title": "Lighter week and mid-point tests", "deload": true, "sets": { "main": 2, "secondary": 2, "isolation": 1, "priority": 2, "core": 1 }, "rir": { "main": "3–4", "secondary": "3", "isolation": "2–3", "priority": "2–3" }, "params": { "mainReps": "5–6", "intReps": 3 }, "tests": ["Push-ups, pull-ups, broad jump (end of the Upper B and Lower B sessions)"], "notes": "Half the sets; quick retests." },
+        { "from": 17, "to": 23, "title": "Block 3 · Physique and conditioning", "sets": { "priority": 5 }, "params": { "mainReps": "6–10", "longMin": 50, "longSec": 3000 }, "notes": "Pick one or two priority muscles (e.g., lateral deltoids and upper back); they get an extra set. Agility and bounding in lower warm-ups." },
+        { "w": 24, "title": "Reassess", "sets": { "main": 2, "secondary": 2, "isolation": 2, "priority": 2, "core": 2 }, "rir": { "main": "2–3", "secondary": "2–3", "isolation": "2", "priority": "2" }, "params": { "intReps": 3 }, "tests": ["Full test session (Wednesday)", "All girths and photos", "Transition checklist and goal review"],
+          "schedule": [ ["p3-ua", "p3-la", "p3-test", "p3-ub", "p3-lb", null, null] ] }
+      ],
+      "schedule": [ ["p3-ua", "p3-la", "p3-hiit", "p3-ub", "p3-lb", "p3-long", null] ]
+    },
+    {
+      "id": "p4", "short": "P4", "name": "Phase 4 · Continuation", "navName": "Continuation", "weeks": 12, "color": "p4", "durationLabel": "12-week cycles, repeating", "cyclic": true,
+      "energyGoal": "maintain",
+      "tagline": "Repeating 12-week cycles: choose an emphasis, keep progressing or hold the physique you want.",
+      "purpose": "From the second year the programme becomes self-directed within a fixed frame. Each 12-week cycle you choose an emphasis (a lagging muscle, strength on a lift, running, or a skill such as a martial art), keep everything else at a maintenance dose, and reassess. When you are happy with a muscle's size, move it to maintenance volume (about 6–8 weekly sets) and spend the effort elsewhere ([[rule:size-control]]). Strength and muscle can be maintained with far less training than it took to build them [@Spiering2021_minimalDose; @Bickel2011_maintenanceDose].",
+      "structure": "- Same weekly frame as Phases 2–3.\n- **Weeks 1–5:** moderate reps (6–10 on main lifts); **week 6** lighter; **weeks 7–11:** heavier main lifts (5–8); **week 12:** reassess and plan the next cycle.\n- Swap accessories and the long-session activity every cycle to keep training fresh.",
+      "entry": ["Phase 3 completed and reassessed."],
+      "progression": "Double progression; autoregulated deloads ([[rule:deload]]); volume per muscle set by your emphasis for the cycle (priority 12–16 sets per week; maintenance 6–8).",
+      "advance": ["At week 12, decide the next cycle's emphasis using your test results, tape measurements and what you enjoy; then start week 1 again."],
+      "repeat": ["Cycles repeat by design."],
+      "regress": ["Busy, travelling or recovering from illness: switch to [[phase:pm|Maintenance mode]] and return when life settles."],
+      "expected": [
+        { "metric": "Muscle and strength", "value": "Small yearly gains; or stable if you choose maintenance", "certainty": "probable", "note": "[@Kouri1995_FFMI; @Spiering2021_minimalDose]" }
+      ],
+      "nutrition": "Usually maintenance. Use short, deliberate surplus or deficit periods for specific aims, steered by the weekly check-in.",
+      "conditioning": "Keep one interval session and one long session each week; that preserves VO₂max well [@Spiering2021_minimalDose].",
+      "decisions": ["D18"],
+      "science": [],
+      "defaults": {
+        "sets": { "main": 3, "secondary": 3, "isolation": 3, "priority": 4, "core": 3 },
+        "rir": { "main": "2–3", "secondary": "1–2", "isolation": "0–1", "priority": "0–1", "core": "—" },
+        "params": { "mainReps": "6–10", "intReps": 4, "intWork": 240, "intRecover": 180, "intText": "4 × 4:00 hard (RPE 8–9) / 3:00 easy", "longMin": 45, "longSec": 2700 }
+      },
+      "weekPlans": [
+        { "from": 1, "to": 5, "title": "Build (moderate reps)" },
+        { "w": 6, "title": "Lighter week", "deload": true, "sets": { "main": 2, "secondary": 2, "isolation": 1, "priority": 2, "core": 1 }, "rir": { "main": "3–4", "secondary": "3", "isolation": "2–3", "priority": "2–3" }, "params": { "intReps": 3 } },
+        { "from": 7, "to": 11, "title": "Build (heavier main lifts)", "params": { "mainReps": "5–8" } },
+        { "w": 12, "title": "Reassess and plan", "sets": { "main": 2, "secondary": 2, "isolation": 2, "priority": 2, "core": 2 }, "rir": { "main": "2–3", "secondary": "2–3", "isolation": "2", "priority": "2" }, "params": { "intReps": 3 }, "tests": ["Full test session (Wednesday)", "All girths and photos", "Choose the next cycle's emphasis"],
+          "schedule": [ ["p4-ua", "p4-la", "p3-test", "p4-ub", "p4-lb", null, null] ] }
+      ],
+      "schedule": [ ["p4-ua", "p4-la", "p3-hiit", "p4-ub", "p4-lb", "p3-long", null] ]
+    },
+    {
+      "id": "pm", "short": "PM", "name": "Maintenance mode", "navName": "Maintenance mode", "weeks": 1, "color": "p0", "durationLabel": "use as needed", "cyclic": true, "optional": true,
+      "energyGoal": "maintain",
+      "tagline": "Two short full-body sessions and two short aerobic sessions: the minimum that holds your progress during busy weeks.",
+      "purpose": "When work, travel, illness recovery or motivation dips make the full programme unrealistic, this keeps what you have built. Strength and muscle are retained for weeks to months with roughly one-third of the usual volume if effort stays high, and short intense aerobic sessions maintain VO₂max [@Spiering2021_minimalDose; @Bickel2011_maintenanceDose; @Iversen2021_time_efficient]. Short breaks cost little in any case: 3-week breaks did not reduce long-term gains in one small trial [@Ogasawara2013_periodicVsContinuous], and losses grow with the length of the break [@Bosquet2013_detrainingMeta].",
+      "structure": "- Two full-body sessions (about 40 minutes) on any non-consecutive days.\n- One short interval session and one steady session (or a hike/class).\n- Sets end 1–3 reps short of failure at your usual loads.",
+      "entry": ["Use whenever you need it; set it as your current phase in Settings, then set your previous position back when you return."],
+      "progression": "None needed: the goal is to hold. Keep loads the same and effort high.",
+      "advance": ["Return to your previous phase and week when normal life resumes (see [[rule:breaks]] if more than 3 weeks have passed)."],
+      "repeat": ["Repeat weekly for as long as needed."],
+      "regress": [],
+      "expected": [{ "metric": "Strength and muscle", "value": "Largely maintained for weeks to months", "certainty": "probable", "note": "[@Spiering2021_minimalDose; @Bickel2011_maintenanceDose]" }],
+      "nutrition": "Eat at maintenance; keep protein high.",
+      "conditioning": "One interval session (e.g., 4 × 4 or 6 × 2 minutes) and one steady or long session.",
+      "decisions": ["D18"],
+      "science": [],
+      "defaults": { "sets": { "main": 2, "secondary": 2, "isolation": 1, "core": 1 }, "rir": { "main": "2–3", "secondary": "1–2", "isolation": "0–1", "core": "—" }, "params": { "z2min": 30, "z2sec": 1800, "intReps": 4, "intWork": 240, "intRecover": 180, "intText": "4 × 4:00 hard (RPE 8–9) / 3:00 easy" } },
+      "weekPlans": [ { "w": 1, "title": "Maintenance week" } ],
+      "schedule": [ ["pm-a", null, "pm-int", null, "pm-b", "pm-steady", null] ]
+    }
+  ],
+  "sessions": {
+    "p0-learn-a": {
+      "name": "Technique session A", "kind": "strength", "minutes": 50,
+      "summary": "Your first session: learn seven exercises with light loads. Two easy sets each, stopping about 4 reps before you would have to stop. Note machine settings in your logging app.",
+      "warmup": { "use": "wu-full-a" },
+      "main": {
+        "items": [
+          { "ref": "leg-press", "role": "machine", "reps": "10", "rest": 90, "load": "A load you could push about 14 times; stop at 10." },
+          { "ref": "db-bench-press", "role": "primary", "reps": "10", "rest": 90, "load": "Light dumbbells; focus on the shoulder-blade set-up and a deep, controlled lowering." },
+          { "ref": "lat-pulldown", "role": "machine", "reps": "10", "rest": 90 },
+          { "ref": "db-rdl", "role": "primary", "reps": "10", "rest": 90, "load": "Light dumbbells. Your range ends where your back would start to round; with tight hamstrings that may be around knee height at first, and that is fine." },
+          { "ref": "seated-cable-row", "role": "machine", "reps": "10", "rest": 75 },
+          { "ref": "db-lateral-raise", "role": "isolation", "reps": "12", "rest": 60, "load": "Very light (often 2–5 kg)." },
+          { "ref": "dead-bug", "role": "core", "reps": "6", "perSide": true, "rest": 45 }
+        ],
+        "rationale": "Light, low-volume first exposures teach positions while limiting the severe soreness of unaccustomed exercise (inference); a first bout also protects against soreness from later bouts, for months after a damaging bout in one study [@Nosaka2001_RBE_duration; @Hyldahl2017_repeated_bout_effect]. Machines and dumbbells are used because they are easy to learn and safe without a spotter (practical convention), and machine training built muscle as well as free-weight training in direct comparisons [@Haugen2023_freeVsMachineMeta]."
+      },
+      "cooldown": { "use": "cd-full-a" },
+      "record": "For every set: exercise, load, reps and an effort rating (RPE; this week should feel like RPE 6). Add machine settings (seat height, pin positions) to each exercise's notes."
+    },
+    "p0-learn-b": {
+      "name": "Technique session B", "kind": "strength", "minutes": 50,
+      "summary": "Learn the squat pattern, incline pressing, the split squat, the seated leg curl, the shoulder press and an anti-rotation core exercise. Two easy sets each.",
+      "warmup": { "use": "wu-full-b" },
+      "main": {
+        "items": [
+          { "ref": "goblet-squat", "role": "primary", "reps": "10", "rest": 90, "load": "A light dumbbell or kettlebell (often 8–14 kg); go as deep as you can with heels down and a neutral back (your screening squat says you can)." },
+          { "ref": "incline-db-press", "role": "primary", "reps": "10", "rest": 90 },
+          { "ref": "split-squat", "role": "unilateral", "reps": "8", "perSide": true, "rest": 75, "load": "Bodyweight; hold a rack or wall for balance. Left leg first." },
+          { "ref": "seated-leg-curl", "role": "machine", "reps": "12", "rest": 75 },
+          { "ref": "db-shoulder-press", "role": "primary", "reps": "10", "rest": 75 },
+          { "ref": "pallof-press", "role": "core", "reps": "8", "perSide": true, "rest": 45 }
+        ],
+        "rationale": "Completes the first exposure to every movement pattern used in Phase 1: squat, incline press, single-leg work (your left leg balances less well than your right), knee flexion with the hamstrings lengthened, overhead press and anti-rotation bracing [@Maeo2021_seatedVsProneCurl; @Chaves2020_inclineVsFlat]."
+      },
+      "cooldown": { "use": "cd-full-b" },
+      "record": "Load, reps and RPE for each set; machine settings; for the split squat, note whether the left side felt different from the right."
+    },
+    "p0-baseline": {
+      "name": "Baseline test session", "kind": "test", "minutes": 60,
+      "summary": "Your reference point. Do the tests in this order, with this warm-up, at your usual training time; repeat them identically at every reassessment.",
+      "warmup": { "use": "wu-test" },
+      "main": {
+        "items": [
+          { "ref": "test-rockport", "dose": "1.6 km walk as fast as you can (treadmill at 1% incline or a flat measured route); record time and immediate 15-s pulse", "note": "Rest 10–15 minutes before the next tests." },
+          { "ref": "test-pushup", "dose": "1 maximal set with strict form" },
+          { "ref": "test-pullup", "dose": "1 maximal set, dead hang, no swinging (after 3 min rest)" },
+          { "ref": "test-broad-jump", "dose": "3 attempts, best counts" },
+          { "ref": "test-sls", "dose": "Eyes open and closed, each leg, best of 3 (max 45 s)" },
+          { "ref": "test-ftf", "dose": "2 attempts, record the better" },
+          { "ref": "test-knee-wall", "dose": "Each side, best of 3" }
+        ],
+        "rationale": "These field tests need no laboratory equipment and are reliable enough to track change when the protocol is standardised [@Perret2001_fingertip_floor_test; @Powden2015_WBLT_reliability; @Springer2007_UPST]. The walking test estimates VO₂max safely for someone who has not trained; running tests come later. Conditions (time of day, warm-up, food, test order) are kept identical because they can shift results by amounts similar to real change: in one small study, time of day and warm-up length alone shifted whole-body flexibility by 2–3 cm [@Edwards2026_diurnal_flexibility]."
+      },
+      "cooldown": { "use": "cd-cardio" },
+      "record": "Write every result (with the date, time of day and test conditions) into the app's check-in notes or your logging app's notes, and keep it with your baseline photos and girths."
+    },
+    "p0-aerobic": {
+      "name": "Easy aerobic: learn your effort zones", "kind": "cardio", "minutes": 35,
+      "summary": "Twenty minutes of steady, conversational effort. Practise the talk test and match it to the RPE scale.",
+      "warmup": { "use": "wu-cardio" },
+      "main": {
+        "items": [
+          { "ref": "cardio-steady", "dose": "20 min at RPE 3–4: you can speak in full sentences", "timer": { "type": "countdown", "seconds": 1200, "label": "Steady" } }
+        ],
+        "rationale": "Comfortable speech is possible below the first ventilatory threshold and becomes difficult close to it, so the talk test is a practical, equipment-free intensity guide [@Persinger2004_talkTest; @ReedPipe2014_talkTestReview]."
+      },
+      "cooldown": { "use": "cd-cardio" },
+      "record": "Machine, duration, distance (if shown) and an overall RPE for the session."
+    },
+
+    "p1-a": {
+      "name": "Full body A", "kind": "strength", "minutes": 62,
+      "summary": "Squat pattern, incline press + pulldown, hinge + lateral raise, then arms and core. Supersets pair muscles that do not compete, so volume stays high in about an hour.",
+      "warmup": { "use": "wu-full-a" },
+      "main": {
+        "items": [
+          { "ref": "goblet-squat", "role": "primary", "reps": "8-12", "rest": 120, "warmupSets": "2 ramp sets (~50% × 8, ~70% × 4)", "tempo": "2–3 s down, controlled up" },
+          { "ref": "incline-db-press", "role": "primary", "reps": "8-12", "rest": 90, "superset": "B", "warmupSets": "1 light set × 8", "tempo": "2–3 s down" },
+          { "ref": "lat-pulldown", "role": "machine", "reps": "8-12", "rest": 90, "superset": "B" },
+          { "ref": "db-rdl", "role": "primary", "reps": "8-12", "rest": 90, "superset": "C", "tempo": "2–3 s down" },
+          { "ref": "db-lateral-raise", "role": "isolation", "reps": "12-20", "rest": 60, "superset": "C" },
+          { "ref": "oh-cable-triceps", "role": "isolation", "reps": "10-15", "rest": 60, "superset": "D", "weeks": { "from": 3 } },
+          { "ref": "incline-db-curl", "role": "isolation", "reps": "10-15", "rest": 60, "superset": "D", "weeks": { "from": 3 } },
+          { "ref": "dead-bug", "role": "core", "reps": "6-8", "perSide": true, "rest": 45, "weeks": { "to": 6 } },
+          { "ref": "cable-crunch", "role": "core", "reps": "10-15", "rest": 45, "weeks": { "from": 7 } }
+        ],
+        "rationale": "**Selection.** The incline press comes first among the presses because upper-chest development was greater with incline than flat pressing in untrained men in one small trial [@Chaves2020_inclineVsFlat]; the overhead triceps extension loads the long head in a stretched position and grew the triceps about 1.4–1.5 times more than pushdowns [@Maeo2023_overheadTriceps]; lateral raises grew the lateral deltoid similarly with dumbbells or cables [@Larsen2025_lateralRaiseDBvsCable], and that muscle is the main driver of shoulder width (anatomical inference). The Romanian deadlift trains the hamstrings at long lengths, and full-range training is your main flexibility tool [@Alizadeh2023_RT_ROMmeta].\n\n**Dose.** Rep ranges of 8–12 for compound lifts and 10–20 for isolation are all within the range that builds muscle equally when sets are hard [@Lopez2021_load_NMA]; rest of 1.5–2 minutes on compounds is enough, since growth benefited slightly from resting more than 60 s but not appreciably beyond about 90 s [@Singer2024_rest_meta]; supersets of non-competing muscles cut session time without reducing gains [@Zhang2025_superset_meta].\n\n**Effort.** Free-weight lifts stay 2–3 reps short of failure because growth is similar to, or only slightly less than, training to failure, recovery is faster, and you have no spotter [@Robinson2024_RIR_metaregression; @Refalo2023_failure_hypertrophy; @MoranNavarro2017_failure_recovery]."
+      },
+      "cooldown": { "use": "cd-full-a" },
+      "shortVersion": "Short on time (≈35 min)? Do the warm-up, then 2 sets each of the goblet squat, the incline press + pulldown superset and the RDL + lateral raise superset; skip arms and core; finish with the hamstring stretch only.",
+      "record": "Load, reps and RPE (or RIR) for every working set; ramp-up sets need not be logged. Note anything that felt wrong technically and any pain (location, 0–10)."
+    },
+    "p1-b": {
+      "name": "Full body B", "kind": "strength", "minutes": 65,
+      "summary": "Pull-up practice, leg press, flat press + row, split squat, then leg curl + lateral raise and calf raise + Pallof press.",
+      "warmup": { "use": "wu-full-b" },
+      "main": {
+        "items": [
+          { "ref": "pull-up", "role": "skill", "reps": "1-3", "rest": 90, "superset": "A", "load": "Bodyweight. Practice sets that stop well short of failure; if one clean rep is not yet possible, use the assisted machine or slow 3–5 s negatives. In weeks 1–2, use enough assistance that each set leaves about 3 reps in reserve (with a 3-rep maximum, even an unassisted single leaves only 2).", "note": "From week 3, alternate with the calf raise: pull-up set, calf-raise set, then rest. Add a rep to each set when all sets feel easy; at 3 × 5, move to the progression on the exercise page." },
+          { "ref": "standing-calf-raise", "role": "isolation", "sets": 2, "reps": "10-15", "rest": 75, "superset": "A", "weeks": { "from": 3 }, "tempo": "1–2 s pause in the stretch", "note": "Done in the rest between pull-up sets (calves and lats do not compete)." },
+          { "ref": "leg-press", "role": "machine", "reps": "10-15", "rest": 120, "warmupSets": "2–3 ramp sets (~50% × 8, ~70% × 4, plus ~85% × 2 once the working load is 60 kg or more)" },
+          { "ref": "db-bench-press", "role": "primary", "reps": "8-12", "rest": 90, "superset": "B", "warmupSets": "1 light set × 8", "tempo": "2–3 s down" },
+          { "ref": "seated-cable-row", "role": "machine", "reps": "8-12", "rest": 90, "superset": "B" },
+          { "ref": "split-squat", "role": "unilateral", "reps": "8-12", "perSide": true, "rest": 75, "superset": "C", "weeks": { "from": 3 }, "note": "Left leg first; match the reps on the right. Then go straight to the Pallof press." },
+          { "ref": "pallof-press", "role": "core", "sets": 2, "reps": "8-10", "perSide": true, "rest": 60, "superset": "C" },
+          { "ref": "seated-leg-curl", "role": "machine", "reps": "10-15", "rest": 60, "superset": "D" },
+          { "ref": "cable-lateral-raise", "role": "isolation", "reps": "12-20", "perSide": true, "rest": 45, "superset": "D" }
+        ],
+        "rationale": "**Selection.** Pull-up practice comes first while you are fresh because it is a specific skill goal (strength gains are greatest for what is trained first and most specifically) [@Nunes2021_exerciseOrderMeta]. The leg press lets you push close to failure safely alone; seated leg curls grew the hamstrings more than lying curls because the hip-flexed position lengthens them [@Maeo2021_seatedVsProneCurl]; standing calf raises grow the gastrocnemius far more than seated ones [@Kinoshita2023_standingVsSeatedCalf]. The split squat adds single-leg work for your weaker left side; unilateral and bilateral training built muscle similarly (very imprecise evidence), and each improved its own task most [@Kassiano2025_uniVsBiMeta].\n\n**Dose and effort.** As in session A [@Pelland2025_volume_frequency; @Robinson2024_RIR_metaregression]."
+      },
+      "cooldown": { "use": "cd-full-b" },
+      "shortVersion": "Short on time (≈35 min)? Warm-up; pull-up practice (2 sets); leg press (2 sets); the press + row superset (2 rounds); leg curl + lateral raise superset (2 rounds); hamstring stretch.",
+      "record": "Load, reps and RPE for every working set. For pull-ups, record assistance (kg on the machine) or 'negative' if used. For split squats, log left and right reps."
+    },
+    "p1-aero": {
+      "name": "Steady aerobic", "kind": "cardio", "minutes": 50,
+      "summary": "Continuous conversational effort on any machine (incline treadmill walk is the default), or a brisk walk outdoors. Duration grows across the phase.",
+      "warmup": { "use": "wu-cardio" },
+      "main": {
+        "items": [
+          { "ref": "cardio-steady", "dose": "{{z2min}} min at RPE 3–4 (talk test: full sentences)", "timer": { "type": "countdown", "seconds": "{{z2sec}}", "label": "Steady" } }
+        ],
+        "rationale": "Any structured aerobic training raises VO₂max substantially in untrained adults; moderate continuous training adds about 5 mL·kg^−1^·min^−1^ on average [@Milanovic2015_HITvsCET_VO2maxMA; @Strauss2026_CochraneHIIT]. Starting with conversational effort builds tolerance before intervals. Training 'just below the first threshold' is effective but not uniquely so [@Storoschuk2025_zone2Review]. On separate days from lifting, aerobic work at this dose did not measurably blunt strength or muscle gains in trials [@Schumann2021_concurrentMA]."
+      },
+      "cooldown": { "use": "cd-cardio" },
+      "record": "Activity and machine, duration, distance or average speed and incline (if shown), and session RPE.",
+      "notes": "You may replace this with a hike, dance class or martial-arts class of at least the same duration and similar effort."
+    },
+    "p1-int": {
+      "name": "Introductory intervals", "kind": "intervals", "minutes": 40,
+      "summary": "Short hard efforts (1 minute) with 2-minute easy recoveries: your first exposure to high intensity. Bike or rower recommended. Stop at once and follow the [[plan:safety|safety rules]] if you feel chest pain, faintness or unusual breathlessness.",
+      "warmup": { "use": "wu-intervals" },
+      "main": {
+        "items": [
+          { "ref": "cardio-int-intro", "dose": "{{intReps}} × 1:00 hard (RPE 7–8) / 2:00 easy (RPE 2–3)", "timer": { "type": "intervals", "work": 60, "recover": 120, "reps": "{{intReps}}", "workLabel": "Hard", "recoverLabel": "Easy" } }
+        ],
+        "rationale": "Interval training raises VO₂max a little more than continuous training, especially with longer intervals and more total hard time [@Strauss2026_CochraneHIIT; @Wen2019_HIITprotocolsMA]. These short intervals are a stepping stone to the 4 × 4-minute protocol in Phase 2; the bike or rower keeps impact and injury risk low while you are new to hard efforts."
+      },
+      "cooldown": { "use": "cd-cardio" },
+      "record": "Machine, number of intervals completed, the resistance or pace used for the hard minutes, and session RPE."
+    },
+    "p1-test": {
+      "name": "Reassessment test session", "kind": "test", "minutes": 60,
+      "summary": "Repeat the baseline tests exactly as before: same warm-up, order, time of day and pre-test meal.",
+      "warmup": { "use": "wu-test" },
+      "main": {
+        "items": [
+          { "ref": "test-rockport", "dose": "1.6 km walk as fast as you can; time and 15-s pulse" },
+          { "ref": "test-pushup", "dose": "1 maximal set" },
+          { "ref": "test-pullup", "dose": "1 maximal set (after 3 min rest)" },
+          { "ref": "test-broad-jump", "dose": "3 attempts" },
+          { "ref": "test-sls", "dose": "Eyes open and closed, each leg" },
+          { "ref": "test-ftf", "dose": "2 attempts" },
+          { "ref": "test-knee-wall", "dose": "Each side" }
+        ],
+        "rationale": "Identical procedures make the comparison with baseline meaningful; changes smaller than each test's measurement error should not be over-interpreted [@Powden2015_WBLT_reliability; @Neto2015_AKE_SLR_reliability]."
+      },
+      "cooldown": { "use": "cd-cardio" },
+      "record": "All results with conditions; compare against baseline in your notes."
+    },
+
+    "p2-ua": {
+      "name": "Upper A (heavier pressing)", "kind": "strength", "minutes": 64,
+      "summary": "Incline press as the main lift, pulldown, then fly + chest-supported row, lateral raise + rear-delt fly, and overhead triceps + incline curl.",
+      "warmup": { "use": "wu-upper" },
+      "main": {
+        "items": [
+          { "ref": "incline-db-press", "role": "main", "reps": "{{mainReps}}", "rest": 150, "warmupSets": "2 ramp sets (~50% × 8, ~70% × 4)", "tempo": "2–3 s down" },
+          { "ref": "lat-pulldown", "role": "secondary", "reps": "8-12", "rest": 90 },
+          { "ref": "cable-fly", "role": "isolation", "reps": "10-15", "rest": 60, "superset": "C" },
+          { "ref": "chest-supported-row", "role": "secondary", "reps": "8-12", "rest": 60, "superset": "C" },
+          { "ref": "cable-lateral-raise", "role": "priority", "reps": "12-20", "perSide": true, "rest": 45, "superset": "D" },
+          { "ref": "reverse-pec-deck", "role": "isolation", "reps": "12-20", "rest": 45, "superset": "D" },
+          { "ref": "oh-cable-triceps", "role": "isolation", "reps": "10-15", "rest": 60, "superset": "E" },
+          { "ref": "incline-db-curl", "role": "isolation", "reps": "10-15", "rest": 60, "superset": "E" }
+        ],
+        "rationale": "Priority muscles for an athletic upper body (upper chest, lateral and rear deltoids, back width, arms) now reach about 12–16 weekly sets, where returns per extra set are still meaningful [@Pelland2025_volume_frequency; @Schoenfeld2017_volume_meta]. Lengthened-position exercises (cable fly, incline curl, overhead triceps extension) are favoured where the evidence supports them [@Maeo2023_overheadTriceps; @Maeo2021_seatedVsProneCurl]; machines built muscle as well as free weights in direct comparisons [@Haugen2023_freeVsMachineMeta], and machine and dumbbell variants are safer alone (practical convention)."
+      },
+      "cooldown": { "use": "cd-upper" },
+      "shortVersion": "≈40 min: warm-up; incline press (3 sets); pulldown (2); superset D (3 rounds); superset E (2 rounds); chest and hamstring stretch.",
+      "record": "Load, reps and RPE per working set; note the bench angle used for incline work."
+    },
+    "p2-la": {
+      "name": "Lower A (squat)", "kind": "strength", "minutes": 60,
+      "summary": "Barbell back squat in a rack with safety arms, seated leg curl, leg extension + calf raise, hanging knee raise.",
+      "warmup": { "use": "wu-lower" },
+      "main": {
+        "items": [
+          { "ref": "back-squat", "role": "main", "reps": "{{mainReps}}", "rest": 180, "warmupSets": "2–3 ramp sets (~50% × 8, ~70% × 4, plus ~85% × 2 once the working load is 60 kg or more; start from the empty bar)", "note": "Safety arms set just below your lowest bar position, every set. Never grind a rep." },
+          { "ref": "seated-leg-curl", "role": "secondary", "reps": "10-15", "rest": 90 },
+          { "ref": "leg-extension", "role": "isolation", "reps": "12-15", "rest": 60, "superset": "C" },
+          { "ref": "standing-calf-raise", "role": "isolation", "reps": "10-15", "rest": 60, "superset": "C", "tempo": "1–2 s pause in the stretch" },
+          { "ref": "hanging-knee-raise", "role": "core", "reps": "8-15", "rest": 60 }
+        ],
+        "rationale": "Deep squats grew the glutes and adductors more than half squats [@Kubo2019_squatDepth]; a rack with safety arms makes heavy squatting safe without a spotter. Reclining the leg-extension backrest grew the rectus femoris more [@Larsen2025_legExtHipAngle]; standing calf raises target the gastrocnemius [@Kinoshita2023_standingVsSeatedCalf]. Leg volume stays moderate (about 10–13 weekly sets) for athletic proportions and to leave capacity for running and hiking."
+      },
+      "cooldown": { "use": "cd-lower" },
+      "shortVersion": "≈40 min: warm-up; squat (3 sets); leg curl (2); hamstring and hip-flexor stretches.",
+      "record": "Load, reps and RPE per working set; safety-arm height in the notes."
+    },
+    "p2-ub": {
+      "name": "Upper B (pull-ups and pulling)", "kind": "strength", "minutes": 62,
+      "summary": "Pull-ups first, flat press + row, shoulder press, lateral raise + face pull, pushdown + preacher curl.",
+      "warmup": { "use": "wu-upper" },
+      "main": {
+        "items": [
+          { "ref": "pull-up", "role": "main", "reps": "{{pullReps}}", "rest": 120, "load": "Bodyweight if you can do the rep range; otherwise assisted (machine or band). Add load once all sets reach 8 reps at 2 reps in reserve." },
+          { "ref": "db-bench-press", "role": "secondary", "reps": "8-12", "rest": 90, "superset": "B", "tempo": "2–3 s down" },
+          { "ref": "seated-cable-row", "role": "secondary", "reps": "8-12", "rest": 90, "superset": "B" },
+          { "ref": "db-shoulder-press", "role": "secondary", "reps": "8-12", "rest": 90 },
+          { "ref": "db-lateral-raise", "role": "priority", "reps": "12-20", "rest": 45, "superset": "D" },
+          { "ref": "face-pull", "role": "isolation", "reps": "12-20", "rest": 45, "superset": "D" },
+          { "ref": "triceps-pushdown", "role": "isolation", "reps": "10-15", "rest": 60, "superset": "E" },
+          { "ref": "preacher-curl", "role": "isolation", "reps": "10-15", "rest": 60, "superset": "E" }
+        ],
+        "rationale": "Vertical and horizontal pulls are both included for back width and thickness (anatomical inference; no long-term trial compares them directly). Leading with pull-ups prioritises a skill goal [@Nunes2021_exerciseOrderMeta]. One lateral-raise exposure on each upper day plus one on Lower B give the most frequent stimulus to the muscle that most widens the shoulders (inference)."
+      },
+      "cooldown": { "use": "cd-upper" },
+      "shortVersion": "≈40 min: warm-up; pull-ups (3 sets); press + row superset (3 rounds); lateral raise + face pull (2 rounds); stretches.",
+      "record": "Load (or assistance), reps and RPE per working set."
+    },
+    "p2-lb": {
+      "name": "Lower B (hinge and single-leg)", "kind": "strength", "minutes": 64,
+      "summary": "Barbell Romanian deadlift, Bulgarian split squat (left first), leg press, calf press + lateral raise, farmer's carry.",
+      "warmup": { "use": "wu-lower" },
+      "main": {
+        "items": [
+          { "ref": "bb-rdl", "role": "main", "reps": "6-10", "rest": 150, "warmupSets": "2–3 ramp sets (~50% × 8, ~70% × 4, plus ~85% × 2 once the working load is 60 kg or more; start from the empty bar)", "tempo": "2–3 s down" },
+          { "ref": "bulgarian-split-squat", "role": "secondary", "reps": "8-12", "perSide": true, "rest": 90, "note": "Left leg first." },
+          { "ref": "leg-press", "role": "secondary", "reps": "10-15", "rest": 90 },
+          { "ref": "leg-press-calf", "role": "isolation", "reps": "12-20", "rest": 45, "superset": "D", "tempo": "1–2 s pause in the stretch" },
+          { "ref": "cable-lateral-raise", "role": "priority", "reps": "12-20", "perSide": true, "rest": 45, "superset": "D" },
+          { "ref": "farmer-carry", "role": "core", "reps": "30-40 m", "rest": 60 }
+        ],
+        "rationale": "The Romanian deadlift loads the hamstrings and glutes at long lengths and doubles as flexibility training through range; the Bulgarian split squat gives single-leg strength and balance demand for your weaker left side; loaded carries train grip and the trunk muscles (practical convention); trunk-muscle training in general improved strength and power in athletes [@Saeterbakken2022_trunkTrainingMeta]. The lateral raise here is a third weekly exposure for the lateral deltoid, which recovers quickly from light, high-rep work (inference)."
+      },
+      "cooldown": { "use": "cd-lower" },
+      "shortVersion": "≈40 min: warm-up; RDL (3 sets); split squat (2 per leg); hamstring stretch.",
+      "record": "Load, reps and RPE per working set; carry load and distance."
+    },
+    "p2-hiit": {
+      "name": "4 × 4 intervals", "kind": "intervals", "minutes": 42,
+      "summary": "Four hard intervals of 4 minutes (3 minutes in weeks 1–3) with 3-minute easy recoveries. Bike, rower or uphill treadmill walking.",
+      "warmup": { "use": "wu-intervals" },
+      "main": {
+        "items": [
+          { "ref": "cardio-int-4x4", "dose": "{{intReps}} × hard (RPE 8–9) / 3:00 easy (RPE 3)", "timer": { "type": "intervals", "work": "{{intWork}}", "recover": 180, "reps": "{{intReps}}", "workLabel": "Hard", "recoverLabel": "Easy" } }
+        ],
+        "rationale": "The protocol meets the three features most linked to superior VO₂max gains over continuous training: intervals of at least 2 minutes, at least 15 minutes of hard work per session, and programmes lasting weeks [@Wen2019_HIITprotocolsMA; @Helgerud2007_4x4RCT]. On average HIIT adds about 1.4 mL·kg^−1^·min^−1^ over continuous training, with low certainty [@Strauss2026_CochraneHIIT]. Without a heart-rate monitor, 'hard' means you can say only a few words; heart-rate equations are too imprecise individually (standard error about 11 bpm, so a true maximum can sit about ±20 bpm from the estimate) to rely on [@Nes2013_HUNT_HRmax; @Scherr2013_RPE]."
+      },
+      "cooldown": { "use": "cd-cardio" },
+      "record": "Machine, resistance or speed/incline in the hard intervals, intervals completed, session RPE.",
+      "notes": "If you cannot hold the effort for the last interval, reduce the intensity slightly next time rather than stopping early. Weeks 1–3 use 3-minute intervals. Stop at once and follow the [[plan:safety|safety rules]] if you feel chest pain, faintness or unusual breathlessness."
+    },
+    "p2-run": {
+      "name": "Run–walk", "kind": "cardio", "minutes": 50,
+      "summary": "This week: {{rwText}}. Each run stays within about 10% of your longest run in the previous 30 days.",
+      "warmup": { "use": "wu-run" },
+      "main": {
+        "items": [
+          { "ref": "cardio-runwalk", "dose": "{{rwText}} at an easy running effort (RPE 4–5, short sentences possible); walk briskly between", "timer": { "type": "intervals", "work": "{{rwRun}}", "recover": "{{rwWalk}}", "reps": "{{rwReps}}", "workLabel": "Run", "recoverLabel": "Walk" } },
+          { "ref": "cardio-steady", "dose": "Then 10 min brisk walking or easy cycling", "timer": { "type": "countdown", "seconds": 600, "label": "Easy" } }
+        ],
+        "rationale": "Novice runners are injured roughly twice as often per hour as experienced runners, and no weekly progression rule (including the '10% rule') has been shown to prevent injuries [@Videbaek2015_runningInjuryIncidence; @Buist2008_GRONORUN]. The clearest signal is single-session spikes: runs more than 10% longer than the longest run of the previous 30 days were followed by more overuse injuries in a large observational cohort [@Frandsen2025_spikes]. This plan keeps every session within that limit and starts small; a smaller start reduced injuries only in a per-protocol analysis of one small trial in novice runners with obesity [@Bertelsen2018_starttorun]. Run–walk itself is a reasonable but untested method."
+      },
+      "cooldown": { "use": "cd-cardio" },
+      "record": "Total running time, distance if known, surface or treadmill, session RPE, and any pain (location, 0–10) during or the next morning.",
+      "notes": "Comfortable, cushioned shoes are a sensible default [@Relph2022_shoesCochrane; @Malisoux2020_cushioning]. If any pain exceeds 3/10 or lingers to the next morning, repeat the previous week's step. A hike, ride or dance class can replace this session occasionally, but repeat the skipped run–walk step afterwards."
+    },
+    "p2-test": {
+      "name": "Phase 2 test session", "kind": "test", "minutes": 60,
+      "summary": "2.4 km run test if you can run 20+ minutes continuously (otherwise repeat the walking test), then the strength, jump, balance and flexibility tests.",
+      "warmup": { "use": "wu-test" },
+      "main": {
+        "items": [
+          { "ref": "test-run-2400", "dose": "2.4 km at the fastest even pace you can sustain (or the 1.6 km walking test)", "note": "Rest 10–15 minutes after." },
+          { "ref": "test-pushup", "dose": "1 maximal set" },
+          { "ref": "test-pullup", "dose": "1 maximal set" },
+          { "ref": "test-broad-jump", "dose": "3 attempts" },
+          { "ref": "test-sls", "dose": "Eyes open and closed, each leg" },
+          { "ref": "test-ftf", "dose": "2 attempts" },
+          { "ref": "test-knee-wall", "dose": "Each side" }
+        ],
+        "rationale": "Same battery and conditions as before, with the run test replacing the walking test once running is established [@Edwards2026_diurnal_flexibility]."
+      },
+      "cooldown": { "use": "cd-cardio" },
+      "record": "All results with the conditions; compare against previous tests."
+    },
+
+    "p3-ua": {
+      "name": "Upper A", "kind": "strength", "minutes": 64,
+      "summary": "Main press (Smith incline in Block 1, barbell bench press in Block 2, dumbbell incline in Block 3), vertical pull, chest isolation + row, deltoids, arms.",
+      "warmup": { "use": "wu-upper" },
+      "main": {
+        "items": [
+          { "ref": "smith-incline-press", "role": "main", "reps": "{{mainReps}}", "rest": 150, "warmupSets": "2–3 ramp sets", "weeks": { "to": 8 } },
+          { "ref": "bb-bench-press", "role": "main", "reps": "{{mainReps}}", "rest": 180, "warmupSets": "3 ramp sets", "weeks": { "from": 9, "to": 16 }, "note": "In a rack with safety arms at chest height minus ~2 cm. Never to failure." },
+          { "ref": "incline-db-press", "role": "main", "reps": "{{mainReps}}", "rest": 150, "warmupSets": "2 ramp sets", "weeks": { "from": 17 } },
+          { "ref": "chin-up", "role": "secondary", "reps": "6-10", "rest": 90, "weeks": { "to": 8 }, "load": "Bodyweight or assisted; add load at 3 × 10." },
+          { "ref": "lat-pulldown", "role": "secondary", "reps": "6-10", "rest": 90, "weeks": { "from": 9 } },
+          { "ref": "cable-fly", "role": "isolation", "reps": "10-15", "rest": 60, "superset": "C" },
+          { "ref": "chest-supported-row", "role": "secondary", "reps": "8-12", "rest": 60, "superset": "C" },
+          { "ref": "cable-lateral-raise", "role": "priority", "reps": "12-20", "perSide": true, "rest": 45, "superset": "D" },
+          { "ref": "reverse-pec-deck", "role": "isolation", "reps": "12-20", "rest": 45, "superset": "D" },
+          { "ref": "oh-cable-triceps", "role": "isolation", "reps": "10-15", "rest": 60, "superset": "E" },
+          { "ref": "cable-curl", "role": "isolation", "reps": "10-15", "rest": 60, "superset": "E", "weeks": { "to": 16 } },
+          { "ref": "incline-db-curl", "role": "isolation", "reps": "10-15", "rest": 60, "superset": "E", "weeks": { "from": 17 } }
+        ],
+        "rationale": "Block-wise rotation of the main press and some accessories adds planned variety, which supports motivation and can broaden hypertrophy across a muscle, while anchor lifts stay constant within a block so progress is measurable [@Kassiano2022_variationSR; @Fonseca2014_exerciseVariation]. The heavier Block 2 targets maximal strength, which responds best to heavier loads [@Lopez2021_load_NMA]."
+      },
+      "cooldown": { "use": "cd-upper" },
+      "shortVersion": "≈40 min: warm-up; main press (3 sets); vertical pull (2); superset D (3 rounds); stretches.",
+      "record": "Load, reps and RPE per working set."
+    },
+    "p3-la": {
+      "name": "Lower A (squat)", "kind": "strength", "minutes": 62,
+      "summary": "Back squat (heavier in Block 2), seated leg curl, leg extension + calf raise, core. Jumps or agility in the warm-up from week 9.",
+      "warmup": { "use": "wu-lower-athletic" },
+      "main": {
+        "items": [
+          { "ref": "back-squat", "role": "main", "reps": "{{mainReps}}", "rest": 180, "warmupSets": "3 ramp sets", "note": "Safety arms every set." },
+          { "ref": "seated-leg-curl", "role": "secondary", "reps": "8-12", "rest": 90 },
+          { "ref": "leg-extension", "role": "isolation", "reps": "12-15", "rest": 60, "superset": "C" },
+          { "ref": "standing-calf-raise", "role": "isolation", "reps": "8-12", "rest": 60, "superset": "C", "tempo": "1–2 s pause in the stretch" },
+          { "ref": "ab-wheel", "role": "core", "reps": "6-12", "rest": 60 }
+        ],
+        "rationale": "The squat remains the anchor lower-body lift; heavier work in Block 2 improves maximal strength specifically [@Lopez2021_load_NMA]. Jumps before lifting train power and reactive strength when you are fresh [@Markovic2007_vertjump; @RamirezCampillo2023_RSI]."
+      },
+      "cooldown": { "use": "cd-lower" },
+      "shortVersion": "≈40 min: warm-up; squat (3 sets); leg curl (2); stretches.",
+      "record": "Load, reps and RPE per working set; jump contacts done."
+    },
+    "p3-ub": {
+      "name": "Upper B", "kind": "strength", "minutes": 62,
+      "summary": "Pull-ups (weighted when ready), dumbbell or machine press + row, shoulder press, lateral raise + face pull, arms.",
+      "warmup": { "use": "wu-upper" },
+      "main": {
+        "items": [
+          { "ref": "pull-up", "role": "main", "reps": "{{mainReps}}", "rest": 150, "load": "Add load (belt or dumbbell between the feet) once all sets reach the top of the range at 2 reps in reserve; use assistance otherwise." },
+          { "ref": "machine-chest-press", "role": "secondary", "reps": "8-12", "rest": 90, "superset": "B" },
+          { "ref": "one-arm-db-row", "role": "secondary", "reps": "8-12", "perSide": true, "rest": 90, "superset": "B" },
+          { "ref": "db-shoulder-press", "role": "secondary", "reps": "8-12", "rest": 90 },
+          { "ref": "db-lateral-raise", "role": "priority", "reps": "12-20", "rest": 45, "superset": "D" },
+          { "ref": "face-pull", "role": "isolation", "reps": "12-20", "rest": 45, "superset": "D" },
+          { "ref": "triceps-pushdown", "role": "isolation", "reps": "10-15", "rest": 60, "superset": "E" },
+          { "ref": "hammer-curl", "role": "isolation", "reps": "10-15", "rest": 60, "superset": "E" }
+        ],
+        "rationale": "Weighted pull-ups give a progressive, measurable back-width lift that also builds the strength you want for climbing, martial arts and daily tasks. Equipment variety (machine press, one-arm row, hammer curl) adds novelty without changing the muscles trained [@Haugen2023_freeVsMachineMeta; @BazValle2019_variationMotivation]."
+      },
+      "cooldown": { "use": "cd-upper" },
+      "shortVersion": "≈40 min: warm-up; pull-ups (3 sets); press + row (2 rounds); lateral raise + face pull (3 rounds); stretches.",
+      "record": "Load (added or assisted), reps and RPE per working set."
+    },
+    "p3-lb": {
+      "name": "Lower B (hinge and single-leg)", "kind": "strength", "minutes": 62,
+      "summary": "Romanian deadlift (trap-bar deadlift in Block 2), reverse lunge, hip thrust or leg press, calf press + lateral raise, carries.",
+      "warmup": { "use": "wu-lower-athletic" },
+      "main": {
+        "items": [
+          { "ref": "bb-rdl", "role": "main", "reps": "{{mainReps}}", "rest": 150, "warmupSets": "3 ramp sets", "weeks": { "to": 8 } },
+          { "ref": "trap-bar-deadlift", "role": "main", "reps": "{{mainReps}}", "rest": 180, "warmupSets": "3 ramp sets", "weeks": { "from": 9, "to": 16 }, "note": "Stop each set with 2–3 reps in reserve; reset between reps." },
+          { "ref": "bb-rdl", "role": "main", "reps": "{{mainReps}}", "rest": 150, "warmupSets": "3 ramp sets", "weeks": { "from": 17 } },
+          { "ref": "reverse-lunge", "role": "secondary", "reps": "8-12", "perSide": true, "rest": 90, "note": "Left leg first." },
+          { "ref": "hip-thrust", "role": "secondary", "reps": "8-12", "rest": 90, "weeks": { "to": 16 } },
+          { "ref": "leg-press", "role": "secondary", "reps": "10-15", "rest": 90, "weeks": { "from": 17 } },
+          { "ref": "leg-press-calf", "role": "isolation", "reps": "12-20", "rest": 45, "superset": "D" },
+          { "ref": "cable-lateral-raise", "role": "priority", "reps": "12-20", "perSide": true, "rest": 45, "superset": "D" },
+          { "ref": "suitcase-carry", "role": "core", "reps": "30 m each side", "rest": 60 }
+        ],
+        "rationale": "The trap-bar deadlift is a heavy whole-body pull that is easier to learn and to bail from than the conventional deadlift, suiting a strength block when training alone (practical inference). Hip thrusts produced similar glute growth to squats, so they are an optional variant rather than a necessity [@Plotkin2023_hipThrustVsSquat]."
+      },
+      "cooldown": { "use": "cd-lower" },
+      "shortVersion": "≈40 min: warm-up; main hinge (3 sets); lunge (2 per leg); stretches.",
+      "record": "Load, reps and RPE per working set."
+    },
+    "p3-hiit": {
+      "name": "Intervals", "kind": "intervals", "minutes": 42,
+      "summary": "{{intText}}. Running now allowed if your run progression went well; otherwise bike or rower.",
+      "warmup": { "use": "wu-intervals" },
+      "main": {
+        "items": [
+          { "ref": "cardio-int-4x4", "dose": "{{intText}}", "timer": { "type": "intervals", "work": "{{intWork}}", "recover": "{{intRecover}}", "reps": "{{intReps}}", "workLabel": "Hard", "recoverLabel": "Easy" } }
+        ],
+        "rationale": "Long intervals with plenty of total hard time drive VO₂max [@Wen2019_HIITprotocolsMA; @Strauss2026_CochraneHIIT]. Block 2's 2-minute intervals are harder but shorter, adding variety while still meeting the ≥2-minute criterion. All-out sprint intervals are not used: in two small trials in well-trained young runners, all-out treadmill sprints caused 8 injuries in one (none with 4 × 4) and raised VO₂max less than 4 × 4 in both [@Helgerud2023_HIITvsSIT_femaleRCT; @Hov2022_HIITvsSIT_RCT]."
+      },
+      "cooldown": { "use": "cd-cardio" },
+      "record": "Machine or run, pace or resistance during work intervals, intervals completed, session RPE."
+    },
+    "p3-long": {
+      "name": "Long session (run, hike, ride or class)", "kind": "cardio", "minutes": 70,
+      "summary": "{{longMin}} minutes easy: continuous running, a hike, a ride, or a dance or martial-arts class.",
+      "warmup": { "use": "wu-run" },
+      "main": {
+        "items": [
+          { "ref": "cardio-long", "dose": "{{longMin}} min at RPE 3–4 (or a class of similar length)", "timer": { "type": "countdown", "seconds": "{{longSec}}", "label": "Easy" } }
+        ],
+        "rationale": "Extra aerobic volume adds to fat loss: in trials in adults with overweight, each additional 30 minutes per week reduced waist by about 0.6 cm [@Jayedi2024_aerobicWeightLossDoseResponse]; keeping it easy limits the recovery cost (inference). Enjoyable skill-based options count: dance improved fitness at least as much as other exercise [@FongYan2018_danceMA], and learning a structured skill is the most plausible route to the coordination you want, because coordination and agility gains are task-specific [@Kummel2016_specificity; @NygaardFalch2019_COD]. If running, keep any run within 10% of your longest run in the previous 30 days [@Frandsen2025_spikes]."
+      },
+      "cooldown": { "use": "cd-cardio" },
+      "record": "Activity, duration, distance or elevation if known, session RPE.",
+      "notes": "Hiking with elevation gain, a dance class or a martial-arts class are all good substitutes when they are enjoyable and last about as long."
+    },
+    "p3-test": {
+      "name": "Test session", "kind": "test", "minutes": 60,
+      "summary": "2.4 km run, push-ups, pull-ups, broad jump, balance and flexibility, under identical conditions to previous tests.",
+      "warmup": { "use": "wu-test" },
+      "main": {
+        "items": [
+          { "ref": "test-run-2400", "dose": "2.4 km best even pace" },
+          { "ref": "test-pushup", "dose": "1 maximal set" },
+          { "ref": "test-pullup", "dose": "1 maximal set" },
+          { "ref": "test-broad-jump", "dose": "3 attempts" },
+          { "ref": "test-sls", "dose": "Eyes open and closed, each leg" },
+          { "ref": "test-ftf", "dose": "2 attempts" },
+          { "ref": "test-knee-wall", "dose": "Each side" }
+        ],
+        "rationale": "Standardised repeat testing [@Edwards2026_diurnal_flexibility; @Powden2015_WBLT_reliability]."
+      },
+      "cooldown": { "use": "cd-cardio" },
+      "record": "All results with conditions."
+    },
+
+    "p4-ua": {
+      "name": "Upper A", "kind": "strength", "minutes": 64,
+      "summary": "Your chosen main press, vertical pull, chest isolation + row, deltoids, arms. Swap variants each cycle from the alternatives on each exercise page.",
+      "warmup": { "use": "wu-upper" },
+      "main": {
+        "items": [
+          { "ref": "incline-db-press", "role": "main", "reps": "{{mainReps}}", "rest": 150, "warmupSets": "2 ramp sets", "note": "Or another press from its alternatives list." },
+          { "ref": "lat-pulldown", "role": "secondary", "reps": "8-12", "rest": 90 },
+          { "ref": "cable-fly", "role": "isolation", "reps": "10-15", "rest": 60, "superset": "C" },
+          { "ref": "chest-supported-row", "role": "secondary", "reps": "8-12", "rest": 60, "superset": "C" },
+          { "ref": "cable-lateral-raise", "role": "priority", "reps": "12-20", "perSide": true, "rest": 45, "superset": "D" },
+          { "ref": "reverse-pec-deck", "role": "isolation", "reps": "12-20", "rest": 45, "superset": "D" },
+          { "ref": "oh-cable-triceps", "role": "isolation", "reps": "10-15", "rest": 60, "superset": "E" },
+          { "ref": "incline-db-curl", "role": "isolation", "reps": "10-15", "rest": 60, "superset": "E" }
+        ],
+        "rationale": "Same evidence base as Phases 2–3; in continuation cycles you set the weekly sets for each muscle by your emphasis (12–16 for priorities, 6–8 to maintain) [@Pelland2025_volume_frequency; @Spiering2021_minimalDose]."
+      },
+      "cooldown": { "use": "cd-upper" },
+      "record": "Load, reps and RPE per working set."
+    },
+    "p4-la": {
+      "name": "Lower A (squat)", "kind": "strength", "minutes": 60,
+      "summary": "Squat variant, leg curl, leg extension + calf raise, core.",
+      "warmup": { "use": "wu-lower" },
+      "main": {
+        "items": [
+          { "ref": "back-squat", "role": "main", "reps": "{{mainReps}}", "rest": 180, "warmupSets": "3 ramp sets", "note": "Or hack squat / leg press as the main lift for a cycle." },
+          { "ref": "seated-leg-curl", "role": "secondary", "reps": "8-12", "rest": 90 },
+          { "ref": "leg-extension", "role": "isolation", "reps": "12-15", "rest": 60, "superset": "C" },
+          { "ref": "standing-calf-raise", "role": "isolation", "reps": "8-12", "rest": 60, "superset": "C" },
+          { "ref": "hanging-knee-raise", "role": "core", "reps": "8-15", "rest": 60 }
+        ],
+        "rationale": "As in Phases 2–3 [@Kubo2019_squatDepth; @Maeo2021_seatedVsProneCurl]."
+      },
+      "cooldown": { "use": "cd-lower" },
+      "record": "Load, reps and RPE per working set."
+    },
+    "p4-ub": {
+      "name": "Upper B", "kind": "strength", "minutes": 62,
+      "summary": "Pull-ups, press + row, shoulder press, lateral raise + face pull, arms.",
+      "warmup": { "use": "wu-upper" },
+      "main": {
+        "items": [
+          { "ref": "pull-up", "role": "main", "reps": "{{mainReps}}", "rest": 150 },
+          { "ref": "db-bench-press", "role": "secondary", "reps": "8-12", "rest": 90, "superset": "B" },
+          { "ref": "seated-cable-row", "role": "secondary", "reps": "8-12", "rest": 90, "superset": "B" },
+          { "ref": "db-shoulder-press", "role": "secondary", "reps": "8-12", "rest": 90 },
+          { "ref": "db-lateral-raise", "role": "priority", "reps": "12-20", "rest": 45, "superset": "D" },
+          { "ref": "face-pull", "role": "isolation", "reps": "12-20", "rest": 45, "superset": "D" },
+          { "ref": "triceps-pushdown", "role": "isolation", "reps": "10-15", "rest": 60, "superset": "E" },
+          { "ref": "preacher-curl", "role": "isolation", "reps": "10-15", "rest": 60, "superset": "E" }
+        ],
+        "rationale": "As in Phases 2–3 [@Nunes2021_exerciseOrderMeta; @Haugen2023_freeVsMachineMeta]."
+      },
+      "cooldown": { "use": "cd-upper" },
+      "record": "Load, reps and RPE per working set."
+    },
+    "p4-lb": {
+      "name": "Lower B (hinge and single-leg)", "kind": "strength", "minutes": 62,
+      "summary": "Romanian deadlift, Bulgarian split squat, leg press, calf press + lateral raise, carries.",
+      "warmup": { "use": "wu-lower-athletic" },
+      "main": {
+        "items": [
+          { "ref": "bb-rdl", "role": "main", "reps": "{{mainReps}}", "rest": 150, "warmupSets": "3 ramp sets" },
+          { "ref": "bulgarian-split-squat", "role": "secondary", "reps": "8-12", "perSide": true, "rest": 90 },
+          { "ref": "leg-press", "role": "secondary", "reps": "10-15", "rest": 90 },
+          { "ref": "leg-press-calf", "role": "isolation", "reps": "12-20", "rest": 45, "superset": "D" },
+          { "ref": "cable-lateral-raise", "role": "priority", "reps": "12-20", "perSide": true, "rest": 45, "superset": "D" },
+          { "ref": "farmer-carry", "role": "core", "reps": "30-40 m", "rest": 60 }
+        ],
+        "rationale": "As in Phases 2–3; the athletic warm-up keeps jumps and agility in the week [@Markovic2007_vertjump]."
+      },
+      "cooldown": { "use": "cd-lower" },
+      "record": "Load, reps and RPE per working set."
+    },
+
+    "pm-a": {
+      "name": "Maintenance full body A", "kind": "strength", "minutes": 42,
+      "summary": "One hard set or two per pattern: squat, press, pull, hinge, plus lateral raises.",
+      "warmup": { "use": "wu-full-a" },
+      "main": {
+        "items": [
+          { "ref": "leg-press", "role": "main", "reps": "8-12", "rest": 120, "warmupSets": "1–2 ramp sets" },
+          { "ref": "incline-db-press", "role": "main", "reps": "6-10", "rest": 90, "superset": "B" },
+          { "ref": "lat-pulldown", "role": "main", "reps": "6-10", "rest": 90, "superset": "B" },
+          { "ref": "db-rdl", "role": "secondary", "reps": "8-12", "rest": 90, "superset": "C" },
+          { "ref": "db-lateral-raise", "role": "isolation", "reps": "12-20", "rest": 60, "superset": "C" }
+        ],
+        "rationale": "About one-third of usual volume at the usual effort maintains strength and muscle for weeks to months [@Spiering2021_minimalDose; @Bickel2011_maintenanceDose]."
+      },
+      "cooldown": { "use": "cd-full-a" },
+      "record": "Load, reps and RPE."
+    },
+    "pm-b": {
+      "name": "Maintenance full body B", "kind": "strength", "minutes": 42,
+      "summary": "Pull-ups, flat press + row, split squat, lateral raise.",
+      "warmup": { "use": "wu-full-b" },
+      "main": {
+        "items": [
+          { "ref": "pull-up", "role": "main", "reps": "5-10", "rest": 120 },
+          { "ref": "db-bench-press", "role": "main", "reps": "6-10", "rest": 90, "superset": "B" },
+          { "ref": "seated-cable-row", "role": "main", "reps": "6-10", "rest": 90, "superset": "B" },
+          { "ref": "bulgarian-split-squat", "role": "secondary", "reps": "8-12", "perSide": true, "rest": 75 },
+          { "ref": "cable-lateral-raise", "role": "isolation", "reps": "12-20", "perSide": true, "rest": 45 }
+        ],
+        "rationale": "As session A [@Spiering2021_minimalDose; @Iversen2021_time_efficient]."
+      },
+      "cooldown": { "use": "cd-full-b" },
+      "record": "Load, reps and RPE."
+    },
+    "pm-int": {
+      "name": "Maintenance intervals", "kind": "intervals", "minutes": 40,
+      "summary": "{{intText}} on any machine.",
+      "warmup": { "use": "wu-intervals" },
+      "main": {
+        "items": [
+          { "ref": "cardio-int-4x4", "dose": "{{intText}}", "timer": { "type": "intervals", "work": "{{intWork}}", "recover": "{{intRecover}}", "reps": "{{intReps}}", "workLabel": "Hard", "recoverLabel": "Easy" } }
+        ],
+        "rationale": "Keeping intensity high preserves VO₂max even when frequency and duration fall [@Spiering2021_minimalDose]."
+      },
+      "cooldown": { "use": "cd-cardio" },
+      "record": "Machine, intensity, session RPE."
+    },
+    "pm-steady": {
+      "name": "Maintenance steady session", "kind": "cardio", "minutes": 45,
+      "summary": "{{z2min}} minutes at a conversational effort, or a hike or class.",
+      "warmup": { "use": "wu-cardio" },
+      "main": {
+        "items": [
+          { "ref": "cardio-steady", "dose": "{{z2min}} min at RPE 3–4", "timer": { "type": "countdown", "seconds": "{{z2sec}}", "label": "Steady" } }
+        ],
+        "rationale": "Easy aerobic volume counts towards the 150–300 weekly minutes of moderate activity recommended for health [@Bull2020_WHOguidelines]."
+      },
+      "cooldown": { "use": "cd-cardio" },
+      "record": "Activity, duration, RPE."
+    }
+  }
+}
