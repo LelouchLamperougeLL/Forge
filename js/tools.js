@@ -7,7 +7,7 @@ import {
   doubleProgression, rampSets, e1rm, loadForReps, energyTargets, navyBodyFat, relativeFatMass,
   deurenbergBodyFat, ffmi, weightTrend, energyAdjustment, hrMax, hrZone, breakAdjustment, runSpikeLimit,
 } from './calc.js';
-import { phases, getPhase, weekCount, getPosition, setPosition, phaseAdherence, nextPosition, sequentialNeighbour } from './engine.js';
+import { phases, getPhase, weekCount, getPosition, setPosition, getReturnTo, phaseAdherence, nextPosition, sequentialNeighbour } from './engine.js';
 
 const P = () => DB.ruleParams || {};
 const profile = () => (DB.meta && DB.meta.profile) || {};
@@ -468,7 +468,14 @@ function toolTransition(query) {
         const rAny = (phase.repeat || []).some((_, k) => st[`r${k}`]);
         const gAny = (phase.regress || []).some((_, k) => st[`g${k}`]);
         let html;
-        if (phase.optional) html = `<div class="callout"><div class="callout-title">Maintenance mode repeats weekly</div><p>When normal life resumes, set your previous phase and week in <a href="#/settings">Settings</a>. If more than 3 weeks have passed since normal training, follow <a href="#/rule/breaks">Returning after missed training</a>.</p></div>`;
+        if (phase.optional) {
+          const r = getReturnTo();
+          const back = r && getPhase(r.phase);
+          html = `<div class="callout"><div class="callout-title">${esc(phase.name)} repeats until you leave it</div>
+            <p>${back ? `When normal training resumes, return to ${esc(back.short || back.name)} · week ${r.week}, where you left off.` : 'When normal training resumes, set your phase and week in <a href="#/settings">Settings</a>.'}
+            Before the first session back, read <a href="#/rule/${esc(phase.returnRule || 'breaks')}">${esc((DB.idx.rules.get(phase.returnRule || 'breaks') || {}).title || 'Returning after missed training')}</a>.</p>
+            ${back ? `<button class="btn primary" data-go="${r.phase}:${r.week}">Return to ${esc(back.short || back.name)} · week ${r.week}</button>` : ''}</div>`;
+        }
         else if (gAny) html = `<div class="callout danger"><div class="callout-title">Step back</div><p>${esc((phase.regressAction || 'Return to an earlier part of this phase (or the previous phase) and rebuild.'))}</p>
           <div class="row">${prevP ? `<button class="btn" data-go="${prevP.id}:${Math.max(1, weekCount(prevP) - 3)}">Go to ${esc(prevP.short || prevP.name)} · week ${Math.max(1, weekCount(prevP) - 3)}</button>` : ''}<button class="btn" data-go="${phase.id}:1">Restart ${esc(phase.short || phase.name)} · week 1</button></div></div>`;
         else if (rAny || !aAll) html = `<div class="callout warn"><div class="callout-title">Repeat before advancing</div><p>${esc(phase.repeatAction || 'Repeat the final block of this phase, then re-check.')}</p>
@@ -487,7 +494,8 @@ function toolTransition(query) {
         const b = e.target.closest('[data-go]');
         if (!b) return;
         const [p, w] = b.dataset.go.split(':');
-        setPosition(p, +w);
+        // Leaving an optional phase keeps earlier ticks; repeating, restarting or starting a phase begins fresh.
+        setPosition(p, +w, { fresh: !phase.optional });
         toast('Position updated');
         location.hash = '#/today';
       });
@@ -501,12 +509,14 @@ function toolTransition(query) {
 function toolBreaks() {
   const ctx = makeCtx();
   const table = P().breaks || [];
+  const away = P().breaksAway || null;   // advice when the gap was spent training without the gym
   const s = saved('breaks');
   return {
     title: 'After a break',
     html: `<div class="page reading">
       ${head('Tool', 'Returning after a break', 'Short breaks cost little; this tells you how much to reduce load and volume when you come back.')}
-      <form class="tool-form card">${field('days', 'Days since your last full session', s.days ?? 10, { step: 1, min: 0 })}</form>
+      <form class="tool-form card"><div class="form-grid">${field('days', 'Days since your last full session', s.days ?? 10, { step: 1, min: 0 })}
+        ${away ? select('during', 'During the gap', [{ value: 'none', label: 'No training' }, { value: 'away', label: 'Away mode, 2 or more sessions a week' }], s.during ?? 'none', 'Fewer than 2 sessions a week counts as no training.') : ''}</div></form>
       <div id="out" aria-live="polite"></div>
       ${table.length ? `<details><summary>Full table</summary><div class="details-body"><div class="table-wrap"><table><thead><tr><th>Days off</th><th>Loads</th><th>Sets</th><th>Advice</th></tr></thead><tbody>
         ${table.map((r, i) => `<tr><td>${i === 0 ? '0' : table[i - 1].maxDays + 1}–${r.maxDays >= 9999 ? '∞' : r.maxDays}</td><td>${esc(r.loadLabel || (r.loadPct === 100 ? 'unchanged' : r.loadPct + '%'))}</td><td>${esc(r.setsLabel || '')}</td><td class="small">${ctx.md(r.advice || '').replace(/^<p>|<\/p>$/g, '')}</td></tr>`).join('')}
@@ -516,7 +526,7 @@ function toolBreaks() {
     </div>`,
     after(root) {
       bindForm(root, 'breaks', d => {
-        const r = breakAdjustment(num(d.days), table);
+        const r = d.during === 'away' && away ? away : breakAdjustment(num(d.days), table);
         root.querySelector('#out').innerHTML = r
           ? `<div class="callout"><div class="callout-title">${esc(r.title || '')}</div><p><strong>Loads:</strong> ${esc(r.loadLabel || r.loadPct + '%')} · <strong>Sets:</strong> ${esc(r.setsLabel || '')}</p>${makeCtx().md(r.advice || '')}</div>`
           : '<div class="result muted">Enter the number of days.</div>';

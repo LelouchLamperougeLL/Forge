@@ -1,11 +1,11 @@
 {
-  "appVersion": "1.0.0",
-  "contentVersion": "2026-10-28",
-  "evidenceCutoff": "28 October 2026",
+  "appVersion": "1.1.0",
+  "contentVersion": "2026-10-30",
+  "evidenceCutoff": "28 October 2026 (Away-mode evidence: 30 October 2026)",
   "title": "Forge: your evidence-based programme",
   "tagline": "A one-year, five-phase plan for an athletic, lean physique, with the science behind every decision.",
   "welcome": "This app is your complete training, nutrition and recovery programme, built from your intake profile and from the research evidence, with every significant decision explained.\n\n**How to start**\n\n1. Read the [[plan:safety|safety and stop rules]] (five minutes).\n2. Skim the [[page:programme|programme overview]] and your [[page:profile|profile analysis]].\n3. Set up your logging app ([[plan:logging|how]]).\n4. Press **Start Phase 0 · week 1** below. Phase 0 is a light orientation week: you learn the machines, record a baseline, and keep eating as usual while you weigh in daily and log your food (continue this through Phase 1 weeks 1–2 to calibrate your maintenance intake).\n\nEach session has a warm-up, main training and a cool-down with stretching. Open a session to read or copy it, or press **Start guided session** in the gym for step-by-step timers.",
-  "disclaimer": "This programme is for personal use by a healthy adult. It is built from published evidence and documented reasoning, not from a medical examination, and it is not medical advice. Stop and seek care if any warning sign in the [[plan:safety|safety rules]] occurs. Evidence was searched up to 28 October 2026; summaries are written in our own words from abstracts or full texts, and every source is listed with its DOI or PMID so you can check it.",
+  "disclaimer": "This programme is for personal use by a healthy adult. It is built from published evidence and documented reasoning, not from a medical examination, and it is not medical advice. Stop and seek care if any warning sign in the [[plan:safety|safety rules]] occurs. Evidence was searched up to 28 October 2026 (30 October 2026 for training without equipment); summaries are written in our own words from abstracts or full texts, and every source is listed with its DOI or PMID so you can check it.",
   "profile": { "weightKg": 77, "heightCm": 181, "age": 31, "neckCm": 38, "waistNavelCm": 86, "waistNaturalCm": 81, "bfEstimate": 20 },
   "profileAnalysis": {
     "sections": [

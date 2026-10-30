@@ -363,6 +363,7 @@
       "effort": "[[phase:p0]]: about 4 [[term:rir|reps in reserve (RIR)]]. [[phase:p1]] (from week 3): 2-3 RIR, judged on the left leg. Balance should never be what ends a set; if it is, hold a support.",
       "progression": "[[rule:double-progression]]: when the left leg does 12 reps per set at 2 RIR with steady balance, add load; then drop the hand support; then move to the [[ex:bulgarian-split-squat]] in [[phase:p2]].",
       "regression": "Hold a rack upright, shorten the range (rear knee to a folded mat), or return to bodyweight.",
+      "away": "With no dumbbells it is the easier rung below the [[ex:bulgarian-split-squat]] and that exercise's warm-up set in Away full body A (1 set of 8 per side): same stance, rear foot on the floor, fingertips on a wall or chair back if you wobble. Use it as the main exercise instead if balancing with the rear foot raised is what ends your sets. Progress by reps up to 20 per side, then a 3–4 s lowering with a 1 s pause, then a deficit (front foot on a stair, or on a thick book on a rug, so the front leg works through a deeper range), then a loaded backpack hugged to your chest; left leg first. In 38 untrained adults, 8 weeks of loaded single-leg training improved squat strength and power as much as two-leg training, and single-leg jump height and relative power more [@McCurdy2005_uniVsBiUntrained]. When it is your main exercise, log it in Hevy as 'Split Squat (Away)' ([[plan:logging]]).",
       "alternatives": [
         {
           "id": "reverse-lunge",
@@ -444,6 +445,7 @@
       "effort": "2-3 RIR, judged on the left leg. It feels harder than the load suggests; end the set on rep quality and balance, not on discomfort ([[dec:D07]]).",
       "progression": "[[rule:double-progression]]: when the left leg completes 12 reps per set at 2 RIR, add 2-2.5 kg per hand. If your grip gives out before your legs, use straps or hold one heavier dumbbell at your chest.",
       "regression": "Back to the [[ex:split-squat]] with the rear foot on the floor, or hold a support.",
+      "away": "Rest the top of your rear foot on a chair seat, sofa or bed edge at about knee height, padded with a towel; if you use a chair, put its back against a wall so it cannot slide. In Away full body A it is a primary exercise for 8–20 reps per side at bodyweight with a 2–3 s lowering, after one easier set of 8 per side with the rear foot on the floor. When the left leg reaches 20 reps on every set at the target effort, move up a rung: a 3–4 s lowering with a 1 s pause at the bottom, then a loaded backpack hugged to your chest (weigh it on your scale: you with it minus you without). Left leg first, the right matches its reps, and fingertips on a wall are fine if balance rather than the leg would end the set. With light loads, effort matters a lot, so after week 1 end sets at 1–2 [[term:rir|RIR]], the last at failure if you like: in a knee-extension trial in untrained men, sets at 30% of [[term:1rm|1RM]] grew the quadriceps 7.8% when taken to failure and only 2.8% (not significant) when stopped short [@Lasevicius2022_failure_by_load]. In Hevy, log it as 'Bulgarian Split Squat (Away)' ([[plan:logging]]).",
       "alternatives": [
         {
           "id": "split-squat",
@@ -520,6 +522,7 @@
       "effort": "2-3 RIR, judged on the left leg; the right matches the left's reps. End the set when balance, rather than the legs, starts to fail.",
       "progression": "[[rule:double-progression]]: when the left leg completes 12 reps per set at 2 RIR, add 2-2.5 kg per hand.",
       "regression": "The [[ex:split-squat]] (no step), a shorter step, or one hand on a rack upright.",
+      "away": "In Away full body B it is a primary exercise for 8–20 reps per side at bodyweight, left leg first, with a long stride of clear floor behind you. Rungs, in order: reps up to 20; then a deficit, standing with the front foot on a stair (or a thick book on a rug) so you sink deeper on the front leg; then a loaded backpack worn on both shoulders or hugged to your chest. On the deficit rung, step back onto flat, non-slip floor and keep a hand near a wall or banister (practical convention). Adding reps before load is a legitimate step: in one trial in 43 trained lifters, progressing reps at a fixed load built muscle about as well as progressing load (rectus femoris thickness, sum of sites, 2.8 mm in favour of reps, 95% CI -0.5 to 5.8) [@Plotkin2022_loadVsRepProgression]. In Hevy, log it as 'Reverse Lunge (Away)' ([[plan:logging]]).",
       "alternatives": [
         {
           "id": "split-squat",
@@ -597,6 +600,7 @@
       "effort": "2-3 RIR, judged on the left leg. End the set when you start pushing off the trailing foot.",
       "progression": "[[rule:double-progression]] with load first; raise the box only if your pelvis stays level and your back neutral.",
       "regression": "A lower box, or one hand on a rack upright.",
+      "away": "Use the stairs: put your whole working foot two stairs up, hold the banister lightly and stand up on that leg, then lower the other foot over 2–3 s; a sturdy low stool also works, but never a folding or wheeled chair. It has no fixed place in the Away sessions: use it instead of the [[ex:reverse-lunge]] or [[ex:bulgarian-split-squat]] if those bother your knees ([[rule:pain]], [[rule:substitution]]), for 8–20 reps per side, left leg first. Progress by reps, then a 3–4 s lowering, then a loaded backpack worn on both shoulders; go up to three stairs only if your pelvis stays level and your back straight. The fast step-ups in [[ex:cardio-noeq-intervals]] are cardio, a different job. Log the strength version in Hevy as 'Step Up (Away)' ([[plan:logging]]).",
       "alternatives": [
         {
           "id": "split-squat",
@@ -828,6 +832,7 @@
       "effort": "2-3 RIR, and end the set as soon as balance, rather than the muscle, limits a rep.",
       "progression": "Remove the hand support first, then add load, then lengthen the lowering to 4 s.",
       "regression": "The kickstand version (back toes resting lightly on the floor), full hand support, or the [[ex:bal-sl-reach]].",
+      "away": "In Away full body A it is the secondary exercise, 8–15 reps per side, left leg first: begin at bodyweight with your fingertips on a wall or chair back, then drop the support. Bodyweight soon becomes too light: in a small 6-week home trial in 20 recreationally active adults, all those doing single-leg RDLs needed added load (median 7.5 kg) [@Behan2024_NHEvsSLRDLremote]. So next hold a loaded backpack by its top handle in the hand opposite the standing leg (right hand when you stand on the left), weighed on your scale and logged as the load under 'Single Leg Romanian Deadlift (Away)' in Hevy ([[plan:logging]]); then lengthen the lowering to 3–4 s with a 1 s pause in the stretch. Train barefoot or in flat shoes, since socks slide on tiles (practical convention).",
       "alternatives": [
         {
           "id": "db-rdl",
@@ -1264,6 +1269,7 @@
       "effort": "0-2 RIR; the machine is safe to take to failure. Optional on the last set: after the final full rep, add 5-10 partial reps in the bottom (stretched) half.",
       "progression": "[[rule:double-progression]] within the prescribed range (10-15, then 8-12 from [[phase:p3]]): when all sets reach the top with full pauses, add the smallest load step.",
       "regression": "Two-leg raises on a step at bodyweight, holding a support.",
+      "away": "Stand on one leg on a stair edge, ball of the foot on the step and heel free, one hand on the wall or banister for balance only, left leg first: 2 sets of 10–20 per side in Away full body A. Lower into the full stretch and pause there 1–2 s without bouncing, then rise as high as you can, keeping the knee straight as at the gym; build up the depth of the stretch over the first sessions (practical convention). When both sets reach 20 reps at the target effort, wear a loaded backpack (weigh it on your scale). From week 2, on the last set, once full reps run out, you can add 5–10 partial reps in the bottom half (practical convention): in one small trial in 23 untrained men, stretched-position partials after failure gave more medial gastrocnemius growth than failure alone (+9.6% vs +6.7%) [@Larsen2025_calfPastFailure]. In Hevy, log it as 'Standing Calf Raise (Away)' ([[plan:logging]]).",
       "alternatives": [
         {
           "id": "leg-press-calf",
@@ -1948,6 +1954,7 @@
       "effort": "As training, end sets at 1-2 RIR (Hevy [[term:rpe|RPE]] 8-9); bodyweight sets are safe to take to [[term:momentary-failure|momentary failure]] now and then. In the test, go to failure with strict form.",
       "progression": "[[term:double-progression|Double progression]] by height: when every set reaches 15, lower the bar one notch and restart near 8. Order: incline, floor, deficit or feet on a bench, then weighted (a backpack with plates is easier alone than a plate on your back).",
       "regression": "Raise the hands higher; a wall is the easiest. Raised-hand push-ups keep the full-body line that kneeling versions lose (practical convention).",
+      "away": "Use household heights for the same ladder: hands on a kitchen counter, table, bed edge or stairs (each stair lower is a rung, and stairs cannot slide), then the floor, then feet on a chair or bed, then hands on two stacks of books for extra depth, then a loaded backpack, weighed on your scale (1 L of water ≈ 1 kg). The floor push-up lifts about two-thirds of your body weight (64–66%); raising the feet adds to that and raising the hands takes it away [@Gouvali2005_pushupVariantsGRF; @Ebben2011_pushupKinetics]. In Away sessions the range is 6–20: when every set reaches 20 at the target effort, move one rung harder and restart near 6–8, and move on from any rung that allows more than about 30 reps. Push-ups taken to failure grew the chest and triceps like a load-matched bench press in one small trial [@Kikuchi2017_pushupVsBench], so from week 2 the last set may go to [[term:momentary-failure|momentary failure]] (week 1 stays at 2–3 [[term:rir|RIR]]). Push a heavy table or the bed against a wall before using it, so it cannot slide or tip. In Hevy, log it as 'Push Up (Away)' ([[plan:logging]]).",
       "alternatives": [
         {
           "id": "db-bench-press",
@@ -2162,6 +2169,7 @@
       "effort": "In [[phase:p0]] stop about 4 [[term:rir|reps in reserve (RIR)]] short, and at 3-4 RIR in weeks 1-2 of [[phase:p1]]; after that end sets at 0-2 RIR (Hevy [[term:rpe|RPE]] 8-10), since light dumbbells are safe near failure. RIR guesses are least accurate in sets above 12 reps [@Halperin2022_RIR_accuracy], so take a last set to [[term:momentary-failure|momentary failure]] now and then to recalibrate ([[rule:rir-calibration]]).",
       "progression": "[[term:double-progression|Double progression]] across 12-20 reps ([[rule:double-progression]]). Going from 5 to 7.5 kg is a 50% jump, so build to 20 reps before moving up and expect about 12 with the new pair; [[ex:cable-lateral-raise]] offers smaller steps.",
       "regression": "Do them seated, or lying chest-down on an incline bench, if you cannot stop swinging.",
+      "away": "Fill two 1–2 L bottles (1 L of water ≈ 1 kg) and raise them with the same technique as dumbbells. Bottles are light, so from week 2 every set goes to 0–1 [[term:rir|RIR]] within 15–30 reps (2–3 RIR in week 1, while you find your load), with a 2–3 s lowering and a 1 s pause at the top; with light loads, effort decides the result (in a knee-extension trial in untrained men, sets at 30% of [[term:1rm|1RM]] grew the quadriceps 7.8% when taken to failure vs 2.8% when stopped short) [@Lasevicius2022_failure_by_load]. Better is a loaded bag raised one arm at a time, your free hand on a door frame, packed and weighed so that 15–30 reps reach failure; better still is a long loop band under your feet: in an EMG study (muscle electrical activity) of 16 women workers with mild neck or shoulder pain, elastic tubing matched dumbbells for prime-mover activation in lateral raises at equal (3RM) effort [@Andersen2010_dumbbellVsTubingEMG]. Once the bottles allow more than about 30 reps, move to the bag or a band: loads of 15–20% of 1RM built less muscle than heavier loads in two trials [@Lasevicius2018_20to80pct1RM; @Buckner2019_veryLowLoadArms]. Cap the bottles tightly, and hold the bag by a handle or strap that will not tear. In Hevy, log it as 'Lateral Raise (Away)', with the bottle or bag weight as the load ([[plan:logging]]).",
       "alternatives": [
         {
           "id": "cable-lateral-raise",
@@ -2702,6 +2710,7 @@
       "effort": "[[phase:p1]]: practice sets ending with at least 2 [[term:rir|reps in reserve (RIR)]]; the aim is skill, not fatigue. From [[phase:p2]]: work sets at 1-2 RIR (2-3 in maintenance mode, where it is a main lift). Avoid true failure on unassisted sets, since a failed rep leaves you hanging with no spotter. Sets taken to failure cause more fatigue and feel worse [@Refalo2023_proximityFatigue; @Refalo2025_proximityPerceptual], and in a trial in trained lifters gave no more growth than stopping 1-2 reps short [@Refalo2024_FAILvsRIRhypertrophy].",
       "progression": "1. Practice ([[phase:p1]], Full body B): 1-3 reps per set, 90 s rest. When all sets feel easy, add a rep to each. From week 3, finish with 1-2 negatives.\n2. At 3 x 5 strict reps: move to sets of 5-8, keeping the 2-rep margin.\n3. From [[phase:p2]]: use the rep range the session shows. If body weight alone falls below the bottom of the range, do the remaining sets assisted, with the least counterweight that works.\n4. When all sets pass the top of the range: add load with a dip belt or a dumbbell held between the feet, 2.5 kg at a time.\n\nEach stage uses [[term:double-progression|double progression]] ([[rule:double-progression]]); stalls follow [[rule:stall]].",
       "regression": "Assisted pull-ups (machine or band), negatives only, or the [[ex:lat-pulldown]]. On a day when you cannot complete a rep, do 3 dead hangs of 20-30 s plus negatives (practical convention).",
+      "away": "Away sessions have no pull-ups, whatever your phase: a bar you can safely hang from is rarely at hand (practical convention), so the [[ex:inverted-row]] (or the [[ex:backpack-row]]) trains the lats in both sessions, and finding a bar does not change that. A solid low bar, at about waist height in a park or playground, is the best anchor for the row itself: it allows session B's underhand grip and the one-arm rung. Test any bar with a hard pull while your feet are still on the ground, and never pull on or hang from a door, curtain rod, window grille or ceiling hook. Strength is largely specific to the movement practised [@Saeterbakken2025_taskSpecificityMeta], so your first pull-ups back in the gym may feel a little harder (inference).",
       "alternatives": [
         {
           "id": "lat-pulldown",
@@ -2774,6 +2783,7 @@
       "effort": "Work sets at 1-2 [[term:rir|reps in reserve (RIR)]]. Avoid true failure: a failed rep leaves you hanging with no spotter, and stopping 1-2 reps short gave similar growth to failure in a trial in trained lifters [@Refalo2024_FAILvsRIRhypertrophy].",
       "progression": "[[term:double-progression|Double progression]] in 6-10 reps ([[rule:double-progression]]). When all sets reach 10, add 2.5 kg with a dip belt or a dumbbell held between the feet; if you are still assisted, reduce the counterweight by one step instead.",
       "regression": "Assisted chin-ups, negatives (3-5 s lowering), or an underhand-grip [[ex:lat-pulldown]].",
+      "away": "Away sessions have no chin-ups; the closest substitute is session B's row. An underhand grip needs a low bar, rings or straps, because a table edge allows only an overhand grip: with only a table, keep the overhand [[ex:inverted-row]] with a slower lowering, or do the [[ex:backpack-row]] with your palm turned forward, which puts the biceps in its strongest line of pull (general anatomy). Test any bar with a hard pull before you rely on it, as for the [[ex:pull-up]].",
       "alternatives": [
         {
           "id": "pull-up",
@@ -3532,6 +3542,7 @@
       "effort": "End each set while technique is still perfect, 2-3 reps before your back would lift; this is a control drill, not an endurance test.",
       "progression": "From 6 to 8 per side, then slower lowering (5 s), then holding a light plate or dumbbell in the hands. After week 6 of [[phase:p1]] the [[ex:cable-crunch]] takes its place.",
       "regression": "Legs only, or heel taps with the knees bent.",
+      "away": "The dead bug needs only floor space, so it travels unchanged; on a hard floor, lie on a folded towel or rug. It is not in the Away sessions: use it in place of the [[ex:reverse-crunch]] if curling bothers your back. To make it harder without a plate, slow the lowering to 5 s, then hold a filled 0.5–1 L water bottle in each hand (about 0.5–1 kg). If you use it, log it in Hevy as 'Dead Bug (Away)' ([[plan:logging]]).",
       "alternatives": [
         {
           "id": "plank",
@@ -3608,6 +3619,7 @@
       "effort": "Each hold should be very hard by its end but finish in good position; stop at the first loss of position.",
       "progression": "Hardstyle holds from 10 s to 20 s, then more holds; long-lever by moving the elbows further forward. The next step is the [[ex:ab-wheel]], a moving long-lever plank.",
       "regression": "Standard plank, or a plank from the knees.",
+      "away": "The plank needs only floor space; on tiles, fold a towel under your forearms. Use the same hardstyle and long-lever versions as at the gym, and the [[ex:test-plank]] works anywhere. With no ab wheel, the next rung is the body saw: forearms on the floor and feet in socks or on a towel on a smooth floor, push your body backwards so your shoulders travel behind your elbows, as in the long-lever plank, then pull it forwards to the start while holding the plank line (practical convention). It is not in the Away sessions; use it in place of the [[ex:reverse-crunch]] or [[ex:side-plank]] when needed, and log it in Hevy as 'Plank (Away)' ([[plan:logging]]).",
       "alternatives": [
         {
           "id": "dead-bug",
@@ -3684,6 +3696,7 @@
       "effort": "Finish each hold with 5-10 s still in reserve and the position intact. The left side sets the time; match it on the right.",
       "progression": "Build from 20 s to 45 s per side; then a raised top leg or a plate on the hip; then the loaded, walking version, the [[ex:suitcase-carry]].",
       "regression": "Knees-bent side plank, or an incline side plank with the forearm on a bench.",
+      "away": "In Away full body B it is the core exercise: 20–45 s per side, left side first, 30 s rest, with your forearm on a folded towel or rug. Use the knees-bent version until a straight-leg hold of 20 s per side is steady, then build to 45 s. Past 45 s, make it harder rather than longer: raise the top leg a few centimetres, or rest a lightly loaded bag or a filled 1–2 L bottle on your top hip (practical convention). If the supporting shoulder complains, do an incline side plank with your forearm on a stair or a sturdy chair seat. In Hevy, log it as 'Side Plank (Away)', in seconds per side ([[plan:logging]]).",
       "alternatives": [
         {
           "id": "suitcase-carry",
@@ -3912,6 +3925,7 @@
       "effort": "1-3 [[term:rir|reps in reserve (RIR)]]. Reps that turn into swings do not count.",
       "progression": "Captain's chair, then hanging knee raise, then knees higher (toward the bar), then straight-leg raises to the height your hamstrings allow; within each stage use [[term:double-progression|double progression]] in 8-15 reps ([[rule:double-progression]]). Later, a light dumbbell held between the feet (practical convention).",
       "regression": "Captain's chair knee raise, or a reverse crunch lying on a bench.",
+      "away": "Without a bar, do the [[ex:reverse-crunch]] in its place: it trains the same pelvic curl that makes this an abdominal exercise, lying on the floor, and its ladder runs from bent knees to a 3–4 s lowering, then straighter legs, then an incline holding a bed frame or heavy sofa behind your head. With a solid bar (a park bar, or a doorway bar you bring, tested with a hard pull first), do the hanging version as described for the bar only if you had already moved from the captain's chair to the bar; there is no captain's chair away from the gym, so otherwise stay with the reverse crunch. A thick or dusty park bar tires your grip before your abdominals: dry your hands, and end the set when swinging starts. If you do hang, log it in Hevy as 'Hanging Knee Raise (Away)' ([[plan:logging]]).",
       "alternatives": [
         {
           "id": "cable-crunch",
@@ -4159,6 +4173,632 @@
       "safety": "As for the farmer's carry: clear the path, dry your hands, and set the weight down rather than dropping it, since dropped weights cause most weight-training injuries seen in emergency departments [@Kerr2010_weightTrainingED]. Stop for back pain ([[rule:pain]]).",
       "mechanism": "The hand holding the weight is not the side doing most of the work. With the weight in the right hand, the load pulls the trunk to the right, so the left obliques and left quadratus lumborum resist. When you stand on the left leg, the right-hand load also increases the turning force about the left hip, so the left gluteus medius works harder to keep the pelvis level (functional anatomy).",
       "evidence": "No trial located tests one-sided carries, and whether they improve single-leg balance is untested. Trunk training in general improves maximal strength and local muscular endurance in athletes ([[term:smd|SMD]] 0.39 and 1.29) [@Saeterbakken2022_trunkTrainingMeta], and stabilisation-style programmes gave injury rates similar to sit-up programmes in soldiers [@Childs2010_situpVsCoreRCT]."
+    },
+    {
+      "id": "inverted-row",
+      "name": "Inverted row (table, low bar or rings)",
+      "loggingName": "Inverted Row",
+      "aliases": [
+        "Table row",
+        "Bodyweight row",
+        "Australian pull-up",
+        "Body row"
+      ],
+      "category": "bodyweight",
+      "equipment": [
+        "a heavy, solid table that passes the table test, or a low bar, rings or suspension straps",
+        "door frame (easiest level)",
+        "chair (feet-raised level)",
+        "folded towel or mat under your back"
+      ],
+      "level": "beginner",
+      "targets": {
+        "primary": [
+          "latissimus dorsi",
+          "middle and lower trapezius",
+          "posterior deltoid"
+        ],
+        "secondary": [
+          "biceps and brachialis",
+          "grip",
+          "glutes and trunk (holding the body straight)"
+        ]
+      },
+      "summary": "Lying face up under a heavy table (or a low bar, rings or straps), gripping the edge and pulling your chest up to it with your body held straight. It is the main back exercise of both Away sessions ([[phase:pa]]): 6–20 reps, 75 s rest, in a [[term:superset|superset]] with push-ups, with an overhand grip in session A and an underhand grip in session B where your anchor allows it. Your body weight is the load, and you make it heavier by becoming more horizontal. A table is usable only if it passes the table test under Safety; otherwise do the [[ex:backpack-row]].",
+      "setup": [
+        "Choose the anchor. Best: a low bar (in a park or playground), rings or suspension straps. Indoors: a heavy, solid wooden or metal table with four fixed legs. Never a glass, marble or stone top, a top that sits loose on its frame, a folding or trestle table, or anything on wheels.",
+        "Clear everything off the tabletop, lay a folded towel or mat where your back will rest, and pass the table test (see Safety) before your first set in each new place.",
+        "Lie face up at the middle of a long side, legs under the table and head and shoulders just outside the edge, so that the edge is above your lower chest. With your head outside, it cannot hit the tabletop at the top of a rep.",
+        "Grip the edge slightly wider than your shoulders, fingers over the top and thumbs underneath, so your palms face your feet (overhand). A table edge allows only this grip. The underhand grip for session B (palms towards your head) needs something you can wrap your hands round: a bar, rings or straps.",
+        "Set your rung (see Progression): knees bent with feet flat, legs straight with heels on the floor beyond the far side of the table, or heels on a chair seat placed there."
+      ],
+      "execution": [
+        "Squeeze your glutes and lift your hips until your body is straight from shoulders to knees (or heels) and you hang from straight arms. On a table your upper back may brush the towel at the bottom; that is the end of the range.",
+        "Pull your chest to the edge in about 1 s, elbows travelling back towards your hips at about 45° from your sides (closer to your sides with an underhand grip), shoulder blades squeezing together.",
+        "Pause for 1 s with your chest touching or almost touching the edge.",
+        "Lower over 2–3 s to straight arms, letting your shoulder blades spread apart, and start the next rep without resting on the floor.",
+        "Every rep reaches the same height; when one cannot, the set is over."
+      ],
+      "breathing": "Breathe out as you pull, in as you lower; breathe on every rep.",
+      "cues": [
+        "Pull the edge to your chest.",
+        "Move as one plank: your hips rise with your chest.",
+        "Elbows to your back pockets.",
+        "Long neck: your chest reaches the edge, not your chin."
+      ],
+      "errors": [
+        {
+          "error": "Hips sagging, so only the chest moves.",
+          "fix": "Squeeze your glutes; if the line still breaks, bend your knees (one rung easier)."
+        },
+        {
+          "error": "Stopping a hand's width short of the edge as you tire.",
+          "fix": "Count only full reps; end the set or drop a rung rather than shortening the range."
+        },
+        {
+          "error": "Poking the chin forward to reach the edge.",
+          "fix": "Keep your head in line with your body and lift your chest to the edge."
+        },
+        {
+          "error": "Jerking or kicking to finish reps.",
+          "fix": "Smooth reps only. Sudden pulls load the table in spikes, which is how a borderline table tips (biomechanical reasoning)."
+        },
+        {
+          "error": "Lying with your head under the table.",
+          "fix": "Head and shoulders go outside the edge; otherwise your face meets the tabletop before your chest reaches the edge."
+        }
+      ],
+      "startingLoad": "Find your rung with the first set of your first Away session. Do it with legs straight and heels on the floor (rung 3) and stop at 2–3 [[term:rir|reps in reserve (RIR)]]. If the set lands in 6–20 reps, that is your rung; fewer than 6, bend your knees for the remaining sets; more than 20, put your heels on a chair from the next set. From your baseline of 3 pull-ups, expect to land on the bent-knee or straight-leg rung (inference). Note the rung in Hevy so the next session starts there ([[plan:logging]]).",
+      "effort": "Week 1: 2–3 [[term:rir|RIR]] while you find your rung. Weeks 2–3: 1–2 RIR (Hevy [[term:rpe|RPE]] 8–9), and the last set may go to [[term:momentary-failure|momentary failure]], because a failed rep only lowers you back to the floor. Near the top of the range the load is light for you (more than 15 reps possible), and with light loads how close you go to failure decides much of the result (see Evidence). On a table, keep even the last reps smooth: no jerks or kicks.",
+      "progression": "Your [[term:progression-ladder|progression ladder]] replaces adding plates. Use [[term:double-progression|double progression]] by rung: add reps within a rung until every set reaches 20 at the target effort, then move up one rung and restart near 6–8. Adding reps at a fixed load is real progress: it gave results similar to adding load in one 8-week trial in 43 trained lifters, using lower-body exercises [@Plotkin2022_loadVsRepProgression].\n\n| Rung | How | Move up when |\n|---|---|---|\n| 1. Door-frame row | Stand facing the edge of a solid door frame, both hands on it at chest height, one above the other; lean back to straight arms and pull your chest to your hands. Moving your toes closer to the frame makes it harder. | 20 reps per set with your toes at the foot of the frame |\n| 2. Table row, knees bent | Feet flat, knees at about 90°, body straight from shoulders to knees. Slide your feet further from your hands to make it a little harder. | 20 reps per set |\n| 3. Table row, legs straight | Heels on the floor beyond the far side of the table. | 20 reps per set |\n| 4. Feet raised | Heels on a chair seat, so your body is close to horizontal. | 20 reps per set |\n| 5. Pause and slow lowering | Rung 4 with a 2 s hold at the top and a 3–4 s lowering. | 20 reps per set |\n| 6. Backpack | Rung 4 wearing a loaded backpack on your front, straps let out so it rests on your stomach below the edge (books laid flat keep it thin); weigh it and add 1–2 kg at a time. Re-test the table with the bag on. | Keep adding load; on a bar, rings or straps you can go on to rung 7 |\n| 7. One-arm | Bar, rings or straps only, never a table edge: one hand pulls, feet wide, knees bent at first. | Top rung: add a pause, then load |\n\nIf a rung allows more than about 30 reps at the target effort, skip ahead rather than doing longer sets. Sets of 20–25 reps to failure built muscle like sets of 8–12 in trained men [@Morton2016_20to25repsTrained], but loads of 15–20% of [[term:1rm|1RM]], which allow far more reps, built less muscle in two trials [@Lasevicius2018_20to80pct1RM; @Buckner2019_veryLowLoadArms] and, in a third, grew the quadriceps similarly but did not raise strength [@Jessee2018_veryLowLoadLegs]; the cut-off of about 30 is inference. Slower lowering counts as a rung because repetitions lasting about 0.5–8 s gave similar growth when sets went to failure [@Schoenfeld2015_rep_duration]. On a bar or straps, smaller steps come from lowering the bar or strap one notch.",
+      "regression": "Go down a rung: bend your knees, slide your feet closer to your hands, or use the door frame. If no table passes the test and there is no bar, do the [[ex:backpack-row]].",
+      "alternatives": [
+        {
+          "id": "backpack-row",
+          "why": "No safe table or bar: the same muscles one arm at a time, loaded with a weighed backpack."
+        },
+        {
+          "id": "pull-up",
+          "why": "The vertical pull of your gym programme. Away sessions keep this row even where you find a bar: a low bar is the best anchor for it (see Set-up)."
+        },
+        {
+          "id": "seated-cable-row",
+          "why": "The gym horizontal pull this stands in for, loadable in small steps."
+        }
+      ],
+      "whyChosen": "Without weights it is the heaviest back exercise you can do at home: with the body near horizontal, the arms lift about 70–75% of body weight (measured on suspension straps) [@Vural2023_suspensionLoadBW], roughly 53–58 kg for you (arithmetic), far more than a backpack holds. Back width is one of your priorities, and in an EMG study (muscle electrical activity) of 26 adults the inverted row activated the lats, lower trapezius, posterior deltoid and biceps very highly, above 61% of a maximal contraction [@Youdas2016_invertedRowEMG]; in a study of 7 men it gave the highest lat and upper-back activation of three row types with the lowest modelled load on the lower spine [@Fenwick2009_invertedRowSpine]. Paired with push-ups it balances pushing with pulling and saves time: agonist–antagonist pairs let people complete more reps ([[term:smd|SMD]] 0.68), and supersets grew muscle like traditional sets (SMD −0.05) [@Zhang2025_superset_meta] ([[dec:D30]]).",
+      "safety": "!> **Table test, before your first set in every new place.** Only a heavy, solid table with four fixed legs qualifies: never a glass, marble or stone top, a top that sits loose on its frame, a folding or trestle table, or anything on wheels. Clear the top. Test it first from outside, where a tipping table cannot land on you: stand at the middle of a long side, put both hands on the edge and lean your weight down onto it for 3–5 s, then give three firm downward pushes and one hard pull towards you. Only then lie in position, hips still on the floor, and pull hard on the edge for 3–5 s, ready to let go. The table fails if a leg lifts, it slides or rocks, the top shifts on its frame, or the edge bends or creaks. Pulling down on an edge that overhangs the legs can tip a light table towards you, onto your face and chest (biomechanical reasoning). If it fails, or you are unsure, do the [[ex:backpack-row]].\n\nUse a long side with your hands between the table's legs, never a corner; keep your head outside the edge; keep reps smooth; and repeat the test whenever you add a backpack. On a door frame, hold the frame itself, never the door, a handle or a curtain rod, and keep the floor behind you clear in case your grip slips. Check that a park bar is fixed and dry. Stop for sharp elbow or shoulder pain ([[rule:pain]]).",
+      "mechanism": "The same actions as the [[ex:seated-cable-row]]: the lats and teres major pull the upper arms down and back (shoulder extension), the middle and lower trapezius and rhomboids pull the shoulder blades together, and the biceps and brachialis bend the elbows (functional anatomy). Your body is the weight: the more horizontal you are, the larger the share of it your arms lift, while the glutes and trunk hold you straight (biomechanical reasoning); the inverted row produced high hip-extensor activation in an EMG study [@Fenwick2009_invertedRowSpine]. Raising the feet adds a little load: 73.3–75.7% of body weight with the feet up vs 69.5–73.4% with them down in a strap study [@Vural2023_suspensionLoadBW]. An underhand grip lets the biceps pull with the palm already turned up, its strongest position (general anatomy).",
+      "evidence": "No training trial has tested table rows, so the case rests on acute and indirect evidence. In 26 adults rowing on a doorway bar, all four variants (overhand or underhand grip, one or both feet down) activated the biceps, lats, lower trapezius and posterior deltoid above 61% of a maximal contraction; lat activation differed between grips, but the abstract does not say which was higher [@Youdas2016_invertedRowEMG] (EMG study). In 7 men, the inverted row gave the highest lat activation and the lowest modelled lumbar load of three rows [@Fenwick2009_invertedRowSpine] (EMG and modelling). In 12 strong athletes on suspension straps, it loaded the arms with 69.5–75.7% of body weight, about 70–73% of their lying barbell-row 1RM, with prime-mover EMG similar to the barbell lift at the same load [@Vural2023_suspensionLoadBW]; for you, as a newer lifter, the same body weight is a larger share of your maximum (inference). On training effects: in one small trial in 42 untrained older adults, a whole-body suspension-strap programme taken to failure grew the biceps (+21.6% vs +23.4%) and vastus lateralis (+14.1% vs +13.0%) about as much as conventional resistance training [@Soligon2020_suspensionVsTraditional]. With light loads, effort decides growth: in a knee-extension trial in 25 untrained men, sets at 30% of 1RM grew the quadriceps 7.8% when taken to failure and 2.8% when stopped short [@Lasevicius2022_failure_by_load]."
+    },
+    {
+      "id": "backpack-row",
+      "name": "One-arm backpack row",
+      "loggingName": "Backpack Row",
+      "aliases": [
+        "Bag row",
+        "One-arm bag row",
+        "Single-arm backpack row"
+      ],
+      "category": "resistance",
+      "equipment": [
+        "backpack loaded with books or water bottles",
+        "sturdy chair, bed or sofa edge",
+        "bathroom scale (to weigh the bag)"
+      ],
+      "level": "beginner",
+      "targets": {
+        "primary": [
+          "latissimus dorsi",
+          "middle trapezius"
+        ],
+        "secondary": [
+          "posterior deltoid",
+          "biceps",
+          "grip"
+        ]
+      },
+      "summary": "The [[ex:one-arm-db-row]] with a loaded backpack in place of the dumbbell, braced on a chair, bed or sofa. In Away mode ([[phase:pa]]) it takes the place of the [[ex:inverted-row]] whenever no table passes the table test and there is no bar: the same 6–20 reps, done per side, left arm first. Load a sturdy daypack with 5–15 kg of books or water bottles (1 L ≈ 1 kg), weigh it on your scale and log that number. If Hevy has no 'Backpack Row', create it as a custom exercise ([[plan:logging]]).",
+      "setup": [
+        "Pack the bag tight: books laid flat against the back panel, or full, tightly capped plastic bottles (never glass), with gaps filled with clothes so nothing shifts. Close every zip.",
+        "Weigh it: stand on your scale holding the bag, then without it. The difference is the load you log.",
+        "Put your right knee and right hand on a sturdy chair seat, the edge of a bed or a sofa, with your left foot on the floor slightly back and out to the side: the left arm works first. A plastic or wheeled chair is not sturdy enough.",
+        "Torso roughly parallel to the floor, back flat; bend the standing knee as much as your tight hamstrings need.",
+        "Hold both shoulder straps together close to the bag, so two seams carry the load instead of one (or use a strong top handle), and let the bag hang straight below your shoulder, clear of the floor."
+      ],
+      "execution": [
+        "Row the bag up and back towards your hip in about 1 s, elbow close to your side, and pause for 1 s when the elbow passes your torso.",
+        "Lower over 2–3 s to a straight arm, letting the shoulder blade drop towards the floor for the stretch.",
+        "Start each rep with the bag still; if it swings, wait a moment.",
+        "Do all reps on the left, then the same number on the right.",
+        "In session B, turn your palm to face forward (underhand) and keep the elbow tucked, which gives the biceps more work (general anatomy)."
+      ],
+      "breathing": "Breathe out as you row, in as you lower.",
+      "cues": [
+        "Row the bag towards your back pocket.",
+        "Keep your back as still as a tabletop.",
+        "Push the chair away with your supporting hand.",
+        "Let the bag pull your arm long at the bottom."
+      ],
+      "errors": [
+        {
+          "error": "Twisting the torso to heave the bag up.",
+          "fix": "Take out a bottle or two; only the arm and shoulder blade move."
+        },
+        {
+          "error": "The bag swinging into your knee or the chair.",
+          "fix": "Pack it tighter, hold the straps shorter and pause at the bottom of each rep."
+        },
+        {
+          "error": "Rounded lower back from a straight-legged stance.",
+          "fix": "Bend the standing knee and shorten the stance."
+        },
+        {
+          "error": "Doing extra reps on the stronger right side.",
+          "fix": "The left side sets the reps; match them on the right (practical convention)."
+        }
+      ],
+      "startingLoad": "In your first Away session, load the bag to about 8–10 kg (8–10 one-litre bottles, or books to match) and do one test set on the left at 2–3 [[term:rir|reps in reserve (RIR)]]. If it lands in 6–20 reps, keep that load; fewer than 6, take out 2 kg; more than 20, add 2 kg, as far as the bag allows. Your 3-pull-up baseline does not translate into a bag weight, so the test set decides (inference). A 10–15 kg dumbbell is a common gym start for an untrained man (practical convention), but a bag is more awkward to control, so start a little lighter (inference); if you have been using the [[ex:one-arm-db-row]], start at about two-thirds of that dumbbell (practical convention).",
+      "effort": "Week 1: 2–3 RIR on the left. Weeks 2–3: 1–2 RIR (Hevy [[term:rpe|RPE]] 8–9), and the last set may go to [[term:momentary-failure|momentary failure]], which here means the bag stops rising: lower it under control rather than heaving it up. Once the bag allows more than about 15 reps it is a light load for your back, and with light loads ending sets close to failure is what makes them work (see Evidence).",
+      "progression": "[[term:double-progression|Double progression]] along a short [[term:progression-ladder|progression ladder]], judged on the left arm: when every set reaches 20 reps at the target effort, move up one step and restart near 8–10.\n\n| Rung | How | Move up when |\n|---|---|---|\n| 1. More load | Add 1–2 kg at a time (a bottle or a few books) until the bag is full or its straps and seams start to strain. | 20 reps per set at the most the bag safely holds |\n| 2. Slower lowering | That load with a 3–4 s lowering. | 20 reps per set |\n| 3. Pause | Add a 2 s hold at the top, elbow behind your torso. | 20 reps per set: the bag has run out, so use a table that passes the test, a bar or a band |\n\nIf a step allows more than about 30 reps at the target effort, skip ahead: loads of 15–20% of [[term:1rm|1RM]], light enough for far more reps, built less muscle than heavier loads in two trials [@Lasevicius2018_20to80pct1RM; @Buckner2019_veryLowLoadArms] (the cut-off of about 30 is inference). Slower lowering is a legitimate step because repetitions lasting about 0.5–8 s gave similar growth when sets went to failure [@Schoenfeld2015_rep_duration]. A second bag in the same hand is clumsy and strains the straps; a resistance band is the better upgrade (practical convention).",
+      "regression": "Fewer bottles. If bracing on one hand is the problem, lie face down along the edge of a bed and row with the working arm hanging over the side (practical convention).",
+      "alternatives": [
+        {
+          "id": "inverted-row",
+          "why": "A heavier pull, with your body weight as the load, whenever a table passes the test or you find a low bar."
+        },
+        {
+          "id": "one-arm-db-row",
+          "why": "The gym version, with a fixed handle and finer load steps."
+        },
+        {
+          "id": "seated-cable-row",
+          "why": "The two-handed gym row with a simpler set-up."
+        }
+      ],
+      "whyChosen": "It needs only a bag and something to lean on, so it works in any room, including the many where no table is safe to pull on. It is the [[ex:one-arm-db-row]] pattern, so if you have done that row in the gym there is nothing new to learn, and if not it is a simple one to pick up (inference). Working one arm at a time makes a 10–15 kg bag a meaningful load for each side (inference), and unilateral and bilateral training grew muscle similarly in a meta-analysis, though that estimate was very imprecise [@Kassiano2025_uniVsBiMeta]. Its weakness is the ceiling: a daypack runs out of load sooner than your back runs out of strength (inference), which is why tempo and pause steps follow and why a resistance band is the most useful purchase if trips become common ([[dec:D30]]).",
+      "safety": "Check the bag first: seams, strap anchors and zips intact. Hold both shoulder straps rather than a thin top loop, and stop if anything starts to tear. Keep your standing foot out of the space under the bag. Brace on a bed, a sofa or a heavy chair that cannot slide or tip, never a plastic or wheeled chair. Pick the bag up from the floor with a bent knee and a flat back rather than a straight-legged reach, which your hamstrings will not allow comfortably. Stop for sharp elbow or shoulder pain ([[rule:pain]]).",
+      "mechanism": "The same muscles as the [[ex:one-arm-db-row]]: the lats and teres major pull the upper arm back, the middle trapezius and rhomboids pull the shoulder blade towards the spine, and the biceps and brachialis bend the elbow (functional anatomy). Holding the load in one hand lets the shoulder blade travel further forward at the bottom than a two-handed pull does, lengthening the lats and mid-back (biomechanical reasoning). A bag hangs from straps, so it swings if you rush and its contents shift if they are loose; packed tight and held short, it behaves most like a dumbbell (biomechanical reasoning). Turning the palm forward puts the biceps in its strongest line of pull, because it both bends the elbow and turns the palm up (general anatomy).",
+      "evidence": "No trial has tested backpack rows; the case rests on general findings. With light loads, effort decides growth: in a knee-extension trial in untrained men, sets at 30% of [[term:1rm|1RM]] grew the quadriceps 7.8% when taken to failure and 2.8% when stopped short [@Lasevicius2022_failure_by_load]. In trained men, sets of 20–25 reps to failure increased lean mass and fibre size like sets of 8–12 [@Morton2016_20to25repsTrained]. An unstable, sloshing load still builds strength: in men training the bench press for 10 weeks, a water-filled log improved strength like a barbell or machine, although test loads on it were about 3% lower than on the barbell [@Langford2007_waterLogBenchTraining]. In the gym version, a one-arm dumbbell row grew the elbow flexors 5.2% against 11.1% for curls in one small trial [@Mannarino2021_curl_vs_row], so it trains the biceps, but less than curling does. If you buy a band, it suits rows: band rows produced only marginally lower prime-mover activation than conventional equipment in an EMG study (muscle electrical activity) of 29 adults [@Iversen2017_bandsMultiJointEMG]."
+    },
+    {
+      "id": "pike-push-up",
+      "name": "Pike push-up (to feet-elevated pike)",
+      "loggingName": "Pike Pushup",
+      "aliases": [
+        "Pike press",
+        "Elevated pike push-up",
+        "Decline pike push-up"
+      ],
+      "category": "bodyweight",
+      "equipment": [
+        "none (floor level)",
+        "stair or bed edge (incline level)",
+        "chair or bed pushed against a wall (feet-raised level)",
+        "two equal stacks of hardback books (deficit level)",
+        "folded towel for your head"
+      ],
+      "level": "intermediate",
+      "targets": {
+        "primary": [
+          "anterior and lateral deltoid",
+          "triceps"
+        ],
+        "secondary": [
+          "upper trapezius",
+          "serratus anterior",
+          "upper (clavicular) chest"
+        ]
+      },
+      "summary": "A push-up with your hips pushed high so your body makes an upside-down V and you press at a steep angle, close to an overhead press. It stands in for the [[ex:db-shoulder-press]] in Away mode: the secondary press in session A ([[phase:pa]]), 5–15 reps, 60 s rest, in a [[term:superset|superset]] with the [[ex:sl-rdl|single-leg Romanian deadlift]]. The ladder runs from hands raised on a stair to feet raised on a chair, and stops short of handstands because you train alone.",
+      "setup": [
+        "Incline level (the usual start): hands on a stair or the edge of a bed, slightly wider than your shoulders; walk your feet in until your hips are high and your back is as straight as you can make it. Stairs are best, because you can go one stair lower at a time.",
+        "Floor level: hands on the floor slightly wider than your shoulders, fingers spread; walk your feet towards your hands until your hips are high. With your tight hamstrings, bend your knees a little rather than rounding your back.",
+        "Feet-raised level: feet on a chair seat or bed edge pushed against a wall, hands on the floor; walk your hands back towards the chair until your hips are nearly above your shoulders.",
+        "Deficit level: as the feet-raised level, with your hands on two equal stacks of hardback books so your head can travel below hand height.",
+        "Put a folded towel where your head will arrive, and work on a rug or mat that does not slide."
+      ],
+      "execution": [
+        "Lower in 2–3 s by bending your elbows back, about 45° from your sides rather than straight out.",
+        "Let the top of your head travel down and forward to a point about a hand's length in front of your hands: at the bottom, your head and hands form a triangle (a tripod).",
+        "Touch the towel lightly with the top of your head, or stop just above it; your head never takes weight.",
+        "Press back to straight arms in about 1 s along the same path, pushing your hips back up towards the ceiling.",
+        "When your head stops reaching the same depth, the set is over."
+      ],
+      "breathing": "In on the way down, out on the way up. Your head is low for the whole set, so come out of the position slowly (kneel, then stand) and rest if you feel light-headed (practical convention).",
+      "cues": [
+        "Head forward, not down between your hands: make a triangle.",
+        "Hips to the ceiling.",
+        "Elbows back, not out.",
+        "Push the floor away."
+      ],
+      "errors": [
+        {
+          "error": "Lowering the head straight down between the hands, elbows flared.",
+          "fix": "Aim your head a hand's length in front of your hands so the elbows travel back."
+        },
+        {
+          "error": "Hips dropping until it turns into a push-up.",
+          "fix": "Walk your feet closer (or your hands closer to the chair) and keep pushing your hips up."
+        },
+        {
+          "error": "Rounding the back to get the hips high.",
+          "fix": "Bend your knees: this is a shoulder exercise, not a hamstring stretch."
+        },
+        {
+          "error": "Hands sliding on a smooth floor.",
+          "fix": "Use a rug or mat that grips, with dry hands."
+        },
+        {
+          "error": "Dropping onto your head at the bottom.",
+          "fix": "Take a full 2–3 s to lower and stop just above the towel."
+        }
+      ],
+      "startingLoad": "Start at the incline level in your first Away session, with your hands on a stair two or three steps up or on a bed edge, about 40–50 cm high. A pike shifts the work to the smaller shoulder muscles at a steeper angle than a push-up (biomechanical reasoning), so from a baseline of 5 floor push-ups the floor pike is probably too hard at first (inference). Do one test set at 2–3 [[term:rir|reps in reserve (RIR)]]: 5–15 reps is your rung; fewer than 5, put your hands one stair higher; more than 15, go one stair lower or to the floor. If you now manage 15 or more floor push-ups, test the floor pike first (inference).",
+      "effort": "Week 1: 2–3 RIR. Weeks 2–3: 1–2 RIR (Hevy [[term:rpe|RPE]] 8–9), as for the other secondary exercises. Keep at least 1 rep in reserve on the feet-raised and deficit levels, where a failed rep lowers you onto your head; end the set when a rep slows sharply.",
+      "progression": "[[term:double-progression|Double progression]] along the [[term:progression-ladder|progression ladder]]: when every set reaches 15 reps at the target effort, move up one rung and restart near 5–8. If a rung ever allows more than about 30 reps, skip ahead.\n\n| Rung | How | Move up when |\n|---|---|---|\n| 1. Incline pike | Hands on a stair or bed edge; a lower surface is harder, so go one stair lower at a time. | 15 reps per set with your hands on the lowest stair |\n| 2. Floor pike | Hands on the floor, feet walked in, hips high. | 15 reps per set |\n| 3. Feet-raised pike | Feet on a chair seat or bed edge, hands walked back until your hips are nearly over your shoulders. | 15 reps per set |\n| 4. Deficit pike | Rung 3 with your hands on two stacks of books, head below hand level; add a book at a time. | 15 reps per set: add a 3–4 s lowering and a 1 s pause at the bottom |\n\nWithin a rung, walking your feet closer to your hands (floor) or your hands closer to the chair (feet raised) makes your torso more vertical and the press harder (biomechanical reasoning). Slower lowering is a fair substitute for a harder rung, since repetitions of about 0.5–8 s gave similar growth when sets went to failure [@Schoenfeld2015_rep_duration]. The step after rung 4 would be wall handstand push-ups, which are not for training alone (see Safety): use tempo and pauses instead, and return to the [[ex:db-shoulder-press]] in the gym.",
+      "regression": "Raise your hands (a higher stair or the bed edge), or walk your feet further back so the press is less steep. If your wrists object, curl your fingers over the edge of a stair so the wrists bend less (practical convention).",
+      "alternatives": [
+        {
+          "id": "db-shoulder-press",
+          "why": "The gym press this stands in for, loadable in small steps."
+        },
+        {
+          "id": "push-up",
+          "why": "If the steep angle bothers your shoulders or wrists; with the feet raised it is harder and moves the press towards the shoulders (biomechanical reasoning)."
+        },
+        {
+          "id": "machine-shoulder-press",
+          "why": "A gym option with a fixed path, safe to push close to failure."
+        }
+      ],
+      "whyChosen": "Shoulders are your top priority, and without dumbbells this is the only press that comes close to the overhead angle, so it keeps the shoulder-press pattern going while you are away (biomechanical reasoning). It adds pressing work for the front and side deltoids on top of push-ups. The side deltoid still gets its direct work from bottle or bag raises ([[ex:db-lateral-raise]]), because no press singles it out (anatomical inference; [[dec:D12]], [[dec:D30]]).",
+      "safety": "!> **No handstand work alone.** Wall handstands and handstand push-ups bring a risk of falling or collapsing onto your head and neck, and you train alone, so this ladder stops at the deficit pike (practical convention).\n\nYour head touches the towel lightly or not at all; it never takes weight. Push the chair or bed against a wall so it cannot slide, and use books that sit flat and do not slip. Being head-down raises the pressure in your head (general physiology): come up slowly, and stop for a headache or faintness. Stop for sharp shoulder pain ([[rule:pain]]).",
+      "mechanism": "Raising your hips turns the press from horizontal towards vertical. In a push-up you push forward from the chest (chest and triceps); as your torso approaches vertical your arms push up beside your head, as in an overhead press, so the front and side deltoids, triceps, upper trapezius and serratus anterior take over (biomechanical reasoning). Raising the feet puts more of your weight on your hands and makes the torso more vertical: in push-ups, raising the feet increased, and raising the hands decreased, the peak vertical force measured on a force platform [@Ebben2011_pushupKinetics], and the same mechanics apply here (inference). Bringing your head forward of your hands keeps the forearms close to vertical at the bottom, where they push most directly, and keeps the elbows from flaring (biomechanical reasoning).",
+      "evidence": "The evidence search for this programme found no study of pike push-ups, so the ladder and its place in the programme rest on biomechanical reasoning. Indirect support: in 23 moderately trained men, progressive calisthenic push-up training (moving to harder variations) raised bench-press [[term:1rm|1RM]], as bench pressing did, over 4 weeks, though neither group changed muscle thickness in that short time [@Kotarsky2018_progressivePushup]; push-ups to failure grew the chest (+18.3% vs +19.4%) and triceps (+9.5% vs +10.3%) like a load-matched bench press in one small trial [@Kikuchi2017_pushupVsBench]; and light loads taken to failure grow muscle like heavy ones [@Schoenfeld2017_load_meta]. Whether the pike grows the side deltoid as much as raises do is unknown, so the raises stay (inference)."
+    },
+    {
+      "id": "bw-triceps-extension",
+      "name": "Bodyweight triceps extension (counter or table)",
+      "loggingName": "Triceps Extension (Bodyweight)",
+      "aliases": [
+        "Bodyweight skull crusher",
+        "Counter triceps extension",
+        "Table triceps extension"
+      ],
+      "category": "bodyweight",
+      "equipment": [
+        "kitchen counter fixed to the wall, stair edge, or a heavy table that passes the inverted-row table test",
+        "low bar or rings (optional)"
+      ],
+      "level": "beginner",
+      "targets": {
+        "primary": [
+          "triceps (all three heads)"
+        ],
+        "secondary": [
+          "abdominals and glutes (holding the body straight)"
+        ]
+      },
+      "summary": "A skull crusher with your body as the weight: hands on the edge of a kitchen counter, a stair or a heavy table, body straight and leaning, and only your elbows bend, bringing your forehead towards the edge. It is the triceps [[term:isolation-exercise|isolation exercise]] of Away mode: secondary in session B ([[phase:pa]]), 8–15 reps, 60 s rest, in a [[term:superset|superset]] with lateral raises. The lower the surface and the further back your feet, the harder it is.",
+      "setup": [
+        "Choose the surface. A kitchen counter fixed to the wall is best and cannot tip. A stair edge also works and gives you steps of height. A table must pass the [[ex:inverted-row]] table test, because pressing down on an overhanging edge can tip a light table towards you.",
+        "Dry the edge and your hands; nothing slippery goes between them.",
+        "Hands on the edge about shoulder-width apart, palms down, with your fingers curled over the front if the edge allows; arms straight.",
+        "Walk your feet back until your body is a straight line from heels to head at the angle you need, up on the balls of your feet if needed; squeeze your glutes and abdominals.",
+        "Point your elbows down towards the floor."
+      ],
+      "execution": [
+        "Keeping your body straight and your elbows pointing at the floor, bend only the elbows and lower for 2–3 s, so your forehead travels towards the edge, between your hands.",
+        "Go until your forehead is level with or just below your hands; if a cabinet front or the stair below is in the way, stop a few centimetres short of it.",
+        "Straighten your elbows to push back to straight arms in about 1 s; your body stays rigid and your upper arms barely move.",
+        "When a rep needs your chest or hips to help, the set is over."
+      ],
+      "breathing": "Out as you straighten, in as you lower; breathe on every rep.",
+      "cues": [
+        "Point your elbows at the floor.",
+        "Forehead to the edge, not chest to the edge.",
+        "Stay a plank from heels to head.",
+        "Push the edge away with your palms."
+      ],
+      "errors": [
+        {
+          "error": "Turning it into a push-up: elbows flaring and the chest dropping to the edge.",
+          "fix": "Keep the elbows pointing down and bring your forehead, not your chest, to your hands; if you cannot, use a higher surface."
+        },
+        {
+          "error": "Hips piking up or sagging.",
+          "fix": "Squeeze your glutes and abdominals; walk your feet in if the line still breaks."
+        },
+        {
+          "error": "Elbows drifting wide.",
+          "fix": "Keep them about shoulder-width apart."
+        },
+        {
+          "error": "Shortening the range as you tire.",
+          "fix": "End the set when your forehead stops reaching your hands."
+        }
+      ],
+      "startingLoad": "In your first Away session, start at a kitchen counter (about 90 cm) with your feet about a stride behind the line of your hands, and do one test set at 2–3 [[term:rir|reps in reserve (RIR)]]. 8–15 reps: that is your rung. More than 15: walk your feet back or use a lower surface. Fewer than 8: walk your feet in. Bending only the elbows makes this much harder than a push-up at the same angle (biomechanical reasoning), so from a baseline of 5 floor push-ups the counter, with your body fairly upright, is the place to start (inference).",
+      "effort": "Week 1: 2–3 RIR. Weeks 2–3: 1–2 RIR (Hevy [[term:rpe|RPE]] 8–9), as for the other secondary exercises. Do not take it to failure: a failed rep drops your forehead towards the edge. Finish each set by walking your feet in and standing up, not by collapsing.",
+      "progression": "[[term:double-progression|Double progression]] along the [[term:progression-ladder|progression ladder]]: when every set reaches 15 reps at the target effort, move up one rung and restart near 8. If a rung allows more than about 30 reps, skip ahead.\n\n| Rung | How | Move up when |\n|---|---|---|\n| 1. Counter, feet close | Kitchen counter (about 90 cm), body fairly upright. | 15 reps per set |\n| 2. Counter, feet back | Walk your feet back about a foot-length at a time. | 15 reps per set with your body at about 45° |\n| 3. Table or stairs | A tested table (about 75 cm) or a stair edge at a similar height, then one stair lower at a time. | 15 reps per set with your hands at about knee height |\n| 4. Slow lowering | Your lowest workable surface with a 3–4 s lowering and a 1 s pause at the bottom. | Top rung: on a low bar or rings, if you find them, you can go lower still |\n\nSlower lowering counts as a rung because repetitions of about 0.5–8 s gave similar growth when sets went to failure [@Schoenfeld2015_rep_duration].",
+      "regression": "A higher surface or your feet closer to it; the easiest version is standing with your hands on a wall at forehead height (practical convention).",
+      "alternatives": [
+        {
+          "id": "oh-cable-triceps",
+          "why": "The gym triceps exercise with the arm fully overhead, which grew the triceps more than an arms-down extension in one trial (see Evidence)."
+        },
+        {
+          "id": "triceps-pushdown",
+          "why": "The arms-down gym version, simple to load."
+        },
+        {
+          "id": "push-up",
+          "why": "With your hands closer together, it shifts work towards the triceps (EMG studies)."
+        }
+      ],
+      "whyChosen": "Arms are one of your priorities, and in push-ups the triceps share the work with the chest and front shoulders; an elbow-only exercise adds direct work. Push-ups still count, as indirect triceps sets worth about half a set each by the counting that fitted the dose-response data best [@Pelland2025_volume_frequency] ([[term:fractional-sets|fractional set counting]]). Without a cable or a dumbbell, this is the triceps exercise with the most adjustable load, since every surface height and foot position is a rung (biomechanical reasoning; [[dec:D30]]).",
+      "safety": "The risk is to your face: if your hands slip or your arms give way, your forehead drops towards the edge. Use a fixed counter, a stair or a table that passed the [[ex:inverted-row]] table test; dry your hands and the edge; stay at least one rep short of failure. The deep elbow bend can irritate the elbows at first (practical convention), so keep week 1 easy; elbow pain that lingers into the next day: raise the surface and see [[rule:pain]].",
+      "mechanism": "Only the elbows move, so the triceps, the main elbow extensors, do almost all the work of pushing your body back up, while the trunk and glutes hold it straight (functional anatomy). A lower surface, or feet further back, puts more of your weight on your hands (biomechanical reasoning). At the bottom your upper arms are raised in front of your head, which lengthens the long head, the only head that crosses the shoulder; the overhead cable extension uses the same principle with the arm fully overhead (anatomy).",
+      "evidence": "No trial has studied this exercise. In an MRI trial in 21 untrained adults, cable extensions with the arm overhead grew the triceps more than extensions with the arm at the side: whole triceps +19.9% vs +13.9% ([[term:smd|effect size]] d = 0.54), long head +28.5% vs +19.6% [@Maeo2023_overheadTriceps]. The bodyweight extension raises the arms only partway, so some of that long-head benefit is plausible but untested (inference). Push-ups to failure grew the triceps 9.5% against 10.3% with a load-matched bench press in 18 young men [@Kikuchi2017_pushupVsBench]; light loads taken to failure grow muscle like heavy ones [@Schoenfeld2017_load_meta]; and in one small trial in 18 trained lifters, stopping 1–2 reps short grew the quadriceps as much as training to failure [@Refalo2024_FAILvsRIRhypertrophy]. For the close-hand push-up alternative: a narrow hand position raised triceps activation in two EMG studies (muscle electrical activity) [@Cogley2005_pushupHandPosition; @Youdas2010_pushupHandPosition]."
+    },
+    {
+      "id": "nordic-curl",
+      "name": "Nordic hamstring curl",
+      "loggingName": "Nordic Hamstrings Curls",
+      "aliases": [
+        "Nordic curl",
+        "Nordic hamstring exercise",
+        "NHE",
+        "Russian hamstring curl"
+      ],
+      "category": "bodyweight",
+      "equipment": [
+        "heavy sofa or bed to anchor the heels, or a partner",
+        "folded towel or cushion for the knees"
+      ],
+      "level": "intermediate",
+      "targets": {
+        "primary": [
+          "hamstrings"
+        ],
+        "secondary": [
+          "gastrocnemius",
+          "gluteus maximus",
+          "trunk"
+        ]
+      },
+      "summary": "Kneeling with your heels anchored under heavy furniture, you lean forward as slowly as your hamstrings can brake, then catch yourself on your hands: an [[term:eccentric|eccentric]]-only knee curl that loads the hamstrings hard with no weights at all. It opens Away full body B ([[phase:pa]]): 2 × 3–5 in the first week of a trip, then 3 × 3–8 with 90 s rest. Low weekly volumes build eccentric strength, and in adults with tight hamstrings it improved passive knee extension about as much as static stretching, which suits your toe-touch limit ([[dec:D27]]).",
+      "setup": [
+        "Anchor your heels under something that cannot move: lie face down, slide them under the base of a heavy sofa or the side rail of a bed frame, and test it by curling your heels up as hard as you can. If it lifts or slides even slightly, it will not hold you mid-rep: weigh it down (someone sitting on it, a box of books) or choose another anchor (practical convention).",
+        "Partner option: a person kneels behind you and presses your lower legs to the floor just above the ankles with both hands, leaning their bodyweight through straight arms; they should not kneel or sit on your calves.",
+        "Pad your knees with a thickly folded towel, a cushion or a folded duvet, because your whole body pivots on them, and put a sock or small towel between your Achilles tendons and any hard edge.",
+        "Kneel upright with knees hip-width apart, body straight from knees to head and glutes squeezed. Hold your hands in front of your chest, palms forward, ready to catch, with clear floor in front of you."
+      ],
+      "execution": [
+        "Lean forward from the knees as one straight unit, braking as hard as you can with your hamstrings so that you fall as slowly as possible; keep the hips straight throughout.",
+        "When you can no longer hold the fall (your break point), let go and catch yourself in a push-up position with soft elbows.",
+        "Push yourself back up to kneeling with your hands, letting the hamstrings help only lightly: the lowering is the exercise, the way up is not.",
+        "Rest a breath or two at the top between reps. In Hevy, note roughly where the break point came (for example 'halfway' or 'last third'); moving it closer to the floor is your progress marker."
+      ],
+      "breathing": "Breathe in at the top, then out slowly through pursed lips as you lower. A light brace keeps the body straight, but do not hold your breath for the whole descent.",
+      "cues": [
+        "Fall like a plank hinged at the knees.",
+        "Squeeze your glutes: hips stay straight.",
+        "Brake all the way down, not just at the start.",
+        "Hands up early, ready to catch."
+      ],
+      "errors": [
+        {
+          "error": "Bending at the hips to stay up longer.",
+          "fix": "Squeeze the glutes and keep a straight line from knees to head, accepting a shorter descent; bending at the hips moves the work away from the knee (biomechanical reasoning)."
+        },
+        {
+          "error": "Releasing the brake after the first few centimetres and dropping.",
+          "fix": "Brake through the whole range; if you fall straight away, use the partial-range regression."
+        },
+        {
+          "error": "The anchor shifts or lifts during a rep.",
+          "fix": "Stop the set, weigh the furniture down or switch anchors, and test it again before continuing."
+        },
+        {
+          "error": "Catching on locked arms, with the hands far in front of the shoulders.",
+          "fix": "Land with soft elbows and hands under your shoulders, as at the bottom of a push-up."
+        }
+      ],
+      "startingLoad": "Bodyweight. First session of a trip: one warm-up set of 2 easy partial-range reps (lean a short way, then pull yourself back upright), then 2 × 3–5.",
+      "effort": "Every rep is a maximal effort to slow the fall; that is how the exercise works, so [[term:rir|reps in reserve (RIR)]] cannot be judged in the usual way. Control the dose with the rep count instead: in the first week of a trip stop at 3–5 reps per set however fresh you feel; from week 2, end the set at 8 reps or when your break point comes clearly earlier than on the first rep (practical convention). Every rep ends with a controlled catch on your hands.",
+      "progression": "Within 3 × 3–8 ([[rule:double-progression]]): add reps first, then move your break point closer to the floor so that you control more of the descent. When you can control the whole descent to the floor on all 8 reps, add load by wearing a loaded backpack on your back, so your hands stay free to catch (weigh it on your scale: you with it minus you without); in one trial, plates were added only once the descent was controlled [@Miura2025_NHEultralowMaintenance]. A new trip normally restarts at week 1 with 2 × 3–5: the protection against soreness fades over months (in 35 male students, after one bout of elbow-flexor eccentrics, it was still present at 6 months and gone by 12) [@Nosaka2001_RBE_duration], and the gap between trips is unpredictable (practical convention).",
+      "regression": "Lean only as far as you can still pull yourself back upright with your hamstrings (a partial-range Nordic), or catch yourself on a stack of sofa cushions in front of you so the drop is shorter, and extend the range week by week (practical convention). If no anchor is available, or kneeling hurts your knees even on padding, use the [[ex:sliding-leg-curl]].",
+      "alternatives": [
+        {
+          "id": "sliding-leg-curl",
+          "why": "When nothing heavy can anchor your heels; needs a smooth floor."
+        },
+        {
+          "id": "sl-rdl",
+          "why": "Hamstrings at long length through a hip hinge; similar hamstring-endurance gains to Nordic curls in a small home trial, but it soon needs a loaded backpack."
+        },
+        {
+          "id": "seated-leg-curl",
+          "why": "Your gym hamstring exercise: loadable in small steps, and it grew the hamstrings more than lying curls in a small MRI trial."
+        },
+        {
+          "id": "lying-leg-curl",
+          "why": "Gym knee flexion with the hips straight, as in the Nordic curl."
+        }
+      ],
+      "whyChosen": "Without machines the hamstrings are the hardest leg muscles to load (inference): squats did not grow them in a small trial [@Kubo2019_squatDepth], and bodyweight hinges soon run out of resistance. In a small 6-week home trial in 20 recreationally active adults, supervised remotely, only one person doing Nordic curls needed added load, whereas all those doing single-leg Romanian deadlifts did (median 7.5 kg) [@Behan2024_NHEvsSLRDLremote]. It also suits your toe-touch limit: in one trial in 44 adults with tight hamstrings, Nordic curls improved passive knee extension as much as static stretching [@Henderson2025_NHEvsStaticStretch]. The cool-down hamstring stretch still stays in every session ([[dec:D27]]).",
+      "safety": "!> Test the anchor before the first set of every session, and end every rep with a controlled catch on your hands; a pillow on the floor in front of you is sensible for the first sessions (practical convention).\n\nExpect marked hamstring soreness after the first session of a trip. In 13 trained men, a first session of 24 Nordic reps kept eccentric strength reduced up to day 3 (ES -2.28 to -1.95) and passive range up to day 4, with soreness on days 2 and 3 (ES 1.63 and 1.53); the same session 4 weeks later caused smaller, shorter changes (strength reduced only on day 1), the [[term:repeated-bout-effect|repeated-bout effect]] [@Coratella2025_NHEmuscleDamageRBE]. Week 1's 6–10 reps are meant to act as that protective first bout (inference): in a meta-analysis of 23 studies in untrained people, one earlier eccentric or isometric bout at least 24 h before a damaging session lowered the soreness that followed (SMD -1.89 at 24 h to -3.30 at 96 h) [@Boyd2023_preconditioningEIMDmeta]. Your gym leg curls may help a little: in one small trial, 12 weeks of seated or lying curls protected against later eccentric damage [@Maeo2021_seatedVsProneCurl], but how far that carries over to Nordic curls is unknown (inference). Unaccustomed exercise is a recognised cause of [[term:rhabdomyolysis|exertional rhabdomyolysis]] [@Rawson2017_exertionalRhabdo]: it is rare, but very dark (tea- or cola-coloured) urine, or muscle pain and swelling far beyond what the session should cause, needs a same-day medical assessment at an emergency department ([[plan:safety]]). A cramp at the back of the thigh: stop and straighten the leg gently. A sudden sharp pain: stop and follow [[rule:pain]].",
+      "mechanism": "As you lean forward, the turning effect of your body's weight about the knees grows until you are horizontal, and the hamstrings, helped by the gastrocnemius, resist it while lengthening. The hardest part therefore comes as the knees straighten, where the hamstrings are longest at the knee: long-length [[term:eccentric|eccentric]] work (biomechanical reasoning). Muscles produce more force while lengthening than while shortening, which is why you can lower yourself under control but cannot curl yourself back up (muscle physiology). Training lengthens the fascicles (the fibre bundles seen on ultrasound) of the biceps femoris long head [@Medeiros2021_NHEstrengthFLmeta]; longer fascicles are thought to hold more sarcomeres in series (inference). How it increases range is unclear: passive stiffness fell in one trial in trained men (d 0.84–0.87) [@Miura2025_NHEultralowMaintenance] but did not change in another in active young adults [@Vatovec2021_NHEgliderFlex], so greater [[term:stretch-tolerance|stretch tolerance]] may contribute (inference).",
+      "evidence": "**Strength and fascicle length.** In a meta-analysis of 13 studies, mostly in athletes and active young adults, programmes of at least 6 weeks raised eccentric strength with very large effects at low volume (g 2.28) as at high volume (g 2.12) and lengthened biceps femoris fascicles (g ≥ 2.58); 4-week programmes changed little [@Cuthbert2020_NHEvolumeMeta]. Pooled randomised trials found eccentric strength gains of SMD 0.68 measured isokinetically (+10–15%) and 1.11 on Nordic devices (+16–26%), and fascicle length SMD 0.97 (+12–22%) [@Medeiros2021_NHEstrengthFLmeta]; across 42 studies, strength gains were not related to sets, reps or frequency [@Franke2025_NHEdoseMetaRegression]. In 40 recreationally active men, 48 reps over 6 weeks raised eccentric strength by 14%, but fascicles lengthened only when volume started high or rose progressively (+7% and +14%) [@Behan2022_NHEdoseRCT]; in trained men, 4 reps a week maintained the gains [@Miura2025_NHEultralowMaintenance]. In 20 recreationally active men, fascicle gains reversed within 2 weeks of stopping (-17% and -15%) while eccentric strength held for 4 weeks [@Presland2018_NHEvolumeArchitecture], and in another small trial (30 men) fascicles shortened after 1 week [@Pollard2019_NHEintensityArchitecture]. From week 2 your Away dose is 9–24 reps per B session once or twice a week (9–48 a week), below the median of the programmes studied, which prescribed 3–103 reps a week (median 50) [@Franke2025_NHEdoseMetaRegression].\n\n**Muscle size.** Less consistent. In one small 6-week trial (20 young adults), Nordic curls added to stretching raised hamstring volume by about 10% (131.5 to 145.2 cm³, by ultrasound) [@Seymore2017_NHEhypertrophy]; an MRI trial in 30 recreationally active young men found that Nordic curls and hip-extension training both grew the semitendinosus versus control (d 2.16–2.50 across the two), while hip extension grew the biceps femoris long head more than Nordic curls did (d 1.03) [@Bourne2017_NHEvsHipExtMRI]; and the meta-analysis found no meaningful change in muscle thickness (ES ≤ 0.47) [@Cuthbert2020_NHEvolumeMeta]. So the [[ex:seated-leg-curl]] stays your main hamstring builder at the gym (inference).\n\n**Flexibility.** In 44 adults with tight hamstrings, training twice a week for 6 weeks, low-volume Nordic curls improved passive knee extension by 6.10° more than control (d 0.87) and 2 × 30 s static stretching by 5.12° (d 0.79), with no difference between the two at any time point; within-group gains were 12.8° and 11.4° [@Henderson2025_NHEvsStaticStretch]. In a meta-analysis of 17 studies of eccentric training in healthy people, passive lower-limb range rose by a large amount (g 0.86), and knee-extension range, the hamstring measure, by g 0.82 [@Kay2023_eccentricROMmeta]; in two small trials, four field eccentric hamstring exercises raised passive straight-leg raise by 11.4° in amateur athletes (n = 27) [@Delvaux2020_fieldEccentricFlex], and Nordic curls plus a sliding (glider) exercise raised passive hip flexion by 11.2% (d 1.55) in active young adults (n = 34) [@Vatovec2021_NHEgliderFlex]. This is not true of every bodyweight exercise: in a meta-analysis, training with body mass only did not significantly improve range, and resistance training plus stretching gave no more range than stretching alone (ES -0.001) [@Alizadeh2023_RT_ROM].\n\n**Injury and practicality.** In athletes, programmes that included Nordic curls roughly halved hamstring injuries (risk ratio 0.49, 95% CI 0.32–0.74) [@vanDyk2019_NHEinjuryMeta]; for you this is a side benefit, not the reason. In a small trial (20 adults), a remotely supervised home programme, with the ankles anchored under heavy furniture or by a partner, had 100% adherence [@Behan2024_NHEvsSLRDLremote]."
+    },
+    {
+      "id": "sliding-leg-curl",
+      "name": "Sliding leg curl (towel or socks)",
+      "loggingName": "Sliding Leg Curl",
+      "aliases": [
+        "Towel leg curl",
+        "Slider leg curl",
+        "Glider hamstring curl"
+      ],
+      "category": "bodyweight",
+      "equipment": [
+        "smooth floor (tiles, stone or wood)",
+        "towel or socks (a plastic bag on carpet)"
+      ],
+      "level": "beginner",
+      "targets": {
+        "primary": [
+          "hamstrings"
+        ],
+        "secondary": [
+          "gluteus maximus",
+          "gastrocnemius"
+        ]
+      },
+      "summary": "Lying on your back with your hips raised in a bridge, you slide your heels away on a towel or in socks and curl them back in. It is the hamstring exercise for when nothing can anchor your heels for the [[ex:nordic-curl]], or kneeling is not possible, and it needs a smooth floor such as tiles, stone or wood. In Away full body B ([[phase:pa]]) it takes the Nordic curl's place: 2 × 6–10 (eccentric-only, both legs) at 2–3 reps in reserve in the first week of a trip, then 3 × 6–15 at 1–2.",
+      "setup": [
+        "Lie on your back on a smooth, clean floor, knees bent, heels on a folded towel or in socks. On carpet, a plastic bag or paper plate under each heel can slide instead.",
+        "Rest your arms on the floor by your sides, palms down, and lift your hips into a bridge: shoulders, hips and knees in a straight line.",
+        "For the single-leg rungs, hold the free leg up with the knee bent, and start with the left leg working."
+      ],
+      "execution": [
+        "Keeping your hips up, slide your heels away over 2–3 s until your knees are almost straight.",
+        "Dig your heels into the floor and curl them back towards your backside in 1–2 s, hips still raised; that is one rep.",
+        "Eccentric-only rung: after sliding out, lower your hips to the floor, pull your heels back in with the hips down, lift into the bridge again and repeat, so only the slide-out is loaded.",
+        "End the set when your hips sag during the slide-out or your heels stop moving smoothly."
+      ],
+      "breathing": "Breathe in as you slide out and out as you curl in; keep breathing steadily throughout.",
+      "cues": [
+        "Brake the slide with your heels.",
+        "Hips high: shoulders, hips and knees in one line.",
+        "Pull the floor towards you with your heels."
+      ],
+      "errors": [
+        {
+          "error": "Hips sag as the legs straighten.",
+          "fix": "Slide out only as far as you can keep the hips up, or use the eccentric-only rung until the full range holds."
+        },
+        {
+          "error": "Over-arching the lower back to push the hips higher.",
+          "fix": "Squeeze the glutes and tuck the belt buckle towards your chin; a straight line is high enough."
+        },
+        {
+          "error": "The heels judder or the towel sticks.",
+          "fix": "Move to a cleaner, smoother patch of floor or switch to socks; a jerky slide is not a controlled lowering."
+        }
+      ],
+      "startingLoad": "Bodyweight. In the first week of a trip, 2 × 6–10 of the eccentric-only version with both legs (practical convention).",
+      "effort": "First week of a trip: 2–3 [[term:rir|reps in reserve (RIR)]]. From week 2: 3 sets at 1–2 RIR, the target for primary exercises; unlike the Nordic curl it replaces, which is dosed by reps, this exercise can be judged in reps in reserve. [[term:momentary-failure|Momentary failure]] here simply means your hips sink to the floor during the slide-out, so end each set a rep or two before that point.",
+      "progression": "A [[term:progression-ladder|progression ladder]] with [[rule:double-progression]] in 6–15 reps: (1) eccentric-only, both legs; (2) full reps, both legs; (3) single-leg eccentric: slide out on the left leg alone, pull back in with both, then the right; (4) single-leg full reps, left first. Within a rung, slow the slide-out to 3–4 s before you move up; when every set reaches 15 at the target effort, move up a rung and restart near 6.",
+      "regression": "A shorter slide, stopping where your hips start to sink, or [[ex:wu-glute-bridge|glute bridges]] for a session while you build up.",
+      "alternatives": [
+        {
+          "id": "nordic-curl",
+          "why": "The harder, eccentric-only option when you can anchor your heels."
+        },
+        {
+          "id": "sl-rdl",
+          "why": "Hamstrings at long length through a hip hinge, loaded with a backpack."
+        },
+        {
+          "id": "lying-leg-curl",
+          "why": "The gym version of the same knee curl with the hips straight."
+        },
+        {
+          "id": "seated-leg-curl",
+          "why": "Your gym hamstring exercise; sitting flexes the hip, and it grew the hamstrings more than lying curls in a small trial."
+        }
+      ],
+      "whyChosen": "It loads the hamstrings through knee flexion with no anchor and no weights, so it works in a hotel room or wherever no furniture is heavy enough for Nordic curls. The eccentric-only and single-leg rungs keep it hard enough to stay within 6–15 reps for many weeks (practical convention). Its limit is that the hips stay straight, so the hamstrings work at shorter lengths than in the seated curl (biomechanical reasoning), which grew them more than the lying curl in one small trial [@Maeo2021_seatedVsProneCurl].",
+      "safety": "Low risk. Hamstring and calf cramps are common at first (practical convention): lower your hips, straighten the leg gently and continue once it settles. A sudden sharp pain at the back of the thigh, unlike a cramp, means stop and follow [[rule:pain]]. Expect some soreness after the first session, as with any new [[term:eccentric|eccentric]] exercise, and take your socks off or step onto a rug before you walk on a smooth floor (practical convention).",
+      "mechanism": "With your heels on the floor and hips raised, the hamstrings bend the knee against part of your bodyweight while the glutes hold the hips extended. The slide-out is [[term:eccentric|eccentric]] work in which the hamstrings lengthen at the knee; because the hips stay straight, they remain shorter at the hip than in a seated curl, so the stimulus resembles the [[ex:lying-leg-curl]] (biomechanical reasoning). One leg instead of two and a longer slide-out each raise the load on the working hamstrings, and a slower slide keeps them working for longer on every rep (basic mechanics).",
+      "evidence": "No catalogued trial has tested the sliding leg curl on its own. In 34 active young adults, 6 weeks of eccentric hamstring training at long muscle length that combined Nordic curls with a sliding (glider) exercise raised passive hip-flexion range by 11.2% (d 1.55); the abstract does not separate the two exercises or describe the slide [@Vatovec2021_NHEgliderFlex]. In one small trial (20 untrained adults), lying curls, the closest gym analogue, grew the hamstrings by 9% versus 14% for seated curls over 12 weeks [@Maeo2021_seatedVsProneCurl]; the analogy rests on hip angle (inference). With bodyweight as the load, effort matters a lot: in a knee-extension trial in 25 untrained men, sets at 30% of [[term:1rm|1RM]] grew the quadriceps 7.8% when taken to failure and only 2.8% (not significant) when stopped short [@Lasevicius2022_failure_by_load]."
+    },
+    {
+      "id": "reverse-crunch",
+      "name": "Reverse crunch (to lying leg raise)",
+      "loggingName": "Reverse Crunch",
+      "aliases": [
+        "Lying reverse crunch",
+        "Bent-knee reverse crunch",
+        "Lying leg raise (progression)"
+      ],
+      "category": "core",
+      "equipment": [
+        "mat, rug or folded towel",
+        "bed frame or heavy sofa to hold (last rung)"
+      ],
+      "level": "beginner",
+      "targets": {
+        "primary": [
+          "rectus abdominis"
+        ],
+        "secondary": [
+          "obliques",
+          "hip flexors"
+        ]
+      },
+      "summary": "Lying on your back with your thighs vertical, you curl your pelvis up off the floor towards your ribs and lower it slowly. The movement is a backward (posterior) tilt of the pelvis that flexes the lower spine from the bottom up; the legs only ride along. It is the core exercise in Away full body A ([[phase:pa]]), 8–15 reps with 45 s rest, standing in for the [[ex:cable-crunch]] and [[ex:hanging-knee-raise]].",
+      "setup": [
+        "Lie on your back on a mat, rug or folded towel, arms by your sides, palms down.",
+        "Lift your legs so your thighs are vertical and your knees bent about 90 degrees: this is where every rep starts and ends.",
+        "Last rung: lie with your head towards a bed or heavy sofa, hold its frame or legs behind your head with both hands, and raise your head and upper back on a firm cushion or folded duvet so your trunk slopes up towards your head (an incline; practical convention)."
+      ],
+      "execution": [
+        "Press your lower back gently into the floor, then curl your pelvis up so your tailbone lifts a few centimetres and your knees travel up towards the ceiling, in 1–2 s.",
+        "Pause 1 s at the top with your abdominals tight.",
+        "Lower over 2–3 s (3–4 s on the slow-lowering rung), one vertebra at a time, until your tailbone touches down with your thighs vertical again; do not let the thighs drop further.",
+        "Straighter-leg rungs: start with your legs pointing at the ceiling, knees as straight as your hamstrings comfortably allow, and lift the hips the same way."
+      ],
+      "breathing": "Breathe out as you curl up and in as you lower; do not hold your breath.",
+      "cues": [
+        "Curl your belt buckle towards your chin.",
+        "Lift your tailbone, not your feet.",
+        "Knees towards the ceiling, not towards your face.",
+        "Lower one vertebra at a time."
+      ],
+      "errors": [
+        {
+          "error": "Swinging the legs to throw the hips up.",
+          "fix": "Pause 1 s at the bottom of every rep and lift only by curling; if the hips will not lift without a swing, go back a rung."
+        },
+        {
+          "error": "Letting the thighs drop towards the floor, so the lower back arches.",
+          "fix": "Stop every rep with the thighs vertical; lowering the legs further turns it into a leg raise that pulls the lower back towards extension."
+        },
+        {
+          "error": "Levering the hips up by pressing hard through the arms.",
+          "fix": "Keep the arms light, for balance only, until the last rung, where you hold the bed frame."
+        },
+        {
+          "error": "Lifting the head and straining the neck.",
+          "fix": "Keep the back of your head on the floor (or the cushion) and your jaw relaxed."
+        }
+      ],
+      "startingLoad": "Bodyweight, bent knees, arms by your sides. If you cannot lift your hips without swinging, start with your knees closer to your chest: the shorter lever is easier (basic mechanics).",
+      "effort": "First week of a trip: 2–3 [[term:rir|reps in reserve (RIR)]]; then 1–2 RIR. The set ends when your hips no longer leave the floor without a swing; reps that turn into swings do not count.",
+      "progression": "A [[term:progression-ladder|progression ladder]] with [[term:double-progression|double progression]] in 8–15 reps ([[rule:double-progression]]): (1) bent-knee reverse crunch; (2) a slower, 3–4 s lowering; (3) straighter legs; (4) holding a bed frame or heavy sofa behind your head on an incline, curling the hips higher. When every set reaches 15 at the target effort, move up a rung and restart near 8.",
+      "regression": "Smaller curls: just tilt the pelvis so your lower back presses into the floor and the tailbone barely lifts, with the knees closer to the chest. If curling bothers your back, use the [[ex:dead-bug]].",
+      "alternatives": [
+        {
+          "id": "dead-bug",
+          "why": "No spinal flexion; use it if curling provokes back symptoms."
+        },
+        {
+          "id": "cable-crunch",
+          "why": "Loaded trunk flexion at the gym."
+        },
+        {
+          "id": "hanging-knee-raise",
+          "why": "The same pelvic curl from a bar; a park bar will do."
+        }
+      ],
+      "whyChosen": "Without a cable stack or a bar, leverage is the main way to make trunk flexion progressively harder (biomechanical reasoning), and the reverse crunch has a clear ladder from bent knees to an incline ([[dec:D08]]). Curling from the pelvis upwards also keeps the neck out of the work, which sit-ups do not (practical convention). It complements the anti-side-bending [[ex:side-plank]], the core exercise in session B. It will not reduce belly fat: in one small trial, six weeks of abdominal exercise left abdominal fat and waist circumference unchanged [@Vispute2011_absSpot]; that depends on whole-body [[term:energy-balance|energy balance]].",
+      "safety": "Low risk. It sits at the end of session A for the same reason as the [[ex:cable-crunch]]: you train about an hour after waking, when the discs are still stiffer in bending (practical convention). Stop if it provokes back pain ([[rule:pain]]) and use the [[ex:dead-bug]] instead. Keep crunch-type work modest, about 4–8 hard sets a week in total (practical inference); Away mode gives 2–4.",
+      "mechanism": "The rectus abdominis runs from the lower ribs and sternum to the pubis. With your upper back resting on the floor, shortening it pulls the pubis towards the ribs, tilting the pelvis backward and flexing the lumbar spine from below: a crunch in reverse (functional anatomy). The hip flexors only hold the thighs; because the psoas attaches to the lumbar spine, letting the legs drop pulls the lower back towards extension, which is why each rep stops with the thighs vertical (functional anatomy). Straighter legs move their weight further from the pelvis, and an incline makes you lift the pelvis more directly against gravity, so both raise the load, while holding the bed frame anchors your upper body so that a harder rep does not drag you along the floor (basic mechanics).",
+      "evidence": "No trial located tests the reverse crunch itself. In a meta-analysis of 31 studies, trunk-muscle training improved maximal strength ([[term:smd|SMD]] 0.39) and local muscular endurance (SMD 1.29) in athletes [@Saeterbakken2022_trunkTrainingMeta]. In 1141 soldiers, a sit-up-based programme gave injury rates similar to core stabilisation, although among soldiers with low-back injuries the sit-up group had more work-restricted days (8.3 vs 4.2) [@Childs2010_situpVsCoreRCT], and low-quality evidence found that lumbar flexion during lifting is not a risk factor for back pain [@Saraceni2020_lumbarFlexionMeta]. The case against flexion exercise rests mainly on pig spines that herniated after up to 86,400 loaded flexion cycles in the laboratory [@Callaghan2001_porcineFlexion]; 2 sets of 15 are 30 cycles (inference). In one trial in 38 trained men, compound lifts alone increased rectus abdominis size [@HernandezBelmonte2023_freeVsMachineRCT]; no trial located has measured how much direct work adds on top of them."
     }
   ]
 }

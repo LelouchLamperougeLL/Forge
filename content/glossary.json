@@ -1091,6 +1091,36 @@
         "Silbernagel model"
       ],
       "definition": "A way of continuing to train with a painful overuse problem, such as a tendinopathy, instead of resting completely: pain is rated during exercise, afterwards and the next morning, and loading continues while it stays within an agreed acceptable limit and does not increase from week to week, and is reduced when it does not. In a randomised trial in Achilles tendinopathy, continuing running and jumping under such a model, alongside the same tendon-loading exercises, gave the same improvement as 6 weeks of active rest with no harm detected [@Silbernagel2007_painMonitoringRCT], and in a tiny pilot trial (15 people) in patellar tendinopathy, pain-guided activity was feasible and gave better treatment compliance than pain-free activity restriction (86% versus 67%) [@Sprague2021_painGuidedActivity]. In this programme the same logic applies to minor aches: modify the exercise (lighter load, shorter range or an alternative) while discomfort is mild, settles by the next day and is not rising week to week, and stop it and get assessed for sharp or joint-line pain, swelling, numbness, weakness, pain that changes how you move or pain that worsens over 1-2 weeks (practical convention); see [[rule:pain]]."
+    },
+    {
+      "id": "calisthenics",
+      "term": "Calisthenics (bodyweight training)",
+      "aliases": [
+        "bodyweight training",
+        "bodyweight exercise",
+        "body-mass-based training"
+      ],
+      "definition": "Strength training with your own body weight as the main resistance, using movements such as push-ups, rows, squats, lunges and pull-ups, made harder mainly by changing the exercise rather than by adding weight (see [[term:progression-ladder|progression ladder]]). With sets taken to failure, light and heavy loads build similar muscle [@Schoenfeld2017_load_meta], and in one small trial push-ups to failure grew the chest and triceps as much as a bench press at a matched light load [@Kikuchi2017_pushupVsBench]; maximal strength on heavy lifts improves less than with heavy loads [@Lopez2021_load_NMA]. It is the basis of [[phase:pa|Away mode]]; see [[sci:sci-noequip]]."
+    },
+    {
+      "id": "progression-ladder",
+      "term": "Progression ladder",
+      "aliases": [
+        "ladder",
+        "ladder rung",
+        "rung",
+        "progression level"
+      ],
+      "definition": "An ordered list of variations of one movement, from easiest to hardest, used instead of adding weight when you train without equipment; each step is a rung. A push-up ladder, for example, runs from hands on a table to the floor, then feet on a chair, then a loaded backpack. Rungs change leverage, range, the number of legs, tempo, pauses or added load: a normal push-up starts at about 66% of body weight and a kneeling one at about 53% [@Gouvali2005_pushupVariantsGRF], and raising the feet makes it heavier [@Ebben2011_pushupKinetics]. You climb it with [[term:double-progression|double progression]]: when every set reaches the top of the rep range at the target effort, move one rung up and restart near the bottom of the range. See [[sci:sci-noequip]]."
+    },
+    {
+      "id": "exercise-snack",
+      "term": "Exercise snack",
+      "aliases": [
+        "exercise snacks",
+        "stair snacks"
+      ],
+      "definition": "A brief bout of vigorous exercise, such as briskly climbing a few flights of stairs, repeated several times across the day. In one trial, three vigorous climbs of a 3-flight stairwell a day, 3 days a week for 6 weeks, raised VO₂peak in sedentary young adults compared with controls [@Jenkins2019_stairSnacks]. A meta-analysis of 21 trials found improved VO₂max (Hedges' g 1.04), with signs of publication bias [@Meng2026_exerciseSnacksAgeMA]; in another, the effect was no longer significant after correcting for that bias [@Qi2026_exerciseSnacksSedentaryMA]. Useful on sedentary travel days, not a replacement for full sessions (inference)."
     }
   ]
 }

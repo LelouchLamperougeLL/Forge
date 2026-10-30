@@ -90,11 +90,21 @@ function parseList(lines, start, ctx) {
   return { html, next: i };
 }
 
+// Cells split on "|", except the label separator inside a [[type:id|label]] link.
 function splitRow(line) {
   let s = line.trim();
   if (s.startsWith('|')) s = s.slice(1);
   if (s.endsWith('|')) s = s.slice(0, -1);
-  return s.split('|').map(c => c.trim());
+  const cells = [];
+  let cur = '', depth = 0;
+  for (let i = 0; i < s.length; i++) {
+    if (s.startsWith('[[', i)) { depth++; cur += '[['; i++; continue; }
+    if (depth && s.startsWith(']]', i)) { depth--; cur += ']]'; i++; continue; }
+    if (s[i] === '|' && !depth) { cells.push(cur.trim()); cur = ''; continue; }
+    cur += s[i];
+  }
+  cells.push(cur.trim());
+  return cells;
 }
 
 function parseTable(lines, start, ctx) {

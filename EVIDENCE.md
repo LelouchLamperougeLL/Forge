@@ -2,11 +2,11 @@
 
 This appendix records how the evidence behind the programme was gathered and graded, and lists every source consulted, so you can audit any claim.
 
-Across 12 domains, 542 source records were collected (some papers appear in more than one domain; 517 unique papers).
+Across 13 domains, 633 source records were collected (some papers appear in more than one domain; 608 unique papers). The thirteenth domain, training without equipment, was added on 30 October 2026.
 
 ## Method
 
-- **Searches:** PubMed (NCBI) for the biomedical literature, and web search for guidelines and agency documents (e.g. WHO, NICE, ACSM, AASM, EFSA, NIH ODS, Endocrine Society, ICMR-NIN). Searches were run on 28 October 2026, which is the evidence cut-off.
+- **Searches:** PubMed (NCBI) for the biomedical literature, and web search for guidelines and agency documents (e.g. WHO, NICE, ACSM, AASM, EFSA, NIH ODS, Endocrine Society, ICMR-NIN). Searches were run on 28 October 2026, which is the evidence cut-off (30 October 2026 for training without equipment).
 - **Hierarchy:** systematic reviews and meta-analyses of randomised trials first, then randomised trials, large prospective cohorts and guidelines or position stands. Mechanistic, animal and in-vitro studies are used only as labelled supporting material.
 - **Reading:** every source listed was located and read at least as an abstract (full text where available). Authors, year, title, journal, DOI and PMID were copied from database records, never from memory. Seed references that could not be located were dropped and are listed below as "not found".
 - **Contradicting evidence:** each domain search deliberately looked for null and contradicting findings; they are recorded in the dossiers and cited in the app where relevant.
@@ -1184,3 +1184,318 @@ Across 12 domains, 542 source records were collected (some papers appear in more
 - Is the internal-focus hypertrophy benefit replicable beyond one small trial?
 - Which brief, validated muscle-dysmorphia screener is suitable for in-app use?
 
+## Training without equipment (Away mode)
+
+91 sources · searched 2026-10-30 · dossier status: partial (the written syntheses were cut off by a usage limit; every recorded source was located, read and identifier-checked) · 83 cited in the app
+
+Six PubMed searches ran in parallel: bodyweight and low-load resistance training; bands, improvised loads and isometrics; lower body without equipment (unilateral work, Nordic curls, eccentric training and flexibility); upper body without equipment (push-up variants, inverted rows); aerobic training without equipment (bodyweight intervals, stairs, exercise snacks); and short breaks (detraining, retraining, step reduction). Records are graded as elsewhere in this appendix. The app content built on them was audited claim by claim against these records.
+
+| | Source | Type | Grade | Identifier |
+|---|---|---|---|---|
+| ✔ | Aboodarda SJ et al. (2016). Muscle activation comparisons between elastic and isoinertial resistance: A meta-analysis. *Clinical Biomechanics (Bristol, Avon)* | meta-analysis | low | doi:10.1016/j.clinbiomech.2016.09.008 · PMID 27681867 |
+|  | Al Attar WSA et al. (2017). Effect of Injury Prevention Programs that Include the Nordic Hamstring Exercise on Hamstring Injury Rates in Soccer Players: A Systematic Review and Meta-Analysis.. *Sports Medicine* | meta-analysis | low | doi:10.1007/s40279-016-0638-2 · PMID 27752982 |
+| ✔ | Alegre LM et al. (2014). Effects of isometric training on the knee extensor moment-angle relationship and vastus lateralis muscle architecture. *European Journal of Applied Physiology* | RCT | low | doi:10.1007/s00421-014-2967-x · PMID 25099962 |
+| ✔ | Allison MK et al. (2017). Brief Intense Stair Climbing Improves Cardiorespiratory Fitness.. *Medicine and Science in Sports and Exercise* | uncontrolled pre-post trial | low | doi:10.1249/MSS.0000000000001188 · PMID 28009784 |
+| ✔ | Andersen LL et al. (2010). Muscle activation and perceived loading during rehabilitation exercises: comparison of dumbbells and elastic resistance. *Physical Therapy* | mechanistic human | low | doi:10.2522/ptj.20090167 · PMID 20133444 |
+|  | Archila LR et al. (2021). Simple Bodyweight Training Improves Cardiorespiratory Fitness with Minimal Time Commitment: A Contemporary Application of the 5BX Approach.. *International Journal of Exercise Science* | RCT | low | doi:10.70252/WEQD2681 · PMID 34055156 |
+| ✔ | Behan FP et al. (2022). The Dose-Response of the Nordic Hamstring Exercise on Biceps Femoris Architecture and Eccentric Knee Flexor Strength: A Randomized Interventional Trial.. *International Journal of Sports Physiology and Performance* | RCT | low | doi:10.1123/ijspp.2021-0276 · PMID 35176727 |
+| ✔ | Behan FP et al. (2024). Implementing hamstring injury prevention programmes remotely: a randomised proof of concept trial.. *BMJ Open Sport and Exercise Medicine* | RCT | low | doi:10.1136/bmjsem-2023-001728 · PMID 38288272 |
+| ✔ | Bell ZW et al. (2023). Unilateral high-load resistance training influences strength changes in the contralateral arm undergoing low-load training.. *Journal of Science and Medicine in Sport* | RCT | low | doi:10.1016/j.jsams.2023.06.011 · PMID 37423835 |
+| ✔ | Bergquist R et al. (2018). Muscle Activity in Upper-Body Single-Joint Resistance Exercises with Elastic Resistance Bands vs. Free Weights. *Journal of Human Kinetics* | mechanistic human | low | doi:10.1515/hukin-2017-0137 · PMID 29599855 |
+|  | Blocquiaux S et al. (2020). The effect of resistance training, detraining and retraining on muscle strength and power, myofibre size, satellite cells and myonuclei in older men.. *Experimental Gerontology* | controlled trial | low | doi:10.1016/j.exger.2020.110860 · PMID 32017951 |
+| ✔ | Boreham CA et al. (2005). Training effects of short bouts of stair climbing on cardiorespiratory fitness, blood lipids, and homocysteine in sedentary young women.. *British Journal of Sports Medicine* | RCT | low | doi:10.1136/bjsm.2002.001131 · PMID 16118293 |
+| ✔ | Bourne MN et al. (2017). Impact of the Nordic hamstring and hip extension exercises on hamstring architecture and morphology: implications for injury prevention.. *British Journal of Sports Medicine* | RCT | low | doi:10.1136/bjsports-2016-096130 · PMID 27660368 |
+| ✔ | Bowden Davies KA et al. (2018). Short-term decreased physical activity with increased sedentary behaviour causes metabolic derangements and altered body composition: effects in individuals with and without a first-degree relative with type 2 diabetes.. *Diabetologia* | single-group intervention study | low | doi:10.1007/s00125-018-4603-5 · PMID 29671031 |
+| ✔ | Boyd L et al. (2023). The Effects of Pre-conditioning on Exercise-Induced Muscle Damage: A Systematic Review and Meta-analysis.. *Sports Medicine* | meta-analysis | low | doi:10.1007/s40279-023-01839-8 · PMID 37160563 |
+| ✔ | Buckner SL et al. (2019). Blood flow restriction does not augment low force contractions taken to or near task failure.. *European Journal of Sport Science* | controlled trial | low | doi:10.1080/17461391.2019.1664640 · PMID 31486720 |
+| ✔ | Calatayud J et al. (2015). Bench press and push-up at comparable levels of muscle activity results in similar strength gains.. *Journal of Strength and Conditioning Research* | RCT | low | doi:10.1519/JSC.0000000000000589 · PMID 24983847 |
+| ✔ | Cogley RM et al. (2005). Comparison of muscle activation using various hand positions during the push-up exercise.. *Journal of Strength and Conditioning Research* | mechanistic human | low | doi:10.1519/15094.1 · PMID 16095413 |
+| ✔ | Coratella G et al. (2025). Muscle Damage and the Repeated-bout Effect After a Typical Nordic Hamstring Exercise Session.. *International Journal of Sports Medicine* | acute experimental study (single group) | low | doi:10.1055/a-2595-3622 · PMID 40280182 |
+| ✔ | Counts BR et al. (2016). The acute and chronic effects of "NO LOAD" resistance training.. *Physiology & Behavior* | within-subject controlled trial | low | doi:10.1016/j.physbeh.2016.06.024 · PMID 27329807 |
+| ✔ | Cuthbert M et al. (2020). The Effect of Nordic Hamstring Exercise Intervention Volume on Eccentric Strength and Muscle Architecture Adaptations: A Systematic Review and Meta-analyses.. *Sports Medicine* | meta-analysis | low | doi:10.1007/s40279-019-01178-7 · PMID 31502142 |
+| ✔ | Delvaux F et al. (2020). Influence of a Field Hamstring Eccentric Training on Muscle Strength and Flexibility.. *International Journal of Sports Medicine* | RCT | low | doi:10.1055/a-1073-7809 · PMID 31935778 |
+| ✔ | de Oliveira PA et al. (2016). Effects of Elastic Resistance Exercise on Muscle Strength and Functional Performance in Healthy Adults: A Systematic Review and Meta-Analysis. *Journal of Physical Activity & Health* | meta-analysis | low | doi:10.1123/jpah.2016-0415 · PMID 28032811 |
+| ✔ | Ebben WP et al. (2011). Kinetic analysis of several variations of push-ups.. *Journal of Strength and Conditioning Research* | mechanistic human | low | doi:10.1519/JSC.0b013e31820c8587 · PMID 21873902 |
+| ✔ | Fenwick CM et al. (2009). Comparison of different rowing exercises: trunk muscle activation and lumbar spine motion, load, and stiffness.. *Journal of Strength and Conditioning Research* | mechanistic human | low | doi:10.1519/JSC.0b013e3181942019 · PMID 19197209 |
+| ✔ | Franke RA et al. (2025). Dose-Response Relationship for Strength Gains From Nordic Hamstring Exercise: A Systematic Review, Meta-Analysis, and Meta-Regression.. *Journal of Strength and Conditioning Research* | meta-analysis | low | doi:10.1519/JSC.0000000000005184 · PMID 40991853 |
+| ✔ | Gentil P et al. (2015). Effects of periodic and continuous resistance training on muscle strength in detrained women.. *Perceptual and Motor Skills* | RCT | low | doi:10.2466/29.30.PMS.121c23x3 · PMID 26595206 |
+|  | Gist NH et al. (2015). Effects of Low-Volume, High-Intensity Whole-Body Calisthenics on Army ROTC Cadets.. *Military Medicine* | RCT | low | doi:10.7205/MILMED-D-14-00277 · PMID 25939101 |
+| ✔ | Gouvali MK et al. (2005). Dynamic and electromyographical analysis in variants of push-up exercise.. *Journal of Strength and Conditioning Research* | mechanistic human | low | doi:10.1519/14733.1 · PMID 15705025 |
+| ✔ | Häkkinen K et al. (2000). Neuromuscular adaptation during prolonged strength training, detraining and re-strength-training in middle-aged and elderly people.. *European Journal of Applied Physiology* | non-randomized trial | low | doi:10.1007/s004210000248 · PMID 11072774 |
+| ✔ | Halonen EJ et al. (2024). Does Taking a Break Matter-Adaptations in Muscle Strength and Size Between Continuous and Periodic Resistance Training.. *Scandinavian Journal of Medicine & Science in Sports* | RCT | low | doi:10.1111/sms.14739 · PMID 39364857 |
+| ✔ | Hammert WB et al. (2026). High- and Low-Load Resistance Training Produce Distinct Skeletal Muscle Growth but Similar Changes in Tendon Morphology.. *Medicine and Science in Sports and Exercise* | RCT | moderate | doi:10.1249/MSS.0000000000004052 · PMID 42319300 |
+| ✔ | Henderson N et al. (2025). Comparison of a Low Load Eccentric Training Protocol and a Static Stretching Protocol on Hamstring Muscle Flexibility.. *International Journal of Exercise Science* | RCT | low | doi:10.70252/MRDG6392 · PMID 40046899 |
+|  | Hostler D et al. (2001). Skeletal muscle adaptations in elastic resistance-trained young men and women. *European Journal of Applied Physiology* | mechanistic human | very low | doi:10.1007/s004210100495 · PMID 11822469 |
+| ✔ | Hu M et al. (2025). Real-world efficacy of equipment-free reduced-exertion high-intensity interval training in improving physical and mental health in inactive males: A randomized controlled trial.. *Journal of Exercise Science and Fitness* | RCT | moderate | doi:10.1016/j.jesf.2025.06.006 · PMID 40689309 |
+| ✔ | Hwang PS et al. (2017). Resistance Training-Induced Elevations in Muscular Strength in Trained Men Are Maintained After 2 Weeks of Detraining and Not Differentially Affected by Whey Protein Supplementation.. *Journal of Strength and Conditioning Research* | RCT | low | doi:10.1519/JSC.0000000000001807 · PMID 28328712 |
+| ✔ | Islam H et al. (2019). Cardiorespiratory fitness and muscular endurance responses immediately and 2 months after a whole-body Tabata or vigorous-intensity continuous training intervention.. *Applied Physiology, Nutrition, and Metabolism* | RCT | low | doi:10.1139/apnm-2019-0492 · PMID 31782930 |
+| ✔ | Iversen VM et al. (2017). Multiple-joint exercises using elastic resistance bands vs. conventional resistance-training equipment: A cross-over study. *European Journal of Sport Science* | mechanistic human | low | doi:10.1080/17461391.2017.1337229 · PMID 28628370 |
+| ✔ | Jenkins EM et al. (2019). Do stair climbing exercise "snacks" improve cardiorespiratory fitness?. *Applied Physiology, Nutrition, and Metabolism* | RCT | low | doi:10.1139/apnm-2018-0675 · PMID 30649897 |
+| ✔ | Jessee MB et al. (2018). Muscle Adaptations to High-Load Training and Very Low-Load Training With and Without Blood Flow Restriction.. *Frontiers in Physiology* | RCT | low | doi:10.3389/fphys.2018.01448 · PMID 30386254 |
+| ✔ | Kay AD et al. (2023). Effects of Eccentric Resistance Training on Lower-Limb Passive Joint Range of Motion: A Systematic Review and Meta-analysis.. *Medicine and Science in Sports and Exercise* | meta-analysis | moderate | doi:10.1249/MSS.0000000000003085 · PMID 36730587 |
+| ✔ | Kikuchi N et al. (2017). Low-load bench press and push-up induce similar muscle hypertrophy and strength gain.. *Journal of Exercise Science and Fitness* | RCT | low | doi:10.1016/j.jesf.2017.06.003 · PMID 29541130 |
+| ✔ | Kim J et al. (2024). Weighted vest intervention during whole-body circuit training improves serum resistin, insulin resistance, and cardiometabolic risk factors in normal-weight obese women. *Journal of Exercise Science and Fitness* | RCT | low | doi:10.1016/j.jesf.2024.10.002 · PMID 39525516 |
+|  | Knapik JJ et al. (2012). A systematic review of the effects of physical training on load carriage performance. *Journal of Strength and Conditioning Research* | meta-analysis | low | doi:10.1519/JSC.0b013e3182429853 · PMID 22130400 |
+| ✔ | Knudsen SH et al. (2012). Changes in insulin sensitivity precede changes in body composition during 14 days of step reduction combined with overfeeding in healthy young men.. *Journal of Applied Physiology* | single-group intervention study | low | doi:10.1152/japplphysiol.00189.2011 · PMID 22556394 |
+| ✔ | Kohiruimaki R et al. (2019). Suspended Push-up Training Augments Size of not only Upper Limb but also Abdominal Muscles.. *International Journal of Sports Medicine* | mechanistic human | very low | doi:10.1055/a-0989-2482 · PMID 31466083 |
+| ✔ | Kotarsky CJ et al. (2018). Effect of Progressive Calisthenic Push-up Training on Muscle Strength and Thickness.. *Journal of Strength and Conditioning Research* | RCT | low | doi:10.1519/JSC.0000000000002345 · PMID 29466268 |
+| ✔ | Krogh-Madsen R et al. (2010). A 2-wk reduction of ambulatory activity attenuates peripheral insulin sensitivity.. *Journal of Applied Physiology* | single-group intervention study | low | doi:10.1152/japplphysiol.00977.2009 · PMID 20044474 |
+|  | Kubo K et al. (2006). Effects of isometric training at different knee angles on the muscle-tendon complex in vivo. *Scandinavian Journal of Medicine & Science in Sports* | RCT | low | doi:10.1111/j.1600-0838.2005.00450.x · PMID 16643193 |
+| ✔ | Langford GA et al. (2007). Specificity of machine, barbell, and water-filled log bench press resistance training on measures of strength. *Journal of Strength and Conditioning Research* | controlled trial | low | doi:10.1519/R-21446.1 · PMID 18076262 |
+| ✔ | Lasevicius T et al. (2018). Effects of different intensities of resistance training with equated volume load on muscle strength and hypertrophy.. *European Journal of Sport Science* | RCT | low | doi:10.1080/17461391.2018.1450898 · PMID 29564973 |
+| ✔ | Lopes JSS et al. (2019). Effects of training with elastic resistance versus conventional resistance on muscular strength: A systematic review and meta-analysis. *SAGE Open Medicine* | meta-analysis | low | doi:10.1177/2050312119831116 · PMID 30815258 |
+| ✔ | Lum D et al. (2019). Brief Review: Effects of Isometric Strength Training on Strength and Dynamic Performance. *International Journal of Sports Medicine* | narrative review | very low | doi:10.1055/a-0863-4539 · PMID 30943568 |
+|  | Lum D et al. (2026). Comparing the Effects of Push and Hold Isometric Training on Strength and Musculotendinous Adaptations: A Within-Subject Randomized Controlled Trial. *Journal of Strength and Conditioning Research* | RCT | very low | doi:10.1519/JSC.0000000000005475 · PMID 42647753 |
+| ✔ | Massey GJ et al. (2018). Tendinous Tissue Adaptation to Explosive- vs. Sustained-Contraction Strength Training. *Frontiers in Physiology* | controlled trial | low | doi:10.3389/fphys.2018.01170 · PMID 30233387 |
+| ✔ | Mate-Munoz JL et al. (2014). Effects of instability versus traditional resistance training on strength, power and velocity in untrained men.. *Journal of Sports Science & Medicine* | controlled trial | low | PMID 25177170 |
+| ✔ | McCurdy KW et al. (2005). The effects of short-term unilateral and bilateral lower-body resistance training on measures of strength and power.. *Journal of Strength and Conditioning Research* | controlled trial | low | doi:10.1519/14173.1 · PMID 15705051 |
+| ✔ | McMahon G et al. (2019). Circulating Tumor Necrosis Factor Alpha May Modulate the Short-Term Detraining Induced Muscle Mass Loss Following Prolonged Resistance Training.. *Frontiers in Physiology* | RCT | low | doi:10.3389/fphys.2019.00527 · PMID 31130871 |
+| ✔ | McMaster DT et al. (2013). The development, retention and decay rates of strength and power in elite rugby union, rugby league and American football: a systematic review.. *Sports Medicine* | systematic review | low | doi:10.1007/s40279-013-0031-3 · PMID 23529287 |
+| ✔ | McRae G et al. (2012). Extremely low volume, whole-body aerobic-resistance training improves aerobic fitness and muscular endurance in females.. *Applied Physiology, Nutrition, and Metabolism* | controlled trial | low | doi:10.1139/h2012-093 · PMID 22994393 |
+| ✔ | Medeiros DM et al. (2021). Effect of Nordic Hamstring Exercise Training on Knee Flexors Eccentric Strength and Fascicle Length: A Systematic Review and Meta-Analysis.. *Journal of Sport Rehabilitation* | meta-analysis | moderate | doi:10.1123/jsr.2019-0388 · PMID 33049705 |
+| ✔ | Meng L et al. (2026). Effects of exercise snacks on cardiorespiratory fitness, body composition, and blood lipids in adults across different age groups: a systematic review and meta-analysis.. *The Journal of Nutrition, Health & Aging* | meta-analysis | low | doi:10.1016/j.jnha.2026.100940 · PMID 42571752 |
+| ✔ | Mikus CR et al. (2012). Lowering physical activity impairs glycemic control in healthy volunteers.. *Medicine and Science in Sports and Exercise* | within-subject trial | low | doi:10.1249/MSS.0b013e31822ac0c0 · PMID 21716152 |
+| ✔ | Miura K et al. (2025). Effects of Reduced Training Volume of Nordic Hamstring Exercise on Eccentric Knee Flexor Strength, and Fascicle Length and Stiffness of Biceps Femoris Long Head.. *Scandinavian Journal of Medicine and Science in Sports* | RCT | low | doi:10.1111/sms.70115 · PMID 40787947 |
+| ✔ | Morton RW et al. (2016). Neither load nor systemic hormones determine resistance training-mediated hypertrophy or strength gains in resistance-trained young men.. *Journal of Applied Physiology* | RCT | moderate | doi:10.1152/japplphysiol.00154.2016 · PMID 27174923 |
+| ✔ | Mujika I et al. (2000). Detraining: loss of training-induced physiological and performance adaptations. Part I: short term insufficient training stimulus.. *Sports Medicine* | narrative review | low | doi:10.2165/00007256-200030020-00002 · PMID 10966148 |
+| ✔ | Noorkoiv M et al. (2014). Neuromuscular adaptations associated with knee joint angle-specific force change. *Medicine and Science in Sports and Exercise* | controlled trial | low | doi:10.1249/MSS.0000000000000269 · PMID 24504427 |
+| ✔ | Ogasawara R et al. (2011). Effects of periodic and continued resistance training on muscle CSA and strength in previously untrained men.. *Clinical Physiology and Functional Imaging* | RCT | low | doi:10.1111/j.1475-097X.2011.01031.x · PMID 21771261 |
+| ✔ | Ogawa M et al. (2023). Effects of free weight and body mass-based resistance training on thigh muscle size, strength and intramuscular fat in healthy young and middle-aged individuals.. *Experimental Physiology* | non-randomised controlled trial | low | doi:10.1113/EP090655 · PMID 37133323 |
+| ✔ | Oranchuk DJ et al. (2019). Isometric training and long-term adaptations: Effects of muscle length, intensity, and intent: A systematic review. *Scandinavian Journal of Medicine & Science in Sports* | systematic review | low | doi:10.1111/sms.13375 · PMID 30580468 |
+| ✔ | Pollard CW et al. (2019). Razor hamstring curl and Nordic hamstring exercise architectural adaptations: Impact of exercise selection and intensity.. *Scandinavian Journal of Medicine and Science in Sports* | controlled trial | low | doi:10.1111/sms.13381 · PMID 30629773 |
+| ✔ | Presland JD et al. (2018). The effect of Nordic hamstring exercise training volume on biceps femoris long head architectural adaptation.. *Scandinavian Journal of Medicine and Science in Sports* | controlled trial | low | doi:10.1111/sms.13085 · PMID 29572976 |
+| ✔ | Qi K et al. (2026). The effect of exercise snacks on cardiorespiratory fitness, body composition, metabolic health, and muscle strength in sedentary individuals: a systematic review and meta-analysis.. *Frontiers in Nutrition* | meta-analysis | low | doi:10.3389/fnut.2026.1883923 · PMID 42865602 |
+| ✔ | Räntilä A et al. (2025). Repeated Resistance Training Reveals the Reproducibility of Muscle Strength and Size Responses Within Individuals.. *European Journal of Sport Science* | RCT | low | doi:10.1002/ejsc.70095 · PMID 41307987 |
+| ✔ | Sato S et al. (2022). Effect of daily 3-s maximum voluntary isometric, concentric, or eccentric contraction on elbow flexor strength. *Scandinavian Journal of Medicine & Science in Sports* | controlled trial | low | doi:10.1111/sms.14138 · PMID 35104387 |
+| ✔ | Schaun GZ et al. (2018). Whole-Body High-Intensity Interval Training Induce Similar Cardiorespiratory Adaptations Compared With Traditional High-Intensity Interval Training and Moderate-Intensity Continuous Training in Healthy Men.. *Journal of Strength and Conditioning Research* | RCT | low | doi:10.1519/JSC.0000000000002594 · PMID 29746386 |
+| ✔ | Scoubeau C et al. (2022). Effectiveness of Whole-Body High-Intensity Interval Training on Health-Related Fitness: A Systematic Review and Meta-Analysis.. *International Journal of Environmental Research and Public Health* | meta-analysis | moderate | doi:10.3390/ijerph19159559 · PMID 35954911 |
+| ✔ | Seymore KD et al. (2017). The effect of Nordic hamstring strength training on muscle architecture, stiffness, and strength.. *European Journal of Applied Physiology* | RCT | low | doi:10.1007/s00421-017-3583-3 · PMID 28280975 |
+| ✔ | Shad BJ et al. (2019). One Week of Step Reduction Lowers Myofibrillar Protein Synthesis Rates in Young Men.. *Medicine and Science in Sports and Exercise* | mechanistic human | low | doi:10.1249/MSS.0000000000002034 · PMID 31083048 |
+| ✔ | Soligon SD et al. (2020). Suspension training vs. traditional resistance training: effects on muscle mass, strength and functional performance in older adults.. *European Journal of Applied Physiology* | RCT | low | doi:10.1007/s00421-020-04446-x · PMID 32700098 |
+| ✔ | Speirs DE et al. (2016). Unilateral vs. Bilateral Squat Training for Strength, Sprints, and Agility in Academy Rugby Players.. *Journal of Strength and Conditioning Research* | RCT | low | doi:10.1519/JSC.0000000000001096 · PMID 26200193 |
+| ✔ | Suprak DN et al. (2011). The effect of position on the percentage of body mass supported during traditional and modified push-up variants.. *Journal of Strength and Conditioning Research* | mechanistic human | low | doi:10.1519/JSC.0b013e3181bde2cf · PMID 20179649 |
+| ✔ | Teixeira EL et al. (2021). Blood Flow Restriction Does Not Attenuate Short-Term Detraining-Induced Muscle Size and Strength Losses After Resistance Training With Blood Flow Restriction.. *Journal of Strength and Conditioning Research* | within-subject RCT | very low | doi:10.1519/JSC.0000000000003148 · PMID 31009425 |
+| ✔ | Tsuji K et al. (2023). Home-based high-intensity interval training improves cardiorespiratory fitness: a systematic review and meta-analysis.. *BMC Sports Science, Medicine and Rehabilitation* | meta-analysis | low | doi:10.1186/s13102-023-00777-2 · PMID 38053128 |
+| ✔ | van Dyk N et al. (2019). Including the Nordic hamstring exercise in injury prevention programmes halves the rate of hamstring injuries: a systematic review and meta-analysis of 8459 athletes.. *British Journal of Sports Medicine* | meta-analysis | moderate | doi:10.1136/bjsports-2018-100045 · PMID 30808663 |
+| ✔ | Varovic D et al. (2025). The effects of long muscle length isometric versus full range of motion isotonic training on regional quadriceps femoris hypertrophy in resistance-trained individuals. *Applied Physiology, Nutrition, and Metabolism* | RCT | low | doi:10.1139/apnm-2025-0238 · PMID 40911904 |
+| ✔ | Vatovec R et al. (2021). Effects of Nordic hamstring exercise combined with glider exercise on hip flexion flexibility and hamstring passive stiffness.. *Journal of Sports Sciences* | RCT | low | doi:10.1080/02640414.2021.1933350 · PMID 34074227 |
+| ✔ | Vural F et al. (2023). Can different variations of suspension exercises provide adequate loads and muscle activations for upper body training?. *PLoS ONE* | mechanistic human | low | doi:10.1371/journal.pone.0291608 · PMID 37738266 |
+| ✔ | Walhin JP et al. (2013). Exercise counteracts the effects of short-term overfeeding and reduced physical activity independent of energy imbalance in healthy young men.. *The Journal of Physiology* | RCT | low | doi:10.1113/jphysiol.2013.262709 · PMID 24167223 |
+| ✔ | Youdas JW et al. (2010). Comparison of muscle-activation patterns during the conventional push-up and perfect· pushup™ exercises.. *Journal of Strength and Conditioning Research* | mechanistic human | low | doi:10.1519/JSC.0b013e3181cc23b0 · PMID 20664364 |
+| ✔ | Youdas JW et al. (2016). Activation of Spinal Stabilizers and Shoulder Complex Muscles During an Inverted Row Using a Portable Pull-up Device and Body Weight Resistance.. *Journal of Strength and Conditioning Research* | mechanistic human | low | doi:10.1519/JSC.0000000000001210 · PMID 26422610 |
+
+<details><summary>Search log</summary>
+
+### bodyweight-rt
+
+All searches run through the PubMed MCP tools in this session (2026-10-30). "Opened" = abstract read with get_article_metadata; "FT" = PMC full text read.
+
+#### Q1 push-ups vs bench press
+
+| # | Query | Hits | Opened |
+|---|---|---|---|
+| 1 | `Kikuchi N[Author] AND Nakazato K[Author] AND push-up` | 2 | 34375992 (Kikuchi 2021 online Zoom bodyweight training), 29541130 (Kikuchi 2017; FT PMC5812864) |
+| 2 | `push-up bench press training muscle thickness strength` | 3 | 31466083 (Kohiruimaki 2019), 29541130, 29466268 (Kotarsky 2018) |
+| 3 | `Calatayud J[Author] AND push-up AND bench press` | 3 | 28500415 (attentional focus EMG, not used), 25419894 (EMG of push variants, not used as outcome), 24983847 (Calatayud 2015 RCT) |
+| 4 | `(push-up[Title] OR push-ups[Title] OR pushup[Title]) AND (training[Title] OR program[Title]) AND (strength OR hypertrophy OR muscle thickness)` | 5 | 29979278 (Lima 2018 Yoak suspended push-up), 29466266 (Giancotti 2018 suspension push-up kinetics), 23316422 (Chulvi-Medrano 2012 stable vs unstable push-up) |
+| - | convert_article_ids for 29541130, 24983847, 29466268, 31466083 | 4 records | only 29541130 is in PMC |
+
+### bands-isometrics
+
+All searches run on PubMed through the PubMed MCP tools on 2026-10-30.
+
+| # | Query | Hits | Records opened (PMID) |
+|---|-------|------|------------------------|
+| 1 | elastic resistance versus conventional resistance muscular strength meta-analysis | 2 | 30815258 (Lopes 2019; full text PMC6383082), 32953119 (corrigendum; full text PMC7485002) |
+| 2 | elastic band resistance training muscle thickness randomized | 6 | 35687702, 35575453, 32376815, 30819711, 29284521, 23823710 (abstracts read; all older adults, clinical groups or protocols, none compares bands with conventional loading in healthy young adults) |
+| 3 | Aboodarda[Author] elastic | 6 | 27681867 (meta-analysis, used), 26618063, 24796986, 23428490, 23487250, 24149552 (abstracts read) |
+| 4 | elastic resistance bands versus free weights muscle activity Iversen OR Bergquist | 2408 (query mis-parsed by OR) | none |
+| 5 | Colado JC[Author] elastic | 40 | list kept for screening |
+| 6 | Iversen VM[Author] elastic | 6 | 30668589, 30132009, 29740641, 29603805 (abstracts read; deadlift variable resistance, neck/low-back pain rehab trials, protocol: not used), 29599855 (Bergquist 2018; full text PMC5873332, used), 28628370 (Iversen 2017, used) |
+| 7 | muscle activation perceived loading rehabilitation exercises dumbbells elastic resistance | 2 | 20133444 (Andersen 2010, used), 29599855 (already opened) |
+| 8 | bench press push-up comparable muscle activity similar strength gains elastic | 1 | 24983847 (Calatayud 2015, used) |
+| 9 | elastic resistance exercise muscle strength healthy adults systematic review meta-analysis | 3 | 28032811 (de Oliveira 2016, used), 36130847 (Andersen V 2022 variable-resistance meta-analysis: bands added to barbells, screened, not added), 23562413 (Martins 2013, older adults, not added) |
+| 10 | (elastic band OR elastic bands OR elastic tubing OR elastic resistance)[tiab] AND (hypertrophy OR muscle thickness OR cross-sectional area)[tiab] AND (young OR healthy OR untrained OR trained) | 32 | all 32 abstracts screened; 11822469 (Hostler 2001, used); 25419894 (Calatayud 2014 EMG band push-up, noted), 31908746 (Barbalho 2019 no-load vs bands, hospitalised women, noted for Q4), 40944751 (Rosaci 2025 acute isometric LML/SML vs variable resistance, noted), 24917178, 27244884, 26191475, 23701116, 33239946, 30529477 (older adults/BFR, not added) |
+| 11 | (resistance band OR elastic band OR elastic tubing OR TheraBand) AND (free weights OR dumbbell OR machine OR conventional) AND (hypertrophy OR muscle thickness OR lean mass) AND training, 2015- | 10 | 33359379 (Herda 2020, older adults, band vs dumbbell, DXA arm lean mass up in both; noted, not added), 38129299, 37559761, 32132843, 29200908, 24498494 (not relevant) |
+| 12 | variable resistance training elastic bands muscle hypertrophy muscle thickness trained men | 0 | none |
+| 13 | elastic bands component periodized resistance training | 2 | 23669815 (Joy 2016, bands added to barbell; not relevant to no-equipment), 40423289 (not relevant) |
+| 14 | isometric training long-term adaptations muscle length intensity intent systematic review | 2 | 30580468 (Oranchuk 2019, used); 27409075 (congress proceedings, irrelevant) |
+| 15 | isometric training hypertrophy meta-analysis (2018-) | 163 (query expanded "isometric" to the exercise MeSH term; too broad) | none; replaced by #16 |
+| 16 | ("isometric training" OR "isometric resistance training" OR "isometric exercise training")[tiab] AND (hypertrophy OR "muscle size" OR "muscle thickness" OR "cross-sectional area")[tiab] AND (meta-analysis OR "systematic review")[tiab] | 1 | 30580468 (already opened) |
+| 17 | lookup_article_by_citation: Noorkoiv MSSE 2014 46:1525; Alegre EJAP 2014 114:2437; Kubo SJMSS 2006 16:159; Akagi J Appl Physiol 2020; Lum Int J Sports Med 2019 | 5 matched | 24504427 (Noorkoiv, used), 25099962 (Alegre, used), 16643193 (Kubo, used), 32552430 (Akagi 2020, tibialis anterior architecture/fatigue only; not added), 30943568 (Lum 2019, used) |
+| 18 | explosive versus sustained contraction strength training hypertrophy Balshaw Folland | 0 | none |
+| 19 | acute and chronic effects of "NO LOAD" resistance training | 2 | 27329807 (Counts 2016, used), 33345052 (COVID mini-review, not added) |
+| 20 | Balshaw TG[Author] AND (sustained OR isometric) AND training | 34 | first 15 PMIDs listed; superseded by #21 |
+| 21 | Balshaw TG[Author] AND (explosive OR sustained) AND hypertrophy | 1 | 30233387 (Massey 2018, used) |
+| 22 | (isometric[Title] AND (dynamic OR isotonic OR concentric)[Title]) AND (hypertrophy OR "muscle volume" OR "cross-sectional area" OR "muscle thickness") AND training | 32 | 42647753 (Lum 2026, used), 40911904 (Varovic 2025 APNM, used), 35104387 (Sato 2022, used), 40513129 (Henderson 2025 eccentric quasi-isometric, not added), 42371067, 41869367 (protocol), 41793431, 42756933, 40258829, 31895282, 31848703 (abstracts read, not relevant) |
+| 23 | isometric training (long muscle length OR muscle length OR joint angle) hypertrophy (pectoralis OR elbow flexors OR biceps OR triceps OR upper body OR shoulder) | 38 | too broad ("isometric" expanded to exercise MeSH); replaced by #24 |
+| 24 | isometric[Title] AND (training OR exercise)[Title] AND ("muscle length" OR "joint angle" OR "knee angle" OR "elbow angle")[tiab] AND (hypertrophy OR "muscle thickness" OR "muscle volume" OR "cross-sectional area")[tiab] | 12 | 25831993 (Noorkoiv 2015 JSS, companion to Noorkoiv 2014: concentric torque +12-13% and size gains only at long length; cited in digest, no separate entry), 42112996 and 40944751 (Rosaci acute pectoralis recovery, not training), 38450425 (McMahon 2024 acute recovery), 40366729 (Pedrosa 2025 dynamic partial ROM), 11991770 (Ebersole 2002 isometric elbow flexor training, circumference only); no upper-body isometric length-hypertrophy trial found |
+| 25 | specificity of machine, barbell, and water-filled log bag training | 0 | none |
+| 26 | sandbag training strength OR "sandbag" resistance training OR "water-filled" implement training | 6 | 37754969 (Glass 2023 water-filled tube instability, EMG variability only), 32279360 (sandbag/dumbbell RT in nursing-home residents, QoL), 4 irrelevant |
+| 27 | Langford GA[Author] AND training | 4 | 18076262 (Langford 2007, used); 21068677, 15705051 (not relevant) |
+| 28 | ("weighted vest" OR "loaded backpack")[tiab] OR backpack[Title] AND (resistance training OR strength training OR push-up OR squat) AND (strength OR hypertrophy OR muscle) | 59 | superseded by #29 |
+| 29 | ("weighted vest" OR "weighted-vest" OR "load carriage" OR backpack OR rucksack)[Title] AND (training OR exercise)[Title] AND (strength OR "muscle mass" OR "lean mass" OR hypertrophy OR "push-up" OR "VO2max") | 25 | all 25 abstracts screened: 39525516 (Kim 2024, full text PMC11550068, used), 22130400 (Knapik 2012 meta-analysis, used), 9467434 (Shaw 1998 weighted-vest training in postmenopausal women, leg lean mass +3.5%; noted, not added), 36443661 and 41752870 (older adults vest/vibration), 27893482 and 41893615 (vest sprint training in soccer players), 42742276 (acute parkour with vest), 32956262, 32812837, 32102055, 32058361, 29702519, 29630067, 29239981, 27770784, 26274785, 26271678, 23565542, 16933815, 14971986, 40737449, 39824542, 39797513, 38630876 (load-carriage physiology or military, not added) |
+
+### lower-body
+
+All searches run through the PubMed MCP tools (search_articles unless stated). Hits = total_count reported by PubMed.
+
+#### Q1 Unilateral / bodyweight vs bilateral loaded squats
+
+| # | Query | Hits | Opened (PMID) |
+|---|---|---|---|
+| 1 | `Speirs DE[Author] AND unilateral bilateral squat` | 1 | 26200193 (Speirs 2016) - recorded |
+| 2 | `McCurdy K[Author] AND unilateral bilateral lower-body resistance training` | 1 | 15705051 (McCurdy 2005) - recorded |
+| 3 | `(split squat OR Bulgarian split squat OR rear-foot-elevated split squat) AND training AND (strength OR hypertrophy OR sprint)` | 165 | none opened (too broad; refined in #4) |
+| 4 | `(unilateral[Title] OR split squat[Title] OR single-leg[Title]) AND (bilateral[Title] OR back squat[Title]) AND training[Title] AND (randomized OR randomised OR groups)` | 90 | 42891556, 42676442, 42479598, 42376604, 42346761, 42199289, 42131940, 42125197, 42063098, 42058973 (abstracts read; athlete/plyometric/stroke/upper-body papers not recorded; 42479598 Sato 2026 noted as candidate; 42458613 = Xin2026 already in references.json) |
+| 5 | `(bodyweight squat OR body weight squat OR body-weight resistance) AND (muscle thickness OR hypertrophy OR cross-sectional area) AND training` | 835 | none (too broad; refined later) |
+
+ID cross-checks: convert_article_ids on 26200193 and 15705051 returned no PMCID/DOI (not in PMC); DOIs taken from PubMed metadata.
+
+#### Q2 Nordic hamstring exercise
+
+| # | Query | Hits | Opened (PMID) |
+|---|---|---|---|
+| 6 | `Cuthbert M[Author] AND Nordic hamstring exercise volume` | 3 | 31502142 (meta-analysis, recorded; full text PMC6942028 read), 31701414 (erratum), 31820375 (reply letter, no abstract) |
+| 7 | `van Dyk N[Author] AND Nordic hamstring injury meta-analysis` | 3 | 30808663 (recorded), 33914283 (Opar 2021: pre-season NHE strength did not predict hamstring injury; not recorded, off-question), 33963987 (erratum) |
+| 8 | `Al Attar WSA[Author] AND Nordic hamstring` | 1 | 27752982 (recorded) |
+| 9 | `Presland JD[Author] AND Nordic hamstring` | 1 | 29572976 (recorded) |
+
+ID cross-checks: convert_article_ids: 31502142 -> PMC6942028 + DOI 10.1007/s40279-019-01178-7 (match); 30808663, 27752982, 29572976 returned no PMCID/DOI (not in PMC), DOIs from PubMed records.
+
+| # | Query | Hits | Opened (PMID) |
+|---|---|---|---|
+| 10 | `Bourne MN[Author] AND Nordic hamstring AND hip extension AND architecture` | 3 | 27660368 (Bourne 2017 RCT, recorded), 29449205 (infographic, no abstract), 35941515 (Carmichael 2022 eccentric vs isometric hip extension; loaded, not recorded) |
+| 11 | `Seymore KD[Author] AND Nordic hamstring` | 1 | 28280975 (recorded) |
+| 12 | `Pollard CW[Author] AND hamstring` | 3 | 30629773 (recorded), 38051129 (Timmins 2024 NHE vs isometric in Australian footballers; athletes, not recorded), 27884865 (running exposure, off-topic) |
+| 13 | `Medeiros DM[Author] AND Nordic hamstring AND (meta-analysis OR systematic review)` | 1 | 33049705 (recorded) |
+| 14 | find_related_articles(30629773, pubmed_pmc) | 0 | no PMC copy of Pollard 2019 |
+
+ID cross-checks: convert_article_ids on 27660368, 28280975, 30629773, 33049705 returned no PMCID/DOI (not in PMC); DOIs taken from PubMed records.
+
+| # | Query | Hits | Opened (PMID) |
+|---|---|---|---|
+| 15 | `Nordic hamstring AND (low volume OR low-volume OR minimal dose OR once a week OR weekly volume) AND (fascicle OR eccentric strength)` | 24 | Opened all 22 new records. Recorded: 40991853 (Franke 2025 MA), 35176727 (Behan 2022 RCT), 40787947 (Miura 2025 RCT; full text PMC12337809 read). Screened, not recorded (athlete/youth samples or overlap): 42808562 (Sundh 2026), 42610665 (Ema 2026: twice-weekly > once-weekly for NHE-specific outcomes, ES 0.50-0.77), 42491631 (Hammami 2026 youth), 42348402 (Mooney 2026 Gaelic, 2x4 NHE + RDL weekly: FL +0.31 cm, strength n.s.), 41178985 (Cholp 2025 soccer MA: low volume raised strength g 0.46 but not architecture; high volume FL g 0.43, MT g 0.48), 40489412 (Bounias 2025 youth girls), 40230340 (Pecci 2025 soccer SR: FL with >290 reps), 39120165 (Nunes 2024 umbrella), 38610800 (BFR + NHE), 38655155 (Amundsen 2022 RCT female footballers: 144 vs 538 reps, +13% vs +10% eccentric force, needs >= 6 weeks), 36006091, 35894913 (Cadu 2022 1x3 reps, historical control), 35794049 (rehab cohort), 35642790 (Siddle 2022 youth), 35064811 (girls), 33893033 (Bautista 2021 sprint MA), 32580161 (Medeiros TM 2020 once vs twice weekly), 32188789 (youth), 31034261 (Lacome 2020 elite youth low vs high volume) |
+| 16 | `Nordic hamstring AND (muscle soreness OR DOMS OR muscle damage OR creatine kinase)` | 24 | Opened 16: 42735209 (Morin 2026 modelling + training: NHE hypertrophy localised to semitendinosus +24.4%, stiff-leg deadlift to semimembranosus +11.2%; n/duration not in abstract, not recorded), 41503614, 40954610, 40280182 (Coratella 2025, recorded), 40056728 (Ishoi 2025 RCT youth: band-assisted NHE gave similar ~20% strength gains with less soreness and RPE; youth sample, not recorded), 38651043, 38288272 (Behan 2024 RCT NHE vs single-leg RDL, recorded; full text PMC10824055 read), 37159583, 36651719 (Behan 2023 RCT, same trial as Behan 2022: the low-to-high volume group had more DOMS and non-DOMS pain; no numbers in abstract, not recorded), 36269123 (umbrella review, eccentric exercise), 36262260, 35979432, 35272267 (MLS survey: soreness cited by 83% as barrier), 34183742, 31356512 (Whyte 2021 45-degree hip extension vs NHE, loaded), 31332988. Also opened, not recorded: 30772189 (Duhig 2019 concentric vs eccentric cohort), 30122492 (hypothesis paper), 29797592 (Lovell 2018 scheduling in soccer micro-cycle), 28912650 (cryocompression), 28322596 (motor imagery), 28167188 (taping/stretching after 5x8 NHE in women), 23524362 (Mendiguchia 2013 MRI after 5x8 NHE in 8 referees: localised T2 change in biceps femoris short head), 22341384 (commentary on the Petersen 2011 Danish cluster RCT: NNT 13; original trial is within van Dyk 2019) |
+
+ID cross-checks: convert_article_ids: 40991853 and 35176727 no PMCID/DOI (not in PMC), DOIs from PubMed; 40787947 -> PMC12337809 + DOI 10.1111/sms.70115 (match); 40280182 no PMCID/DOI (DOI from PubMed); 38288272 -> PMC10824055 + DOI 10.1136/bmjsem-2023-001728 (match).
+
+#### Q3 Eccentric training and flexibility
+
+| # | Query | Hits | Opened (PMID) |
+|---|---|---|---|
+| 17 | `O'Sullivan K[Author] AND eccentric training AND flexibility` | 2 | 22522590 (O'Sullivan 2012 BJSM SR: 6 RCTs, no pooling, consistent evidence eccentric training improves lower-limb ROM/fascicle length; not recorded, superseded), 35390669 (Diong 2022 SR update + MA: 27 trials/911 participants, SMD 0.54, 95% CI 0.34-0.74, I2 50%, GRADE low-high, all adults incl. upper limb; not recorded, overlaps Kay 2023) |
+| 18 | `Delvaux F[Author] AND hamstring eccentric` | 2 | 31935778 (Delvaux 2020 RCT, recorded), 32460644 (preseason testing, off-topic) |
+| 19 | `(eccentric training OR Nordic hamstring) AND (flexibility OR range of motion OR sit and reach OR straight leg raise OR knee extension angle) AND (meta-analysis OR systematic review)` | 28 | Opened first 12 (titles scanned from persisted output): 36730587 (Kay 2023 MSSE MA, recorded), 37160563 (Boyd 2023 pre-conditioning MA, recorded for Q2 soreness), 42876231 (Kemp 2026 SR: angle of peak torque shifts toward longer lengths after NHE, -13.5 degrees; low certainty; not recorded), others off-topic (flatfoot, Achilles, futsal, soccer testing, knee OA, tendinopathy, neurological). Not opened: remaining 16 (36281110 onward) |
+| 20 | `Nordic hamstring AND (straight leg raise OR flexibility OR range of motion OR sit-and-reach) AND (randomized OR randomised OR trial)` | 16 | Opened 13 new: 40046899 (Henderson 2025 RCT, recorded; full text PMC11881989 read), 34074227 (Vatovec 2021 RCT, recorded), 40635029 (Hosseini 2025 RCT soccer players with hamstring shortness: NHE AKET +16.16%, SR +11.33% vs dynamic stretching +2.17%, +5.51%; not recorded, athlete sample), 42860733 (single-group baseball), 41318473 (EMG after injury), 40870532 (foam rolling after NHE), 33401532, 33084051 (Uysal 2021: NHE and leg curls both improved flexibility), 32019482, 28459795 (Ribeiro-Alvares 2018: 4-week NHE FL +22%), 24336837 (protocol), 23809430 (NHE EMG 134% MEVC), 17355322 (Arnason 2008 cohort: eccentric RR 0.43, flexibility no effect) |
+
+ID cross-checks: convert_article_ids: 36730587, 31935778, 34074227 no PMCID/DOI (not in PMC), DOIs from PubMed; 40046899 -> PMC11881989 + DOI 10.70252/MRDG6392 (match); 37160563 -> PMC10356650 + DOI 10.1007/s40279-023-01839-8 (match).
+
+### upper-body
+
+Format: query -> hits; records opened (abstract via get_article_metadata unless noted).
+
+#### Q1 inverted row
+1. `inverted row electromyography` -> 9 hits; opened all 9: 42647355, 39593452, 29944029, 29902124, 28217415, 26422610, 25282576, 19620925, 19197209.
+2. `Fenwick CM[Author] AND row` -> 2 hits (19620925, 19197209); both opened (duplicate publication of the same study).
+3. `Snarr RL[Author] AND (suspension OR row OR push-up OR instability)` -> 4 hits; opened all: 28828073, 27191692, 25264667, 24511343.
+4. `inverted row (body weight OR bodyweight) (load OR force OR percentage)` -> 2 hits (39593452, 37738266); 37738266 opened as abstract and PMC full text (PMC10516423).
+5. `suspension training (strength OR hypertrophy) randomized trial upper body` -> 2 hits; opened both: 31842259 (8-wk functional suspension HIIT vs passive control, mixed moderately trained adults; machine-tested outcomes, not usable for row comparison), 29543126 (children, not usable).
+6. `Youdas JW[Author] AND (pull-up OR chin-up OR row OR push-up OR Perfect Pullup)` -> 7 hits; opened 32940548, 31910394, 21068680, 20664364, 16095413 (29944029 and 26422610 already open).
+7. `(inverted row OR bodyweight row OR suspension row) training (lat pulldown OR pull-up OR bent-over row) strength` -> 5 hits; opened 37239640 (school CrossFit vs weight-training PE, not usable); others already open.
+
+#### Q2 push-up variants
+8. `Ebben WP[Author] AND push-up` -> 2 hits (21873902, 10188750); opened 21873902.
+9. `Suprak DN[Author] AND push-up` -> 3 hits; opened all: 25881172, 23952043, 20179649.
+10. `push-up ground reaction force percentage body mass incline decline kneeling` -> 0 hits.
+11. `push-up percentage of body weight supported` -> 5 hits; opened all: 40757550, 37437247, 35886622, 27632831 (not usable), 20179649.
+12. `Gouvali MK[Author] OR (push-up variants dynamic electromyographical analysis)` -> 2 hits; opened both: 16442494 (not relevant), 15705025.
+- convert_article_ids on 21873902, 20179649, 19197209, 26422610, 16095413, 20664364, 21068680 -> no PMCIDs (none in PMC).
+13. `(incline OR decline OR feet elevated OR hands elevated) push-up (force OR load OR electromyography)` -> 15 hits; opened 42936276 (optometry, irrelevant), 42043074 (irrelevant), 41444268 (abstract + PMC full text PMC12738558; reports absolute forces only, not added), 41365044 (irrelevant), 35599715 (push-up EMG scoping review), 33288617 (irrelevant), 29466266 (suspension push-up load, no numbers), 25925549 (irrelevant), 22728386 (irrelevant), 20436242 (Swiss-ball pike, core EMG; not a pike push-up); 21873902 already open; 18535801, 17643339, 9742471, 10183246 not opened (titles not retrieved; older, peripheral).
+14. `handstand push-up OR pike push-up OR handstand push up` -> 3 hits; opened all: 41732289 (BFR in gymnasts; handstand push-up only as an outcome), 28966711 (gymnast recovery), 20436242.
+15. `push-up training bench press muscle thickness hypertrophy` -> 1 hit: 29541130 (abstract + PMC full text PMC5812864).
+16. `Calatayud J[Author] AND push-up AND bench press` -> 3 hits; opened all: 28500415 (attentional focus EMG), 25419894 (push-up variants vs bench EMG), 24983847.
+17. `Kotarsky CJ[Author] AND push-up` -> 1 hit: 29466268, opened.
+18. `(calisthenics OR bodyweight training OR body weight exercise) (muscle thickness OR hypertrophy OR muscle mass) randomized` -> 1693 hits (too broad, not screened; replaced by narrower queries).
+19. `handstand (electromyography OR deltoid OR kinetics OR biomechanics)` -> 44 hits (not screened; narrowed in 20).
+20. `handstand AND (deltoid OR shoulder load OR press OR electromyography)` -> 10 hits; opened 41473027, 37092372, 36976936, 34260617, 33426917, 29471194, 28700510, 27155963, 7222304 (all static handstand balance in gymnasts or irrelevant; none on handstand or pike push-ups as training exercises).
+- convert_article_ids on 29541130 (PMC5812864), 24983847, 29466268, 28828073 (PMC5548150), 39593452, 15705025 -> PMCIDs only where shown.
+
+### cardio-noeq
+
+All searches via PubMed MCP `search_articles`; records opened with `get_article_metadata` unless noted.
+
+#### Q1 Bodyweight / calisthenics HIIT and VO2max
+
+| # | Query | Hits | Opened |
+|---|---|---|---|
+| 1 | `Archila LR[Author] AND interval` | 2 | 34055156 (Archila 2021, used), 36779702 (Skelly 2023, single-leg cycling; off-topic) |
+| 2 | `McRae G[Author] AND interval training` | 1 | 22994393 (McRae 2012, used) |
+| 3 | `Gist NH[Author] AND calisthenics` | 2 | 25939101 (Gist 2015 Mil Med, used), 24832968 (Gist 2014 JSCR acute burpee vs sprint cycling; read, kept as acute context) |
+| 4 | `Schaun GZ[Author] AND whole-body` | 5 | 29746386 (Schaun 2018, used), 32960155 (Schaun 2020 enjoyment), 30724683 (Schaun 2019 neuromuscular), 28796128 (Schaun 2018 HRV), 38921860 (Schaun 2024 acute CK) |
+| 5 | `(bodyweight OR body-weight OR "body weight" OR calisthenics OR "whole-body") AND ("interval training" OR HIIT) AND (meta-analysis OR "systematic review")` | 147 | none opened (too broad; first page mostly 2026 unrelated) |
+| 6 | `home-based high-intensity interval training cardiorespiratory fitness meta-analysis` | 3 | 38053128 (Tsuji 2023, used), 38760916 (Poon 2024 umbrella), 41927019 (Casanova-Lizon 2026) |
+| 7 | `(burpee OR burpees OR "jumping jacks" OR "mountain climbers" OR "squat thrusts") AND (VO2max OR "oxygen uptake" OR "cardiorespiratory fitness")` | 23 | 42211551 (fitness test; not usable), 40689309 (Hu 2025, used), 40323707 (mountaineering beetroot; off-topic), 40247925 (Bellissimo 2025 YouTube BW-IT), 40007896 (HIFT acute, trained), 42125178 (Astorino 2025 acute HIFT vs rowing), 39153081 (Sturdy 2024 EPOC), 38357496 (Cao 2024, used) |
+| 8 | `"whole-body high-intensity interval training" OR ... bodyweight high-intensity interval` | 1237 | none (query expanded too broadly) |
+| 9 | `("whole-body"[Title] OR bodyweight[Title] OR "body weight"[Title] OR calisthenics[Title]) AND (interval[Title] OR HIIT[Title] OR "high-intensity"[Title]) AND (fitness OR VO2 OR aerobic)` | 85 | first 40 PMIDs listed; see later entries |
+
+ID cross-check: `convert_article_ids` run on 34055156, 22994393, 29746386, 25939101, 38053128, 38760916, 40689309, 38357496, 41927019, 24832968.
+
+Full texts read (PMC): PMC12273568 (Hu 2025: adverse events, protocol, session counts), PMC9367756 (Scoubeau 2022: study table, meta-regression), PMC10696712 (Tsuji 2023: MDs, compliance, adverse events).
+
+| # | Query | Hits | Opened |
+|---|---|---|---|
+| 10 | `sprint interval training VO2max meta-analysis modality whole-body running cycling` | 0 | - |
+| 11 | `Hall AJ[Author] AND Swinton PA[Author] AND sprint interval` | 1 | 36165995 (Hall 2023 SIT MA; general SIT, not whole-body; not used) |
+| 12 | `("high-intensity functional training" OR "functional high-intensity" OR "high-intensity circuit training" OR "circuit training") AND (VO2max OR "cardiorespiratory fitness" OR "aerobic capacity") AND (meta-analysis[pt] OR systematic review[pt])` | 2 | 35954911 (Scoubeau 2022, used), 28822112 (Munoz-Martinez 2017 resistance circuit with weights; not no-equipment) |
+| 13 | `(calisthenic*[tiab] OR "body weight exercise"[tiab] OR "bodyweight exercise"[tiab] OR "bodyweight training"[tiab]) AND (meta-analysis[pt] OR "systematic review"[ti])` | 10 | 42363563, 41950555 (Zhang 2026 exercise snacks MA; read, units of VO2 MD unclear, superseded by Meng/Qi), 41754026, 41523739, 40452461 (Wiedenmann 2025 older-adult RT NMA; off-population), 40330251, 39256770, 35385446 (all off-topic) |
+| 14 | `Islam H[Author] AND Gurd BJ[Author] AND whole-body` | 4 | 31782930 (Islam 2019, used), 33998072, 33420549, 32509113 (off-topic) |
+| 15 | `(whole-body OR bodyweight OR "body weight" OR calisthenics OR functional) AND ("high-intensity interval" OR HIIT) AND (VO2max OR "aerobic capacity" OR "cardiorespiratory") AND meta-analysis[pt]` 2019-2021 | 32 | not opened individually (looking for the 2020 WB-HIIT MA cited by Scoubeau; not identified) |
+| 16 | `("whole-body"[ti] OR "body weight"[ti] OR bodyweight[ti] OR "functional"[ti] OR calisthenic*[ti] OR Tabata[ti]) AND (meta-analysis[ti] OR "systematic review"[ti])` from 2018 | 4998 | none (too broad) |
+| 17 | `(Tabata[ti] OR "whole-body high-intensity"[ti] OR ... ) AND (VO2 OR cardiorespiratory OR aerobic)` | 52 | not opened (list only) |
+
+#### Q2 Stair climbing and exercise snacks
+
+| # | Query | Hits | Opened |
+|---|---|---|---|
+| 18 | `Allison MK[Author] AND stair` | 1 | 28009784 (Allison 2017, used) |
+| 19 | `Jenkins EM[Author] AND (stair OR snacks)` | 2 | 30649897 (Jenkins 2019, used), 29717900 (Godkin 2018 T2D pilot; off-population) |
+| 20 | `Boreham CA[Author] AND stair` | 5 | 16118293 (Boreham 2005, used), 10731455 (Boreham 2000; VO2max not measured, only submaximal; not used) |
+| 21 | `"exercise snacks" OR "exercise snacking" OR "exercise snack"` | 134 | none (refined below) |
+| 22 | `(stair climbing OR stair-climbing OR "stair climb") AND (VO2max OR "oxygen uptake" OR "cardiorespiratory fitness") AND (training OR intervention)` | 105 | none (refined below) |
+| 23 | `("exercise snacks" OR "exercise snacking" OR "stair climbing" OR "brief bouts" OR "accumulated exercise") AND (meta-analysis[pt] OR "meta-analysis"[ti]) AND (cardiorespiratory OR VO2 OR aerobic)` | 60 | none (refined below) |
+| 24 | `("exercise snacks"[ti] OR "exercise snacking"[ti] OR "exercise snack"[ti]) AND (meta-analysis OR "systematic review")` | 21 | 42865602 (Qi 2026, used; full text PMC13654994), 42783760 (acute glucose umbrella; off-outcome), 42707187 (acute glucose; off-outcome), 42607816 (Wang 2026 neuromuscular; off-outcome), 42571752 (Meng 2026, used; full text PMC13486332), 42558375 (acute glucose), 42295664 (older adults), 42200178 (glucose/lipids), 42069572 (musculoskeletal discomfort), 42029706 (Babir 2026 T2D crossover; off-population) |
+
+ID cross-check: `convert_article_ids` run on 35954911, 31782930, 41950555, 28009784, 30649897, 16118293, 42571752, 42865602.
+
+### detraining-short
+
+Tool: PubMed MCP (search_articles, get_article_metadata, convert_article_ids, get_full_text_article, find_related_articles). Run date 2026-10-30.
+
+Pre-check of C:\Users\sabiq\Videos\Fitness\content\references.json (Grep for surnames and ids): already present and relevant = Bosquet2013_detrainingMeta, Ogasawara2013_periodicVsContinuous, Psilander2019_muscleMemory, Zhang2026_detrainingBodyComp, Bickel2011_maintenanceDose, Spiering2021_minimalDose, Rahmati2022_myonuclearMeta, Saeterbakken2025_taskSpecificityMeta, Iversen2021_time_efficient, Coleman2024_deloadRCT, Seaborne2018_epigeneticMemory, Konrad2025_detraining_ROM, Paluch2022_stepsMortalityMA, Banach2023_stepsMortalityMA, Stens2023_stepsDoseResponseMA, Ding2025_stepsHealthDoseResponse. Not present: Hwang, Encarnacao (first author), McMaster, Blocquiaux, Olsen, Krogh-Madsen, Breen (first author), Shad, Bowden Davies, Knudsen, Mikus, Walhin, Kraemer, Hortobagyi, Tavares, Pritchard.
+
+| # | Query | Hits (returned / total) | Records opened |
+|---|---|---|---|
+| 1 | detraining resistance training systematic review muscle strength hypertrophy (from 2015) | 0 / 0 | none |
+| 2 | Hwang PS[Author] detraining whey protein | 1 / 1 | 28328712 (Hwang 2017) - used |
+| 3 | Encarnação[Author] detraining | 0 / 0 | none |
+| 4 | detraining AND (strength OR hypertrophy OR "muscle mass") AND (review OR meta-analysis) (from 2018) | 30 / 51 | 42835063, 42602143, 41783454 (Washif 2025, COVID lockdown SR/MA - candidate), 41346689, 40475715, 39437875, 39385401, 37283365, 37154489 (Sharples 2023 review), 36360927 (Grgic 2022, older adults - not used), 35358402, 35282718, 35095213 (Friebe 2022, German narrative review - not used), 34957754, 34510028 (Yang 2021, middle-aged/older - not used), 32674388 (Latella 2020 narrative), 31551818, 31476783 (Sousa 2019 concurrent detraining review - candidate), 28738856 (Sung 2017, taekwondo 2-month detraining) |
+| 5 | Encarnacao IGA[Author] | 6 / 6 | 42303133, 40195526, 35699918, 34558017, 29558842 - none on detraining (author works on body-composition methods) |
+| 6 | McMaster DT[Author] retention decay rates strength power systematic review | 1 / 1 | 23529287 (McMaster 2013) - used |
+| 7 | Blocquiaux S[Author] detraining retraining | 2 / 2 | 32017951 (Blocquiaux 2020) - used; 32147251 (corrigendum) |
+| 8 | training break hypertrophy strength "10 weeks" Hulmi | 0 / 0 | none |
+| 9 | Hulmi JJ[Author] AND (break OR detraining OR retraining OR "muscle memory") | 3 / 3 | 39364857 (Halonen 2024) - used; 41307987 (Rantila 2025, PMC full text read) - used; 40183698 (Hulmi 2025 proteomic memory, mechanistic) - not used |
+| 10 | "short-term detraining" AND (strength OR "muscle thickness" OR "cross-sectional area") | 29 / 29 | 42865090 (band training soccer, 3-wk detraining), 42213892 (Yilmaz 2026 powerlifters 14 d), 41957875 (Saldanha 2026 5-day break football), 40845251 (basketball U18 14 d), 40218485, 39590648 (handball 3 wk), 39471049 (youth soccer 2 wk), 37857209 (older women), 37015015 (Loturco 2023 soccer 4 wk), 33517866 (Chen 2021 runners 2 wk), 33218532, 33113840 (Pereira 2020 U20 soccer 26 d), 32735423 (Rodriguez-Fernandez 2020 youth soccer 2 wk), 31130871 (McMahon 2019, PMC full text) - used, 31009425 (Teixeira 2021) - used, 29114531, 26595206 (Gentil 2015) - used, 24828574 (Yasuda 2014) - used, 24498494. Athlete studies read but not added (McMaster 2013 already covers athletes). Not opened: 22739330, 21771261, 24150633, 20140683, 18171494, 16046344, 11072774, 10966148, 9171971 |
+| 11 | Ogasawara R[Author] AND (periodic OR detraining OR retraining) | 15 / 20 | list contained 24828574 (Yasuda 2014, read; dropped as it likely shares participants with Ogasawara 2011) and mostly rodent mTOR papers; Ogasawara 2011 found via query 10 list (21771261) |
+| 12 | training cessation taper maximal strength Pritchard | 1 / 1 | 29369954 (Pritchard 2018, 3.5-5.5 days off after 4 wk in 8 trained men: CMJ and isometric bench rose, ES 0.30 and 0.21) - read, not added (tiny, taper context; Coleman2024_deloadRCT already covers 1-week break) |
+| 10b | (older records from query 10 list) | - | 21771261 (Ogasawara 2011) - used; 11072774 (Hakkinen 2000) - used; 10966148 (Mujika & Padilla 2000 Part I) - used; 9171971 (Taaffe 1997 elderly), 20140683 (Lovell 2010 older men 4 wk), 18171494 (Kalapotharakos 2007 older men), 16046344 (Toraman 2005 elderly), 22739330 (Osawa 2013 vibration), 24150633 (vibration older adults) - read, not used (older adults or atypical modality) |
+
+</details>
+
+**Not completed or not located:** the check of Hevy exercise names against the Hevy library did not run (names in the app are the most likely Hevy-style names; the logging page says to create a custom exercise if one is missing); the upper-body questions on training the lats, biceps and lateral deltoids without a bar or band, and on chair-dip shoulder loading, found no usable trials before the cut-off (the app labels that advice as inference); the classic reduced-training studies of VO₂max (Hickson et al.) were not reached, so VO₂max maintenance rests on Spiering 2021 and the short-detraining review.
+
+**Open questions:**
+- No trial has compared a complete bodyweight programme with gym training for hypertrophy in young men; the evidence is exercise-level (push-ups, suspension, bands, low loads).
+- How much heavy-lift 1RM is lost over 2–4 weeks of bodyweight-only training, and how quickly it returns (only inference from load-specificity data).
+- Pike push-ups, bodyweight triceps extensions, sliding leg curls and reverse crunches have no training studies; their use rests on biomechanics and practice.
+- Whether bodyweight interval training maintains a VO₂max previously built with 4 × 4 intervals over weeks of travel.

@@ -62,10 +62,25 @@ No server-side code or build is needed. Any static host that serves over HTTPS w
 
 ## Your data
 
-Position in the programme, "done" ticks, check-in weights and waist values, checklist states and
-tool inputs are stored only in this browser (localStorage). Nothing is sent anywhere. Browsers can
+Position in the programme (and the week to return to after Away or Maintenance mode), "done" ticks
+(current and archived), check-in weights and waist values, checklist states and tool inputs are
+stored only in this browser (localStorage). Nothing is sent anywhere. Browsers can
 clear site data, so use **Settings → Export backup** occasionally; **Import backup** restores it
 (also how you move data between phone and laptop).
+
+## Away from the gym (Away mode)
+
+When you cannot get to a gym (travel, a holiday, a closed gym), open **Today → No gym, or a disrupted
+week? → Switch** next to *Away mode*. It replaces the gym sessions with no-equipment ones: three
+full-body bodyweight sessions (A and B alternating) and two aerobic sessions a week, using household
+items (a chair, a sturdy table, stairs, a towel, a backpack loaded with books or water bottles).
+Week 1 of each trip is introductory; after week 3 it repeats from week 2. The app remembers the
+week you left, and Today shows **Return to … · week N** when you are back. *Maintenance mode*
+(short gym sessions for busy weeks) works the same way. For a single day without the gym, any
+gym strength session's page links to the Away sessions.
+
+Every visit to Away or Maintenance mode, and every cycle that repeats weeks, starts with fresh
+"done" ticks; the earlier ticks are archived (kept in backups), not deleted.
 
 ## Preview locally on Windows
 
@@ -106,10 +121,17 @@ week). Session templates list `warmup`, `main` and `cooldown` items that referen
 Timers: a number (seconds), `{"type":"hold","seconds":30,"sets":2,"sides":true}`, or
 `{"type":"intervals","warmup":300,"work":240,"recover":180,"reps":4,"cooldown":300}`.
 
+Phase flags: `optional` (entered by choice, never by sequence; shown with a Switch button on
+Today), `cyclic` (repeats; `cycleTo` sets the week it repeats from), `noEquipment` (the phase the
+"No gym today?" link points to), `returnRule` (the rule to read before returning) and `switchHint`
+(the one-line description next to the Switch button). Exercises and drills may carry an `away` field:
+how to do them without equipment, shown on the exercise page and in Away-mode sessions.
+
 ## How the content was produced and checked
 
-- **Evidence:** 12 research domains, searched up to 28 October 2026 (PubMed plus agency and guideline
-  documents), 517 unique papers recorded with DOI/PMID, evidence grades and the reader's notes. Method,
+- **Evidence:** 13 research domains, searched up to 28 October 2026 (30 October for training without
+  equipment; PubMed plus agency and guideline documents), 608 unique papers recorded with DOI/PMID, evidence
+  grades and the reader's notes. Method,
   per-domain source tables, search logs and seed references that could not be found are in `EVIDENCE.md`.
 - **Claim audit:** after writing, every sentence that cites a source or states a number was checked by an
   independent auditor against the cited source's recorded findings and against a single canonical-numbers
@@ -119,9 +141,16 @@ Timers: a number (seconds), `{"type":"hold","seconds":30,"sets":2,"sides":true}`
 - **Identifiers:** all 507 references cited in the app were re-checked against PubMed (PMID↔DOI); 506 verified,
   none needed correction. One citation has no DOI/PMID to verify: Google's *Get started with Google Fitbit Air*
   help page, used only for that device's specifications (shown as "unverified" on its reference page).
-- **App tests:** `tests/index.html` (45 checks: calculators, renderer, phase sequencing, content integrity,
-  every scheduled session resolving, session timings) all pass; a crawl of 709 pages found no errors or broken
-  citations/links; offline use was verified by stopping the server and reloading.
+- **Away mode (added 30 October 2026):** a thirteenth evidence domain, training without equipment (91 papers
+  verified against PubMed, 83 of them cited). The new content was written to a fixed design spec, then audited
+  claim by claim against those records: 1,202 claims checked, 168 corrected (5 high-severity, e.g. a table-row
+  safety test that had you lying under an untested table, and a misread trial result), followed by a
+  cross-section consistency review (22 issues: 21 fixed in review; the last, showing the Hevy "(Away)" names on
+  session cards, fixed in code). The 91 new references' PMID↔DOI pairs were cross-checked when recorded.
+- **App tests:** `tests/index.html` (54 checks: calculators, renderer, phase sequencing, content integrity,
+  every scheduled session resolving, session timings, the Away-mode return and cycling logic) all pass; a crawl
+  of all 1,304 pages found no script errors, broken citations or links, unresolved placeholders or raw markup;
+  offline use was verified by stopping the server and reloading.
 
 ## Development notes
 

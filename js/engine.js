@@ -136,8 +136,10 @@ export function resolveSession(phaseId, w, sessionId) {
   return s;
 }
 
+// A session item's `logAs` overrides the exercise's logging name (e.g. a gym exercise done at home
+// is logged as its "(Away)" copy so the gym history stays clean).
 function itemName(it) {
-  return (it.item && (it.item.loggingName || it.item.name)) || it.name || it.ref;
+  return it.logAs || (it.item && (it.item.loggingName || it.item.name)) || it.name || it.ref;
 }
 
 function timerSeconds(t) {
@@ -230,12 +232,53 @@ export function getPosition() {
   return null;
 }
 
-export function setPosition(phase, week) {
-  store.set('position', { phase, week, since: new Date().toISOString() });
-  store.update('history', [], h => [...h, { at: new Date().toISOString(), phase, week }].slice(-200));
+/**
+ * Move to a phase and week. Entering an optional phase (Away mode, Maintenance mode) from the main
+ * sequence remembers where you were, so you can return in one tap; any other move clears that.
+ * `fresh` (and every new visit to an optional phase) archives the target phase's "done" ticks from
+ * that week on, so a repeated or restarted block does not show the previous pass as done.
+ */
+export function setPosition(phase, week, { fresh = false } = {}) {
+  const prev = getPosition();
+  const target = getPhase(phase);
+  const now = new Date().toISOString();
+  if (target && target.optional) {
+    if (prev && !getPhase(prev.phase).optional) store.set('returnTo', { phase: prev.phase, week: prev.week, left: now });
+    if (prev && prev.phase !== phase) fresh = true;
+  } else {
+    store.remove('returnTo');
+  }
+  if (fresh) archiveDone(phase, week);
+  store.set('position', { phase, week, since: now });
+  store.update('history', [], h => [...h, { at: now, phase, week }].slice(-200));
+}
+
+/** Where to go back to when leaving an optional phase: {phase, week, left} or null. */
+export function getReturnTo() {
+  const r = store.get('returnTo', null);
+  const p = r && getPhase(r.phase);
+  return p && !p.optional ? { phase: r.phase, week: Math.min(Math.max(1, r.week || 1), weekCount(p)), left: r.left || null } : null;
 }
 
 const doneKey = (phaseId, w, dayIdx) => `${phaseId}:${w}:${dayIdx}`;
+
+/** Move a phase's "done" ticks from `fromWeek` on into an archive (kept in backups, no longer shown). */
+export function archiveDone(phaseId, fromWeek = 1) {
+  const done = store.get('done', {});
+  const moved = Object.keys(done).filter(k => {
+    const [p, w] = k.split(':');
+    return p === phaseId && +w >= fromWeek;
+  });
+  if (!moved.length) return 0;
+  const at = new Date().toISOString();
+  store.update('doneArchive', [], a => [...a, ...moved.map(key => ({ key, at: done[key], archivedAt: at }))].slice(-2000));
+  store.update('done', {}, d => {
+    const next = { ...d };
+    for (const k of moved) delete next[k];
+    return next;
+  });
+  return moved.length;
+}
 
 export function isDone(phaseId, w, dayIdx) {
   return !!store.get('done', {})[doneKey(phaseId, w, dayIdx)];
@@ -271,10 +314,11 @@ export function phaseAdherence(phase, uptoWeek) {
 export function nextPosition(pos) {
   const p = getPhase(pos.phase);
   if (pos.week < weekCount(p)) return { phase: p.id, week: pos.week + 1 };
-  // Optional phases (Maintenance mode) are entered and left by choice, never by sequence.
+  // Optional phases (Away mode, Maintenance mode) are entered and left by choice, never by sequence.
   const nextPhase = p.optional ? null : sequentialNeighbour(p.id, +1);
   if (nextPhase) return { phase: nextPhase.id, week: 1 };
-  return p.cyclic ? { phase: p.id, week: 1 } : null;   // the continuation phase repeats its cycle
+  // Cyclic phases repeat; `cycleTo` lets an introductory first week be skipped on later cycles.
+  return p.cyclic ? { phase: p.id, week: Math.min(p.cycleTo || 1, weekCount(p)) } : null;
 }
 
 /** The next (+1) or previous (-1) phase in the main sequence, skipping optional phases. */

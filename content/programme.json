@@ -1,8 +1,8 @@
 {
   "title": "Foundations to Athletic: a one-year programme, then continuation cycles",
   "tagline": "Muscle and shape first, fat loss alongside, then fitness, power and skill, for a man who has never trained and trains alone.",
-  "timelineNote": "Phase 4 then repeats in 12-week cycles; Maintenance mode is used only for busy or disrupted periods",
-  "overview": "**What this is.** A structured programme in five phases. It is designed around your priorities (aesthetics, hypertrophy, fat loss, then strength, endurance and VO₂max, then agility, coordination, flexibility, balance and mobility), your schedule (waking 12:00, training about 13:00, work 16:00–01:00), solo training in a well-equipped gym, and the evidence on how untrained people adapt.\n\n**The shape of the year.**\n\n| Phase | Weeks | Training | Main aim |\n|---|---|---|---|\n| 0 · Orientation | 1 | 2 light technique sessions, a baseline test day, 1 easy aerobic | Learn the gym, measure your starting point, calibrate nutrition |\n| 1 · Foundations | 12 | 3 full-body sessions + 2 aerobic | Technique, first muscle and strength, slow fat loss |\n| 2 · Development | 16 | 4 upper/lower sessions + intervals + run–walk | More volume for priority muscles, barbell lifts, VO₂max, a running base |\n| 3 · Athletic | 24 | 4 upper/lower + intervals + long session; plyometrics and agility in warm-ups | Hypertrophy block, strength-and-power block, physique-and-conditioning block |\n| 4 · Continuation | 12, repeating | Same structure, your choice of emphasis | Keep progressing or hold your shape |\n\n**How it works day to day.** Every session has three parts: a warm-up, the main training and a cool-down with stretching. Sessions are designed to fit roughly 60–65 minutes so you can eat and get ready before work. Loads are never prescribed as fixed kilograms; you find your own and progress them with [[rule:double-progression|double progression]], judging effort in [[term:rir|repetitions in reserve]]. Fat loss is driven by a modest energy deficit and verified by your waist and weight trends, not by the scale's body-fat number.\n\n**What you log elsewhere.** In your workout app: exercise, load, reps and an effort rating (RPE) for every working set, plus short notes. On your scale or in the [[tool:checkin|check-in tool]]: morning body weight. With the tape: waist every week, all girths and photos every four.",
+  "timelineNote": "Phase 4 then repeats in 12-week cycles; Maintenance mode is used only for busy or disrupted periods, and Away mode only for time without a gym",
+  "overview": "**What this is.** A structured programme in five phases. It is designed around your priorities (aesthetics, hypertrophy, fat loss, then strength, endurance and VO₂max, then agility, coordination, flexibility, balance and mobility), your schedule (waking 12:00, training about 13:00, work 16:00–01:00), solo training in a well-equipped gym, and the evidence on how untrained people adapt.\n\n**The shape of the year.**\n\n| Phase | Weeks | Training | Main aim |\n|---|---|---|---|\n| 0 · Orientation | 1 | 2 light technique sessions, a baseline test day, 1 easy aerobic | Learn the gym, measure your starting point, calibrate nutrition |\n| 1 · Foundations | 12 | 3 full-body sessions + 2 aerobic | Technique, first muscle and strength, slow fat loss |\n| 2 · Development | 16 | 4 upper/lower sessions + intervals + run–walk | More volume for priority muscles, barbell lifts, VO₂max, a running base |\n| 3 · Athletic | 24 | 4 upper/lower + intervals + long session; plyometrics and agility in warm-ups | Hypertrophy block, strength-and-power block, physique-and-conditioning block |\n| 4 · Continuation | 12, repeating | Same structure, your choice of emphasis | Keep progressing or hold your shape |\n\n**How it works day to day.** Every session has three parts: a warm-up, the main training and a cool-down with stretching. Sessions are designed to fit roughly 60–65 minutes so you can eat and get ready before work. Loads are never prescribed as fixed kilograms; you find your own and progress them with [[rule:double-progression|double progression]], judging effort in [[term:rir|repetitions in reserve]]. Fat loss is driven by a modest energy deficit and verified by your waist and weight trends, not by the scale's body-fat number.\n\n**What you log elsewhere.** In your workout app: exercise, load, reps and an effort rating (RPE) for every working set, plus short notes. On your scale or in the [[tool:checkin|check-in tool]]: morning body weight. With the tape: waist every week, all girths and photos every four.\n\n**When you cannot get to the gym.** Two optional modes protect your progress when the full programme is not possible; you switch to either from Today, and the app remembers your week and brings you back to it. [[phase:pm|Maintenance mode]] is for busy or disrupted weeks when a gym is available: two short full-body sessions and two short aerobic sessions. [[phase:pa|Away mode]] is for trips, holidays, family visits or a closed gym, with no machines or weights: three full-body bodyweight sessions and two aerobic sessions a week, made harder by changing the exercise (leverage, range, tempo, one leg or a loaded backpack) rather than by adding weight, with sets ending close to failure ([[rule:away]]).",
   "outcomes": "These are **population averages and ranges from research in untrained adults**, not predictions for you. Individual responses vary several-fold [@Hubal2005_variability; @Ahtiainen2016_heterogeneity], and part of the apparent variation is measurement error [@Dankel2019_trueVariability]. Use them to calibrate expectations, then trust your own trend data after about 8–12 weeks.\n\n| Horizon | Strength | Muscle | Fat and waist | Aerobic fitness | Confidence |\n|---|---|---|---|---|---|\n| End of Phase 1 (≈3 months) | Working loads on most lifts +20–50% (inference from typical novice progress; largely neural and skill learning early) [@Skarabot2021_neural_review] | About +1.5 kg lean mass per ~10 weeks on average [@Benito2020_wholeBodyHypertrophy]; individual range roughly 0 to >3 kg (inference) | Depends on the deficit; see the nutrition plan | VO₂max rises within weeks; supervised training adds about 5–6 mL·kg^−1^·min^−1^ on average [@Milanovic2015_HITvsCET_VO2maxMA; @Strauss2026_CochraneHIIT] | Moderate (strength, VO₂max); low (individual muscle gain) |\n| End of Phase 2 (≈7 months) | Continued gains, slowing; barbell lifts learned | Trained muscles typically 5–10% larger than at the start, wide range [@Ahtiainen2016_heterogeneity; @Hubal2005_variability] | Leaner if the deficit was kept; waist the main marker | Able to run about 24 min continuously (planned progression) | Low to moderate |\n| End of Phase 3 (≈1 year) | Large relative gains; progress per month now clearly slower | Plausibly 2–5 kg lean mass over the year with good adherence (inference, not a measured average) | Lean, maintainable body-fat range | Higher VO₂max; HIIT and run fitness | Low (inference) |\n| Years 2+ | Small, steady gains | Each year adds less than the one before; the approximate drug-free upper limit seen in one small study (normalised FFMI ≈ 25) is many years and ~18–24 kg of fat-free mass away [@Kouri1995_FFMI] | Maintenance | Maintained or improved | Low |\n\nThe goal is an athletic, lean look rather than maximal size. Because muscle accrues slowly, \"too bulky\" is not a near-term risk, and you control it directly: once a muscle looks the way you want, its weekly sets drop to a maintenance dose (see [[rule:size-control]]).",
   "principles": "- **Progressive overload, measured.** Add reps, then load, within each exercise's rep range ([[rule:double-progression]]).\n- **Hard but not reckless.** Most sets end 1–3 reps short of failure; free-weight compound lifts never go to failure, because you train alone (safety convention). Getting close to failure matters for growth; reaching it adds little [@Robinson2024_RIR_metaregression; @Refalo2023_failure_hypertrophy].\n- **Volume where it matters for your look.** Shoulders (especially the lateral deltoid), upper chest, back width and arms get the most weekly sets; legs get enough for athletic proportions, running and hiking [@Pelland2025_volume_frequency].\n- **Full range of motion.** It builds muscle at least as well as partial ranges [@Pallares2021_ROMmeta] and improves flexibility about as much as stretching; muscle gained this way does not make you stiff [@Alizadeh2023_RT_ROMmeta; @Afonso2021_STvsStretchMeta].\n- **Aerobic work that supports, not competes.** At these doses, aerobic training does not measurably blunt muscle or strength gains in untrained people [@Schumann2021_concurrentMA; @Petre2021_trainingStatusMA], and it is scheduled on separate days.\n- **Variety with anchors.** A few anchor lifts stay fixed within a block so progress is visible; accessories rotate between blocks to keep training interesting [@Kassiano2022_variationSR; @BazValle2019_variationMotivation].\n- **Decisions from trends.** Weight (7-day average), waist (weekly), logged performance and tape measures drive adjustments; single readings never do.",
   "blocks": {
@@ -163,6 +163,173 @@
         { "ref": "st-quad", "dose": "1 × 30 s per side", "timer": { "type": "hold", "seconds": 30, "sets": 1, "sides": true } }
       ],
       "rationale": "Easy movement lets breathing and heart rate settle; the stretches target the muscles most used in walking, running and cycling and keep your hamstring dose going on non-lifting days [@Thomas2018_stretch_dose_ROM]. As elsewhere, the purpose is range of motion, not faster recovery [@VanHooren2018_cooldown]."
+    },
+    "wu-away": {
+      "minutes": 9,
+      "items": [
+        {
+          "ref": "wu-cardio-noeq",
+          "dose": "4 min: marching on the spot or stair walking, easy (RPE 2–3) to moderate (RPE 4–5); easy jogging on the spot or skipping only from Phase 2",
+          "timer": 240
+        },
+        {
+          "ref": "wu-cat-camel",
+          "dose": "6 slow cycles"
+        },
+        {
+          "ref": "wu-wgs",
+          "dose": "3 per side"
+        },
+        {
+          "ref": "wu-bw-squat",
+          "dose": "6 reps, 2–3 s pause at the bottom"
+        },
+        {
+          "ref": "wu-scap-pushup",
+          "dose": "10 reps (hands on a table or the floor)"
+        },
+        {
+          "ref": "wu-glute-bridge",
+          "dose": "10 reps, 1 s squeeze"
+        },
+        {
+          "ref": "bal-sls",
+          "dose": "2 × 30 s per leg, left first",
+          "timer": {
+            "type": "hold",
+            "seconds": 30,
+            "sets": 2,
+            "sides": true
+          }
+        }
+      ],
+      "rationale": "**The same two layers as the gym warm-up, without a machine.** Easy-to-moderate general movement raises muscle temperature; dynamic drills then take the spine, hips and shoulder blades through the ranges you are about to load, and the first exercise starts with an easier set. Warm-ups improved short-term performance in most outcomes studied [@Fradkin2010_warmup_performance], and adding a general warm-up before a specific one increased leg-press strength in a small crossover trial [@Abad2011_general_specific_warmup]. You train about an hour after waking, and warm-ups reduced time-of-day performance differences across studies [@Kusumoto2021_diurnal_variation]; on a cold day, take 6 min rather than 4 (practical convention).\n\n**Why these drills.** Scapular push-ups and glute bridges rehearse today's push-ups, rows, split squats and hinges at low load (practical convention). Dynamic rather than long static stretching comes before training: static holds of 60 s or more per muscle reduced immediate performance by about 4.6% on average, whereas dynamic stretching slightly improved it [@Behm2016_acute_stretching]. Balance practice stays because its gains are specific to the task practised [@Kummel2016_specificity], and your left-leg stance is the weaker one."
+    },
+    "cd-away": {
+      "minutes": 8,
+      "items": [
+        {
+          "ref": "cd-easy",
+          "dose": "2 min easy walk",
+          "timer": 120
+        },
+        {
+          "ref": "st-ham-supine",
+          "dose": "2 × 30 s per leg with a towel or belt, about 7/10",
+          "timer": {
+            "type": "hold",
+            "seconds": 30,
+            "sets": 2,
+            "sides": true
+          }
+        },
+        {
+          "ref": "st-hip-flexor",
+          "dose": "2 × 30 s per side (knee on a folded towel)",
+          "timer": {
+            "type": "hold",
+            "seconds": 30,
+            "sets": 2,
+            "sides": true
+          }
+        },
+        {
+          "ref": "st-pec-doorway",
+          "dose": "1 × 30 s per side",
+          "timer": {
+            "type": "hold",
+            "seconds": 30,
+            "sets": 1,
+            "sides": true
+          }
+        }
+      ],
+      "rationale": "Same purpose as the gym cool-downs: two minutes of easy walking for comfort while breathing settles, then static stretching for range of motion. Neither the cool-down nor the stretching meaningfully speeds recovery or prevents soreness [@VanHooren2018_cooldown; @Afonso2021_postexercise_stretch_recovery], but regular static stretching reliably increases range of motion [@Konrad2024_chronic_stretch_ROM]. Your hamstrings are stretched in every session, as in the gym, which with the cardio-day cool-downs gives about 5 minutes per leg per week, the weekly dose associated with gains [@Thomas2018_stretch_dose_ROM]; the hip-flexor stretch offsets desk sitting and the doorway chest stretch follows the push-ups (practical convention). Stretching probably matters slightly more away from the gym (inference): across 55 studies, resistance training in general improved range of motion about as much as stretching, but the subgroup that trained with body mass only showed no significant gain [@Alizadeh2023_RT_ROM]."
+    },
+    "wu-away-cardio": {
+      "minutes": 6,
+      "items": [
+        {
+          "ref": "wu-cardio-noeq",
+          "dose": "5 min easy walking, building to brisk",
+          "timer": 300
+        },
+        {
+          "ref": "wu-leg-swing-fb",
+          "dose": "10 per leg"
+        },
+        {
+          "ref": "wu-ankle-rock",
+          "dose": "10 per side"
+        }
+      ],
+      "rationale": "A short progressive start lets heart rate, breathing and muscle blood flow rise gradually before steady walking, stairs or running; leg swings and ankle rocks prepare the hips and ankles. Static stretching is kept for afterwards [@Behm2016_acute_stretching; @Fradkin2010_warmup_performance]."
+    },
+    "wu-away-intervals": {
+      "minutes": 10,
+      "items": [
+        {
+          "ref": "wu-cardio-noeq",
+          "dose": "8 min: 4 min easy, then 4 min moderate (RPE 5)",
+          "timer": 480
+        },
+        {
+          "ref": "wu-leg-swing-fb",
+          "dose": "10 per leg"
+        },
+        {
+          "ref": "wu-pickups",
+          "dose": "2 × 20 s at interval effort, 40 s easy between",
+          "timer": {
+            "type": "intervals",
+            "work": 20,
+            "recover": 40,
+            "reps": 2
+          }
+        }
+      ],
+      "rationale": "Hard efforts need a thorough, progressive warm-up: easy then moderate movement raises muscle temperature, and two short pick-ups at interval effort (a brisk 20-s climb, an uphill burst, or 20 s of fast high knees before the circuit) rehearse the target intensity so the first effort is not a shock. This follows consensus warm-up structure [@Boullosa2026_warmup_Delphi] and the general warm-up evidence [@Fradkin2010_warmup_performance]."
+    },
+    "cd-away-cardio": {
+      "minutes": 8,
+      "items": [
+        {
+          "ref": "cd-easy",
+          "dose": "2 min easy walk",
+          "timer": 120
+        },
+        {
+          "ref": "st-calf-wall",
+          "dose": "2 × 30 s per leg (straight and bent knee)",
+          "timer": {
+            "type": "hold",
+            "seconds": 30,
+            "sets": 2,
+            "sides": true
+          }
+        },
+        {
+          "ref": "st-ham-supine",
+          "dose": "2 × 30 s per leg with a towel, about 7/10",
+          "timer": {
+            "type": "hold",
+            "seconds": 30,
+            "sets": 2,
+            "sides": true
+          }
+        },
+        {
+          "ref": "st-quad",
+          "dose": "1 × 30 s per side",
+          "timer": {
+            "type": "hold",
+            "seconds": 30,
+            "sets": 1,
+            "sides": true
+          }
+        }
+      ],
+      "rationale": "Two minutes of easy walking let breathing and heart rate settle; the stretches target the calves, hamstrings and quadriceps that stairs, hills and brisk walking use most, and keep your hamstring dose going on non-strength days [@Thomas2018_stretch_dose_ROM]. As elsewhere, the purpose is range of motion, not faster recovery [@VanHooren2018_cooldown]."
     }
   },
   "phases": [
@@ -357,13 +524,14 @@
     },
     {
       "id": "pm", "short": "PM", "name": "Maintenance mode", "navName": "Maintenance mode", "weeks": 1, "color": "p0", "durationLabel": "use as needed", "cyclic": true, "optional": true,
+      "returnRule": "breaks", "switchHint": "busy week: two short gym sessions",
       "energyGoal": "maintain",
       "tagline": "Two short full-body sessions and two short aerobic sessions: the minimum that holds your progress during busy weeks.",
-      "purpose": "When work, travel, illness recovery or motivation dips make the full programme unrealistic, this keeps what you have built. Strength and muscle are retained for weeks to months with roughly one-third of the usual volume if effort stays high, and short intense aerobic sessions maintain VO₂max [@Spiering2021_minimalDose; @Bickel2011_maintenanceDose; @Iversen2021_time_efficient]. Short breaks cost little in any case: 3-week breaks did not reduce long-term gains in one small trial [@Ogasawara2013_periodicVsContinuous], and losses grow with the length of the break [@Bosquet2013_detrainingMeta].",
+      "purpose": "When work, travel (with a gym; without one, use [[phase:pa|Away mode]]), illness recovery or motivation dips make the full programme unrealistic, this keeps what you have built. Strength and muscle are retained for weeks to months with roughly one-third of the usual volume if effort stays high, and short intense aerobic sessions maintain VO₂max [@Spiering2021_minimalDose; @Bickel2011_maintenanceDose; @Iversen2021_time_efficient]. Short breaks cost little in any case: 3-week breaks did not reduce long-term gains in one small trial [@Ogasawara2013_periodicVsContinuous], and losses grow with the length of the break [@Bosquet2013_detrainingMeta].",
       "structure": "- Two full-body sessions (about 40 minutes) on any non-consecutive days.\n- One short interval session and one steady session (or a hike/class).\n- Sets end 1–3 reps short of failure at your usual loads.",
-      "entry": ["Use whenever you need it; set it as your current phase in Settings, then set your previous position back when you return."],
+      "entry": ["Use whenever you need it: tap **Switch** next to Maintenance mode on Today. The app remembers your current week and shows a one-tap return."],
       "progression": "None needed: the goal is to hold. Keep loads the same and effort high.",
-      "advance": ["Return to your previous phase and week when normal life resumes (see [[rule:breaks]] if more than 3 weeks have passed)."],
+      "advance": ["Return to your previous phase and week when normal life resumes, with the Return button on Today (see [[rule:breaks]] if more than 3 weeks have passed)."],
       "repeat": ["Repeat weekly for as long as needed."],
       "regress": [],
       "expected": [{ "metric": "Strength and muscle", "value": "Largely maintained for weeks to months", "certainty": "probable", "note": "[@Spiering2021_minimalDose; @Bickel2011_maintenanceDose]" }],
@@ -374,6 +542,187 @@
       "defaults": { "sets": { "main": 2, "secondary": 2, "isolation": 1, "core": 1 }, "rir": { "main": "2–3", "secondary": "1–2", "isolation": "0–1", "core": "—" }, "params": { "z2min": 30, "z2sec": 1800, "intReps": 4, "intWork": 240, "intRecover": 180, "intText": "4 × 4:00 hard (RPE 8–9) / 3:00 easy" } },
       "weekPlans": [ { "w": 1, "title": "Maintenance week" } ],
       "schedule": [ ["pm-a", null, "pm-int", null, "pm-b", "pm-steady", null] ]
+    },
+    {
+      "id": "pa",
+      "short": "Away",
+      "name": "Away mode (no equipment)",
+      "navName": "Away mode",
+      "weeks": 3,
+      "cycleTo": 2,
+      "color": "p0",
+      "durationLabel": "use as needed",
+      "cyclic": true,
+      "optional": true,
+      "noEquipment": true,
+      "returnRule": "away",
+      "switchHint": "no gym or weights: bodyweight sessions",
+      "energyGoal": "maintain",
+      "tagline": "Three no-equipment full-body sessions and two aerobic sessions a week for trips and closed gyms: effort replaces load, ladders replace plates.",
+      "purpose": "**When to use it.** When you are away from any gym for more than a few days with no machines or weights: a trip, a holiday, a family visit or a closed gym. Any gym beats it, even a basic hotel gym or a day pass, so use one whenever you can, swapping exercises as needed ([[rule:substitution]]), and stay in your phase. Gaps of 1–4 days need nothing: Away mode is optional and there is nothing to make up ([[rule:away]]).\n\n**What it maintains or builds.** With light loads, how close a set ends to [[term:momentary-failure|failure]] matters a great deal: in 25 untrained men, knee-extension sets at 30% of [[term:1rm|1RM]] grew the quadriceps 7.8% over 8 weeks when taken to failure but only 2.8% (not significant) when stopped short [@Lasevicius2022_failure_by_load], and with sets to failure, light and heavy loads built similar muscle across 21 studies [@Schoenfeld2017_load_meta]. Bodyweight exercises ([[term:calisthenics|calisthenics]]) have been tested directly, in small trials: push-ups to failure grew the chest (+18.3%) and triceps (+9.5%) about as much as a bench press at a matched light load in 18 young men with at least a year of lifting experience [@Kikuchi2017_pushupVsBench], and suspension-strap training matched machines for muscle and strength in 42 untrained older adults [@Soligon2020_suspensionVsTraditional]. Keeping muscle takes far less than building it: in young adults, one-third of the original training dose preserved the muscle gained over 16 weeks for a further 32 weeks [@Bickel2011_maintenanceDose; @Spiering2021_minimalDose]. Away mode gives about 5–9 hard sets a week for most muscles, with calves and biceps getting less (helper muscles counted at half a set [@Pelland2025_volume_frequency]), so it should hold your muscle in Phases 2–4 and is close to a growth dose in [[phase:p1|Phase 1]] (inference).\n\n**Its limits, honestly.**\n- The **lats, biceps and lateral deltoids** are the hardest to load without a bar or band (inference). Table rows, backpack rows and bottle or backpack lateral raises are the best available. A long loop resistance band is the most useful single purchase if trips become common ([[dec:D30]]): elastic bands matched conventional training for strength gains in a small meta-analysis of mixed populations [@Lopes2019_elasticVsConventionalMeta], and an EMG study judged them feasible for rows and pulldowns [@Iversen2017_bandsMultiJointEMG].\n- **Heavy-load strength is partly specific.** Light loads built less 1RM strength than heavy ones [@Schoenfeld2017_load_meta; @Lopez2021_load_NMA], and dynamic training improved strength in the trained movement about twice as much as untrained isometric strength ([[term:smd|SMD]] 0.98 vs 0.42) [@Saeterbakken2025_taskSpecificityMeta], so your first gym session back may feel harder than your muscle size would suggest (inference).\n- The maintenance trials kept the usual relative load [@Spiering2021_minimalDose]; Away mode swaps load for effort, so applying them here is inference. In the closest comparison, a non-randomised trial in previously inactive adults aged 30–64 whose bodyweight sets were not explicitly taken to failure, a body mass-based programme grew the quadriceps somewhat less than free weights (about +3.6% vs +6.3%; difference p = 0.051, just short of significance) and did not significantly raise knee-extension strength [@Ogawa2023_bodyMassVsFreeWeight].",
+      "structure": "- **Strength:** three full-body sessions, A and B alternating (A-B-A one week, B-A-B the next) on Monday, Wednesday and Friday, about 55 minutes each including warm-up and cool-down; each has a ≈25-minute short version.\n- **Aerobic:** Tuesday steady session (brisk walking, hills or stairs, or a hike, swim, ride or class) and Saturday intervals (stairs, a hill or a low-impact bodyweight circuit; a second steady session if your gym phase has no intervals yet).\n- **Rest:** Thursday and Sunday. Keep walking every day.\n- **Ladders replace plates.** Each exercise has a [[term:progression-ladder|progression ladder]]: harder leverage (feet raised, body nearer horizontal), more range, one leg instead of two, a slower lowering, pauses, then a loaded backpack. Weigh the backpack on your scale: your weight holding it minus your weight without it (1 L of water ≈ 1 kg).\n- **[[term:superset|Supersets]]** pair exercises that do not compete (push-ups with rows, hinges with pike push-ups), which saves time without reducing gains [@Zhang2025_superset_meta].\n- **Weekly sets per muscle:** about 4–6 in week 1 and 5–9 from week 2 for most muscles; calves and biceps get less.\n- **What you need:** floor space, a chair, a bed or sofa, a sturdy table or a door frame, stairs or a step, a towel and a backpack. Optional: a long loop resistance band or a bar in a park.",
+      "entry": [
+        "You are away from any gym, or it is closed, for more than a few days; for 1–4 days Away mode is optional ([[rule:away]]).",
+        "No illness and no pain that changes how you move; after illness, follow [[rule:illness]] first.",
+        "Tap **Switch** next to Away mode on Today: the app remembers your current phase and week and offers a one-tap return."
+      ],
+      "progression": "**Double progression by rung.** [[rule:double-progression]] applies to the [[term:progression-ladder|ladder]] instead of the plates: stay on a rung until every working set reaches the top of the rep range at the target effort, then move one rung up and restart near the bottom of the range. Reps can rise before load: in an 8-week lower-body trial in trained people, progressing reps at a constant load built muscle and strength about as well as progressing load [@Plotkin2022_loadVsRepProgression]. A slower lowering (3–4 s) is a legitimate rung, because repetition durations of about 0.5–8 s gave similar growth when sets went to failure [@Schoenfeld2015_rep_duration].\n\n**A rep ceiling.** When a rung allows more than about 30 reps at the target effort, move up rather than doing ever-longer sets. Sets of 20–25 reps to failure built muscle like sets of 8–12 in trained men [@Morton2016_20to25repsTrained], and every arm trained with 30–40RM or 8–12RM sets gained about 0.25 cm of muscle thickness [@Bell2023_30to40RMvs8to12RM], but loads of about 15–20% of 1RM gave smaller gains in two trials [@Lasevicius2018_20to80pct1RM; @Buckner2019_veryLowLoadArms] and similar thickness gains but no 1RM gain in a third [@Jessee2018_veryLowLoadLegs]. Effort estimates were also less accurate in sets of more than 12 reps [@Halperin2022_RIR_accuracy].\n\n**Effort.** Week 1 of each trip stops 2–3 reps short of failure while you find your rungs. From week 2, most sets end 1–2 reps short and isolation sets 0–1, and the last set of push-ups, rows and split squats may go to [[term:momentary-failure|momentary failure]]: with no bar to get stuck under, that is safe (practical convention). The exceptions are the Nordic curl, where every rep is a maximal effort to slow the fall, so the rep count rather than reps in reserve sets its dose (see its note in session B), and any exercise where balance fails before the muscle does. If you left the gym in Phase 0 or Phase 1 weeks 1–6, keep every set at 2–3 reps in reserve and skip the failure sets for the whole trip: like the gym programme, effort rises only once you have practised judging it (practical convention).",
+      "advance": [
+        "When a gym is available again, tap **Return** on Today to go back to your previous phase and week, and read [[rule:away]] before the first session back.",
+        "If you trained at least twice a week while away, start at your previous loads; the first session may feel harder (inference), because strength is partly specific to the trained lift and 1RM strength grows more with heavy loads [@Saeterbakken2025_taskSpecificityMeta; @Schoenfeld2017_load_meta]. If your reps fall 2 or more short of the range, use about 90% of the load for the rest of that week (inference).",
+        "If you trained less than twice a week while away, treat the trip as a break: [[rule:breaks]], counting the days from your last gym session."
+      ],
+      "repeat": [
+        "Repeats for as long as you are away: after week 3 it continues from week 2, so only the first week of each trip is introductory.",
+        "Each new trip starts at week 1, because new or long-unpractised exercises bring soreness. If your last trip was only a few weeks ago and the exercises still feel familiar, you may start at week 2 with **Make this my current week** on the week page."
+      ],
+      "regress": [
+        "Soreness that still limits movement on the day of the next session: do that session at week-1 effort (2 sets, 2–3 reps in reserve) or use an easier rung for the sore muscle. Soreness after new exercises is expected and fades with repetition (the [[term:repeated-bout-effect|repeated-bout effect]]).",
+        "Pain in a joint or tendon, rather than effort or ordinary muscle soreness: follow [[rule:pain]] and use an easier rung or the listed alternative, such as [[ex:sliding-leg-curl]] for Nordic curls or a [[ex:split-squat|split squat]] with the rear foot on the floor for the Bulgarian split squat.",
+        "Very dark (tea- or cola-coloured) urine, or muscle pain and swelling far beyond what the session should cause: stop training and get a same-day medical assessment at an emergency department ([[plan:safety]]). Exertional [[term:rhabdomyolysis|rhabdomyolysis]] is uncommon, but unaccustomed exercise is one of its recognised causes [@Rawson2017_exertionalRhabdo].",
+        "Illness while away: follow [[rule:illness]]."
+      ],
+      "expected": [
+        {
+          "metric": "Muscle size",
+          "value": "Maintained over a typical trip; in Phase 1, possibly still growing slowly",
+          "certainty": "probable",
+          "note": "One-third of the usual dose preserved muscle gains in young adults [@Bickel2011_maintenanceDose], and light loads taken to failure built muscle like heavy ones [@Schoenfeld2017_load_meta]; that bodyweight training does the same is partly inference: in the closest trial it grew the quadriceps, though somewhat less than free weights [@Ogawa2023_bodyMassVsFreeWeight]. Even complete breaks of 2–3 weeks did not significantly reduce muscle size in two small trials [@Ogasawara2011_threeWeekBreakBench; @Hwang2017_twoWeekDetraining], although another measured a 6% fall in thigh-muscle area after 2 weeks off, part of which may have been lost swelling [@McMahon2019_twoFourWeekDetraining]."
+        },
+        {
+          "metric": "Gym strength (loads on your usual lifts)",
+          "value": "Largely kept; the first sessions back may feel harder than expected",
+          "certainty": "probable",
+          "note": "Light-load training builds less 1RM strength than heavy-load training [@Schoenfeld2017_load_meta], and strength gains are partly specific to the trained movement [@Saeterbakken2025_taskSpecificityMeta]. Complete breaks of 2–3 weeks did not significantly reduce bench-press 1RM or leg-press strength in small trials [@Ogasawara2011_threeWeekBreakBench; @Hwang2017_twoWeekDetraining]."
+        },
+        {
+          "metric": "Push-ups, rows, split squats",
+          "value": "Likely to improve: more reps or a higher rung",
+          "certainty": "probable",
+          "note": "Strength gains are largest in the trained movement [@Saeterbakken2025_taskSpecificityMeta]; progressive push-up training raised push-up level more than bench pressing did over 4 weeks in 23 moderately trained men [@Kotarsky2018_progressivePushup]."
+        },
+        {
+          "metric": "Aerobic fitness (VO₂max)",
+          "value": "Maintained if the interval session stays hard",
+          "certainty": "probable",
+          "note": "Endurance performance was maintained for up to 15 weeks of reduced training when intensity was kept [@Spiering2021_minimalDose]; in one small trial, stair climbing raised VO₂max in sedentary young women [@Boreham2005_stairClimbing]."
+        },
+        {
+          "metric": "Soreness",
+          "value": "Marked after the first sessions of new exercises (especially Nordic curls and split squats); much less from week 2",
+          "certainty": "probable",
+          "note": "In 13 trained men, a first session of 24 Nordic curls raised soreness on days 2–3 and kept eccentric strength down for up to 3 days; the same session 4 weeks later caused smaller, shorter changes [@Coratella2025_NHEmuscleDamageRBE]. In untrained people, one earlier bout cut later soreness most when it came 2–4 days before [@Boyd2023_preconditioningEIMDmeta], so week 1 should already protect week 2 (inference)."
+        },
+        {
+          "metric": "Body weight and waist",
+          "value": "Stable at maintenance intake with daily walking; travel food and salt can shift scale weight through water",
+          "certainty": "inference",
+          "note": "Cutting daily steps by about 80–90% for two weeks lowered insulin sensitivity and leg lean mass in small studies [@KroghMadsen2010_twoWeekStepReduction; @BowdenDavies2018_stepReductionMetabolic]: keep walking."
+        }
+      ],
+      "nutrition": "Eat at maintenance: set the [[tool:checkin|check-in tool]]'s goal to 'Maintenance' for the trip, and back to your phase's goal when you return. A trip is not the time to push a deficit: lean-mass gains were smaller during an energy deficit in trials [@Murphy2022_deficitLeanMass], and your loads are lighter than usual. Keep protein at or above your floor of 125 g a day (1.6 g/kg) as a 7-day average, aiming for your usual 140–155 g; in a between-trial analysis the fat-free-mass benefit of extra protein flattened at about 1.6 g/kg/day [@Morton2018_proteinRT]. The practical rule is protein at every meal: eggs, curd, milk, paneer, chicken, fish or mutton dishes, and dal with rice or roti are easy to find almost anywhere in India (practical convention). See the [[plan:nutrition|nutrition plan]] for eating while away. Pause daily weigh-ins until you are back on your own scale, because another scale may read differently; your trend resumes when you return (practical convention).",
+      "conditioning": "Two aerobic sessions a week, as in the gym phases. **Tuesday, steady:** 30–35 min of brisk walking at a conversational effort, on hills or stairs if you have them, or a hike, swim, ride or class of similar length. **Saturday, intervals:** 4–6 × 2 min hard / 2 min easy on stairs, a hill or, only if your phase already includes running, a run ([[ex:cardio-noeq-intervals]]). If your gym phase has no interval session yet (Phase 0, or Phase 1 before week 7), make Saturday a second steady session instead, and in the rest of Phase 1 keep the hard efforts at RPE 7–8, as in your gym intervals (practical convention). A low-impact bodyweight circuit is the fallback, because bodyweight-only intervals improved cardiorespiratory fitness less than running or cycling training in pooled trials [@Scoubeau2022_wholeBodyHIITmeta].\n\n**Every day:** keep walking. A trip can easily cut your daily steps, and in small studies cutting steps by about 80–90% for two weeks lowered insulin sensitivity, fitness and leg lean mass [@KroghMadsen2010_twoWeekStepReduction; @BowdenDavies2018_stepReductionMetabolic], and one week of it lowered muscle protein synthesis by about 27% (a mechanistic measure) [@Shad2019_stepReductionMPS]. On a day with no time for a session, three vigorous climbs of a 3-flight (60-step) stairwell spread across the day still count: done on 3 days a week for 6 weeks, that raised VO₂peak modestly compared with controls in a small trial in sedentary young adults [@Jenkins2019_stairSnacks]. Balance practice stays in every strength warm-up and hamstring stretching in every cool-down.",
+      "decisions": [
+        "D30"
+      ],
+      "science": [
+        "sci-noequip"
+      ],
+      "defaults": {
+        "sets": {
+          "primary": 3,
+          "secondary": 2,
+          "isolation": 3,
+          "core": 2
+        },
+        "rir": {
+          "primary": "1–2",
+          "secondary": "1–2",
+          "isolation": "0–1",
+          "core": "—"
+        },
+        "params": {
+          "z2min": 35,
+          "z2sec": 2100,
+          "intReps": 6,
+          "intWork": 120,
+          "intRecover": 120,
+          "intText": "6 × 2:00 hard (RPE 8–9) / 2:00 easy"
+        }
+      },
+      "weekPlans": [
+        {
+          "w": 1,
+          "title": "First week away: find your levels",
+          "sets": {
+            "primary": 2,
+            "secondary": 2,
+            "isolation": 2,
+            "core": 2
+          },
+          "rir": {
+            "primary": "2–3",
+            "secondary": "2–3",
+            "isolation": "2–3",
+            "core": "—"
+          },
+          "params": {
+            "z2min": 30,
+            "z2sec": 1800,
+            "intReps": 4,
+            "intWork": 120,
+            "intRecover": 120,
+            "intText": "4 × 2:00 hard (RPE 8–9) / 2:00 easy"
+          },
+          "notes": "Two sets of everything, stopping 2–3 reps short of failure, while you find the right rung for each exercise: if a set ends with more than about 4 reps in reserve, or passes the top of its range easily, use the next rung next time. **Nordic curls: 2 sets of 3–5 only**, however easy they feel. Expect soreness after exercises you have not done before: the protection that training gives against soreness seems to be partly specific to the exercise (inference), so the gym does not fully prepare you for Nordic curls or for split-squat and lunge variants you have not been doing there. Intervals: 4 efforts while you learn the stairs or route; walk down slowly, because stair descents are eccentric work for the thighs and can leave them sore at first (muscle physiology). Keep walking every day and eat protein at every meal."
+        },
+        {
+          "from": 2,
+          "to": 3,
+          "title": "Hold or build",
+          "sets": {
+            "primary": 3,
+            "secondary": 2,
+            "isolation": 3,
+            "core": 2
+          },
+          "rir": {
+            "primary": "1–2",
+            "secondary": "1–2",
+            "isolation": "0–1",
+            "core": "—"
+          },
+          "params": {
+            "z2min": 35,
+            "z2sec": 2100,
+            "intReps": 6,
+            "intWork": 120,
+            "intRecover": 120,
+            "intText": "6 × 2:00 hard (RPE 8–9) / 2:00 easy"
+          },
+          "notes": "Primary exercises 3 sets, secondary 2, isolation 3, core 2. Most sets end 1–2 reps short of failure and isolation sets 0–1; the last set of push-ups, rows and split squats may go to [[term:momentary-failure|momentary failure]]. If you left the gym in Phase 0 or Phase 1 weeks 1–6, keep every set at 2–3 reps in reserve and skip the failure sets for the whole trip: like the gym programme, effort rises only once you have practised judging it (practical convention). Nordic curls: 3 × 3–8, dosed by reps rather than reps in reserve: end a set at 8, or sooner when your break point comes clearly earlier than on the first rep. Move up a rung whenever every set reaches the top of its range at the target effort; above about 30 reps, move up rather than going longer. Intervals: 6 efforts. After week 3 the app repeats from week 2."
+        }
+      ],
+      "schedule": [
+        [
+          "pa-a",
+          "pa-steady",
+          "pa-b",
+          null,
+          "pa-a",
+          "pa-int",
+          null
+        ],
+        [
+          "pa-b",
+          "pa-steady",
+          "pa-a",
+          null,
+          "pa-b",
+          "pa-int",
+          null
+        ]
+      ]
     }
   ],
   "sessions": {
@@ -934,6 +1283,262 @@
       },
       "cooldown": { "use": "cd-cardio" },
       "record": "Activity, duration, RPE."
+    },
+
+    "pa-a": {
+      "name": "Away full body A",
+      "kind": "strength",
+      "minutes": 55,
+      "summary": "Bulgarian split squat, push-up + row, single-leg Romanian deadlift + pike push-up, lateral raise + calf raise, then reverse crunches. Use the hardest rung that still gives the target reps with control, and end sets close to failure: effort replaces load.",
+      "warmup": {
+        "use": "wu-away"
+      },
+      "main": {
+        "items": [
+          {
+            "ref": "bulgarian-split-squat",
+            "logAs": "Bulgarian Split Squat (Away)",
+            "role": "primary",
+            "reps": "8-20",
+            "perSide": true,
+            "rest": 60,
+            "warmupSets": "1 easier set × 8 per side (rear foot on the floor)",
+            "tempo": "2–3 s down",
+            "load": "Bodyweight, rear foot on a chair, sofa or bed edge. Next rungs: a 3–4 s lowering with a 1 s pause at the bottom, then a loaded backpack hugged to your chest.",
+            "note": "Left leg first; match its reps on the right."
+          },
+          {
+            "ref": "push-up",
+            "logAs": "Push Up (Away)",
+            "role": "primary",
+            "reps": "6-20",
+            "rest": 75,
+            "superset": "B",
+            "load": "Your ladder rung: hands on a table, bed or stairs → floor → feet on a chair → backpack on. Use the rung that gives 6–20 reps at the target effort."
+          },
+          {
+            "ref": "inverted-row",
+            "role": "primary",
+            "reps": "6-20",
+            "rest": 75,
+            "superset": "B",
+            "load": "Overhand grip on the edge of a sturdy table, lying underneath it; test the table first (see the exercise page). No safe table: [[ex:backpack-row]], each arm."
+          },
+          {
+            "ref": "sl-rdl",
+            "logAs": "Single Leg Romanian Deadlift (Away)",
+            "role": "secondary",
+            "reps": "8-15",
+            "perSide": true,
+            "rest": 60,
+            "superset": "C",
+            "load": "Bodyweight, then a loaded backpack held in the hand opposite the standing leg. Fingertips on a wall or chair at first.",
+            "note": "Left leg first."
+          },
+          {
+            "ref": "pike-push-up",
+            "role": "secondary",
+            "reps": "5-15",
+            "rest": 60,
+            "superset": "C",
+            "load": "The rung that gives 5–15 controlled reps: hands on a step or bed edge, then the floor, then feet on a chair."
+          },
+          {
+            "ref": "db-lateral-raise",
+            "logAs": "Lateral Raise (Away)",
+            "role": "isolation",
+            "reps": "15-30",
+            "rest": 45,
+            "superset": "D",
+            "load": "Two filled 1–2 L bottles, or one loaded bag one arm at a time; a band if you have one."
+          },
+          {
+            "ref": "standing-calf-raise",
+            "logAs": "Standing Calf Raise (Away)",
+            "role": "isolation",
+            "sets": 2,
+            "reps": "10-20",
+            "perSide": true,
+            "rest": 45,
+            "superset": "D",
+            "tempo": "1–2 s pause in the stretch",
+            "load": "One leg at a time, the ball of the foot on a stair edge or a sturdy step and a hand on the wall; when both sets reach 20 reps at the target effort, wear a loaded backpack.",
+            "note": "Left leg first."
+          },
+          {
+            "ref": "reverse-crunch",
+            "role": "core",
+            "reps": "8-15",
+            "rest": 45,
+            "load": "Bent knees first; then a 3–4 s lowering, then straighter legs, then an incline holding a bed frame or heavy sofa."
+          }
+        ],
+        "rationale": "**Selection.** The session covers a squat pattern, an upper-body push and an upper-body pull, the core of a time-efficient programme [@Iversen2021_time_efficient], plus a hinge, an overhead push, the lateral deltoids and the calves, each in the hardest bodyweight version you can control.\n- *Bulgarian split squat:* putting most of your weight on one leg makes body weight a real load (biomechanical reasoning). In 18 young rugby players, training only the (loaded) rear-foot-elevated split squat raised back-squat [[term:1rm|1RM]] as much as back-squat training [@Speirs2016_RFESSvsBackSquat], and unilateral and bilateral training gave similar early gains in squat strength and power in 38 untrained adults [@McCurdy2005_uniVsBiUntrained].\n- *Push-up:* taken to failure, push-ups grew the chest (+18.3%) and triceps (+9.5%) about as much as a bench press at a matched light load in a small 8-week trial [@Kikuchi2017_pushupVsBench]. A floor push-up loads about 64–66% of body weight, raising the feet makes it heavier and raising the hands lighter (force-plate studies) [@Gouvali2005_pushupVariantsGRF; @Ebben2011_pushupKinetics]; the ladder uses exactly that.\n- *Inverted row:* probably the best pull available without a bar (inference). In 7 men it produced the highest latissimus and upper-back activation and the lowest lumbar load of three rows (EMG and modelling) [@Fenwick2009_invertedRowSpine], and near horizontal it put about 69–73% of body weight through the arms of 12 trained athletes on suspension straps [@Vural2023_suspensionLoadBW].\n- *Single-leg Romanian deadlift:* hamstrings and glutes at long length. In a small trial of 20 active adults supervised remotely by video, it improved a hamstring endurance test (the single-leg hamstring bridge) as much as Nordic curls, but the single-leg RDL group needed added load (median 7.5 kg) [@Behan2024_NHEvsSLRDLremote], hence the backpack rung.\n- *Pike push-up:* the nearest substitute for an overhead press; with the hips high, the arms push close to vertically and the hands carry more of your weight as the feet come closer (biomechanical reasoning).\n- *Lateral raise:* the only exercise here that trains the lateral deltoids directly. Dumbbell and cable raises grew the muscle equally in 24 trained adults [@Larsen2025_lateralRaiseDBvsCable], and at matched effort elastic tubing produced deltoid activation similar to dumbbells (EMG in 16 women with neck and shoulder pain) [@Andersen2010_dumbbellVsTubingEMG], so bottles, a bag or a band should serve (inference).\n- *Single-leg calf raise:* standing raises grew the gastrocnemius far more than seated ones in a small trial in 14 untrained adults [@Kinoshita2023_standingVsSeatedCalf], and the pause in the stretch follows a trial in 42 untrained women in which partial reps in the stretched position grew it most [@Kassiano2023_calfLP]; that a pause does the same is inference.\n\n**Dose.** The rep ranges are wide (6–20, 8–20, 15–30) because bodyweight rungs change the load in big steps; light, moderate and heavy loads built similar muscle when sets went to failure [@Lopez2021_load_NMA], and sets of 20–25 reps matched sets of 8–12 in trained men [@Morton2016_20to25repsTrained]. Across sessions A and B this gives about 5–9 hard sets a week for most muscles (calves and biceps get less), counting sets for helper muscles as half [@Pelland2025_volume_frequency], probably a maintenance dose for Phases 2–4 (inference; see [[phase:pa|Away mode]]). Rests of 45–75 s within supersets keep the session to 55 minutes. Growth benefited slightly from resting more than 60 s but not appreciably beyond about 90 s [@Singer2024_rest_meta]; in a superset each muscle also rests while you do the paired exercise, so its own sets are well over 90 s apart. Supersets of non-competing muscles matched traditional sets for gains [@Zhang2025_superset_meta].\n\n**Effort.** With light loads, effort matters most: in 25 untrained men, knee-extension sets at 30% of 1RM grew the quadriceps 7.8% when taken to failure and only 2.8% (not significant) when stopped short [@Lasevicius2022_failure_by_load], and light loads taken to failure recruited type II fibres too (a mechanistic study) [@Morton2019_fibre_activation]. So from week 2, Away sets end 0–2 reps from failure, closer than your gym free-weight sets, and the last set of push-ups, rows and split squats may reach failure: with no bar to get stuck under, that is safe (practical convention). Effort estimates were less accurate in sets of more than 12 reps [@Halperin2022_RIR_accuracy], one more reason to move up a rung rather than let sets grow very long."
+      },
+      "cooldown": {
+        "use": "cd-away"
+      },
+      "shortVersion": "Short on time (≈25 min)? March on the spot for 3 min, then do the scapular push-ups and paused squats from the warm-up; 2 sets of the split squat (left first); 2 rounds of the push-up + row superset; 2 rounds of the lateral raise + calf raise superset; finish with the hamstring stretch. Keep this week's effort targets.",
+      "record": "In Hevy (routine 'Away A'), log each exercise under its Away name ([[plan:logging]]): the new ones by their 'Log as' names ('Inverted Row' or 'Backpack Row', 'Pike Pushup', 'Reverse Crunch') and the gym ones as custom '(Away)' copies ('Bulgarian Split Squat (Away)', 'Push Up (Away)', 'Single Leg Romanian Deadlift (Away)', 'Lateral Raise (Away)', 'Standing Calf Raise (Away)'); the exercise cards above show the same names. Record reps and RPE for every working set, with the rung in the exercise note (e.g. 'feet on chair', 'table row, knees bent'). A backpack or bottle load goes in the weight field in kg: weigh it on your scale (your weight holding it minus your weight without it). Log the split squat, single-leg RDL and calf raise for the left and right leg, and any pain (site, 0–10).",
+      "notes": "No sturdy table? Do [[ex:backpack-row]] for the row. A long loop band, if you have one, can load the lateral raises and rows; see each exercise's notes for training without equipment. Any gym nearby beats all of this: use it, swapping exercises as needed ([[rule:substitution]])."
+    },
+    "pa-b": {
+      "name": "Away full body B",
+      "kind": "strength",
+      "minutes": 55,
+      "summary": "Nordic curls first, then reverse lunges, push-up + row (a harder rung and, on a bar, a new grip), triceps extension + lateral raise, and side planks.",
+      "warmup": {
+        "use": "wu-away"
+      },
+      "main": {
+        "items": [
+          {
+            "ref": "nordic-curl",
+            "role": "primary",
+            "reps": "3-5",
+            "rir": "—",
+            "rest": 90,
+            "warmupSets": "1 set of 2 easy partial-range reps",
+            "load": "Heels hooked under a heavy sofa or bed that cannot tip or slide (test it with a hard pull), or held by a person; knees on a folded towel. Lower as slowly as you can and catch yourself with your hands.",
+            "note": "Every rep is a maximal effort to slow the fall, so the rep count, not reps in reserve, sets the dose. Week 1: 2 × 3–5 only (the app shows 2 sets that week), however easy they feel; from week 2, 3 × 3–8, ending a set at 8 or sooner when your break point comes clearly earlier than on the first rep. No safe anchor: [[ex:sliding-leg-curl]] in its place, 2 × 6–10 (eccentric-only, both legs) at 2–3 RIR in week 1, then 3 × 6–15 at 1–2 RIR.",
+            "weeks": {
+              "to": 1
+            }
+          },
+          {
+            "ref": "nordic-curl",
+            "role": "primary",
+            "reps": "3-8",
+            "rir": "—",
+            "rest": 90,
+            "warmupSets": "1 set of 2 easy partial-range reps",
+            "load": "Heels hooked under a heavy sofa or bed that cannot tip or slide (test it with a hard pull), or held by a person; knees on a folded towel. Lower as slowly as you can and catch yourself with your hands.",
+            "note": "Every rep is a maximal effort to slow the fall, so the rep count, not reps in reserve, sets the dose. Week 1: 2 × 3–5 only (the app shows 2 sets that week), however easy they feel; from week 2, 3 × 3–8, ending a set at 8 or sooner when your break point comes clearly earlier than on the first rep. No safe anchor: [[ex:sliding-leg-curl]] in its place, 2 × 6–10 (eccentric-only, both legs) at 2–3 RIR in week 1, then 3 × 6–15 at 1–2 RIR.",
+            "weeks": {
+              "from": 2
+            }
+          },
+          {
+            "ref": "reverse-lunge",
+            "logAs": "Reverse Lunge (Away)",
+            "role": "primary",
+            "reps": "8-20",
+            "perSide": true,
+            "rest": 60,
+            "load": "Bodyweight. Next rungs: front foot on a stair or a thick book (a deficit, so you sink deeper), then a loaded backpack.",
+            "note": "Left leg first."
+          },
+          {
+            "ref": "push-up",
+            "logAs": "Push Up (Away)",
+            "role": "primary",
+            "reps": "6-20",
+            "rest": 75,
+            "superset": "B",
+            "load": "Today a harder variant than session A if you can: feet on a chair, or hands on two stacks of books for a deficit. Otherwise A's rung with a 3 s lowering."
+          },
+          {
+            "ref": "inverted-row",
+            "role": "primary",
+            "reps": "6-20",
+            "rest": 75,
+            "superset": "B",
+            "load": "On a bar, rings or straps: an underhand grip (palms towards you) to involve the biceps more (anatomical reasoning). Under a table, which allows only an overhand grip, keep A's grip and slow the lowering to 3–4 s, or do the [[ex:backpack-row]] with your palm turned forward."
+          },
+          {
+            "ref": "bw-triceps-extension",
+            "role": "secondary",
+            "reps": "8-15",
+            "rest": 60,
+            "superset": "C",
+            "load": "Hands on a kitchen counter or sturdy table edge, body straight; a lower surface or feet further back makes it harder."
+          },
+          {
+            "ref": "db-lateral-raise",
+            "logAs": "Lateral Raise (Away)",
+            "role": "isolation",
+            "reps": "15-30",
+            "rest": 45,
+            "superset": "C",
+            "load": "As in session A: bottles, a loaded bag one arm at a time, or a band."
+          },
+          {
+            "ref": "side-plank",
+            "logAs": "Side Plank (Away)",
+            "role": "core",
+            "reps": "20-45 s",
+            "perSide": true,
+            "rest": 30,
+            "load": "From the knees until 20 s on the feet is possible; beyond 45 s, raise the top leg or rest a loaded bag on your hip."
+          }
+        ],
+        "rationale": "**Selection.**\n- *Nordic curl first,* while you are fresh: it is the hardest and most technical exercise here, and the only way to load knee flexion heavily without a machine (biomechanical reasoning). Low volumes work: in a meta-analysis of 13 studies, mostly in athletes and active young adults, low- and high-volume programmes of 6 weeks or more gave similarly large gains in [[term:eccentric|eccentric]] strength (g 2.28 vs 2.12), and biceps femoris fascicles (fibre bundles) lengthened [@Cuthbert2020_NHEvolumeMeta]; in 45 trained young men, gains were then maintained on as little as 4 reps a week, with weight added once they could control the descent [@Miura2025_NHEultralowMaintenance]. In 44 adults with tight hamstrings, low-volume Nordic curls improved passive knee extension as much as static stretching (6.1° vs 5.1° more than controls) [@Henderson2025_NHEvsStaticStretch], which should suit your toe-touch limitation (inference), and in athletes, programmes that included them roughly halved hamstring injuries (risk ratio 0.49) [@vanDyk2019_NHEinjuryMeta].\n- *Reverse lunge:* the week's second single-leg knee exercise, with a different stance from the split squat; the deficit rung adds range (practical convention). [[term:unilateral|Unilateral]] training built muscle like bilateral training (very imprecise evidence) and improved single-leg strength most [@Kassiano2025_uniVsBiMeta].\n- *Push-up and row, varied:* a harder push-up rung and an underhand row grip (on a bar, rings or straps; under a table, a slower lowering instead) load the same muscles a little differently. In a review of 8 small studies in young men, deliberate, reasoned variation could help regional growth, whereas excessive, random rotation may blunt gains [@Kassiano2022_variationSR]. The underhand grip lets the biceps, also a forearm supinator, pull in its strongest position (anatomical reasoning); in an EMG study, biceps activation was very high with either grip [@Youdas2016_invertedRowEMG].\n- *Bodyweight triceps extension:* direct triceps work alongside the presses. With the arms raised in front of the head, the long head works at a longer length than in a pushdown (anatomical reasoning); in 21 untrained adults, overhead cable extensions grew the triceps about 1.4–1.5 times more than neutral-arm ones [@Maeo2023_overheadTriceps], but whether this exercise gets the same benefit is inference.\n- *Side plank:* lateral trunk work with no equipment. Trunk muscle training improved strength and local muscular endurance in athletes [@Saeterbakken2022_trunkTrainingMeta], though abdominal exercises alone did not reduce waist size or abdominal fat in a small trial [@Vispute2011_absSpot].\n\n**Dose and effort.** As in session A [@Lasevicius2022_failure_by_load; @Pelland2025_volume_frequency], with one exception: Nordic curls stay low-rep and every rep stays under control. A first session of 24 reps reduced eccentric strength for up to 3 days and raised soreness on days 2–3 in 13 trained men [@Coratella2025_NHEmuscleDamageRBE], and in untrained people a single earlier bout of eccentric exercise cut later soreness and strength loss, most when done 2–4 days before [@Boyd2023_preconditioningEIMDmeta]; hence the small dose in week 1 (inference). A dose meta-regression found no link between Nordic volume and strength gain and suggested about 29–64 reps a week after a progressive start [@Franke2025_NHEdoseMetaRegression]; from week 2 this session gives 9–24 reps, so 9–48 a week depending on how many B sessions the week holds."
+      },
+      "cooldown": {
+        "use": "cd-away"
+      },
+      "shortVersion": "Short on time (≈25 min)? March on the spot for 3 min, then the scapular push-ups, paused squats and glute bridges from the warm-up; 2 easy partial-range Nordic reps, then 2 sets of Nordic curls; 2 sets of reverse lunges per side (left first); 2 rounds of the push-up + row superset; 2 rounds of the triceps extension + lateral raise superset; hamstring stretch. Keep this week's effort targets.",
+      "record": "In Hevy (routine 'Away B'), log each exercise under its Away name ([[plan:logging]]): the new ones by their 'Log as' names ('Nordic Hamstrings Curls' or 'Sliding Leg Curl', 'Inverted Row' or 'Backpack Row', 'Triceps Extension (Bodyweight)') and the gym ones as custom '(Away)' copies ('Reverse Lunge (Away)', 'Push Up (Away)', 'Lateral Raise (Away)', 'Side Plank (Away)'); the exercise cards above show the same names. Nordic curls as reps per set, with how far down you controlled the descent in the note (e.g. 'controlled to halfway'); reverse-lunge reps for each leg; push-up and row rung and reps; lateral-raise load in kg and reps; side-plank seconds per side. RPE for every working set except the Nordic curls, and any pain (site, 0–10).",
+      "notes": "Nordic curls need an anchor that cannot move: test the sofa or bed with a hard pull before the first rep, pad your knees, and keep your hands ready to catch you. Expect sore hamstrings for 2–3 days after the first session; it is much milder after later ones."
+    },
+    "pa-steady": {
+      "name": "Away steady session",
+      "kind": "cardio",
+      "minutes": 50,
+      "summary": "{{z2min}} minutes of brisk walking at a conversational effort, on hills or stairs if you have them, or a hike, swim, ride or class of similar length.",
+      "warmup": {
+        "use": "wu-away-cardio"
+      },
+      "main": {
+        "items": [
+          {
+            "ref": "cardio-steady",
+            "dose": "{{z2min}} min at RPE 3–4 (full sentences): brisk walk (hills or stairs if you have them), or easy running only if your current phase already includes running",
+            "timer": {
+              "type": "countdown",
+              "seconds": "{{z2sec}}",
+              "label": "Steady"
+            }
+          }
+        ],
+        "rationale": "In a meta-analysis of 28 studies in healthy adults aged 18–45, continuous endurance training raised VO₂max by about 4.9 mL/kg/min versus no exercise [@Milanovic2015_HITvsCET_VO2maxMA]. Brisk walking, uphill where you can, is the easiest way to train continuously anywhere (practical convention), although it may be gentler than the training in those trials (inference). The [[term:talk-test|talk test]] needs no equipment: comfortable speech is possible below the [[term:ventilatory-threshold|ventilatory threshold]] and becomes difficult close to it [@Persinger2004_talkTest; @ReedPipe2014_talkTestReview]. Running stays out unless your phase already includes it, because novice runners were injured about twice as often per hour of running as recreational runners [@Videbaek2015_runningInjuryIncidence]. The session also counts towards the 150–300 weekly minutes of moderate activity recommended for health [@Bull2020_WHOguidelines]."
+      },
+      "cooldown": {
+        "use": "cd-away-cardio"
+      },
+      "record": "Activity, duration, distance or route if your phone records it, and session RPE; note hills, flights of stairs or a backpack load if you used them.",
+      "notes": "A hike, dance or martial-arts class, swim or cycle ride of similar duration counts."
+    },
+    "pa-int": {
+      "name": "Away intervals",
+      "kind": "intervals",
+      "minutes": 40,
+      "summary": "{{intText}} on stairs, a hill or, if your phase already includes running, a run; a low-impact bodyweight circuit if you have none of these. If your gym phase has no intervals yet, do a second steady session instead (see the notes below). Stop at once and follow the [[plan:safety|safety rules]] if you feel chest pain, faintness or unusual breathlessness.",
+      "warmup": {
+        "use": "wu-away-intervals"
+      },
+      "main": {
+        "items": [
+          {
+            "ref": "cardio-noeq-intervals",
+            "dose": "{{intText}}",
+            "timer": {
+              "type": "intervals",
+              "work": "{{intWork}}",
+              "recover": "{{intRecover}}",
+              "reps": "{{intReps}}",
+              "workLabel": "Hard",
+              "recoverLabel": "Easy"
+            }
+          }
+        ],
+        "rationale": "This keeps the role of your gym interval session, a weekly dose of hard aerobic work, because intensity is what maintained endurance when training was cut back [@Spiering2021_minimalDose]. Stairs or a hill come first: bodyweight-only [[term:hiit|HIIT]] improved cardiorespiratory fitness versus no exercise ([[term:smd|SMD]] 0.75) but less than running or cycling training (SMD −0.40) in pooled trials [@Scoubeau2022_wholeBodyHIITmeta], whereas ~2-min stair ascents raised [[term:vo2max|VO₂max]] by 17.1% relative to controls in one small trial in sedentary young women [@Boreham2005_stairClimbing]. Two-minute efforts fall within the longer-interval (≥2 min) format linked to larger VO₂max gains [@Wen2019_HIITprotocolsMA] and fit an ordinary stairwell or hill (practical convention). The session totals 8–12 min of hard work rather than a 4-min 'Tabata', because very short bodyweight protocols often failed to raise VO₂max [@Scoubeau2022_wholeBodyHIITmeta] and, in one trial, kept no benefit at 2 months [@Islam2019_TabataVsVICT]. Jumping moves wait until Phase 2, as the programme adds impact gradually (practical convention)."
+      },
+      "cooldown": {
+        "use": "cd-away-cardio"
+      },
+      "record": "Mode (stairs, hill, run or circuit), efforts completed, floors or distance per effort if you can count them, and session RPE; in Hevy, a cardio entry with the duration and these details in the note.",
+      "notes": "Match your gym phase: if it has no interval session yet (Phase 0, or Phase 1 before week 7), skip the pick-ups and walk briskly for {{z2min}} min at RPE 3–4 instead, as in the steady session ([[ex:cardio-steady]]); in the rest of Phase 1, keep the hard efforts at RPE 7–8, as in your gym intervals (practical convention). With only a few floors, climb and turn back down continuously and push only on the way up; in one small uncontrolled trial in sedentary young women, 60-s efforts up and down a single flight still raised VO₂peak by 7% over 6 weeks [@Allison2017_stairSprintSIT]. A bike ride or swim with hard 2-min efforts also works (practical convention)."
     }
   }
 }

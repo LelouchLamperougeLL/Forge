@@ -4,7 +4,7 @@
 import { $, esc, ICONS, toast, copyText } from './util.js';
 import { DB, loadContent, makeCtx, refHtml, integrityReport } from './content.js';
 import { store } from './store.js';
-import { setDone, setPosition, getPosition, nextPosition, phases } from './engine.js';
+import { setDone, setPosition, getPosition, nextPosition, phases, getPhase, getReturnTo } from './engine.js';
 import * as V from './views.js';
 import { viewTools, viewTool, viewSettings } from './tools.js';
 
@@ -200,7 +200,16 @@ function onClick(e) {
   } else if (action === 'advance-week') {
     const pos = getPosition();
     const n = pos && nextPosition(pos);
-    if (n) { setPosition(n.phase, n.week); toast(`Now in week ${n.week}`); render(); }
+    // A cyclic phase starting over gets fresh "done" ticks for the weeks it repeats.
+    if (n) { setPosition(n.phase, n.week, { fresh: n.phase === pos.phase && n.week <= pos.week }); toast(`Now in week ${n.week}`); render(); }
+  } else if (action === 'return-from-optional') {
+    const r = getReturnTo();
+    if (r) {
+      setPosition(r.phase, r.week);
+      const p = getPhase(r.phase);
+      toast(`Back to ${(p && p.short) || r.phase}, week ${r.week}`);
+      if (location.hash === '#/today' || location.hash === '') render(); else location.hash = '#/today';
+    }
   } else if (action === 'copy') {
     const el = document.getElementById(act.dataset.copyTarget);
     copyText(el ? el.value || el.textContent : '').then(ok => toast(ok ? 'Copied: paste into your logging app' : 'Copy failed: select the text manually'));

@@ -1525,7 +1525,8 @@
         ],
         "phases": [
           "p4",
-          "pm"
+          "pm",
+          "pa"
         ],
         "items": [
           "cardio-int-4x4",
@@ -2496,6 +2497,127 @@
         ],
         "items": [
           "cd-easy"
+        ]
+      }
+    },
+    {
+      "id": "D30",
+      "category": "Training structure",
+      "title": "Training away from the gym",
+      "context": "Your profile reports no frequent travel, but trips, holidays, family visits and gym closures will still happen. Without a gym you can count on floor space, a chair, a bed or sofa, stairs or a step, a door frame, a towel and a backpack you can load with books or water bottles; a sturdy table is a bonus. The programme needs a default for these periods that protects your muscle, strength and aerobic fitness, gives your priority muscles (shoulders, upper chest, back width, arms) the best stimulus available, and needs no purchases.",
+      "options": [
+        {
+          "name": "Bodyweight progression ladders: three full-body sessions plus two aerobic sessions",
+          "summary": "Away mode: two full-body sessions alternated three times a week (A-B-A, then B-A-B), built on push-ups, table or backpack rows, split squats and lunges, single-leg Romanian deadlifts, Nordic curls, pike push-ups and bottle lateral raises. Each is progressed along a [[term:progression-ladder|progression ladder]] (leverage, range, one leg, tempo, pauses, a loaded backpack), with sets ending 0–2 [[term:rir|RIR]]; plus a brisk walk and 2-minute stair or hill intervals each week.",
+          "for": "With sets to failure, light and heavy loads built similar muscle [@Schoenfeld2017_load_meta; @Lopez2021_load_NMA]; at 30% of 1RM, sets to failure grew the quadriceps 7.8% against 2.8% for sets stopped short [@Lasevicius2022_failure_by_load]. In 18 young men with at least a year of training, push-ups to failure grew the chest (+18.3% vs +19.4%) and triceps (+9.5% vs +10.3%) as much as a bench press at a matched 40% of 1RM [@Kikuchi2017_pushupVsBench]. One-third of the usual dose preserved hypertrophy in young adults [@Bickel2011_maintenanceDose]. Bodyweight intervals raised cardiorespiratory fitness versus no exercise ([[term:smd|SMD]] 0.75) [@Scoubeau2022_wholeBodyHIITmeta], and climbing stairs raised VO₂max 17.1% versus controls in one small trial in young women [@Boreham2005_stairClimbing]. It needs nothing you do not already have.",
+          "against": "Without a bar or band the lats, biceps and lateral deltoids are hard to load well (biomechanical reasoning). Light loads build less 1RM strength than heavy ones (SMD about 0.60 for high vs low loads) [@Lopez2021_load_NMA], and very light loads of 15–20% 1RM gave smaller or inconsistent growth [@Lasevicius2018_20to80pct1RM; @Buckner2019_veryLowLoadArms; @Jessee2018_veryLowLoadLegs]. In a non-randomised trial in 37 inactive 30–64-year-olds, a body-mass programme whose sets were not explicitly taken to failure grew the quadriceps somewhat less than free weights (about +3.6% vs +6.3%; p = 0.051, so not statistically significant) [@Ogawa2023_bodyMassVsFreeWeight]. Bodyweight intervals improved cardiorespiratory fitness less than running or cycling intervals or continuous training (SMD −0.40) [@Scoubeau2022_wholeBodyHIITmeta].",
+          "chosen": true
+        },
+        {
+          "name": "Pause training and use the breaks rule",
+          "summary": "No structured training while away; on return, follow the [[rule:breaks]] table.",
+          "for": "Short breaks cost little: 2 weeks off did not reduce leg-press strength or lean mass in 20 resistance-trained young men [@Hwang2017_twoWeekDetraining]; in 15 untrained young men a 3-week break caused no significant loss of chest and triceps size or bench-press 1RM, and retraining gains matched the first block [@Ogasawara2011_threeWeekBreakBench]; and after a 10-week break, previously untrained adults who had trained for 10 weeks regained muscle size and leg-press strength faster than first-time trainees gained them [@Halonen2024_breakVsContinuous].",
+          "against": "Losses grow with the length of a break [@Bosquet2013_detrainingMeta]: in one small trial, vastus lateralis size was 6 ± 8% lower after 2 weeks off and 10 ± 8% lower after 4, though still above baseline and possibly inflated by swelling at the post-training scan [@McMahon2019_twoFourWeekDetraining], and over a 10-week break size fell more than strength (vastus lateralis −9.94% vs leg-press 1RM −5.40%) [@Rantila2025_detrainingLosses]. A trip without training tends to mean fewer steps (inference), and 2 weeks at about 1,300 steps a day lowered insulin sensitivity by 17% and VO₂max by 7% in 10 young men [@KroghMadsen2010_twoWeekStepReduction]. Breaking the routine also risks the habit, which matters because you lose interest when bored (inference).",
+          "chosen": false
+        },
+        {
+          "name": "Carry portable equipment (resistance bands or a suspension trainer)",
+          "summary": "Pack a long loop band or a suspension trainer and train with it. Adopted as an optional upgrade, not a requirement.",
+          "for": "Elastic training matched conventional training for strength in a meta-analysis of 7 small trials in mixed, partly clinical groups (lower limb SMD −0.11, [[term:confidence-interval|95% CI]] −0.40 to 0.19; upper limb 0.09, −0.18 to 0.35) [@Lopes2019_elasticVsConventionalMeta]; in one small trial, band-loaded push-ups matched the bench press for strength gains in 30 trained students [@Calatayud2015_bandPushupVsBench]; and in another, suspension training matched machines and weights in 42 untrained older adults (biceps thickness +21.56% vs +23.35%) [@Soligon2020_suspensionVsTraditional]. Bands came close to cables for rows and pulldowns in an EMG study [@Iversen2017_bandsMultiJointEMG], so a band would cover the back and arm muscles that bodyweight work loads least well (inference).",
+          "against": "It costs money and bag space, and a suspension trainer needs a secure anchor (practical convention). Bands load squats poorly (much lower quadriceps activation) [@Iversen2017_bandsMultiJointEMG], and the strength meta-analysis had no muscle-size outcome [@Lopes2019_elasticVsConventionalMeta]. With no frequent travel reported, the purchase is worthwhile only if trips become common (inference).",
+          "chosen": false
+        },
+        {
+          "name": "A day pass at any gym",
+          "summary": "Find a gym near where you are staying and run your normal sessions. Preferred whenever one is available.",
+          "for": "You keep your exercises and loads, so you keep practising the heavy lifts themselves, and 1RM strength is largely specific to the trained movement: dynamic training improved it about twice as much as untrained isometric strength [@Saeterbakken2025_taskSpecificityMeta]. Free weights and machines produced similar hypertrophy (only 5 hypertrophy studies, wide CI) [@Haugen2023_freeVsMachineMeta], so unfamiliar equipment probably costs little (inference), and [[rule:substitution]] handles the swaps.",
+          "against": "Often unavailable in a village, at a relative's home or on a short trip, and it costs time and money (practical convention). It cannot be the default plan for time without a gym.",
+          "chosen": false
+        }
+      ],
+      "choiceSummary": "When you have no gym, train in Away mode: three full-body bodyweight sessions a week, progressed along ladders with sets ending 0–2 reps short of failure, plus a steady session, an interval session and your daily steps. Use any gym (a day pass) whenever one is available, and buy a long loop band if trips become common.",
+      "rationale": "**Effort replaces load.** With light loads, growth depends on ending sets close to failure [@Lasevicius2022_failure_by_load], and light sets taken to failure recruited and depleted type II fibres much as heavy sets did (mechanistic study) [@Morton2019_fibre_activation]. So Away-mode sets end at 0–2 [[term:rir|RIR]], with 2–3 RIR only in the first week while you find your levels.\n\n**Ladders replace plates.** Leverage changes the load: a normal push-up starts at 66.4% of body weight and a kneeling one at 52.9% [@Gouvali2005_pushupVariantsGRF], raising the feet makes it heavier and raising the hands lighter [@Ebben2011_pushupKinetics], and a near-horizontal suspension row put about 69–73% of body weight through the arms of trained athletes [@Vural2023_suspensionLoadBW]. In one trial in trained lifters, adding reps worked as well as adding load [@Plotkin2022_loadVsRepProgression], and repetition durations of about 0.5–8 s gave similar growth [@Schoenfeld2015_rep_duration], so more reps, a slower lowering, pauses and a loaded backpack are all legitimate rungs. Sets of 20–25 reps and 30–40RM taken to failure built muscle like 8–12-rep sets [@Morton2016_20to25repsTrained; @Bell2023_30to40RMvs8to12RM], but very light loads did not reliably do so [@Lasevicius2018_20to80pct1RM; @Buckner2019_veryLowLoadArms; @Jessee2018_veryLowLoadLegs], hence moving up a rung beyond about 30 reps (the cut-off is practical convention).\n\n**Enough to hold, sometimes to build.** About one-third of the usual dose kept hypertrophy in young adults [@Bickel2011_maintenanceDose], and a narrative review concluded that, at least in younger people, strength and size were held for up to 32 weeks on one set per exercise once a week when relative load was kept [@Spiering2021_minimalDose]. Away mode keeps effort high rather than load, which builds similar muscle (above), so its roughly 5–9 [[term:hard-sets|hard sets]] a week for most muscles (calves and biceps get less) should be a maintenance dose for Phases 2–4 and close to a growth dose in Phase 1 (inference). It keeps Phase 1's weekly shape, so it fits any phase.\n\n**Stairs and hills before circuits.** Bodyweight-only intervals improved cardiorespiratory fitness less than running, cycling or continuous training, and very short protocols of 4–7 minutes often failed to raise VO₂max [@Scoubeau2022_wholeBodyHIITmeta]; in one trial, only vigorous continuous running, not 4-minute bodyweight ‘Tabata’ sessions, kept its endurance benefit 2 months later [@Islam2019_TabataVsVICT]. Stair ascents of about 2 minutes, by contrast, raised VO₂max in one small trial [@Boreham2005_stairClimbing]. So 2-minute hard climbs are the default and a low-impact bodyweight circuit the fallback; keeping intensity high is what maintained endurance when training was reduced [@Spiering2021_minimalDose].\n\n**Weak points, honestly.** Rows under a bar strongly activate the lats, upper back and biceps (EMG studies) [@Youdas2016_invertedRowEMG; @Fenwick2009_invertedRowSpine], but no training trial has tested them on their own, and bottle lateral raises are light. That is why a band is the recommended upgrade and any gym beats the plan. On return, heavy-lift strength may lag because 1RM strength is partly specific to the lift [@Saeterbakken2025_taskSpecificityMeta]; [[rule:away]] sets the loads.",
+      "confidence": "moderate",
+      "confidenceNote": "Moderate for the principles: meta-analyses agree that light loads taken close to failure build muscle, and a trial and a narrative review agree that a small dose maintains it. Low for the specifics: bodyweight trials are few, small and short and often in other groups (older adults, women, athletes), rows have EMG but no training data, and the ladders, rep ceiling, day cut-offs and return loads are practical convention.",
+      "profileData": [
+        "No frequent travel reported: for occasional trips, holidays, family visits or a closed gym",
+        "Baseline 5 strict push-ups and 3 pull-ups: low rungs (hands raised) at first",
+        "Three of your priority muscles, the lateral deltoids, the lats (back width) and the biceps, are the hardest to load without equipment",
+        "Left leg weaker: single-leg work starts on the left",
+        "Cannot reach your toes (tight hamstrings)",
+        "Trains alone, logs in Hevy and loses interest when bored: a ready-made plan beats improvising",
+        "Bathroom scale at home to weigh a loaded backpack"
+      ],
+      "wouldChange": [
+        "Trips becoming frequent or longer than a few weeks: buy a loop band or a suspension trainer",
+        "Reps on the same rung, or tape measurements, falling over 2–3 weeks away: add a set or a harder rung",
+        "Heavy lifts more than about 10% down after returning: shorter stretches away, or a band for heavier rungs",
+        "Pain with Nordic curls, pike push-ups or long sets ([[rule:pain]])",
+        "A trial showing that bodyweight training fails to maintain muscle or strength in trained young men"
+      ],
+      "refs": [
+        "Schoenfeld2017_load_meta",
+        "Lopez2021_load_NMA",
+        "Lasevicius2022_failure_by_load",
+        "Kikuchi2017_pushupVsBench",
+        "Bickel2011_maintenanceDose",
+        "Scoubeau2022_wholeBodyHIITmeta",
+        "Boreham2005_stairClimbing",
+        "Lasevicius2018_20to80pct1RM",
+        "Buckner2019_veryLowLoadArms",
+        "Ogawa2023_bodyMassVsFreeWeight",
+        "Hwang2017_twoWeekDetraining",
+        "Ogasawara2011_threeWeekBreakBench",
+        "Halonen2024_breakVsContinuous",
+        "Bosquet2013_detrainingMeta",
+        "McMahon2019_twoFourWeekDetraining",
+        "Rantila2025_detrainingLosses",
+        "KroghMadsen2010_twoWeekStepReduction",
+        "Lopes2019_elasticVsConventionalMeta",
+        "Calatayud2015_bandPushupVsBench",
+        "Soligon2020_suspensionVsTraditional",
+        "Iversen2017_bandsMultiJointEMG",
+        "Saeterbakken2025_taskSpecificityMeta",
+        "Haugen2023_freeVsMachineMeta",
+        "Morton2019_fibre_activation",
+        "Gouvali2005_pushupVariantsGRF",
+        "Ebben2011_pushupKinetics",
+        "Vural2023_suspensionLoadBW",
+        "Plotkin2022_loadVsRepProgression",
+        "Schoenfeld2015_rep_duration",
+        "Morton2016_20to25repsTrained",
+        "Bell2023_30to40RMvs8to12RM",
+        "Jessee2018_veryLowLoadLegs",
+        "Spiering2021_minimalDose",
+        "Islam2019_TabataVsVICT",
+        "Youdas2016_invertedRowEMG",
+        "Fenwick2009_invertedRowSpine"
+      ],
+      "related": {
+        "articles": [
+          "sci-noequip"
+        ],
+        "rules": [
+          "away",
+          "breaks",
+          "substitution"
+        ],
+        "plan": [
+          "logging"
+        ],
+        "phases": [
+          "pa",
+          "pm"
+        ],
+        "items": [
+          "inverted-row",
+          "backpack-row",
+          "pike-push-up",
+          "nordic-curl",
+          "sliding-leg-curl",
+          "bw-triceps-extension",
+          "reverse-crunch",
+          "cardio-noeq-intervals"
         ]
       }
     }

@@ -2,7 +2,7 @@
 // app works fully offline. To publish an update: change files, bump VERSION, deploy. Open clients
 // see an "update ready" banner and reload when the user chooses (never mid-workout by surprise).
 
-const VERSION = 'forge-v1.0.0';
+const VERSION = 'forge-v1.1.0';
 
 const PRECACHE = [
   './',

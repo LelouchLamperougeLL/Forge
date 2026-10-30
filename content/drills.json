@@ -1832,6 +1832,7 @@
       ],
       "progression": "Add time first (about 5 min at a time) at RPE 3-4; as you get fitter, the same RPE will need more speed or incline.",
       "regression": "Shorter sessions, flat walking, or the bike if shins or knees complain.",
+      "away": "Walk briskly outdoors, or indoors on stairs or long corridors, at the same [[term:rpe|RPE]] 3–4 (full sentences); hills or stairs make it harder at walking speed, and a hike, swim, bike ride, dance or martial-arts class of similar length also counts. Without a treadmill's incline, a flat walk may drop below RPE 3 as you get fitter: walk faster, choose a hilly route or carry a backpack with a few kilograms of water bottles (practical convention). Progress by time, as in the gym (in [[phase:pa|Away mode]] the session is 30 min in week 1 and 35 min after that), and run only if your phase already includes running ([[rule:running]]). In Indian midday heat, walk in shade or on an indoor stairwell and carry water (practical convention).",
       "alternatives": [
         {
           "id": "cardio-long",
@@ -1894,6 +1895,7 @@
       ],
       "progression": "Follow the table, moving on only after a week in which any pain stayed at 3/10 or below and settled by the next morning. Pain that lasts into the next day or changes your stride means hold or step back a week ([[rule:running]]).",
       "regression": "Repeat the previous week's pattern, or switch that session to incline walking or the bike.",
+      "away": "It needs only shoes and a timer, so keep your phase's run-walk pattern and the spike rule while away ([[rule:running]]); in [[phase:pa|Away mode]] it can replace the steady session. Choose a flat, even route, and on unfamiliar roads or surfaces run the first session a little easier than usual (inference). If your phase has not reached running yet, walk briskly instead ([[ex:cardio-steady]]). In Indian midday heat, pick shade and carry water (practical convention), and stop for pain that changes your stride ([[term:pain-monitoring|pain-monitoring model]]).",
       "alternatives": [
         {
           "id": "cardio-steady",
@@ -2017,6 +2019,7 @@
       ],
       "progression": "Hold 4 × 4 at the same RPE while output (watts, speed or incline) rises. Add a second weekly session only when the phase plan calls for it and lifting progress and sleep are unaffected; rotate the machine every 4-6 weeks ([[rule:cardio-progression]]).",
       "regression": "3 × 4 min, 4 × 3 min, or RPE 7-8; after illness, restart with [[ex:cardio-int-intro]] ([[rule:illness]]).",
+      "away": "Without a bike, rower or treadmill, do [[ex:cardio-noeq-intervals]] instead: 2-min hard climbs of a stairwell or a hill at the same RPE 8–9, walking down easily between. If running is already part of your phase, hard running efforts can replace the climbs, within the spike rule ([[rule:running]]). A bodyweight circuit is the last resort, because in pooled trials bodyweight-only intervals improved cardiorespiratory fitness less than running or cycling training, intervals or continuous ([[term:smd|SMD]] −0.40) [@Scoubeau2022_wholeBodyHIITmeta]. On stairs, hold the rail and never hurry down.",
       "alternatives": [
         {
           "id": "cardio-int-intro",
@@ -3484,6 +3487,144 @@
         "Log girths in Hevy's body measurements (or notes), with anything unusual such as a late salty meal, illness or festival food ([[plan:logging]]; [[plan:monitoring]])."
       ],
       "scoring": "Record each site in cm (to 0.5 cm). Waist-to-height ratio = navel waist ÷ height; yours is about 86 ÷ 181 = 0.475.\n\n| Marker | Reference |\n|---|---|\n| WHtR | 0.4-0.49 healthy; 0.5-0.59 increased; 0.6 or more high [@NICE2025_NG246] |\n| Waist, Asian Indian men | action level 1 at 78 cm, level 2 at 90 cm [@Misra2006_IndianWaist] |\n\nAt 86 cm you sit between the two Indian action levels, while your WHtR is below 0.5. No source reviewed quantifies the error of self-measured waist, so read trends, not single readings: a change of about 1 cm or less between two measurements is within ordinary technique and gut-content variation (inference). While gaining muscle, a sustained rise in navel waist across several readings is the earliest sign that fat gain is outpacing muscle gain; while losing fat, a falling waist with steady or rising arm and thigh girths is the pattern you want (inference). Photos are a qualitative record and are never turned into numbers."
+    },
+    {
+      "id": "wu-cardio-noeq",
+      "name": "Easy cardio warm-up without equipment",
+      "category": "warmup",
+      "system": "cardiorespiratory / muscle temperature",
+      "targets": {
+        "primary": [
+          "whole-body muscle temperature",
+          "heart rate and breathing"
+        ],
+        "secondary": [
+          "legs and hips (marching, stairs)",
+          "calves and ankles (jogging on the spot, skipping)"
+        ]
+      },
+      "equipment": [
+        "none: about 2 × 2 m of floor, or a staircase",
+        "optional: a skipping rope (from Phase 2)"
+      ],
+      "summary": "Continuous easy-to-moderate movement that opens every [[phase:pa|Away-mode]] session in place of the gym's bike or rower: marching on the spot, walking up and down stairs, or, from [[phase:p2]], jogging on the spot or easy skipping. Its job is the same as [[ex:wu-cardio-easy]]: raise muscle temperature, heart rate and breathing before anything else, which matters for you because you train about an hour after waking.",
+      "dose": "Strength sessions: 4 min, starting easy ([[term:rpe|RPE]] 2–3) and finishing moderate (RPE 4–5). Steady session: 5 min of walking that builds to brisk. Interval session: 8 min (4 min easy, then 4 min moderate at RPE 5). Take 1–2 min longer on cold days or when you feel stiff. Logging it in Hevy is optional; if you do, use a cardio entry with the minutes.",
+      "setup": [
+        "Clear about 2 × 2 m of floor, or use a lit staircase with a handrail where you will not block anyone.",
+        "Wear shoes on a hard or slippery floor; socks slip on tiles (practical convention).",
+        "A phone timer or the app's timer is enough; no heart-rate monitor needed."
+      ],
+      "execution": [
+        "First half easy (RPE 2–3): march on the spot with a relaxed arm swing, or walk up and down one or two flights at an easy pace, holding the rail on the way down.",
+        "Second half: lift the knees higher and quicken the rhythm, or climb a little faster, until breathing is clearly faster but full sentences are still possible (RPE 4–5). From Phase 2, easy jogging on the spot or skipping can replace the marching.",
+        "Go straight on to the mobility drills without sitting down."
+      ],
+      "cues": [
+        "Easy, then warm.",
+        "Quiet feet.",
+        "Finish ready, not tired."
+      ],
+      "errors": [
+        {
+          "error": "Turning it into a workout, such as racing up the stairs (RPE 7 or more).",
+          "fix": "Cap it at RPE 5; the job is temperature, not fitness."
+        },
+        {
+          "error": "Jumping or jogging on the spot in Phase 1 because it warms you faster.",
+          "fix": "March or walk stairs instead; the programme adds impact gradually from Phase 2 (practical convention)."
+        },
+        {
+          "error": "Skipping it because the room is hot.",
+          "fix": "A warm room is not working muscle: passive heating was largely ineffective as an upper-body warm-up [@McCrary2015_upperbody_warmup]."
+        }
+      ],
+      "progression": "No load progression. As fitness improves, the same RPE needs a quicker rhythm, higher knees or faster stairs; follow RPE, not the clock.",
+      "regression": "Stay at RPE 2–4 throughout, marching slowly, if 4 min leaves you breathless.",
+      "alternatives": [
+        {
+          "id": "wu-cardio-easy",
+          "why": "The machine version: use it whenever a bike, rower, cross-trainer or treadmill is available (a hotel gym counts)."
+        },
+        {
+          "id": "wu-jump-rope",
+          "why": "From [[phase:p2]], if you packed a rope, easy skipping can be the second half."
+        }
+      ],
+      "whyChosen": "It does the job of the gym's machine warm-up with nothing but floor or stairs. In one study of 56 adults, performance (grip strength was the only physical test) followed biological time and habitual sleep timing rather than clock time [@FacerChilds2018_chronotype], so a session an hour after waking probably behaves like an early-morning one (applying this to you is inference), and warm-ups reduced such time-of-day differences across studies [@Kusumoto2021_diurnal_variation]. Marching and stair walking come first because they add little impact (practical convention). See [[dec:D30]].",
+      "safety": "Hold the rail on stairs and keep the descent slow (practical convention). For chest pain, dizziness, palpitations or unusual breathlessness, stop and follow [[plan:safety]]. In hot weather stay at RPE 4–5 and drink water (practical convention).",
+      "mechanism": "As with the gym version, warmer muscle speeds cross-bridge cycling and nerve conduction and resists lengthening less (background physiology, not measured in the cited trials). Temperature is only part of it: in a small study, an extended morning warm-up that raised rectal temperature to evening levels did not restore evening lifting performance [@Pullinger2019_morning_warmup_lifts], so rehearsal and neural activation probably matter too (inference).",
+      "evidence": "Warm-ups improved performance in 79% of outcomes across 32 studies, with little sign of harm [@Fradkin2010_warmup_performance]; adding 20 min of easy cycling to a specific warm-up raised leg-press [[term:1rm|1RM]] by 8.4% in 13 trained people [@Abad2011_general_specific_warmup]. Warm-ups reduced time-of-day performance differences, an extended morning warm-up most [@Kusumoto2021_diurnal_variation]. No study in these sources compares marching or stair walking with machine cardio as a warm-up; treating them as equivalent at the same RPE is inference."
+    },
+    {
+      "id": "cardio-noeq-intervals",
+      "name": "No-equipment intervals (stairs, hill or bodyweight circuit)",
+      "category": "cardio",
+      "system": "Aerobic: high-intensity intervals without a machine",
+      "targets": {
+        "primary": [
+          "VO₂max",
+          "leg muscles (stairs and hills)"
+        ],
+        "secondary": [
+          "whole-body muscular endurance (circuit)",
+          "energy expenditure"
+        ]
+      },
+      "equipment": [
+        "a stairwell of several floors (default), a hill, or a safe running route",
+        "or about 2 × 2 m of non-slip floor and a sturdy step for the circuit",
+        "interval timer (the app's)"
+      ],
+      "summary": "Your Away-mode interval session: 2-min hard efforts with 2 min easy between, done by climbing stairs, walking uphill (or running, if your phase already includes it) or, in a room with neither, a low-impact bodyweight circuit. Hard means [[term:rpe|RPE]] 8–9, only a few words possible by the end of each effort, not all-out. It keeps the job of your gym intervals ([[ex:cardio-int-4x4]]) while you are away.",
+      "dose": "[[phase:pa]] week 1: 4 × 2:00 hard (RPE 8–9) / 2:00 easy; weeks 2–3: 6 × 2:00 hard / 2:00 easy. Warm up with [[ex:wu-cardio-noeq]] (8 min) and two pick-ups, and finish with [[ex:cd-easy]]; about 40 min in all. If your gym phase has no intervals yet (Phase 0, or Phase 1 before week 7), do a steady session instead; in the rest of Phase 1, keep the hard efforts at RPE 7–8, as in your gym intervals (practical convention).",
+      "setup": [
+        "Choose the mode in this order: stairs, a hill, running (only if your phase already includes running, see [[rule:running]]), then the circuit.",
+        "Stairs: a quiet, lit stairwell with a handrail. A building of about 10 storeys suits a 2-min climb at a hard pace (practical convention). Check that the stairwell doors will let you back in.",
+        "Circuit: clear about 2 × 2 m of non-slip floor and find a bottom stair or a sturdy step about 15–20 cm high.",
+        "Set the app's interval timer to 2:00 hard / 2:00 easy for the week's number of efforts."
+      ],
+      "execution": [
+        "Each hard effort: settle into a pace you expect to hold for 2 min; by the end you should be at RPE 8–9, able to say only a few words.",
+        "Stairs: climb steadily, one step at a time, using the rail lightly for balance. Recover by walking down easily, holding the rail. With only a few floors, climb and turn back down continuously and push only on the way up.",
+        "Hill: walk briskly, or run if running is part of your phase, uphill for 2 min; walk back down for the recovery.",
+        "Circuit: each 2-min effort is 30 s each of high knees (fast marching with high knees in Phase 1), mountain climbers, fast step-ups (alternate the leading leg) and squat to calf raise, moving straight from one to the next; then 2 min of easy marching. From [[phase:p2]], and only if your knees and calves tolerate them, jumping jacks, squat jumps or burpees can replace one or two moves.",
+        "Pace evenly so the last effort matches the first (floors climbed or reps done); log the mode, efforts completed and session RPE."
+      ],
+      "cues": [
+        "Hard but even.",
+        "A few words, not none.",
+        "Easy minutes truly easy."
+      ],
+      "errors": [
+        {
+          "error": "Sprinting the first flights and crawling the last.",
+          "fix": "Start each effort slightly below target; the effort climbs on its own as the 2 min pass."
+        },
+        {
+          "error": "Hurrying down the stairs to save time.",
+          "fix": "The walk down is the recovery: descend slowly, holding the rail."
+        },
+        {
+          "error": "A circuit that never gets past RPE 6–7.",
+          "fix": "Move faster and through a fuller range, use a higher step, or find stairs. Only one of the pooled trials of bodyweight circuits recorded intensity, and low intensity may be one reason they improved cardiorespiratory fitness less than running or cycling training [@Scoubeau2022_wholeBodyHIITmeta] (inference)."
+        }
+      ],
+      "progression": "Four efforts in week 1 of each trip and six in weeks 2–3; then hold six while output rises: more floors per effort, a steeper hill or a faster pace. For the circuit, move faster or, from Phase 2, swap in jumping moves.",
+      "regression": "Fewer efforts (3–4) or RPE 7–8 if you finish wrecked, sleep poorly or your next strength session suffers. After illness, follow [[rule:illness]] before any hard efforts.",
+      "alternatives": [
+        {
+          "id": "cardio-int-4x4",
+          "why": "The machine version: use it whenever a bike, rower or treadmill is available (a hotel gym counts)."
+        },
+        {
+          "id": "cardio-steady",
+          "why": "A brisk walk or hike instead when you are under-recovered or have no safe place for hard efforts. If you are ill, [[rule:illness]] decides whether you train at all."
+        }
+      ],
+      "whyChosen": "Stairs and hills come first because climbing reaches a high intensity at walking speed (biomechanical reasoning), and stair climbing, unlike hill walking, has been tested directly. Bodyweight-only [[term:hiit|HIIT]] improved cardiorespiratory fitness less than running or cycling training (intervals or continuous) in pooled trials [@Scoubeau2022_wholeBodyHIITmeta], whereas in one small trial in 15 sedentary young women (8 climbers, 7 controls) a programme of ~2-min ascents of a 199-step staircase at 90 steps a minute, building to 5 a day on 5 days a week over 8 weeks, raised [[term:vo2max|VO₂max]] by 17.1% relative to controls [@Boreham2005_stairClimbing]. Two-minute efforts fit an ordinary stairwell or hill and fall within the longer-interval (≥2 min) format linked to larger VO₂max gains [@Wen2019_HIITprotocolsMA]; 4-min climbs would need a very tall building (practical convention). The circuit uses low-impact moves until Phase 2 because the programme adds impact gradually (practical convention). See [[dec:D30]].",
+      "safety": "The hardest session you do alone away from home: keep your phone with you, tell someone where you are, and stop for chest pain, faintness, palpitations or unusual breathlessness ([[plan:safety]]). Never run down stairs. Walking down is eccentric work for the thighs, so expect some thigh soreness after the first stair session (muscle physiology); week 1's four efforts allow for that. In Indian midday heat, use an indoor stairwell or shade and carry water (practical convention).",
+      "mechanism": "As with [[ex:cardio-int-4x4]], minutes near maximal heart rate load the heart's pumping capacity (standard physiology). Climbing lifts your whole body mass with every step, so stairs reach a high intensity at walking speed (biomechanical reasoning). A bodyweight circuit spreads the work over more, smaller muscle groups; that may be why it improved musculoskeletal fitness more, and cardiorespiratory fitness less, than running or cycling training in pooled trials [@Scoubeau2022_wholeBodyHIITmeta] (the explanation is inference).",
+      "evidence": "Across 19 trials (657 mostly healthy adults), bodyweight-only HIIT versus no exercise improved cardiorespiratory fitness ([[term:smd|SMD]] 0.75, 95% CI 0.28–1.23), fat-free mass (0.38) and musculoskeletal fitness (0.84). Versus running or cycling HIIT or continuous training it improved cardiorespiratory fitness less (−0.40, −0.70 to −0.11) but musculoskeletal fitness more (0.42); effects grew with total training time, and very short (4–7 min) protocols often failed to raise VO₂max [@Scoubeau2022_wholeBodyHIITmeta]. In a tiny trial (about 7 recreationally active young women per group), 4-min all-out bodyweight sessions 4 times a week raised VO₂peak about 8% in 4 weeks [@McRae2012_wholeBodyTabata], but in a larger trial of 68 young adults (mostly women) the same format improved time to fatigue and 5-km time at first yet kept no benefit at a 2-month follow-up, unlike about 30 min of vigorous running [@Islam2019_TabataVsVICT]. Stair protocols raised VO₂peak by 12% (3 × 20-s all-out climbs) and 7% (3 × 60 s up and down one flight) over 6 weeks in small uncontrolled trials in sedentary young women [@Allison2017_stairSprintSIT]. In trials of healthy adults and patients, home-based HIIT raised VO₂peak by 1.75 mL/kg/min versus no exercise but about 1.46 mL/kg/min less than laboratory HIIT [@Tsuji2023_homeHIITmeta]. See [[sci:sci-noequip]]."
     }
   ]
 }

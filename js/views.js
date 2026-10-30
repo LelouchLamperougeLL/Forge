@@ -4,7 +4,7 @@ import { esc, ICONS, restLabel, plain, todayISO } from './util.js';
 import { DB, makeCtx, refHtml, refShort, gradeClass } from './content.js';
 import {
   phases, getPhase, weekCount, weekPlan, scheduleFor, resolveSession, rxParts, effortLabel, sessionText,
-  getPosition, isDone, weekAdherence, phaseAdherence, KIND_LABEL, DAY_NAMES, expandPart,
+  getPosition, getReturnTo, isDone, weekAdherence, phaseAdherence, KIND_LABEL, DAY_NAMES, expandPart,
 } from './engine.js';
 import { renderPlayer } from './player.js';
 
@@ -98,13 +98,15 @@ export function viewToday() {
   const adh = weekAdherence(phase, w);
   const nextS = next ? DB.idx.sessions.get(next.sessionId) : null;
   const tests = plan.tests && plan.tests.length ? plan.tests : null;
-  const isLastWeek = w >= N;
+  // Optional phases repeat until you leave them, so their last week advances instead of transitioning.
+  const isLastWeek = w >= N && !phase.optional;
   return {
     title: 'Today',
     html: `<div class="page">
       ${head(`<span class="phase-dot" style="background:${phaseColor(phase)}"></span> ${esc(phase.name)}`, `Week ${w} of ${N}${plan.title ? ' · ' + esc(plan.title) : ''}`)}
       <div class="progress" aria-label="Phase progress"><span style="width:${Math.round((100 * (w - 1)) / N)}%"></span></div>
       <p class="small muted">${adh.done} of ${adh.planned} planned sessions done this week · ${new Date().toLocaleDateString(undefined, { weekday: 'long', day: 'numeric', month: 'short' })}</p>
+      ${phase.optional ? returnCard(ctx, phase) : ''}
       ${nextS ? `<div class="card">
         <p class="eyebrow">Next session · ${esc(next.dow)}</p>
         <h2 style="margin:0 0 4px">${esc(nextS.name)}</h2>
@@ -122,13 +124,40 @@ export function viewToday() {
       <div class="row" style="margin-top:16px">
         ${isLastWeek
           ? `<a class="btn primary" href="#/tool/transition?phase=${phase.id}">Phase transition checklist</a>`
-          : `<button class="btn" data-action="advance-week">Finish week ${w} → week ${w + 1}</button>`}
+          : `<button class="btn" data-action="advance-week">Finish week ${w} → ${w < N ? `week ${w + 1}` : `repeat${N > 1 ? ` from week ${Math.min(phase.cycleTo || 1, N)}` : ''}`}</button>`}
         <a class="btn ghost" href="#/tool/checkin">Weekly check-in</a>
         <a class="btn ghost" href="#/tool/progression">Progression calculator</a>
       </div>
+      ${phase.optional ? '' : switchCard()}
       ${ctx.refsHtml()}
     </div>`,
   };
+}
+
+/** Today, in the main sequence: one-tap switches into the optional phases for disrupted weeks. */
+function switchCard() {
+  const opts = phases().filter(p => p.optional);
+  if (!opts.length) return '';
+  return `<div class="card flat" style="margin-top:16px"><h3 style="margin-top:0">No gym, or a disrupted week?</h3>
+    <p class="small muted">Switch for as long as you need. The app remembers this week and brings you back to it.</p>
+    <ul class="list">${opts.map(p => `<li class="row between" style="padding:6px 0;flex-wrap:nowrap;gap:12px">
+      <span class="small"><a href="#/phase/${p.id}"><strong>${esc(p.navName || p.name)}</strong></a>${p.switchHint ? ` · <span class="muted">${esc(p.switchHint)}</span>` : ''}</span>
+      <button class="btn small" data-action="set-position" data-phase="${p.id}" data-week="1">Switch</button></li>`).join('')}</ul></div>`;
+}
+
+/** Inside an optional phase: how long you have been in it and a one-tap return to the main sequence. */
+function returnCard(ctx, phase) {
+  const r = getReturnTo();
+  if (!r) {
+    return `<div class="callout"><div class="callout-title">${esc(phase.name)} repeats until you leave it</div>
+      <p>When normal training resumes, set your phase and week in <a href="#/settings">Settings</a>.</p></div>`;
+  }
+  const back = getPhase(r.phase);
+  const days = r.left ? Math.max(0, Math.floor((Date.now() - Date.parse(r.left)) / 86400000)) : null;
+  const rule = phase.returnRule ? ` ${ctx.md(`Before your first session back, read [[rule:${phase.returnRule}]].`).replace(/^<p>|<\/p>$/g, '')}` : '';
+  return `<div class="callout"><div class="callout-title">${esc(phase.navName || phase.name)}${days != null ? ` · day ${days + 1}` : ''}</div>
+    <p>You left ${esc(back.short || back.name)} at week ${r.week}${r.left ? ` on ${esc(new Date(r.left).toLocaleDateString(undefined, { day: 'numeric', month: 'short' }))}` : ''}.${rule}</p>
+    <button class="btn primary" data-action="return-from-optional">Return to ${esc(back.short || back.name)} · week ${r.week}</button></div>`;
 }
 
 // ---------------------------------------------------------------- Programme overview
@@ -137,7 +166,7 @@ export function viewProgramme() {
   const ctx = makeCtx();
   const P = DB.programme;
   const all = phases();
-  const timeline = all.filter(p => !p.optional);   // Maintenance mode is used by choice, not part of the sequence
+  const timeline = all.filter(p => !p.optional);   // optional phases are used by choice, not part of the sequence
   const totalWeeks = timeline.reduce((a, p) => a + (p.timelineWeeks || p.weeks || 1), 0);
   const bar = `<div class="phase-bar">${timeline.map(p => `<a href="#/phase/${p.id}" style="--w:${p.timelineWeeks || p.weeks};--c:${phaseColor(p)}" title="${esc(p.name)}">${esc(p.short || p.name)}</a>`).join('')}</div>`;
   const cards = all.map(p => `<a class="card card-link" href="#/phase/${p.id}">
@@ -188,7 +217,11 @@ export function viewPhase(id) {
     title: phase.short || phase.name,
     html: `<div class="page">
       ${head(`<span class="phase-dot" style="background:${phaseColor(phase)}"></span> ${esc(phase.short || '')} · ${esc(phase.durationLabel || `${N} weeks`)}`, esc(phase.name), '')}
-      ${pos && pos.phase === phase.id ? `<p class="small muted">You are in week ${pos.week}. Adherence so far: ${adh.pct ?? '–'}% of planned sessions.</p>` : `<div class="row"><button class="btn small" data-action="set-position" data-phase="${phase.id}" data-week="1">Set as current phase (week 1)</button></div>`}
+      ${pos && pos.phase === phase.id
+        ? `<p class="small muted">You are in week ${pos.week}. Adherence so far: ${adh.pct ?? '–'}% of planned sessions.</p>${phase.optional ? returnCard(ctx, phase) : ''}`
+        : phase.optional
+          ? `<div class="row"><button class="btn small primary" data-action="set-position" data-phase="${phase.id}" data-week="1">Switch to ${esc(phase.navName || phase.name)} now</button><span class="small muted">The app remembers your current week and offers a one-tap return.</span></div>`
+          : `<div class="row"><button class="btn small" data-action="set-position" data-phase="${phase.id}" data-week="1">Set as current phase (week 1)</button></div>`}
       <div class="card"><h2 style="margin-top:0">Purpose</h2>${md(ctx, phase.purpose)}</div>
       ${phase.structure ? `<div class="card"><h2 style="margin-top:0">Week and session structure</h2>${md(ctx, phase.structure)}</div>` : ''}
       <div class="section-head"><h2>Typical week</h2><span class="small muted">week 1 shown</span></div>
@@ -266,10 +299,10 @@ function drillRows(ctx, items) {
   }).join('');
 }
 
-function exerciseCard(ctx, it, i) {
+function exerciseCard(ctx, it, i, { away = false } = {}) {
   const x = it.item;
   const name = x ? x.name : (it.name || it.ref);
-  const logName = x && x.loggingName && x.loggingName !== x.name ? x.loggingName : '';
+  const logName = it.logAs || (x && x.loggingName && x.loggingName !== x.name ? x.loggingName : '');
   const rx = rxParts(it).map(p => `<span class="rx-item"><b>${esc(p)}</b></span>`).join('');
   const errs = x && (x.errors || []).length
     ? `<h4>Common errors</h4><ul>${x.errors.map(e => `<li><strong>${inlineMd(ctx, e.error)}</strong>${e.fix ? ' — ' + inlineMd(ctx, e.fix) : ''}</li>`).join('')}</ul>` : '';
@@ -290,6 +323,7 @@ function exerciseCard(ctx, it, i) {
       ${(x.setup || []).length ? `<h4>Set-up</h4><ol>${x.setup.map(s => `<li>${inlineMd(ctx, s)}</li>`).join('')}</ol>` : ''}
       ${(x.execution || []).length ? `<h4>Execution</h4><ol>${x.execution.map(s => `<li>${inlineMd(ctx, s)}</li>`).join('')}</ol>` : ''}
       ${errs}
+      ${away && x.away ? `<h4>Without equipment</h4>${ctx.md(x.away)}` : ''}
       ${x.startingLoad ? `<h4>Finding your starting load</h4>${ctx.md(x.startingLoad)}` : ''}
       ${x.progression ? `<h4>Progress</h4>${ctx.md(x.progression)}` : ''}
       ${x.regression ? `<h4>Regress</h4>${ctx.md(x.regression)}` : ''}
@@ -298,6 +332,13 @@ function exerciseCard(ctx, it, i) {
       <p><a href="#/ex/${esc(x.id)}">Open full exercise page</a></p>
     </div></details>` : ''}
   </div>`;
+}
+
+/** On a gym strength session: where the no-equipment version is, for a day without gym access. */
+function noGymHint(ctx, phase, s) {
+  const away = phases().find(p => p.optional && p.noEquipment);
+  if (!away || phase.optional || s.kind !== 'strength') return '';
+  return `<p class="small muted">No gym today? ${ctx.link('phase', away.id, esc(away.navName || away.name))} has no-equipment sessions; for one missed day, do one of its full-body sessions and tick this one as done.</p>`;
 }
 
 export function viewSession(phaseId, w, dayIdx) {
@@ -323,13 +364,14 @@ export function viewSession(phaseId, w, dayIdx) {
       </div>
       ${s.summary ? `<div class="card" style="margin-top:14px">${md(ctx, s.summary)}</div>` : ''}
       ${day.note ? `<p class="small muted">${esc(day.note)}</p>` : ''}
+      ${noGymHint(ctx, phase, s)}
 
       <div class="section-head"><h2><span class="section-num">1</span>Warm-up</h2><span class="small muted">${s.warmup.minutes ? `≈${esc(s.warmup.minutes)} min` : ''}</span></div>
       <div class="card tight">${drillRows(ctx, s.warmup.items) || '<p class="muted">None.</p>'}</div>
       ${rationale('warmup', 'warm-up')}
 
       <div class="section-head"><h2><span class="section-num">2</span>Main training</h2></div>
-      ${s.main.items.map((it, i) => (it.timer || !it.reps ? `<div class="card tight">${drillRows(ctx, [it])}</div>` : exerciseCard(ctx, it, i))).join('')}
+      ${s.main.items.map((it, i) => (it.timer || !it.reps ? `<div class="card tight">${drillRows(ctx, [it])}</div>` : exerciseCard(ctx, it, i, { away: !!phase.noEquipment }))).join('')}
       ${rationale('main', 'main training')}
 
       <div class="section-head"><h2><span class="section-num">3</span>Cool-down &amp; stretching</h2><span class="small muted">${s.cooldown.minutes ? `≈${esc(s.cooldown.minutes)} min` : ''}</span></div>
@@ -447,6 +489,7 @@ export function viewItem(id) {
       ${sec('Scoring and interpretation', md(ctx, x.scoring))}
       ${sec('How to progress', md(ctx, x.progression))}
       ${sec('How to regress', md(ctx, x.regression))}
+      ${sec('Without equipment (Away mode)', md(ctx, x.away))}
       ${sec('Safe alternatives', alts)}
       ${sec('Why this was chosen for you', md(ctx, x.whyChosen))}
       ${sec('Mechanism', md(ctx, x.mechanism))}

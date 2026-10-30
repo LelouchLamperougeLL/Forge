@@ -96,6 +96,8 @@
       !renderMarkdown('<img src=x onerror=alert(1)>', ctx).includes('<img'));
     ok('Markdown renders citations', renderMarkdown('Text [@a; @b].', ctx).includes('[a,b]'));
     ok('Markdown renders tables', renderMarkdown('| a | b |\n|---|---|\n| 1 | 2 |', ctx).includes('<table>'));
+    const tl = renderMarkdown('| a | b |\n|---|---|\n| [[term:rir|RIR]] | 2 |', ctx);
+    ok('A labelled link inside a table cell stays one cell', tl.includes('<a data-t="term">RIR</a>') && (tl.match(/<td/g) || []).length === 2, tl);
     ok('Markdown renders nested lists', /<ul><li>a<ul><li>b<\/li><\/ul><\/li><\/ul>/.test(renderMarkdown('- a\n  - b', ctx)));
     ok('Markdown warning callout', renderMarkdown('!> careful', ctx).includes('callout warn'));
     ok('Token scan finds refs and links', scanTokens('x [@r1] [[ex:a|A]]').refs[0] === 'r1' && scanTokens('[[ex:a|A]]').links[0].id === 'a');
@@ -124,6 +126,34 @@
       ok('Sequencing: end of a Phase 4 cycle wraps to Phase 4 week 1 (never into Maintenance mode)', np('p4', 12) === JSON.stringify({ phase: 'p4', week: 1 }), np('p4', 12));
       ok('Sequencing: Maintenance mode repeats itself', np('pm', 1) === JSON.stringify({ phase: 'pm', week: 1 }), np('pm', 1));
       ok('Sequencing: within a phase → next week', np('p1', 5) === JSON.stringify({ phase: 'p1', week: 6 }), np('p1', 5));
+      // Optional phases: return point, fresh ticks and cycling. Runs against this browser's real storage,
+      // so the touched keys are snapshotted first and restored afterwards.
+      const { setPosition, getReturnTo, setDone, isDone, getPhase } = await import('../js/engine.js');
+      const { store } = await import('../js/store.js');
+      const KEYS = ['position', 'returnTo', 'done', 'doneArchive', 'history'];
+      const snap = Object.fromEntries(KEYS.map(k => [k, store.get(k, undefined)]));
+      try {
+        const away = phases().find(p => p.optional && p.noEquipment);
+        ok('Away mode exists and is optional and cyclic', !!away && !!away.cyclic);
+        store.remove('returnTo'); store.set('done', {});
+        setPosition('p1', 5);
+        setDone(away.id, 2, 0, true);
+        setPosition(away.id, 1);
+        const r = getReturnTo();
+        ok('Entering Away mode remembers the main-sequence week', !!r && r.phase === 'p1' && r.week === 5, JSON.stringify(r));
+        ok('A new visit to Away mode starts with fresh ticks', !isDone(away.id, 2, 0));
+        ok('Earlier ticks are archived, not lost', store.get('doneArchive', []).some(a => a.key === `${away.id}:2:0`));
+        const wrap = nextPosition({ phase: away.id, week: away.weeks });
+        ok('Away mode repeats from its cycleTo week, skipping the introductory week', wrap.phase === away.id && wrap.week === (away.cycleTo || 1), JSON.stringify(wrap));
+        setPosition('pm', 1);
+        ok('Switching between optional phases keeps the return point', (getReturnTo() || {}).week === 5);
+        setPosition('p1', 5);
+        ok('Returning to the main sequence clears the return point', getReturnTo() === null);
+        ok('The main sequence never advances into an optional phase',
+          !phases().filter(p => !p.optional).some(p => { const n = nextPosition({ phase: p.id, week: p.weeks }); return n && getPhase(n.phase).optional; }));
+      } finally {
+        for (const k of KEYS) { if (snap[k] === undefined) store.remove(k); else store.set(k, snap[k]); }
+      }
       const longest = [];
       for (const p of phases()) for (const [sid] of DB.idx.sessions) {
         const s = resolveSession(p.id, 1, sid);
