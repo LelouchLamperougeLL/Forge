@@ -154,6 +154,12 @@
       } finally {
         for (const k of KEYS) { if (snap[k] === undefined) store.remove(k); else store.set(k, snap[k]); }
       }
+      // Design: every phase's colour key has an oxide colour in the stylesheet, and every phase but the
+      // default (p0) has the rule that tints the app while you are in it.
+      const css = await (await fetch('../css/app.css')).text();
+      const noColour = phases().filter(p => !p.color || !css.includes(`--${p.color}:`) ||
+        (p.color !== 'p0' && !css.includes(`[data-temper="${p.color}"]`))).map(p => p.id);
+      ok('Every phase has a temper colour and app tint in the stylesheet', noColour.length === 0, noColour.join(', '));
       const longest = [];
       for (const p of phases()) for (const [sid] of DB.idx.sessions) {
         const s = resolveSession(p.id, 1, sid);

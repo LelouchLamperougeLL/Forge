@@ -523,7 +523,7 @@
       "schedule": [ ["p4-ua", "p4-la", "p3-hiit", "p4-ub", "p4-lb", "p3-long", null] ]
     },
     {
-      "id": "pm", "short": "PM", "name": "Maintenance mode", "navName": "Maintenance mode", "weeks": 1, "color": "p0", "durationLabel": "use as needed", "cyclic": true, "optional": true,
+      "id": "pm", "short": "PM", "name": "Maintenance mode", "navName": "Maintenance mode", "weeks": 1, "color": "pm", "durationLabel": "use as needed", "cyclic": true, "optional": true,
       "returnRule": "breaks", "switchHint": "busy week: two short gym sessions",
       "energyGoal": "maintain",
       "tagline": "Two short full-body sessions and two short aerobic sessions: the minimum that holds your progress during busy weeks.",
@@ -550,7 +550,7 @@
       "navName": "Away mode",
       "weeks": 3,
       "cycleTo": 2,
-      "color": "p0",
+      "color": "pa",
       "durationLabel": "use as needed",
       "cyclic": true,
       "optional": true,

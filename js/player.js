@@ -7,6 +7,7 @@ import { esc, mmss, restLabel, ICONS, toast } from './util.js';
 import { store, getSettings } from './store.js';
 import { effortLabel, setDone, isDone } from './engine.js';
 import { makeCtx } from './content.js';
+import { sparksFrom } from './fx.js';
 
 // ---------------------------------------------------------------- audio / vibration / wake lock
 
@@ -238,6 +239,9 @@ export function renderPlayer(root, session, dayIdx, { exitHref }) {
         t.textContent = mmss(rem);
         t.classList.toggle('ending', rem > 0 && rem <= 3.5);
       }
+      // The ring's arc is the fraction of time left.
+      const ring = root.querySelector('.ring');
+      if (ring) ring.style.setProperty('--f', timer.total > 0 ? Math.max(0, Math.min(1, rem / timer.total)).toFixed(4) : '0');
       const btn = root.querySelector('[data-p="toggle"]');
       if (btn) btn.textContent = timer.running ? 'Pause' : (rem > 0 && rem < timer.total ? 'Resume' : 'Start');
     },
@@ -293,28 +297,43 @@ export function renderPlayer(root, session, dayIdx, { exitHref }) {
     </div>`;
   }
 
+  /**
+   * A step's target. Sets: the rep range set large (readable from arm's length), effort and tempo as
+   * chips. Drills, holds and intervals: the dose as text, which can be a full sentence.
+   */
+  function targetHtml(st, { compact = false } = {}) {
+    if (!st.target.length) return '';
+    if (st.kind === 'set') {
+      const m = compact ? null : /^(.+?)\s+(reps(?: each side)?)$/.exec(st.target[0]);
+      const chips = m ? st.target.slice(1) : st.target;
+      return `${m ? `<div class="player-rx"><span class="rx-n">${esc(m[1])}</span><span class="rx-u">${esc(m[2])}</span></div>` : ''}
+        ${chips.length ? `<div class="player-target">${chips.map(t => `<span class="chip accent">${esc(t)}</span>`).join('')}</div>` : ''}`;
+    }
+    return st.target.map(t => `<p class="player-dose">${esc(t)}</p>`).join('');
+  }
+
   function draw() {
     const pct = steps.length ? Math.round((100 * Math.min(idx, steps.length)) / steps.length) : 100;
     let body = '';
     if (resting) {
       const next = steps[resting.nextIdx];
-      body = `<div class="player-card">
-        <div class="player-section">Rest</div>
-        <div class="timer"><div class="t mono" id="pt">${mmss(resting.seconds)}</div>
-        <div class="t-label">Next: ${esc(next ? `${next.title}${next.sub ? ' · ' + next.sub : ''}` : 'finish')}</div></div>
+      body = `<div class="player-card steel is-rest">
+        <div class="player-head"><div class="player-section">Rest</div></div>
+        <div class="timer"><div class="ring cooling"><div class="t mono" id="pt">${mmss(resting.seconds)}</div></div></div>
+        <p class="player-next">Next: ${next ? `<strong>${esc(next.title)}</strong>${next.sub ? ' · ' + esc(next.sub) : ''}` : 'finish'}</p>
         ${timerControls(false)}
-        ${next && next.target.length ? `<div class="player-target" style="justify-content:center">${next.target.map(t => `<span class="chip">${esc(t)}</span>`).join('')}</div>` : ''}
+        ${next ? targetHtml(next, { compact: true }) : ''}
       </div>
       <div class="player-actions"><button class="btn" data-p="prev">Back</button><button class="btn primary" data-p="skiprest">Skip rest</button></div>`;
     } else if (idx >= steps.length) {
       const done = isDone(session.phaseId, session.week, dayIdx);
-      body = `<div class="player-card">
+      body = `<div class="player-card steel player-finish">
         <div class="player-section">Finished</div>
         <div class="player-title">Session complete</div>
         ${session.record ? `<p class="muted">Before you close, record your sets in your logging app:</p><div class="md">${ctx.md(session.record)}</div>` : ''}
-        <div class="row" style="margin-top:14px">
-          <button class="btn primary" data-p="finish">${ICONS.check} ${done ? 'Marked as done' : 'Mark session done'}</button>
-          <a class="btn" href="${exitHref}">Back to session</a>
+        <div class="row" style="margin-top:18px">
+          <button class="btn primary big" data-p="finish">${ICONS.check} ${done ? 'Marked as done' : 'Mark session done'}</button>
+          <a class="btn big" href="${exitHref}">Back to session</a>
         </div></div>`;
     } else {
       const st = steps[idx];
@@ -326,18 +345,20 @@ export function renderPlayer(root, session, dayIdx, { exitHref }) {
           ${st.it.load ? `<p><strong>Load:</strong> ${stripP(ctx.md(st.it.load))}</p>` : ''}
           ${st.it.note ? `<p><strong>Note:</strong> ${stripP(ctx.md(st.it.note))}</p>` : ''}
           <p><a href="#/ex/${esc(item.id)}">Full technique, common errors and alternatives</a></p></div></details>` : '';
+      // Work and holds burn in the phase colour; recovery is cool steel; easy stretches are neutral.
+      const ringKind = st.phase === 'recover' ? ' recover' : st.phase === 'easy' ? ' easy' : '';
       const timerHtml = st.timer
-        ? `<div class="timer"><div class="t mono" id="pt">${mmss(st.timer.seconds)}</div><div class="t-label">${esc(st.timer.label || '')}</div></div>${timerControls(true)}`
+        ? `<div class="timer"><div class="ring${ringKind}"><div class="t mono" id="pt">${mmss(st.timer.seconds)}</div></div><div class="t-label">${esc(st.timer.label || '')}</div></div>${timerControls(true)}`
         : '';
       const rampLink = st.kind === 'ramp' ? '<p class="small"><a href="#/tool/warmup">Open the ramp-up set calculator</a></p>' : '';
       const primaryLabel = st.kind === 'set'
         ? (st.rest > 0 && !st.isLastSet ? `Set done · rest ${restLabel(st.rest)}` : 'Set done')
         : (st.timer && st.autoNext ? 'Skip' : 'Next');
-      body = `<div class="player-card">
-        <div class="row between"><div class="player-section">${esc(st.section)}</div>${phaseChip}</div>
+      body = `<div class="player-card steel is-${esc(st.kind)}">
+        <div class="player-head"><div class="player-section">${esc(st.section)}</div>${phaseChip}</div>
         <div class="player-title">${esc(st.title)}</div>
         ${st.sub ? `<div class="player-sub">${esc(st.sub)}</div>` : ''}
-        ${st.target.length ? `<div class="player-target">${st.target.map(t => `<span class="chip accent">${esc(t)}</span>`).join('')}</div>` : ''}
+        ${targetHtml(st)}
         ${timerHtml}${rampLink}
       </div>
       ${howTo}
@@ -348,11 +369,11 @@ export function renderPlayer(root, session, dayIdx, { exitHref }) {
       <div class="player-top">
         <a class="btn small ghost" href="${exitHref}" aria-label="Exit player">${ICONS.close}</a>
         <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}" aria-label="Session progress"><span style="width:${pct}%"></span></div>
-        <span class="small mono muted">${Math.min(idx + 1, steps.length)}/${steps.length}</span>
+        <span class="player-count">${Math.min(idx + 1, steps.length)}/${steps.length}</span>
       </div>
       ${body}
       <details><summary>All steps</summary><div class="details-body">${stepListHtml()}</div></details>
-      <p class="tiny muted">${'wakeLock' in navigator ? 'The screen stays on while the player is open (you can turn this off in Settings).' : 'This browser cannot keep the screen awake automatically; lengthen your screen timeout for workouts.'}</p>
+      <p class="tiny muted player-note">${'wakeLock' in navigator ? 'The screen stays on while the player is open (you can turn this off in Settings).' : 'This browser cannot keep the screen awake automatically; lengthen your screen timeout for workouts.'}</p>
     </div>`;
     timer.onTick(timer.remaining());
   }
@@ -373,10 +394,12 @@ export function renderPlayer(root, session, dayIdx, { exitHref }) {
       case 'jump': go(+a.dataset.i); break;
       case 'next':
         doneSteps.add(idx);
+        if (st && st.kind === 'set') sparksFrom(a, { count: 7, reach: 48 });
         if (st && st.kind === 'set' && st.rest > 0 && !st.isLastSet) startRest(st.rest, idx + 1);
         else go(idx + 1, true);
         break;
       case 'finish':
+        sparksFrom(a, { count: 26, reach: 110, spread: 200 });
         setDone(session.phaseId, session.week, dayIdx, true);
         store.remove(key);
         toast('Session marked as done');

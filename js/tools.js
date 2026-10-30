@@ -1,6 +1,6 @@
 // Tool pages (calculators, check-in tracker, transition checklist) and the Settings page.
 
-import { esc, fmt, fmtSigned, todayISO, toast, downloadFile, readFileAsText, ICONS } from './util.js';
+import { esc, fmt, fmtSigned, todayISO, toast, downloadFile, readFileAsText, ICONS, TOOL_ICONS, setTemper, syncThemeColor } from './util.js';
 import { DB, makeCtx, integrityReport } from './content.js';
 import { store, getSettings, setSetting } from './store.js';
 import {
@@ -65,7 +65,7 @@ export function viewTools() {
     title: 'Tools',
     html: `<div class="page">
       ${head('Apply the rules', 'Tools', 'Lightweight helpers. Logging happens in your workout app; these turn what you logged into decisions.')}
-      <div class="grid two">${TOOLS.map(t => `<a class="card card-link" href="#/tool/${t.id}"><h3 style="margin:0 0 4px">${esc(t.title)}</h3><p class="small muted" style="margin:0">${esc(t.desc)}</p></a>`).join('')}</div>
+      <div class="grid two">${TOOLS.map(t => `<a class="card card-link tool-tile" href="#/tool/${t.id}"><span class="tool-icon">${TOOL_ICONS[t.id] || ICONS.tools}</span><div><h3>${esc(t.title)}</h3><p class="small muted" style="margin:0">${esc(t.desc)}</p></div></a>`).join('')}</div>
       <p style="margin-top:14px"><a class="btn" href="#/rules">${ICONS.rules} All progression and adjustment rules</a></p>
     </div>`,
   };
@@ -616,12 +616,12 @@ export function viewSettings() {
     html: `<div class="page reading">
       ${head('', 'Settings and data')}
       <div class="card"><h2 style="margin-top:0">Where you are</h2>
-        <div class="form-grid"><div class="field"><label for="posPhase">Phase</label><select id="posPhase">${phaseOpts}</select></div>
+        <div class="form-grid wide-first"><div class="field"><label for="posPhase">Phase</label><select id="posPhase">${phaseOpts}</select></div>
         ${field('posWeek', 'Week', pos ? pos.week : 1, { step: 1, min: 1 })}</div>
         <button class="btn primary" id="savePos">Save position</button>
       </div>
       <div class="card"><h2 style="margin-top:0">Appearance</h2>
-        <div class="chips" role="group" aria-label="Theme">${['system', 'light', 'dark'].map(t => `<button class="chip" data-theme-btn="${t}" aria-pressed="${st.theme === t}">${t[0].toUpperCase() + t.slice(1)}</button>`).join('')}</div>
+        <div class="chips segmented" role="group" aria-label="Theme">${['system', 'light', 'dark'].map(t => `<button class="chip" data-theme-btn="${t}" aria-pressed="${st.theme === t}">${t[0].toUpperCase() + t.slice(1)}</button>`).join('')}</div>
       </div>
       <div class="card"><h2 style="margin-top:0">Guided player</h2>
         ${toggles.map(([k, label]) => `<label class="check"><input type="checkbox" data-setting="${k}" ${st[k] ? 'checked' : ''}><span>${esc(label)}</span></label>`).join('')}
@@ -656,12 +656,14 @@ export function viewSettings() {
         const max = weekCount(getPhase(p));
         const w = Math.min(max, Math.max(1, Math.round(num(root.querySelector('#posWeek').value) || 1)));
         setPosition(p, w);
+        setTemper(getPhase(p).color || 'p0');
         toast(`Position set: ${getPhase(p).short || p}, week ${w}`);
       });
       root.querySelectorAll('[data-theme-btn]').forEach(b => b.addEventListener('click', () => {
         const t = b.dataset.themeBtn;
         setSetting('theme', t);
         if (t === 'system') delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme = t;
+        syncThemeColor();
         root.querySelectorAll('[data-theme-btn]').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
       }));
       root.querySelectorAll('[data-setting]').forEach(c => c.addEventListener('change', () => setSetting(c.dataset.setting, c.checked)));

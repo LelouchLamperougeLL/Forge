@@ -24,6 +24,7 @@ $mime = @{
   '.css' = 'text/css; charset=utf-8'; '.json' = 'application/json; charset=utf-8'
   '.webmanifest' = 'application/manifest+json; charset=utf-8'; '.png' = 'image/png'; '.svg' = 'image/svg+xml'
   '.ico' = 'image/x-icon'; '.md' = 'text/markdown; charset=utf-8'; '.txt' = 'text/plain; charset=utf-8'
+  '.woff' = 'font/woff'; '.woff2' = 'font/woff2'
 }
 
 $listener = [System.Net.HttpListener]::new()

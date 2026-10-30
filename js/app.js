@@ -1,14 +1,15 @@
 // Forge · app bootstrap: content loading, hash router, navigation, global events,
 // service-worker registration and update prompt.
 
-import { $, esc, ICONS, toast, copyText } from './util.js';
+import { $, esc, ICONS, MARK, toast, copyText, setTemper } from './util.js';
 import { DB, loadContent, makeCtx, refHtml, integrityReport } from './content.js';
 import { store } from './store.js';
 import { setDone, setPosition, getPosition, nextPosition, phases, getPhase, getReturnTo } from './engine.js';
 import * as V from './views.js';
 import { viewTools, viewTool, viewSettings } from './tools.js';
+import { sparksFrom } from './fx.js';
 
-export const APP_VERSION = '1.0.0';
+export const APP_VERSION = '1.2.0';
 
 const main = $('#main');
 let currentView = null;
@@ -76,6 +77,10 @@ function render({ keepScroll = false } = {}) {
   back.hidden = !r.parent;
   back.dataset.parent = r.parent || '';
   document.body.classList.toggle('immersive', !!r.immersive);
+  // The app takes on the oxide colour of the phase you are in.
+  const pos = getPosition();
+  const cur = pos && getPhase(pos.phase);
+  setTemper((cur && cur.color) || 'p0');
   markNav(r.tab, route);
   if (view.after) {
     Promise.resolve(view.after(main)).catch(e => console.error(e));
@@ -126,7 +131,7 @@ function navLinksHtml() {
 }
 
 function buildNav() {
-  $('#sidenav').innerHTML = `<div class="brand"><img src="icons/icon-192.png" alt="" width="30" height="30"><span>Forge</span></div><nav>${navLinksHtml()}</nav>`;
+  $('#sidenav').innerHTML = `<a class="brand" href="#/today">${MARK}<span>Forge</span></a><nav>${navLinksHtml()}</nav>`;
   $('#bottomnav').innerHTML = BOTTOM.map(([k, href, label, icon]) => `<a href="${href}" data-tab="${k}">${icon}<span>${label}</span></a>`).join('');
 }
 
@@ -159,12 +164,6 @@ function closeSheet() {
 
 function showMenu() {
   openSheet(`<nav class="sidenav-sheet">${navLinksHtml()}</nav>`, 'Menu');
-  const sheet = $('#sheet');
-  sheet.querySelectorAll('a').forEach(a => {
-    a.style.cssText = 'display:flex;align-items:center;gap:10px;padding:10px 6px;text-decoration:none;color:inherit;border-radius:8px;font-weight:560';
-    a.querySelectorAll('svg').forEach(s => { s.style.cssText = 'width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round'; });
-  });
-  sheet.querySelectorAll('.nav-group').forEach(g => { g.style.cssText = 'margin:14px 0 2px;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);font-weight:700'; });
   markNav('', parseHash());
 }
 
@@ -201,7 +200,10 @@ function onClick(e) {
     const pos = getPosition();
     const n = pos && nextPosition(pos);
     // A cyclic phase starting over gets fresh "done" ticks for the weeks it repeats.
-    if (n) { setPosition(n.phase, n.week, { fresh: n.phase === pos.phase && n.week <= pos.week }); toast(`Now in week ${n.week}`); render(); }
+    if (n) {
+      sparksFrom(act, { count: 18, reach: 80 });
+      setPosition(n.phase, n.week, { fresh: n.phase === pos.phase && n.week <= pos.week }); toast(`Now in week ${n.week}`); render();
+    }
   } else if (action === 'return-from-optional') {
     const r = getReturnTo();
     if (r) {
@@ -224,6 +226,7 @@ function onClick(e) {
 function onChange(e) {
   const t = e.target;
   if (t.matches('input[data-action="done"]')) {
+    if (t.checked) sparksFrom(t);
     setDone(t.dataset.phase, +t.dataset.week, +t.dataset.day, t.checked);
     toast(t.checked ? 'Marked done' : 'Unmarked');
     if (parseHash().parts[0] === 'today' || !parseHash().parts.length) render({ keepScroll: true });

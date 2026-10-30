@@ -14,6 +14,7 @@ const chip = (text, cls = '') => `<span class="chip ${cls}">${esc(text)}</span>`
 const confChip = c => (c ? `<span class="chip badge-conf-${esc(String(c).toLowerCase())}">confidence: ${esc(c)}</span>` : '');
 const certChip = c => (c ? `<span class="chip badge-cert-${esc(String(c).toLowerCase())}">${esc(c)}</span>` : '');
 const phaseColor = p => `var(--${p && p.color ? p.color : 'p1'})`;
+const phaseInk = p => `var(--${p && p.color ? p.color : 'p1'}-ink)`;
 const listItem = (href, title, sub = '', extra = '') =>
   `<li><a class="list-item" href="${href}"><div class="li-main"><div class="li-title">${title}</div>${sub ? `<div class="li-sub">${sub}</div>` : ''}</div>${extra}<span class="li-chev">${ICONS.chevron}</span></a></li>`;
 
@@ -49,6 +50,37 @@ function weekGrid(phase, w, { highlightToday = false } = {}) {
   }).join('')}</div>`;
 }
 
+/**
+ * The programme year as a strip of tempered steel: each main phase in its oxide colour, proportional
+ * to its weeks, coloured up to `pos` and still grey (untempered) beyond it. `paused` marks a return
+ * point (you are in an optional phase and will come back here).
+ */
+function temperBar(pos, { paused = false } = {}) {
+  const seq = phases().filter(p => !p.optional);
+  const weeksOf = p => p.timelineWeeks || p.weeks || 1;
+  const total = seq.reduce((a, p) => a + weeksOf(p), 0);
+  const stops = [];
+  let x = 0, at = null, here = null;
+  for (const p of seq) {
+    const w = (100 * weeksOf(p)) / total;
+    const blend = Math.min(0.8, w / 4);   // neighbouring oxide colours run into each other, as on real steel
+    stops.push(`${phaseColor(p)} ${(x + blend).toFixed(2)}%`, `${phaseColor(p)} ${(x + w - blend).toFixed(2)}%`);
+    if (pos && pos.phase === p.id) {
+      at = x + (w * (Math.min(pos.week, weekCount(p)) - 0.5)) / weekCount(p);
+      here = { p, x, w };
+    }
+    x += w;
+  }
+  const label = here
+    ? `Programme year: ${paused ? 'you left' : 'you are in'} ${here.p.name}, week ${pos.week} of ${weekCount(here.p)}`
+    : 'Programme year';
+  return `<div class="temper${paused ? ' paused' : ''}" role="img" aria-label="${esc(label)}"
+    style="--weeks:${total};--at:${(at ?? 0).toFixed(2)}%;--grad:linear-gradient(90deg, ${stops.join(', ')})">
+    ${at != null ? '<span class="temper-mark"></span>' : ''}
+    ${here ? `<span class="temper-span" style="left:${here.x.toFixed(2)}%;width:${here.w.toFixed(2)}%;--c:${phaseColor(here.p)}"></span>` : ''}
+  </div>`;
+}
+
 function rolePlanTable(plan) {
   const roles = Object.keys(plan.sets || {});
   if (!roles.length) return '';
@@ -75,6 +107,7 @@ export function viewToday() {
       title: 'Today',
       html: `<div class="page">
         ${head('Welcome', esc(meta.title || 'Your programme'), esc(meta.tagline || ''))}
+        ${temperBar(null)}
         <div class="card">${md(ctx, meta.welcome)}
           <div class="row" style="margin-top:12px">
             ${first ? `<button class="btn primary" data-action="set-position" data-phase="${first.id}" data-week="1">Start ${esc(first.name)} · week 1</button>` : ''}
@@ -96,32 +129,43 @@ export function viewToday() {
   const sched = scheduleFor(phase, w);
   const next = sched.find(d => d.sessionId && !d.optional && !isDone(phase.id, w, d.i));
   const adh = weekAdherence(phase, w);
-  const nextS = next ? DB.idx.sessions.get(next.sessionId) : null;
+  // Resolved for this week, so {{param}} placeholders in the summary are filled in.
+  const nextS = next ? (resolveSession(phase.id, w, next.sessionId) || DB.idx.sessions.get(next.sessionId)) : null;
   const tests = plan.tests && plan.tests.length ? plan.tests : null;
   // Optional phases repeat until you leave them, so their last week advances instead of transitioning.
   const isLastWeek = w >= N && !phase.optional;
+  const kind = nextS ? (nextS.kind || 'strength') : '';
+  // The work panel: what to do next, on blued steel.
+  const nextPanel = nextS ? `<section class="next steel" aria-label="Next session">
+        <p class="next-when">Next session · ${esc(next.dow)}</p>
+        <h2 class="next-name">${esc(nextS.name)}</h2>
+        <p class="next-meta"><span class="kind-tag kind-${esc(kind)}">${esc(KIND_LABEL[kind] || '')}</span>${nextS.minutes ? `<span class="next-min">≈${nextS.minutes} min</span>` : ''}</p>
+        ${nextS.summary ? md(ctx, nextS.summary) : ''}
+        <div class="next-actions">
+          <a class="btn primary big" href="#/play/${phase.id}/${w}/${next.i}">${ICONS.play} Start guided session</a>
+          <a class="btn" href="#/s/${phase.id}/${w}/${next.i}">View &amp; transcribe</a>
+        </div></section>`
+    : `<section class="next steel all-done"><h2>All planned sessions done this week</h2>
+        <p class="muted">Optional sessions, daily steps, sleep and nutrition still count. ${isLastWeek ? 'This is the last week of the phase: review the transition checklist.' : ''}</p></section>`;
+  const side = `${plan.notes ? `<div class="card flat"><h3 style="margin-top:0">This week</h3>${md(ctx, plan.notes)}</div>` : ''}
+      ${tests ? `<div class="callout warn"><div class="callout-title">Assessments due this week</div><ul>${tests.map(t => `<li>${inlineMd(ctx, t)}</li>`).join('')}</ul></div>` : ''}`;
   return {
     title: 'Today',
-    html: `<div class="page">
-      ${head(`<span class="phase-dot" style="background:${phaseColor(phase)}"></span> ${esc(phase.name)}`, `Week ${w} of ${N}${plan.title ? ' · ' + esc(plan.title) : ''}`)}
-      <div class="progress" aria-label="Phase progress"><span style="width:${Math.round((100 * (w - 1)) / N)}%"></span></div>
-      <p class="small muted">${adh.done} of ${adh.planned} planned sessions done this week · ${new Date().toLocaleDateString(undefined, { weekday: 'long', day: 'numeric', month: 'short' })}</p>
+    html: `<div class="page today">
+      <header class="today-head">
+        <p class="eyebrow"><span class="phase-dot" style="background:${phaseColor(phase)}"></span>${esc(phase.name)}</p>
+        <h1 class="today-week"><span>Week</span> <span class="wk-n">${w}</span> <span class="wk-of">of ${N}</span>${plan.title ? `<span class="wk-title">${esc(plan.title)}</span>` : ''}</h1>
+        ${temperBar(phase.optional ? getReturnTo() : pos, { paused: !!phase.optional })}
+        <p class="today-meta"><span>${adh.done} of ${adh.planned} planned sessions done this week</span><span class="today-date">${new Date().toLocaleDateString(undefined, { weekday: 'long', day: 'numeric', month: 'short' })}</span></p>
+      </header>
       ${phase.optional ? returnCard(ctx, phase) : ''}
-      ${nextS ? `<div class="card">
-        <p class="eyebrow">Next session · ${esc(next.dow)}</p>
-        <h2 style="margin:0 0 4px">${esc(nextS.name)}</h2>
-        <p class="muted small" style="margin:0 0 10px">${esc(KIND_LABEL[nextS.kind] || '')}${nextS.minutes ? ` · ≈${nextS.minutes} min` : ''}</p>
-        ${nextS.summary ? md(ctx, nextS.summary) : ''}
-        <div class="row" style="margin-top:10px">
-          <a class="btn primary" href="#/play/${phase.id}/${w}/${next.i}">${ICONS.play} Start guided session</a>
-          <a class="btn" href="#/s/${phase.id}/${w}/${next.i}">View &amp; transcribe</a>
-        </div></div>` : `<div class="card"><h2 style="margin-top:0">All planned sessions done this week</h2>
-        <p class="muted">Optional sessions, daily steps, sleep and nutrition still count. ${isLastWeek ? 'This is the last week of the phase: review the transition checklist.' : ''}</p></div>`}
-      ${plan.notes ? `<div class="card flat"><h3 style="margin-top:0">This week</h3>${md(ctx, plan.notes)}</div>` : ''}
-      ${tests ? `<div class="callout warn"><div class="callout-title">Assessments due this week</div><ul>${tests.map(t => `<li>${inlineMd(ctx, t)}</li>`).join('')}</ul></div>` : ''}
+      <div class="today-grid">
+        <div class="today-main">${nextPanel}</div>
+        ${side.trim() ? `<div class="today-side">${side}</div>` : ''}
+      </div>
       <div class="section-head"><h2>Week ${w} schedule</h2><a class="small" href="#/phase/${phase.id}/${w}">Week details</a></div>
       ${weekGrid(phase, w, { highlightToday: true })}
-      <div class="row" style="margin-top:16px">
+      <div class="row today-actions">
         ${isLastWeek
           ? `<a class="btn primary" href="#/tool/transition?phase=${phase.id}">Phase transition checklist</a>`
           : `<button class="btn" data-action="advance-week">Finish week ${w} → ${w < N ? `week ${w + 1}` : `repeat${N > 1 ? ` from week ${Math.min(phase.cycleTo || 1, N)}` : ''}`}</button>`}
@@ -155,7 +199,7 @@ function returnCard(ctx, phase) {
   const back = getPhase(r.phase);
   const days = r.left ? Math.max(0, Math.floor((Date.now() - Date.parse(r.left)) / 86400000)) : null;
   const rule = phase.returnRule ? ` ${ctx.md(`Before your first session back, read [[rule:${phase.returnRule}]].`).replace(/^<p>|<\/p>$/g, '')}` : '';
-  return `<div class="callout"><div class="callout-title">${esc(phase.navName || phase.name)}${days != null ? ` · day ${days + 1}` : ''}</div>
+  return `<div class="callout return"><div class="callout-title">${esc(phase.navName || phase.name)}${days != null ? ` · day ${days + 1}` : ''}</div>
     <p>You left ${esc(back.short || back.name)} at week ${r.week}${r.left ? ` on ${esc(new Date(r.left).toLocaleDateString(undefined, { day: 'numeric', month: 'short' }))}` : ''}.${rule}</p>
     <button class="btn primary" data-action="return-from-optional">Return to ${esc(back.short || back.name)} · week ${r.week}</button></div>`;
 }
@@ -168,19 +212,27 @@ export function viewProgramme() {
   const all = phases();
   const timeline = all.filter(p => !p.optional);   // optional phases are used by choice, not part of the sequence
   const totalWeeks = timeline.reduce((a, p) => a + (p.timelineWeeks || p.weeks || 1), 0);
-  const bar = `<div class="phase-bar">${timeline.map(p => `<a href="#/phase/${p.id}" style="--w:${p.timelineWeeks || p.weeks};--c:${phaseColor(p)}" title="${esc(p.name)}">${esc(p.short || p.name)}</a>`).join('')}</div>`;
-  const cards = all.map(p => `<a class="card card-link" href="#/phase/${p.id}">
-      <p class="eyebrow"><span class="phase-dot" style="background:${phaseColor(p)}"></span> ${esc(p.short || '')} · ${esc(p.durationLabel || `${p.weeks} weeks`)}</p>
-      <h3 style="margin:2px 0 6px">${esc(p.name)}</h3>
-      <div class="small muted">${inlineMd(ctx, p.tagline || '')}</div></a>`).join('');
+  const pos = getPosition();
+  const here = p => (pos && pos.phase === p.id ? ' here' : '');
+  const oxide = p => `--c:${phaseColor(p)};--ci:${phaseInk(p)}`;
+  const bar = `<div class="phase-bar">${timeline.map(p => `<a class="${here(p).trim()}" href="#/phase/${p.id}" style="--w:${p.timelineWeeks || p.weeks};${oxide(p)}" title="${esc(p.name)}">${esc(p.short || p.name)}</a>`).join('')}</div>`;
+  // Each phase as a sample of its oxide colour; the main sequence is drawn as a connected run.
+  const card = p => `<li><a class="phase-card${here(p)}" href="#/phase/${p.id}" style="${oxide(p)}">
+      <span class="swatch">${esc(p.short || '')}</span>
+      <span class="phase-card-body"><span class="phase-card-meta">${esc(p.durationLabel || `${p.weeks} weeks`)}</span>
+        <span class="phase-card-name">${esc(p.name)}</span>
+        <span class="phase-card-tag">${inlineMd(ctx, p.tagline || '')}</span></span></a></li>`;
+  const optional = all.filter(p => p.optional);
   const pages = DB.pages.map(pg => listItem(`#/plan/${pg.id}`, esc(pg.title), esc(plain(pg.tagline || '')))).join('');
   return {
     title: 'Programme',
     html: `<div class="page">
       ${head('Overview', esc(P.title || 'Programme'), esc(P.tagline || ''))}
-      ${bar}<p class="tiny muted">Timeline to scale (${totalWeeks} weeks shown${P.timelineNote ? '; ' + esc(P.timelineNote) : ''}).</p>
+      <div class="timeline">${bar}<p class="tiny muted">Timeline to scale (${totalWeeks} weeks shown${P.timelineNote ? '; ' + esc(P.timelineNote) : ''}).
+        Each phase has its own temper colour, in the order steel takes them on as it is tempered (straw, gold, bronze, plum, blue); the app takes on the colour of the phase you are in.</p></div>
       ${P.overview ? `<div class="card">${md(ctx, P.overview)}</div>` : ''}
-      <div class="grid two">${cards}</div>
+      <ol class="phase-list sequence">${timeline.map(card).join('')}</ol>
+      ${optional.length ? `<p class="list-label">Optional modes</p><ul class="phase-list">${optional.map(card).join('')}</ul>` : ''}
       ${P.outcomes ? `<div class="section-head"><h2>Expected outcomes and uncertainty</h2></div><div class="card">${md(ctx, P.outcomes)}</div>` : ''}
       ${P.principles ? `<div class="section-head"><h2>Principles</h2></div><div class="card">${md(ctx, P.principles)}</div>` : ''}
       <div class="section-head"><h2>Beyond training</h2></div>
@@ -213,10 +265,15 @@ export function viewPhase(id) {
   const scis = (phase.science || []).map(s => DB.idx.articles.get(s)).filter(Boolean)
     .map(a => listItem(`#/sci/${a.id}`, esc(a.title), esc(plain(a.tagline || '')))).join('');
   const adh = pos && pos.phase === phase.id ? phaseAdherence(phase, pos.week) : null;
+  const cur = pos && pos.phase === phase.id ? pos.week : 0;
+  // The phase's weeks as plates of its oxide colour, filled up to the current week (decorative; the text says it).
+  const strip = N > 1 ? `<div class="week-strip" style="--c:${phaseColor(phase)}" aria-hidden="true">${Array.from({ length: N }, (_, i) =>
+    `<span class="${i + 1 < cur ? 'past' : i + 1 === cur ? 'now' : ''}"></span>`).join('')}</div>` : '';
   return {
     title: phase.short || phase.name,
     html: `<div class="page">
       ${head(`<span class="phase-dot" style="background:${phaseColor(phase)}"></span> ${esc(phase.short || '')} · ${esc(phase.durationLabel || `${N} weeks`)}`, esc(phase.name), '')}
+      ${strip}
       ${pos && pos.phase === phase.id
         ? `<p class="small muted">You are in week ${pos.week}. Adherence so far: ${adh.pct ?? '–'}% of planned sessions.</p>${phase.optional ? returnCard(ctx, phase) : ''}`
         : phase.optional
@@ -357,8 +414,8 @@ export function viewSession(phaseId, w, dayIdx) {
     html: `<div class="page">
       ${head(`<a href="#/phase/${phaseId}/${w}">${esc(phase.short || phase.name)} · Week ${w} · ${esc(day.dow)}</a>`, esc(s.name),
         `${esc(KIND_LABEL[s.kind] || s.kind)} · planned ≈${esc(s.minutes || s.estimate)} min${s.minutes && Math.abs(s.estimate - s.minutes) > 8 ? ` (timing estimate ≈${s.estimate} min)` : ''}${day.optional ? ' · optional' : ''}`)}
-      <div class="row">
-        <a class="btn primary" href="#/play/${phaseId}/${w}/${dayIdx}">${ICONS.play} Start guided session</a>
+      <div class="row session-actions">
+        <a class="btn primary big" href="#/play/${phaseId}/${w}/${dayIdx}">${ICONS.play} Start guided session</a>
         <button class="btn" data-action="copy" data-copy-target="session-text">${ICONS.copy} Copy for logging app</button>
         <label class="done-toggle" style="margin-left:4px"><input type="checkbox" data-action="done" data-phase="${phaseId}" data-week="${w}" data-day="${dayIdx}" ${done ? 'checked' : ''}> done</label>
       </div>

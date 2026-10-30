@@ -10,7 +10,8 @@ no external runtime resources, no accounts, no analytics.
 index.html              App shell (loads css/app.css and js/app.js)
 manifest.webmanifest    Install metadata (relative start_url and scope, so it works under a sub-path)
 sw.js                   Service worker: precaches every file, serves cache-first (offline)
-css/app.css             All styles (light/dark, phone and laptop layouts)
+css/app.css             All styles (light/dark, phone and laptop layouts; colour notes at the top)
+fonts/                  Bundled fonts (DM Sans, JetBrains Mono) as WOFF, with their licence texts
 js/                     Application code (ES modules)
   app.js                Bootstrap, router, navigation, service-worker registration
   content.js            Loads content/*.json, resolves citations and cross-links
@@ -18,6 +19,7 @@ js/                     Application code (ES modules)
   engine.js             Expands phases/weeks/sessions; transcription text; progress tracking
   calc.js               Pure calculators (progression, e1RM, energy, body composition, trends)
   player.js             Guided session player with rest/hold/interval timers
+  fx.js                 Spark effect when you finish something (skipped when reduced motion is set)
   views.js, tools.js    Pages and tools
   store.js              Local storage, backup and restore
   util.js               Helpers
@@ -82,6 +84,27 @@ gym strength session's page links to the Away sessions.
 Every visit to Away or Maintenance mode, and every cycle that repeats weeks, starts with fresh
 "done" ticks; the earlier ticks are archived (kept in backups), not deleted.
 
+## Design ("Tempered")
+
+When steel is tempered, its oxide film changes colour as it heats: straw, gold, bronze, plum, blue. Those
+colours mark the phases in programme order (Orientation straw, Foundations gold, Development bronze, Athletic
+plum, Continuation blue; Maintenance mode steel blue, Away mode peacock), and the app takes on the colour of
+the phase you are in: buttons, ticks, progress marks and the anvil logo change as you move through the year.
+Everything else is neutral steel: pale "machine grey" in light mode, blued steel in dark mode
+(**Settings → Appearance**).
+
+- **Today:** the programme year drawn as a strip of tempered steel (coloured up to your week, grey beyond it,
+  a hollow marker while you are in Away or Maintenance mode), with the next session on a dark steel panel.
+- **Guided player:** a ring timer whose arc is the time left (during rest it cools from the phase colour to
+  steel), the rep target set large, and the main button fixed at the bottom of the screen on phones.
+- **Sparks** fly when you tick a session done, finish a week or complete a guided session (not shown when the
+  device is set to reduce motion).
+- **Type:** DM Sans for text, JetBrains Mono for numbers. Both are bundled in `fonts/` (DM Sans 1.200 under the
+  SIL Open Font License 1.1, JetBrains Mono 1.0.3 under the Apache License 2.0; licence texts beside the
+  files), so the app still makes no network requests.
+- A phase's colour comes from its `color` key in `programme.json` (`p0`–`p4`, `pm`, `pa`); the colours are
+  defined at the top of `css/app.css`.
+
 ## Preview locally on Windows
 
 ```
@@ -107,8 +130,9 @@ All content lives in `content/*.json`; the app code does not need to change.
    `Get-Content -Raw content/programme.json | ConvertFrom-Json`).
 3. Preview locally and open **Settings → Content diagnostics → Run check** (or `tests/`) to confirm
    every citation and link resolves.
-4. **Bump the version** in `sw.js` (`const VERSION = 'forge-v1.0.1'`) so installed copies fetch
-   the new files. If you add a new file, also add it to the `PRECACHE` list in `sw.js`.
+4. **Bump the version** in `sw.js` (currently `const VERSION = 'forge-v1.2.0'`; for example change it to
+   `'forge-v1.2.1'`) so installed copies fetch the new files. If you add a new file, also add it to the
+   `PRECACHE` list in `sw.js`.
 5. Commit and push. Open copies show *"An updated version of the app is ready"*; tap **Reload**.
 
 ### How sessions are built
@@ -147,10 +171,13 @@ how to do them without equipment, shown on the exercise page and in Away-mode se
   safety test that had you lying under an untested table, and a misread trial result), followed by a
   cross-section consistency review (22 issues: 21 fixed in review; the last, showing the Hevy "(Away)" names on
   session cards, fixed in code). The 91 new references' PMID↔DOI pairs were cross-checked when recorded.
-- **App tests:** `tests/index.html` (54 checks: calculators, renderer, phase sequencing, content integrity,
-  every scheduled session resolving, session timings, the Away-mode return and cycling logic) all pass; a crawl
-  of all 1,304 pages found no script errors, broken citations or links, unresolved placeholders or raw markup;
-  offline use was verified by stopping the server and reloading.
+- **App tests:** `tests/index.html` (55 checks: calculators, renderer, phase sequencing, content integrity,
+  every scheduled session resolving, session timings, the Away-mode return and cycling logic, and every
+  phase having its colour in the stylesheet) all pass. After the redesign (version 1.2.0), a crawl of 1,401 pages
+  at phone (412 px) and laptop (1,280 px) widths found no script errors, broken citations or links,
+  unresolved placeholders, raw markup or pages wider than the screen. It covered every route, Today at every
+  week of every phase, and the guided player for every session. Offline use was verified by stopping the
+  server and reloading.
 
 ## Development notes
 
@@ -159,3 +186,5 @@ how to do them without equipment, shown on the exercise page and in Away-mode se
   modules, Screen Wake Lock (optional), Web Audio (optional), Vibration (optional, Android),
   Clipboard API (with a fallback), Blob downloads and file input for backups. All are supported
   by current Chrome for Android and Microsoft Edge for Windows; the optional ones degrade silently.
+- The stylesheet uses current CSS (`light-dark()`, `color-mix()`, `:has()`, container query units,
+  `@property`), supported by Chrome and Edge since 2024.

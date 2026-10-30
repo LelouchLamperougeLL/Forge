@@ -5,18 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Forge · Training Programme</title>
   <meta name="description" content="A personal, evidence-based multiphase training, nutrition and recovery programme. Works offline.">
-  <meta name="theme-color" content="#0f1419">
+  <meta name="theme-color" content="#11161c">
   <meta name="color-scheme" content="light dark">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
   <link rel="icon" href="icons/icon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="preload" href="fonts/DMSans-Regular.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="fonts/DMSans-Bold.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="fonts/JetBrainsMono-ExtraBold.woff" as="font" type="font/woff" crossorigin>
   <link rel="stylesheet" href="css/app.css">
   <script>
-    // Apply the saved theme before first paint to avoid a flash.
+    // Apply the saved theme and the current phase's colour before first paint to avoid a flash.
+    // (Phase colour keys match phase ids; js/app.js sets the definitive value once content loads.)
     try {
       var t = JSON.parse(localStorage.getItem('forge:settings') || '{}').theme;
       if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      var p = JSON.parse(localStorage.getItem('forge:position') || 'null');
+      if (p && /^p([0-4]|m|a)$/.test(p.phase)) document.documentElement.dataset.temper = p.phase;
     } catch (e) {}
   </script>
 </head>
@@ -29,6 +35,9 @@
         <button class="icon-btn back-btn" id="backBtn" type="button" aria-label="Back" hidden>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" /></svg>
         </button>
+        <a class="topbar-mark" href="#/today" aria-label="Forge: Today">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path class="mark-body" d="M1.5 10.2C4.6 9.6 7.6 9.4 10.4 9.4V8.2H30.5V9.7C30.5 11.6 29.2 12.9 27.3 13.3L22.3 14.3V17.9C22.3 19.1 23.1 20.1 24.2 20.5L27.5 21.6V25.5H8.7V21.6L12 20.5C13.1 20.1 13.9 19.1 13.9 17.9V15.2C9.4 14.8 5.1 13.2 1.5 10.2Z"/><path class="mark-face" d="M10.4 8.2H30.5V10.3H10.4Z"/></svg>
+        </a>
         <div class="topbar-title" id="topTitle">Forge</div>
         <button class="icon-btn" id="searchBtn" type="button" aria-label="Search">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5" /><path d="M16 16l4.5 4.5" /></svg>
@@ -40,7 +49,7 @@
       <div class="banner" id="banner" hidden></div>
       <main id="main" tabindex="-1">
         <div class="loading" id="loading">
-          <div class="spinner" aria-hidden="true"></div>
+          <svg class="loading-mark" viewBox="0 0 32 32" aria-hidden="true"><path class="mark-body" d="M1.5 10.2C4.6 9.6 7.6 9.4 10.4 9.4V8.2H30.5V9.7C30.5 11.6 29.2 12.9 27.3 13.3L22.3 14.3V17.9C22.3 19.1 23.1 20.1 24.2 20.5L27.5 21.6V25.5H8.7V21.6L12 20.5C13.1 20.1 13.9 19.1 13.9 17.9V15.2C9.4 14.8 5.1 13.2 1.5 10.2Z"/><path class="mark-face" d="M10.4 8.2H30.5V10.3H10.4Z"/></svg>
           <p>Loading programme…</p>
         </div>
       </main>
