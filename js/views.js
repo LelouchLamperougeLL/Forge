@@ -499,7 +499,7 @@ export function viewLibrary(query) {
         t = setTimeout(() => {
           const p = new URLSearchParams(location.hash.split('?')[1] || '');
           if (input.value) p.set('q', input.value); else p.delete('q');
-          history.replaceState(null, '', `#/library${p.toString() ? '?' + p : ''}`);
+          history.replaceState(history.state, '', `#/library${p.toString() ? '?' + p : ''}`);
           window.dispatchEvent(new Event('forge:rerender'));
         }, 250);
       });
@@ -726,7 +726,7 @@ export function viewRefs(query) {
       input.addEventListener('input', () => {
         clearTimeout(t);
         t = setTimeout(() => {
-          history.replaceState(null, '', `#/refs${input.value ? '?q=' + encodeURIComponent(input.value) : ''}`);
+          history.replaceState(history.state, '', `#/refs${input.value ? '?q=' + encodeURIComponent(input.value) : ''}`);
           window.dispatchEvent(new Event('forge:rerender'));
         }, 250);
       });
@@ -871,7 +871,7 @@ export function viewSearch(query) {
       input.addEventListener('input', () => {
         clearTimeout(t);
         t = setTimeout(() => {
-          history.replaceState(null, '', `#/search?q=${encodeURIComponent(input.value)}`);
+          history.replaceState(history.state, '', `#/search?q=${encodeURIComponent(input.value)}`);
           window.dispatchEvent(new Event('forge:rerender'));
         }, 300);
       });

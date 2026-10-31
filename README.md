@@ -166,8 +166,8 @@ All content lives in `content/*.json`; the app code does not need to change.
    `Get-Content -Raw content/programme.json | ConvertFrom-Json`).
 3. Preview locally and open **Settings → Content diagnostics → Run check** (or `tests/`) to confirm
    every citation and link resolves.
-4. **Bump the version** in `sw.js` (currently `const VERSION = 'forge-v1.3.0'`; for example change it to
-   `'forge-v1.3.1'`) so installed copies fetch the new files. If you add a new file, also add it to the
+4. **Bump the version** in `sw.js` (currently `const VERSION = 'forge-v1.3.1'`; for example change it to
+   `'forge-v1.3.2'`) so installed copies fetch the new files. If you add a new file, also add it to the
    `PRECACHE` list in `sw.js`.
 5. Commit and push. Open copies show *"An updated version of the app is ready"*; tap **Reload**.
 
@@ -242,3 +242,9 @@ how to do them without equipment, shown on the exercise page and in Away-mode se
   postMessage channel (the one its IFrame Player API uses) for the player's error codes. Keep the iframe's
   default referrer policy: YouTube refuses to play embeds that do not say which site they are on. The service
   worker never touches these cross-origin requests.
+- The back arrow (`js/app.js`, "history and the back arrow"): if you opened a page by following a link on another
+  page of the app, the arrow goes back to that page in the browser history, with the same sections open and
+  scrolled to where you were, so an exercise opened from a session or the guided player returns there. If you
+  arrived another way (the menu or tab bar, a bookmark, or a link up to a page above, such as the player's close
+  button), it goes up to the parent page set in the router. Each history entry carries an id and the page it was
+  opened from in `history.state`.

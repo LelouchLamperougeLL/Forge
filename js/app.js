@@ -9,7 +9,7 @@ import * as V from './views.js';
 import { viewTools, viewTool, viewSettings } from './tools.js';
 import { sparksFrom } from './fx.js';
 
-export const APP_VERSION = '1.3.0';
+export const APP_VERSION = '1.3.1';
 
 const main = $('#main');
 let currentView = null;
@@ -17,8 +17,8 @@ let lastRouteKey = '';
 
 // ---------------------------------------------------------------- routing
 
-function parseHash() {
-  const raw = location.hash.replace(/^#\/?/, '');
+function parseHash(hash = location.hash) {
+  const raw = hash.replace(/^#\/?/, '');
   const [path, qs] = raw.split('?');
   const parts = path.split('/').filter(Boolean).map(decodeURIComponent);
   return { parts, query: new URLSearchParams(qs || ''), key: path };
@@ -55,7 +55,7 @@ function resolve({ parts, query }) {
   }
 }
 
-function render({ keepScroll = false } = {}) {
+function render({ keepScroll = false, place = null } = {}) {
   const route = parseHash();
   const r = resolve(route);
   if (currentView && currentView.cleanup) {
@@ -85,9 +85,71 @@ function render({ keepScroll = false } = {}) {
   if (view.after) {
     Promise.resolve(view.after(main)).catch(e => console.error(e));
   }
-  if (keepScroll) window.scrollTo(0, scrollY);
+  if (place) {
+    // Back on a page you left: reopen the sections you had open and return to the same spot.
+    const details = main.querySelectorAll('details');
+    if (details.length === place.open.length) details.forEach((d, i) => { d.open = place.open[i]; });
+    window.scrollTo(0, place.y);
+  } else if (keepScroll) window.scrollTo(0, scrollY);
   else if (route.key !== lastRouteKey) window.scrollTo(0, 0);
   lastRouteKey = route.key;
+}
+
+// ---------------------------------------------------------------- history and the back arrow
+// The back arrow takes you back to the page you came from when you got here by a link on another page of the
+// app: an exercise opened from a session goes back to that session, where you left it. When you arrived some
+// other way (the menu or tab bar, a bookmark, or a link up from a page below this one), it goes up to the parent
+// page. Each history entry the app makes is labelled with an id and the page it was opened from.
+
+const places = new Map();  // entry id → where you were on that page when you left it
+let entryId = '';
+let entrySeq = 0;
+let followed = null;       // the in-app link just clicked: { from, to }
+
+/** Note an in-app link being followed (registered after onClick, so links handled there are skipped). */
+function onFollow(e) {
+  if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  const a = e.target.closest('a[href^="#/"]');
+  if (!a || a.target || a.closest('#sidenav, #bottomnav, .sidenav-sheet')) return;
+  followed = { from: location.hash, to: new URL(a.href).hash };
+}
+
+/** Label a new history entry, or recognise one you are returning to and give back where you left it. */
+function arrive(from = '') {
+  const s = history.state;
+  if (s && s.entry) { entryId = s.entry; return places.get(entryId) || null; }
+  entryId = `${Date.now().toString(36)}-${++entrySeq}`;
+  history.replaceState({ ...s, entry: entryId, from }, '');
+  return null;
+}
+
+function onHashChange() {
+  if (entryId) {
+    places.set(entryId, { y: window.scrollY, open: [...main.querySelectorAll('details')].map(d => d.open) });
+    if (places.size > 100) places.delete(places.keys().next().value);
+  }
+  const from = followed && followed.to === location.hash ? followed.from : '';
+  followed = null;
+  render({ place: arrive(from) });
+}
+
+/** True when the page `key` is above the page at `hash`, so getting here from there was a step up. */
+function isAbove(key, hash) {
+  for (let h = hash, i = 0; h && i < 10; i++) {
+    h = resolve(parseHash(h)).parent;
+    if (h && parseHash(h).key === key) return true;
+  }
+  return false;
+}
+
+function goBack() {
+  const parent = $('#backBtn').dataset.parent || '#/today';
+  const from = history.state && history.state.from;
+  if (!from || isAbove(parseHash().key, from)) { location.hash = parent; return; }
+  const left = entryId;
+  history.back();
+  // Nothing to go back to after all (the browser kept this page but not the one before it): go up instead.
+  setTimeout(() => { if (entryId === left && history.state && history.state.entry === left) location.hash = parent; }, 600);
 }
 
 // ---------------------------------------------------------------- navigation chrome
@@ -218,7 +280,7 @@ function onClick(e) {
   } else if (action === 'lib-cat') {
     const p = new URLSearchParams(location.hash.split('?')[1] || '');
     if (act.dataset.cat) p.set('cat', act.dataset.cat); else p.delete('cat');
-    history.replaceState(null, '', `#/library${p.toString() ? '?' + p : ''}`);
+    history.replaceState(history.state, '', `#/library${p.toString() ? '?' + p : ''}`);
     render({ keepScroll: true });
   }
 }
@@ -295,16 +357,19 @@ async function start() {
     return;
   }
   buildNav();
-  window.addEventListener('hashchange', () => render());
+  // The app puts you back where you were on a page itself (see onHashChange), so the browser should not.
+  history.scrollRestoration = 'manual';
+  window.addEventListener('hashchange', onHashChange);
   window.addEventListener('forge:rerender', () => render({ keepScroll: true }));
   document.addEventListener('click', onClick);
+  document.addEventListener('click', onFollow);
   document.addEventListener('change', onChange);
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSheet(); });
   $('#menuBtn').addEventListener('click', showMenu);
   $('#searchBtn').addEventListener('click', () => { location.hash = '#/search'; });
-  // "Up" navigation to the parent page; the browser/OS back button still walks history.
-  $('#backBtn').addEventListener('click', () => { location.hash = $('#backBtn').dataset.parent || '#/today'; });
-  if (!location.hash) history.replaceState(null, '', '#/today');
+  $('#backBtn').addEventListener('click', goBack);
+  if (!location.hash) history.replaceState(history.state, '', '#/today');
+  arrive();
   render();
   registerSW();
   // Surface content problems to the console for anyone editing the content files.
