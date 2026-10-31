@@ -2,6 +2,7 @@
 
 import { esc, fmt, fmtSigned, todayISO, toast, downloadFile, readFileAsText, ICONS, TOOL_ICONS, setTemper, syncThemeColor } from './util.js';
 import { DB, makeCtx, integrityReport } from './content.js';
+import { hero, fact } from './reading.js';
 import { store, getSettings, setSetting } from './store.js';
 import {
   doubleProgression, rampSets, e1rm, loadForReps, energyTargets, navyBodyFat, relativeFatMass,
@@ -63,8 +64,9 @@ export const TOOLS = [
 export function viewTools() {
   return {
     title: 'Tools',
-    html: `<div class="page">
-      ${head('Apply the rules', 'Tools', 'Lightweight helpers. Logging happens in your workout app; these turn what you logged into decisions.')}
+    html: `<div class="page hub">
+      ${hero({ eyebrow: 'Apply the rules', title: 'Tools', lede: 'Lightweight helpers. Logging happens in your workout app; these turn what you logged into decisions.', glyph: ICONS.tools,
+        facts: [fact(TOOLS.length, 'calculators'), fact(DB.rules.filter(r => r.tool).length, 'rules link to one')] })}
       <div class="grid two">${TOOLS.map(t => `<a class="card card-link tool-tile" href="#/tool/${t.id}"><span class="tool-icon">${TOOL_ICONS[t.id] || ICONS.tools}</span><div><h3>${esc(t.title)}</h3><p class="small muted" style="margin:0">${esc(t.desc)}</p></div></a>`).join('')}</div>
       <p style="margin-top:14px"><a class="btn" href="#/rules">${ICONS.rules} All progression and adjustment rules</a></p>
     </div>`,

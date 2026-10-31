@@ -6,12 +6,14 @@
 //   | pipe | tables | with a |---| separator row
 //   > note callout   !> warning callout   +> tip callout   !!> danger callout
 //   **bold**  *italic*  `code`  ^superscript^  [text](https://external.link)
+//   a paragraph that is only **bold text** -> a small heading
+//   tables of three or more columns are shown as cards on phones
 //   [@refId] or [@refA; @refB]     -> numbered citations linked to the reference list
 //   [[type:id]] or [[type:id|label]] -> internal links; types: ex, sci, dec, term, tool, phase,
 //                                      plan, rule, ref, page
 // Everything is HTML-escaped before formatting, so content cannot inject markup.
 
-import { esc } from './util.js';
+import { esc, plain } from './util.js';
 
 const LIST_RE = /^(\s*)([-*]|\d+\.)\s+/;
 const CALLOUT_RE = /^(!!>|!>|\+>|>)\s?/;
@@ -113,9 +115,14 @@ function parseTable(lines, start, ctx) {
   let i = start + 2;
   const rows = [];
   while (i < lines.length && /^\s*\|/.test(lines[i])) { rows.push(splitRow(lines[i])); i++; }
-  const cell = (tag, txt, k) => `<${tag}${aligns[k] ? ` style="text-align:${aligns[k]}"` : ''}>${inline(txt, ctx)}</${tag}>`;
-  let html = '<div class="table-wrap"><table><thead><tr>' + head.map((h, k) => cell('th', h, k)).join('') + '</tr></thead><tbody>';
-  for (const r of rows) html += '<tr>' + head.map((_, k) => cell('td', r[k] ?? '', k)).join('') + '</tr>';
+  // Three or more columns become a stack of cards on phones (app.css): each cell carries its column's name,
+  // and explicit roles keep it a table for screen readers when the layout changes.
+  const cards = head.length >= 3;
+  const role = r => (cards ? ` role="${r}"` : '');
+  const label = k => (cards ? ` data-label="${esc(plain(head[k]).trim())}"` : '');
+  const cell = (tag, txt, k) => `<${tag}${role(tag === 'th' ? 'columnheader' : 'cell')}${tag === 'td' ? label(k) : ''}${aligns[k] ? ` style="text-align:${aligns[k]}"` : ''}>${inline(txt, ctx)}</${tag}>`;
+  let html = `<div class="table-wrap${cards ? ' cards' : ''}"><table${role('table')}><thead${role('rowgroup')}><tr${role('row')}>` + head.map((h, k) => cell('th', h, k)).join('') + `</tr></thead><tbody${role('rowgroup')}>`;
+  for (const r of rows) html += `<tr${role('row')}>` + head.map((_, k) => cell('td', r[k] ?? '', k)).join('') + '</tr>';
   html += '</tbody></table></div>';
   return { html, next: i };
 }
@@ -170,7 +177,9 @@ export function renderMarkdown(src, ctx = {}) {
       para.push(lines[i].trim());
       i++;
     }
-    html += `<p>${inline(para.join(' '), ctx)}</p>`;
+    // A paragraph that is nothing but bold text ("**Why these numbers**") works as a small heading.
+    const text = para.join(' ');
+    html += `<p${/^\*\*[^*]+\*\*:?$/.test(text) ? ' class="md-sub"' : ''}>${inline(text, ctx)}</p>`;
   }
   return html;
 }

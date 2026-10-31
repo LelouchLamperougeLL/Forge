@@ -181,6 +181,28 @@
         vPage.includes('class="demo"') && vPage.includes('data-video-play') && !/<iframe|youtube-nocookie|ytimg/.test(vPage), withVid && withVid[0]);
       const noVid = [...DB.exercises, ...DB.drills].find(x => !DB.videos[x.id]);
       ok('A library item without a video shows no video block', !noVid || !viewItem(noVid.id).html.includes('class="demo'), noVid && noVid.id);
+      // Reading pages: tables of three or more columns carry their column names (cards on phones), a bold-only
+      // paragraph is a small heading, verdict titles keep their words, and long pages get a plate, numbered
+      // sections and contents that point at them.
+      ok('A table of three or more columns labels its cells; a two-column table stays plain',
+        /class="table-wrap cards"[\s\S]*data-label="b"/.test(renderMarkdown('| a | b | c |\n|---|---|---|\n| 1 | 2 | 3 |', ctx)) &&
+        !renderMarkdown('| a | b |\n|---|---|\n| 1 | 2 |', ctx).includes('cards'));
+      ok('A paragraph of only bold text is a small heading; bold inside a sentence is not',
+        renderMarkdown('**Why these numbers**', ctx).includes('<p class="md-sub">') && !renderMarkdown('**Fat.** Low-fat diets', ctx).includes('md-sub'));
+      const { splitVerdict, titleHtml } = await import('../js/reading.js');
+      const tagless = h => h.replace(/<[^>]+>/g, '');
+      ok('Verdict titles become badges without changing their words',
+        splitVerdict('Creatine monohydrate: keep').tone === 'ok' && splitVerdict('Ashwagandha: avoid').tone === 'danger' &&
+        splitVerdict('Heat: training at 13:00 in a hot climate') === null && tagless(titleHtml('Vitamin D3: keep at 1,000 IU')) === 'Vitamin D3: keep at 1,000 IU');
+      const { viewPlan, viewArticle } = await import('../js/views.js');
+      const badPlan = DB.pages.filter(p => {
+        const h = viewPlan(p.id).html, n = (p.sections || []).length;
+        return !h.includes('class="hero steel') || (h.match(/class="lr-sec/g) || []).length !== n || (n > 1 && (h.match(/data-scroll=/g) || []).length !== n);
+      }).map(p => p.id);
+      ok(`Every plan page (${DB.pages.length}) has its plate, every section numbered, and contents for each`, badPlan.length === 0, badPlan.join(', '));
+      const LAYER_KEYS = ['summary', 'mechanisms', 'evidence', 'practice', 'uncertainties'];
+      const badArticle = DB.articles.filter(a => { const h = viewArticle(a.id).html; return LAYER_KEYS.some(k => a[k] && !h.includes(`id="sec-${k}"`)); }).map(a => a.id);
+      ok(`Every article (${DB.articles.length}) can be opened at any of its layers (…?s=evidence)`, badArticle.length === 0, badArticle.join(', '));
       const longest = [];
       for (const p of phases()) for (const [sid] of DB.idx.sessions) {
         const s = resolveSession(p.id, 1, sid);

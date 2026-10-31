@@ -673,6 +673,191 @@ a.cite.missing, a.xref.missing { color: var(--danger); }
 .card-link:hover .tool-icon { background: var(--temper); color: var(--temper-ink); }
 .tool-tile h3 { margin: 2px 0 4px; font-size: 1.0625rem; }
 
+/* ---------- Reading pages (js/reading.js) ----------
+   Plan pages, articles, rules, decisions, references, the glossary and their index pages open on a plate of
+   forged steel stamped with the topic's mark: the one bold thing on the page; everything after it is quiet.
+   Long pages get numbered sections and contents that follow you down the page: a strip under the top bar on
+   phones, a rail beside the text on wide screens. */
+.page.hub { max-width: 64rem; }
+.longread { max-width: 44rem; margin: 0 auto; }
+.longread .md { font-size: 1.0625rem; line-height: 1.65; }
+
+.hero { position: relative; isolation: isolate; overflow: hidden; margin: 2px 0 18px; padding: 18px 20px 18px; border-radius: var(--r-hero); }
+.hero svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+/* The mark again, large and faint, as if engraved into the plate. */
+.hero-engrave {
+  position: absolute; z-index: -1; right: -30px; bottom: -40px; width: 190px; height: 190px; color: var(--temper); opacity: .16; pointer-events: none;
+  /* Fades out towards the words, so it never sits behind them at full strength. */
+  -webkit-mask-image: linear-gradient(135deg, transparent 30%, #000 72%); mask-image: linear-gradient(135deg, transparent 30%, #000 72%);
+}
+.hero-engrave svg { width: 100%; height: 100%; stroke-width: 1.1; }
+.hero-top { display: flex; align-items: center; gap: 12px; min-height: 44px; margin: 0 0 14px; }
+.hero-stamp {
+  flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; color: var(--temper);
+  background: rgb(255 255 255 / .05); box-shadow: inset 0 0 0 1px rgb(255 255 255 / .1), inset 0 1px 0 rgb(255 255 255 / .08);
+}
+.hero-stamp svg { width: 24px; height: 24px; }
+.hero-eyebrow { margin: 0; font-size: .875rem; font-weight: 500; line-height: 1.35; color: var(--temper-text); }
+.hero h1 { margin: 0; color: var(--ink); }
+.hero.compact h1 { font-size: clamp(1.375rem, 1.15rem + 1vw, 1.75rem); line-height: 1.2; letter-spacing: -.02em; }
+.hero-lede { margin: 10px 0 0; max-width: 60ch; font-size: 1.0625rem; line-height: 1.5; color: var(--ink-2); }
+.hero-extra { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 0; }
+.hero-facts {
+  display: flex; flex-wrap: wrap; gap: 4px 20px; margin: 16px 0 0; padding-top: 13px;
+  border-top: 1px solid rgb(255 255 255 / .09); font-size: .8125rem; color: var(--ink-2);
+}
+.hero-facts b { margin-right: 2px; font-family: var(--num); font-variant-ligatures: none; font-size: 1rem; font-weight: 700; letter-spacing: -.02em; color: var(--ink); }
+
+/* The page in brief, edged in the phase colour. */
+.inshort { position: relative; margin: 0 0 16px; padding: 16px 18px 16px 22px; border-radius: var(--r-panel); background: var(--surface); border: 1px solid var(--line); scroll-margin-top: 36px; }
+.inshort::before { content: ""; position: absolute; left: -1px; top: 16px; bottom: 16px; width: 4px; border-radius: 0 4px 4px 0; background: var(--temper); }
+.inshort-label { margin: 0 0 6px; font-size: .875rem; font-weight: 700; color: var(--temper-text); }
+
+/* Contents: the sections in page order. */
+.toc { margin: 0 0 6px; padding: 12px 14px 8px 16px; border-radius: var(--r-panel); background: var(--surface); border: 1px solid var(--line); }
+.toc-label { margin: 0 0 2px; font-size: .875rem; font-weight: 700; color: var(--ink-2); }
+.toc ol { list-style: none; margin: 0; padding: 0; }
+.toc li { break-inside: avoid; }
+.toc a { display: flex; align-items: baseline; gap: 10px; padding: 7px 2px; border-radius: 8px; color: var(--ink); text-decoration: none; font-weight: 500; line-height: 1.35; }
+.toc a:hover { color: var(--temper-text); }
+.toc-n { flex: none; min-width: 1.6em; font-family: var(--num); font-variant-ligatures: none; font-size: .8125rem; font-weight: 700; text-align: right; color: var(--ink-3); }
+.toc a[aria-current="true"] .toc-n { color: var(--temper-text); }
+.toc .verdict { font-size: .75rem; padding: 0 8px; vertical-align: .08em; }
+@media (min-width: 640px) and (max-width: 1179px) { .toc ol { columns: 2; column-gap: 28px; } }
+
+/* Sections: a plate with the section's number (or, on a rule, its mark), then the text. */
+.lr-sec { padding: 22px 0 4px; scroll-margin-top: 36px; }
+.lr-sec + .lr-sec { margin-top: 18px; border-top: 1px solid var(--line); }
+.lr-h { display: flex; align-items: flex-start; gap: 12px; margin: 0 0 14px; font-size: 1.4375rem; line-height: 1.22; letter-spacing: -.02em; }
+.lr-n {
+  flex: none; display: inline-grid; place-items: center; min-width: 32px; height: 32px; padding: 0 7px; margin-top: -2px; border-radius: 9px;
+  background: var(--temper-soft); color: var(--temper-text);
+  font-family: var(--num); font-variant-ligatures: none; font-size: .9375rem; font-weight: 700; letter-spacing: 0;
+}
+.lr-n.glyph svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.lr-t { min-width: 0; padding-top: 1px; }
+/* A paragraph that is only bold text (js/md.js) is a small heading. */
+.md p.md-sub { display: flex; align-items: baseline; gap: 10px; margin: 1.5em 0 .4em; font-size: 1.0625rem; line-height: 1.35; }
+.md > p.md-sub:first-child { margin-top: 0; }
+.md p.md-sub::before { content: ""; flex: none; width: 9px; height: 9px; border-radius: 2px; background: var(--temper); transform: translateY(-1px); }
+/* What the evidence means for you is set apart; the limits are drawn in outline. */
+.lr-panel { padding: 16px 18px; border-radius: var(--r-panel); background: color-mix(in srgb, var(--temper) 7%, var(--surface)); border: 1px solid color-mix(in srgb, var(--temper) 30%, var(--line)); }
+.is-limits .lr-panel { background: transparent; border: 1.5px dashed var(--line-strong); }
+/* A rule's steps get numbered plates; its worked example is a worksheet. */
+.lr-sec.steps .md > ol { list-style: none; padding: 0; counter-reset: step; }
+.lr-sec.steps .md > ol > li { counter-increment: step; position: relative; min-height: 30px; margin: 0 0 12px; padding: 2px 0 0 44px; }
+.lr-sec.steps .md > ol > li::before {
+  content: counter(step); position: absolute; left: 0; top: 0; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 8px;
+  background: var(--ink); color: var(--bg); font-family: var(--num); font-variant-ligatures: none; font-size: .875rem; font-weight: 700;
+}
+.lr-sec.worksheet .md { padding: 16px 18px; border-radius: var(--r-panel); border: 1.5px dashed var(--line-strong); background: var(--surface); }
+.lr-cta { margin: 24px 0 8px; }
+
+/* A section title that states a verdict ("Creatine monohydrate: keep") shows it as a badge. */
+.verdict {
+  --c: var(--info);
+  display: inline-block; padding: 1px 10px; border-radius: 99px; vertical-align: .18em;
+  font-size: .8125rem; font-weight: 700; line-height: 1.6; letter-spacing: 0;
+  background: color-mix(in srgb, var(--c) 14%, transparent); color: var(--c); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c) 30%, transparent);
+}
+.verdict::first-letter { text-transform: uppercase; }
+.verdict.ok { --c: var(--ok); }
+.verdict.danger { --c: var(--danger); }
+
+/* Phones and tablets: once the contents scroll away, a strip under the top bar names the section you are in. */
+.toc-strip {
+  position: fixed; z-index: 19; left: 0; right: 0; top: var(--strip-top, 57px); height: 44px;
+  display: flex; align-items: center; padding: 0 max(16px, calc((100% - 44rem) / 2));
+  background: color-mix(in srgb, var(--bg) 90%, transparent); border-bottom: 1px solid var(--line);
+  backdrop-filter: saturate(1.3) blur(14px); -webkit-backdrop-filter: saturate(1.3) blur(14px);
+  transform: translateY(-100%); opacity: 0; visibility: hidden; transition: transform .2s ease, opacity .2s ease, visibility 0s .2s;
+}
+.toc-strip.on { transform: none; opacity: 1; visibility: visible; transition: transform .2s ease, opacity .2s ease; }
+.toc-strip-btn { flex: 1; min-width: 0; display: flex; align-items: center; gap: 10px; height: 100%; padding: 0; border: 0; background: none; color: var(--ink); font: inherit; font-size: .9375rem; font-weight: 500; text-align: left; cursor: pointer; }
+.toc-strip .toc-n { min-width: 26px; height: 24px; padding: 0 6px; display: inline-grid; place-items: center; border-radius: 7px; background: var(--temper-soft); color: var(--temper-text); text-align: center; }
+.toc-strip-t { flex: 1; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.toc-strip-t .verdict { font-size: .75rem; padding: 0 7px; vertical-align: .1em; }
+.toc-strip-all { flex: none; font-size: .8125rem; color: var(--ink-3); }
+.toc-strip-bar { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--temper); transform-origin: 0 50%; transform: scaleX(var(--p, 0)); }
+@media (min-width: 960px) { .toc-strip { left: var(--sidenav-w); padding: 0 max(40px, calc((100% - 44rem) / 2)); } }
+
+/* Wide screens: the contents become a rail beside the text and mark where you are. */
+@media (min-width: 1180px) {
+  .longread:not(.solo) { display: grid; grid-template-columns: minmax(0, 1fr) 14.5rem; grid-template-rows: auto auto 1fr; column-gap: 48px; max-width: 66rem; }
+  .longread:not(.solo) > .hero { grid-column: 1 / -1; }
+  .longread:not(.solo) > .inshort { grid-column: 1; grid-row: 2; }
+  .longread:not(.solo) > .lr-body { grid-column: 1; grid-row: 3; }
+  .longread:not(.solo) > .toc {
+    grid-column: 2; grid-row: 2 / span 2; align-self: start; position: sticky; top: 84px; max-height: calc(100vh - 104px); overflow-y: auto;
+    margin: 0; padding: 2px 0 2px 18px; border: 0; border-left: 1px solid var(--line); border-radius: 0; background: none; scrollbar-width: thin;
+  }
+  .longread .toc a { position: relative; padding: 6px 2px; font-size: .9375rem; color: var(--ink-2); }
+  .longread .toc a[aria-current="true"] { color: var(--ink); font-weight: 700; }
+  .longread .toc a[aria-current="true"]::before { content: ""; position: absolute; left: -20px; top: 7px; bottom: 7px; width: 3px; border-radius: 2px; background: var(--temper); }
+  .toc-strip { display: none; }
+  .lr-sec, .inshort { scroll-margin-top: 8px; }
+}
+
+/* Index pages: groups of tiles, each group headed by its topic's mark. */
+.hub-group { margin: 30px 0 0; }
+.hub-head { display: flex; align-items: center; gap: 12px; margin: 0 0 12px; }
+.hub-glyph, .tile-glyph { flex: none; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 11px; background: var(--surface-2); color: var(--ink); }
+.hub-glyph svg, .tile-glyph svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.hub-head h2 { margin: 0; font-size: 1.25rem; }
+.hub-count { margin-left: auto; white-space: nowrap; font-size: .8125rem; font-weight: 500; color: var(--ink-3); }
+.hub-foot { margin-top: 26px; }
+.tiles { display: grid; gap: 10px; }
+@media (min-width: 720px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } .tiles.shelf { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.tile {
+  display: flex; flex-direction: column; gap: 5px; min-width: 0; padding: 15px 16px; border-radius: var(--r-panel);
+  background: var(--surface); border: 1px solid var(--line); color: inherit; text-decoration: none; transition: border-color .15s;
+}
+.tile:hover { border-color: var(--line-strong); color: inherit; }
+.tile-title { font-size: 1.0625rem; font-weight: 700; line-height: 1.3; letter-spacing: -.01em; transition: color .15s; }
+.tile:hover .tile-title { color: var(--temper-text); }
+/* Clamped on screen only: the whole summary stays in the page (and its own page has it in full). */
+.tile-sub { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; font-size: .875rem; line-height: 1.5; color: var(--ink-2); }
+.tile-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: auto; padding-top: 6px; font-size: .8125rem; color: var(--ink-3); }
+.tile-id { margin-right: 2px; font-family: var(--num); font-variant-ligatures: none; font-size: .8125rem; font-weight: 700; color: var(--ink-3); }
+.tile.has-glyph { display: grid; grid-template-columns: 38px minmax(0, 1fr); column-gap: 14px; align-content: start; }
+.tile.has-glyph > :not(.tile-glyph) { grid-column: 2; }
+.tile.has-glyph .tile-glyph { grid-row: 1 / span 2; transition: background-color .15s, color .15s; }
+.tile:hover .tile-glyph { background: var(--temper); color: var(--temper-ink); }
+
+/* Glossary: letters to jump between, a box to find a term. */
+.az { display: flex; flex-wrap: wrap; gap: 5px; margin: -2px 0 6px; }
+.az a {
+  display: grid; place-items: center; min-width: 36px; height: 36px; padding: 0 6px; border-radius: 9px; border: 1px solid var(--line); background: var(--surface);
+  color: var(--ink-2); text-decoration: none; font-family: var(--num); font-variant-ligatures: none; font-size: .875rem; font-weight: 700;
+}
+.az a:hover { color: var(--temper-text); border-color: var(--line-strong); }
+.gl-group { scroll-margin-top: 8px; }
+.gl-letter { display: flex; align-items: center; gap: 12px; margin: 28px 0 2px; font-family: var(--num); font-size: 1.625rem; font-weight: 800; letter-spacing: -.03em; color: var(--temper-text); }
+.gl-letter::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.gl-term { padding: 14px 0 12px; border-top: 1px solid var(--line); }
+.gl-letter + .gl-term { border-top: 0; }
+.gl-term h3 { margin: 0 0 6px; font-size: 1.0625rem; letter-spacing: -.01em; }
+.gl-aka { font-size: .8125rem; font-weight: 500; color: var(--ink-3); }
+.gl-none { margin: 18px 0; }
+
+/* Phones: content tables of three or more columns (js/md.js) become a stack of cards, one per row, each
+   value labelled with its column. */
+@media (max-width: 639px) {
+  .md .table-wrap.cards { overflow: visible; margin: 14px 0; border: 0; border-radius: 0; background: none; }
+  .md .table-wrap.cards table, .md .table-wrap.cards tbody, .md .table-wrap.cards tr, .md .table-wrap.cards td { display: block; width: auto; }
+  .md .table-wrap.cards thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .md .table-wrap.cards tr { margin: 0 0 8px; padding: 4px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+  .md .table-wrap.cards td {
+    display: grid; grid-template-columns: minmax(5.5rem, 36%) minmax(0, 1fr); gap: 0 12px; min-width: 0;
+    padding: 8px 0; border: 0; text-align: left !important;
+  }
+  .md .table-wrap.cards td + td { border-top: 1px solid var(--line); }
+  .md .table-wrap.cards td::before { content: attr(data-label); padding-top: .1em; font-size: .8125rem; font-weight: 500; line-height: 1.45; color: var(--ink-3); }
+  .md .table-wrap.cards td:first-child { display: block; font-weight: 700; }
+  .md .table-wrap.cards td:first-child::before { display: block; padding: 0; font-weight: 500; }
+  .md .table-wrap.cards td:empty { display: none; }
+}
+
 /* ---------- Sheet (bottom sheet on phones, dialog on wider screens) ---------- */
 .sheet-backdrop { position: fixed; inset: 0; background: rgb(9 13 17 / .5); backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px); z-index: 60; animation: fade-in .2s ease; }
 .sheet {
@@ -866,8 +1051,11 @@ a.cite.missing, a.xref.missing { color: var(--danger); }
 /* ---------- Print ---------- */
 @media print {
   :root { color-scheme: light; }
-  .sidenav, .bottomnav, .topbar, .banner, .btn, .tabs, .no-print, .temper-mark, .demo { display: none !important; }
+  .sidenav, .bottomnav, .topbar, .banner, .btn, .tabs, .no-print, .temper-mark, .demo, .hero-engrave, .hero-stamp { display: none !important; }
   main { padding: 0; }
+  .longread { display: block !important; max-width: none; }
+  .hero { padding: 0 0 12px; border: 0 !important; border-radius: 0; }
+  .tile-sub { -webkit-line-clamp: unset; }
   details { border: 0; }
   details > .details-body { display: block !important; }
   .card, .ex-card { break-inside: avoid; }

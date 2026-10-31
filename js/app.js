@@ -8,8 +8,9 @@ import { setDone, setPosition, getPosition, nextPosition, phases, getPhase, getR
 import * as V from './views.js';
 import { viewTools, viewTool, viewSettings } from './tools.js';
 import { sparksFrom } from './fx.js';
+import { GLYPHS, glyphFor } from './reading.js';
 
-export const APP_VERSION = '1.3.1';
+export const APP_VERSION = '1.4.0';
 
 const main = $('#main');
 let currentView = null;
@@ -174,13 +175,13 @@ function navGroups() {
       ['rules', '#/rules', 'Rules', ICONS.rules],
       ['tools', '#/tools', 'Tools', ICONS.tools],
     ]],
-    ['Plan', DB.pages.map(p => [`plan:${p.id}`, `#/plan/${p.id}`, p.navTitle || p.title, ICONS.plan])],
+    ['Plan', DB.pages.map(p => [`plan:${p.id}`, `#/plan/${p.id}`, p.navTitle || p.title, glyphFor(p.title, p.id)])],
     ['Learn', [
       ['science', '#/science', 'Science', ICONS.science],
       ['decisions', '#/decisions', 'Decision records', ICONS.decisions],
       ['refs', '#/refs', 'References', ICONS.refs],
       ['glossary', '#/glossary', 'Glossary', ICONS.glossary],
-      ['profile', '#/profile', 'Profile analysis', ICONS.refs],
+      ['profile', '#/profile', 'Profile analysis', GLYPHS.profile],
     ]],
     ['App', [['settings', '#/settings', 'Settings & backup', ICONS.settings]]],
   ];

@@ -8,6 +8,7 @@ import {
 } from './engine.js';
 import { renderPlayer } from './player.js';
 import { videoBlock, mountVideo } from './video.js';
+import { GLYPHS, glyphFor, minutesToRead, fact, hero, inShort, titleHtml, toc, section, mountReading } from './reading.js';
 
 const md = (ctx, src) => (src ? `<div class="md">${ctx.md(src)}</div>` : '');
 const inlineMd = (ctx, src) => (src ? ctx.md(src).replace(/^<p>/, '').replace(/<\/p>$/, '') : '');
@@ -26,6 +27,17 @@ function head(eyebrow, title, lede = '') {
 function notFound(what) {
   return { title: 'Not found', html: `<div class="page">${head('', 'Not found')}<p>${esc(what)} could not be found.</p><p><a href="#/today">Go to Today</a></p></div>` };
 }
+
+/** A tile on an index page. The summary is clamped to three lines on screen; the full text stays in the page. */
+const tile = (href, title, sub = '', meta = '', glyph = '') =>
+  `<a class="tile${glyph ? ' has-glyph' : ''}" href="${href}">${glyph ? `<span class="tile-glyph" aria-hidden="true">${glyph}</span>` : ''}<span class="tile-title">${title}</span>${sub ? `<span class="tile-sub">${sub}</span>` : ''}${meta ? `<span class="tile-meta">${meta}</span>` : ''}</a>`;
+
+/** A group of tiles on an index page, headed by its topic's mark and how many it holds. */
+const hubGroup = (name, glyph, count, tiles) =>
+  `<section class="hub-group"><div class="hub-head"><span class="hub-glyph" aria-hidden="true">${glyph}</span><h2>${esc(name)}</h2><span class="hub-count">${esc(count)}</span></div><div class="tiles">${tiles}</div></section>`;
+
+const plural = (n, one, many = `${one}s`) => `${n} ${n === 1 ? one : many}`;
+const sourcesFact = ctx => (ctx.order.length ? [fact(ctx.order.length, ctx.order.length === 1 ? 'source' : 'sources')] : []);
 
 function jsDayToIdx(d = new Date()) { return (d.getDay() + 6) % 7; } // Mon = 0
 
@@ -571,31 +583,43 @@ export function viewRules() {
   for (const r of DB.rules) (groups[r.category || 'General'] ||= []).push(r);
   return {
     title: 'Rules',
-    html: `<div class="page">
-      ${head('Look up and apply', 'Progression and adjustment rules', 'Each rule is written in terms of data your logging app and tape measure record.')}
-      ${Object.entries(groups).map(([g, rs]) => `<div class="section-head"><h2>${esc(g)}</h2></div><div class="card tight"><ul class="list">${rs.map(r => listItem(`#/rule/${r.id}`, esc(r.title), esc(plain(r.summary || '')).slice(0, 160))).join('')}</ul></div>`).join('')}
+    html: `<div class="page hub">
+      ${hero({ eyebrow: 'Look up and apply', title: 'Progression and adjustment rules', lede: 'Each rule is written in terms of data your logging app and tape measure record.', glyph: ICONS.rules,
+        facts: [fact(DB.rules.length, 'rules'), fact(Object.keys(groups).length, 'topics'), fact(DB.rules.filter(r => r.tool).length, 'with a calculator')] })}
+      ${Object.entries(groups).map(([g, rs]) => hubGroup(g, glyphFor(g), plural(rs.length, 'rule'),
+        rs.map(r => tile(`#/rule/${r.id}`, esc(r.title), esc(plain(r.summary || '')), r.tool ? '<span class="chip accent">Calculator</span>' : '')).join(''))).join('')}
       ${ctx.refsHtml()}
     </div>`,
   };
 }
 
+// The parts of a rule, each with its own mark: when it applies, the steps, the data, an example, the reasoning.
+const RULE_PARTS = [
+  ['trigger', 'When it applies', GLYPHS.when, ''],
+  ['action', 'What to do', ICONS.rules, 'steps'],
+  ['data', 'Data you need', GLYPHS.data, ''],
+  ['example', 'Worked example', GLYPHS.example, 'worksheet'],
+  ['rationale', 'Why', GLYPHS.why, ''],
+];
+
 export function viewRule(id) {
   const r = DB.idx.rules.get(id);
   if (!r) return notFound(`Rule "${id}"`);
   const ctx = makeCtx();
-  const block = (t, b, cls = 'card') => (b ? `<div class="${cls}"><h2 style="margin-top:0">${t}</h2>${md(ctx, b)}</div>` : '');
+  const summary = r.summary ? md(ctx, r.summary) : '';
+  const parts = RULE_PARTS.filter(([k]) => r[k]);
+  const body = parts.map(([k, t, glyph, cls]) => section({ id: k, n: glyph, title: t, body: md(ctx, r[k]), cls })).join('');
+  const refs = ctx.refsHtml();
   return {
     title: r.title,
-    html: `<div class="page reading">
-      ${head(esc(r.category || 'Rule'), esc(r.title))}
-      ${r.summary ? `<div class="callout ok">${ctx.md(r.summary)}</div>` : ''}
-      ${block('When it applies', r.trigger)}
-      ${block('What to do', r.action)}
-      ${block('Data you need', r.data)}
-      ${r.example ? block('Worked example', r.example) : ''}
-      ${block('Why', r.rationale)}
-      ${r.tool ? `<p><a class="btn primary" href="#/tool/${esc(r.tool)}">Open the matching calculator</a></p>` : ''}
-      ${ctx.refsHtml()}
+    html: `<div class="page longread solo">
+      ${hero({ eyebrow: esc(r.category || 'Rule'), title: esc(r.title), glyph: glyphFor(r.category),
+        facts: [fact(`${minutesToRead(r.summary, ...parts.map(([k]) => r[k]))} min`, 'read'), ...sourcesFact(ctx)] })}
+      ${inShort('The rule', summary)}
+      <div class="lr-body">${body}
+        ${r.tool ? `<p class="lr-cta"><a class="btn primary" href="#/tool/${esc(r.tool)}">Open the matching calculator</a></p>` : ''}
+        ${refs}
+      </div>
     </div>`,
   };
 }
@@ -605,30 +629,41 @@ export function viewRule(id) {
 export function viewScience() {
   const groups = {};
   for (const a of DB.articles) (groups[a.category || 'General'] ||= []).push(a);
+  const minutes = a => minutesToRead(a.summary, a.mechanisms, a.evidence, a.practice, a.uncertainties);
   return {
     title: 'Science',
-    html: `<div class="page">
-      ${head('Learn', 'The science behind the programme', 'Each article starts with a plain-language summary, then mechanisms, then the evidence and references.')}
-      <div class="grid three">
-        <a class="card card-link" href="#/decisions"><h3 style="margin:0 0 4px">Decision records</h3><p class="small muted" style="margin:0">${DB.decisions.length} decisions: options, evidence, confidence, what would change them.</p></a>
-        <a class="card card-link" href="#/refs"><h3 style="margin:0 0 4px">References</h3><p class="small muted" style="margin:0">${DB.references.length} sources with DOI/PMID and evidence grades.</p></a>
-        <a class="card card-link" href="#/glossary"><h3 style="margin:0 0 4px">Glossary</h3><p class="small muted" style="margin:0">${DB.terms.length} terms defined.</p></a>
+    html: `<div class="page hub">
+      ${hero({ eyebrow: 'Learn', title: 'The science behind the programme', lede: 'Each article starts with a plain-language summary, then mechanisms, then the evidence and references.', glyph: ICONS.science,
+        facts: [fact(DB.articles.length, 'articles'), fact(DB.decisions.length, 'decisions'), fact(DB.references.length, 'references'), fact(DB.terms.length, 'terms')] })}
+      <div class="tiles shelf">
+        ${tile('#/decisions', 'Decision records', `${DB.decisions.length} decisions: options, evidence, confidence, what would change them.`, '', ICONS.decisions)}
+        ${tile('#/refs', 'References', `${DB.references.length} sources with DOI/PMID and evidence grades.`, '', ICONS.refs)}
+        ${tile('#/glossary', 'Glossary', `${DB.terms.length} terms defined.`, '', ICONS.glossary)}
       </div>
-      ${Object.entries(groups).map(([g, as]) => `<div class="section-head"><h2>${esc(g)}</h2></div><div class="card tight"><ul class="list">${as.map(a => listItem(`#/sci/${a.id}`, esc(a.title), esc(plain(a.tagline || '')))).join('')}</ul></div>`).join('')}
-      ${DB.meta.evidenceCutoff ? `<p class="small muted">Evidence searched up to ${esc(DB.meta.evidenceCutoff)}.</p>` : ''}
+      ${Object.entries(groups).map(([g, as]) => hubGroup(g, glyphFor(g), plural(as.length, 'article'),
+        as.map(a => tile(`#/sci/${a.id}`, esc(a.title), esc(plain(a.tagline || '')), `<span class="tile-min">${minutes(a)} min read</span>`)).join(''))).join('')}
+      ${DB.meta.evidenceCutoff ? `<p class="small muted hub-foot">Evidence searched up to ${esc(DB.meta.evidenceCutoff)}.</p>` : ''}
     </div>`,
   };
 }
+
+// An article's layers, from plain language down to the evidence; the last two are set apart.
+const LAYERS = [
+  ['summary', 'In plain language', ''], ['mechanisms', 'Mechanisms', ''], ['evidence', 'Evidence', ''],
+  ['practice', 'What this means for your programme', 'is-practice'], ['uncertainties', 'Uncertainties and limits', 'is-limits'],
+];
 
 export function viewArticle(id) {
   const a = DB.idx.articles.get(id);
   if (!a) return notFound(`Article "${id}"`);
   const ctx = makeCtx();
-  const layers = [
-    ['summary', 'In plain language'], ['mechanisms', 'Mechanisms'], ['evidence', 'Evidence'],
-    ['practice', 'What this means for your programme'], ['uncertainties', 'Uncertainties and limits'],
-  ].filter(([k]) => a[k]);
-  const toc = `<nav class="chips no-print" aria-label="Article sections" style="margin:8px 0 16px">${layers.map(([k, t]) => `<a class="chip" href="#/sci/${esc(id)}?s=${k}" data-scroll="${k}">${t}</a>`).join('')}</nav>`;
+  const layers = LAYERS.filter(([k]) => a[k]);
+  // The plain-language layer opens the page; the deeper layers follow as numbered sections.
+  const lead = layers[0] && layers[0][0] === 'summary' ? inShort(layers[0][1], md(ctx, a.summary), 'summary') : '';
+  const body = layers.filter(([k]) => !(lead && k === 'summary')).map(([k, t, cls]) => {
+    const n = layers.findIndex(l => l[0] === k) + 1;
+    return section({ id: k, n, title: esc(t), body: cls ? `<div class="lr-panel">${md(ctx, a[k])}</div>` : md(ctx, a[k]), cls });
+  }).join('');
   const rel = a.related || {};
   const relList = [
     ...(rel.decisions || []).map(d => ctx.link('dec', d)),
@@ -636,24 +671,22 @@ export function viewArticle(id) {
     ...(rel.items || []).map(x => ctx.link('ex', x)),
     ...(rel.plan || []).map(x => ctx.link('plan', x)),
   ];
+  const refs = ctx.refsHtml('References');
+  let stop = null;
   return {
     title: a.title,
-    html: `<div class="page reading">
-      ${head(esc(a.category || 'Science'), esc(a.title), esc(plain(a.tagline || '')))}
-      ${toc}
-      ${layers.map(([k, t], i) => `<section id="layer-${k}" class="${i === 0 ? 'card' : ''}"><h2${i === 0 ? ' style="margin-top:0"' : ''}>${t}</h2>${md(ctx, a[k])}</section>`).join('')}
-      ${relList.length ? `<div class="card flat"><h2 style="margin-top:0">Related</h2><p>${relList.join(' · ')}</p></div>` : ''}
-      ${ctx.refsHtml('References')}
+    html: `<div class="page longread">
+      ${hero({ eyebrow: esc(a.category || 'Science'), title: esc(a.title), lede: esc(plain(a.tagline || '')), glyph: glyphFor(a.category),
+        facts: [fact(layers.length, 'layers'), fact(`${minutesToRead(...layers.map(([k]) => a[k]))} min`, 'read'), ...sourcesFact(ctx)] })}
+      ${lead}
+      ${toc(layers.map(([k, t]) => ({ id: k, html: esc(t) })), `#/sci/${esc(id)}`, 'Layers of this article')}
+      <div class="lr-body">${body}
+        ${relList.length ? `<div class="card flat related"><h2 style="margin-top:0">Related</h2><p>${relList.join(' · ')}</p></div>` : ''}
+        ${refs}
+      </div>
     </div>`,
-    after(root) {
-      root.querySelectorAll('[data-scroll]').forEach(el => el.addEventListener('click', e => {
-        e.preventDefault();
-        const t = root.querySelector(`#layer-${el.dataset.scroll}`);
-        if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }));
-      const s = new URLSearchParams(location.hash.split('?')[1] || '').get('s');
-      if (s) setTimeout(() => { const t = root.querySelector(`#layer-${s}`); if (t) t.scrollIntoView({ block: 'start' }); }, 50);
-    },
+    after(root) { stop = mountReading(root); },
+    cleanup() { if (stop) stop(); },
   };
 }
 
@@ -662,11 +695,14 @@ export function viewArticle(id) {
 export function viewDecisions() {
   const groups = {};
   for (const d of DB.decisions) (groups[d.category || 'General'] ||= []).push(d);
+  const withConfidence = c => DB.decisions.filter(d => String(d.confidence || '').toLowerCase() === c).length;
   return {
     title: 'Decisions',
-    html: `<div class="page">
-      ${head('Transparency', 'Decision records', 'Every significant choice: the question, the options considered, the evidence for and against each, the choice, confidence, the profile data that influenced it, and what would change it.')}
-      ${Object.entries(groups).map(([g, ds]) => `<div class="section-head"><h2>${esc(g)}</h2></div><div class="card tight"><ul class="list">${ds.map(d => listItem(`#/dec/${d.id}`, esc(d.title), esc(plain(d.choiceSummary || '')).slice(0, 140), confChip(d.confidence))).join('')}</ul></div>`).join('')}
+    html: `<div class="page hub">
+      ${hero({ eyebrow: 'Transparency', title: 'Decision records', lede: 'Every significant choice: the question, the options considered, the evidence for and against each, the choice, confidence, the profile data that influenced it, and what would change it.', glyph: ICONS.decisions,
+        facts: [fact(DB.decisions.length, 'decisions'), ...['high', 'moderate', 'low'].filter(withConfidence).map(c => fact(withConfidence(c), `${c} confidence`))] })}
+      ${Object.entries(groups).map(([g, ds]) => hubGroup(g, glyphFor(g), plural(ds.length, 'decision'),
+        ds.map(d => tile(`#/dec/${d.id}`, `<span class="tile-id">${esc(d.id)}</span> ${esc(d.title)}`, esc(plain(d.choiceSummary || '')), confChip(d.confidence))).join(''))).join('')}
     </div>`,
   };
 }
@@ -681,27 +717,34 @@ export function viewDecision(id) {
       <div class="pro-con"><div class="for"><div class="lbl">Evidence for</div>${md(ctx, o.for)}</div><div class="against"><div class="lbl">Evidence against</div>${md(ctx, o.against)}</div></div>
     </div>`).join('');
   const ul = arr => (arr && arr.length ? `<ul>${arr.map(s => `<li>${inlineMd(ctx, s)}</li>`).join('')}</ul>` : '');
+  // Citations are numbered in the order things are rendered: the options first (above), then the rest in page order.
+  const question = d.context ? md(ctx, d.context) : '';
+  const reasoning = `<div class="lr-panel">${md(ctx, d.rationale)}
+    ${d.confidenceNote ? `<p class="small"><strong>Confidence:</strong> ${inlineMd(ctx, d.confidenceNote)}</p>` : ''}</div>`;
+  const parts = [
+    ['options', 'Options considered', opts, ''],
+    ['choice', 'Choice and reasoning', reasoning, 'is-practice'],
+    ['data', 'Your data that influenced it', ul(d.profileData), ''],
+    ['change', 'What would change this decision', ul(d.wouldChange), ''],
+  ];
   const rel = d.related || {};
   const relList = [
     ...(rel.articles || []).map(x => ctx.link('sci', x)), ...(rel.decisions || []).map(x => ctx.link('dec', x)),
     ...(rel.items || []).map(x => ctx.link('ex', x)), ...(rel.rules || []).map(x => ctx.link('rule', x)),
     ...(rel.plan || []).map(x => ctx.link('plan', x)), ...(rel.phases || []).map(x => ctx.link('phase', x)),
   ];
+  const refs = ctx.refsHtml('References');
   return {
     title: 'Decision',
-    html: `<div class="page reading">
-      ${head(`${esc(d.category || 'Decision')} · ${esc(d.id)}`, esc(d.title))}
-      <div class="row">${confChip(d.confidence)}</div>
-      ${d.context ? `<div class="card" style="margin-top:12px"><h2 style="margin-top:0">The question</h2>${md(ctx, d.context)}</div>` : ''}
-      <div class="section-head"><h2>Options considered</h2></div>${opts}
-      <div class="card"><h2 style="margin-top:0">Choice and reasoning</h2>${md(ctx, d.rationale)}
-        ${d.confidenceNote ? `<p class="small"><strong>Confidence:</strong> ${inlineMd(ctx, d.confidenceNote)}</p>` : ''}</div>
-      <div class="grid two">
-        <div class="card"><h2 style="margin-top:0">Your data that influenced it</h2>${ul(d.profileData)}</div>
-        <div class="card"><h2 style="margin-top:0">What would change this decision</h2>${ul(d.wouldChange)}</div>
+    html: `<div class="page longread solo">
+      ${hero({ eyebrow: `${esc(d.category || 'Decision')} · ${esc(d.id)}`, title: esc(d.title), glyph: glyphFor(d.category), extra: confChip(d.confidence),
+        facts: [fact((d.options || []).length, 'options'), fact(`${minutesToRead(d.context, d.rationale, ...(d.options || []).flatMap(o => [o.summary, o.for, o.against]))} min`, 'read'), ...sourcesFact(ctx)] })}
+      ${inShort('The question', question)}
+      <div class="lr-body">
+        ${parts.map(([k, t, b, cls], i) => section({ id: k, n: i + 1, title: t, body: b, cls })).join('')}
+        ${relList.length ? `<div class="card flat related"><h2 style="margin-top:0">Related</h2><p>${relList.join(' · ')}</p></div>` : ''}
+        ${refs}
       </div>
-      ${relList.length ? `<div class="card flat"><h2 style="margin-top:0">Related</h2><p>${relList.join(' · ')}</p></div>` : ''}
-      ${ctx.refsHtml('References')}
     </div>`,
   };
 }
@@ -716,7 +759,9 @@ export function viewRefs(query) {
   return {
     title: 'References',
     html: `<div class="page reading">
-      ${head('Evidence', 'References', `${DB.references.length} sources. Each was located and read (abstract or full text) during research${DB.meta.evidenceCutoff ? ` up to ${esc(DB.meta.evidenceCutoff)}` : ''}; identifiers were re-checked during the audit.`)}
+      ${hero({ eyebrow: 'Evidence', title: 'References', glyph: ICONS.refs,
+        lede: `${DB.references.length} sources. Each was located and read (abstract or full text) during research${DB.meta.evidenceCutoff ? ` up to ${esc(DB.meta.evidenceCutoff)}` : ''}; identifiers were re-checked during the audit.`,
+        facts: [fact(DB.references.length, 'sources'), fact(DB.references.filter(r => r.doi || r.pmid).length, 'with a DOI or PMID')] })}
       <div class="field"><input type="search" id="refq" placeholder="Search author, title, journal, DOI, PMID…" value="${esc(query.get('q') || '')}" aria-label="Search references"></div>
       <div class="card tight">${refs.map(r => `<div class="ref-entry">${refHtml(r)}</div>`).join('') || '<p class="muted">No matches.</p>'}</div>
     </div>`,
@@ -768,7 +813,8 @@ export function viewRef(id) {
   return {
     title: refShort(r),
     html: `<div class="page reading">
-      ${head(esc(r.type || 'Reference'), esc(r.title))}
+      ${hero({ eyebrow: esc(r.type || 'Reference'), title: esc(r.title), glyph: ICONS.refs, compact: true,
+        facts: hits.length ? [fact(hits.length, hits.length === 1 ? 'page cites it' : 'pages cite it')] : [] })}
       <div class="card"><p>${refHtml(r, { link: false })}</p>
         <dl class="kv">
           ${r.population ? `<dt>Population</dt><dd>${esc(r.population)}</dd>` : ''}
@@ -789,13 +835,50 @@ export function viewRef(id) {
 export function viewGlossary() {
   const ctx = makeCtx();
   const terms = DB.terms.slice().sort((a, b) => a.term.localeCompare(b.term));
+  // Grouped under their first letter, with a bar to jump between letters and a box to find a term.
+  const letter = t => { const c = t.term.trim().charAt(0).toUpperCase(); return /[A-Z]/.test(c) ? c : '#'; };
+  const groups = new Map();
+  for (const t of terms) { const L = letter(t); if (!groups.has(L)) groups.set(L, []); groups.get(L).push(t); }
+  const entry = t => `<div class="gl-term" id="term-${esc(t.id)}"><h3 class="ref-title">${esc(t.term)}${(t.aliases || []).length ? ` <span class="gl-aka">(${esc(t.aliases.join(', '))})</span>` : ''}</h3>${md(ctx, t.definition)}</div>`;
+  const motion = () => (matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth');
   return {
     title: 'Glossary',
     html: `<div class="page reading">
-      ${head('Definitions', 'Glossary', 'Terms from exercise physiology, sports nutrition and biomechanics, defined for a biochemist.')}
-      <div class="card">${terms.map(t => `<div class="ref-entry" id="term-${esc(t.id)}"><div class="ref-title">${esc(t.term)}${(t.aliases || []).length ? ` <span class="small muted">(${esc(t.aliases.join(', '))})</span>` : ''}</div>${md(ctx, t.definition)}</div>`).join('')}</div>
+      ${hero({ eyebrow: 'Definitions', title: 'Glossary', lede: 'Terms from exercise physiology, sports nutrition and biomechanics, defined for a biochemist.', glyph: ICONS.glossary,
+        facts: [fact(terms.length, 'terms')] })}
+      <div class="gl-tools no-print">
+        <div class="field"><input type="search" id="glq" placeholder="Find a term…" aria-label="Find a term" autocomplete="off"></div>
+        <nav class="az" aria-label="Jump to a letter">${[...groups.keys()].map(L => `<a href="#/glossary" data-letter="${esc(L)}">${esc(L)}</a>`).join('')}</nav>
+      </div>
+      <p class="muted gl-none" role="status" hidden>No term matches that.</p>
+      ${[...groups].map(([L, ts]) => `<section class="gl-group" data-letter="${esc(L)}"><h2 class="gl-letter">${esc(L)}</h2>${ts.map(entry).join('')}</section>`).join('')}
       ${ctx.refsHtml()}
     </div>`,
+    after(root) {
+      const input = root.querySelector('#glq');
+      const none = root.querySelector('.gl-none');
+      // Finding a term hides the others for the moment; clearing the box shows them all again.
+      const find = () => {
+        const q = input.value.trim().toLowerCase();
+        let shown = 0;
+        root.querySelectorAll('.gl-group').forEach(g => {
+          let n = 0;
+          g.querySelectorAll('.gl-term').forEach(t => { const hit = !q || t.textContent.toLowerCase().includes(q); t.hidden = !hit; if (hit) n++; });
+          g.hidden = !n;
+          shown += n;
+        });
+        none.hidden = shown > 0;
+      };
+      input.addEventListener('input', find);
+      root.querySelector('.az').addEventListener('click', e => {
+        const a = e.target.closest('[data-letter]');
+        if (!a) return;
+        e.preventDefault();
+        if (input.value) { input.value = ''; find(); }
+        const g = root.querySelector(`.gl-group[data-letter="${CSS.escape(a.dataset.letter)}"]`);
+        if (g) g.scrollIntoView({ behavior: motion(), block: 'start' });
+      });
+    },
   };
 }
 
@@ -803,37 +886,46 @@ export function viewPlan(id) {
   const p = DB.idx.pages.get(id);
   if (!p) return notFound(`Page "${id}"`);
   const ctx = makeCtx();
-  const toc = (p.sections || []).length > 3
-    ? `<nav class="chips no-print" style="margin:6px 0 14px">${p.sections.map(s => `<a class="chip" href="#/plan/${esc(id)}" data-scroll="${esc(s.id)}">${esc(s.title)}</a>`).join('')}</nav>` : '';
+  const secs = p.sections || [];
+  const summary = p.summary ? md(ctx, p.summary) : '';
+  const body = secs.map((s, i) => section({ id: s.id, n: i + 1, title: titleHtml(s.title), body: md(ctx, s.body) })).join('');
+  const refs = ctx.refsHtml('References');
+  let stop = null;
   return {
     title: p.title,
-    html: `<div class="page reading">
-      ${head('Plan', esc(p.title), esc(plain(p.tagline || '')))}
-      ${p.summary ? `<div class="card">${md(ctx, p.summary)}</div>` : ''}
-      ${toc}
-      ${(p.sections || []).map(s => `<section id="sec-${esc(s.id)}"><h2>${esc(s.title)}</h2>${md(ctx, s.body)}</section>`).join('')}
-      ${ctx.refsHtml('References')}
+    html: `<div class="page longread">
+      ${hero({ eyebrow: 'Plan', title: esc(p.title), lede: esc(plain(p.tagline || '')), glyph: glyphFor(p.title, p.id),
+        facts: [fact(secs.length, secs.length === 1 ? 'section' : 'sections'), fact(`${minutesToRead(p.summary, ...secs.map(s => s.body))} min`, 'read'), ...sourcesFact(ctx)] })}
+      ${inShort('In short', summary)}
+      ${secs.length > 1 ? toc(secs.map(s => ({ id: s.id, html: titleHtml(s.title) })), `#/plan/${esc(id)}`) : ''}
+      <div class="lr-body">${body}${refs}</div>
     </div>`,
-    after(root) {
-      root.querySelectorAll('[data-scroll]').forEach(el => el.addEventListener('click', e => {
-        e.preventDefault();
-        const t = root.querySelector(`#sec-${el.dataset.scroll}`);
-        if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }));
-    },
+    after(root) { stop = mountReading(root); },
+    cleanup() { if (stop) stop(); },
   };
 }
 
 export function viewProfile() {
   const ctx = makeCtx();
   const pa = DB.meta.profileAnalysis || {};
+  const secs = (pa.sections || []).map((s, i) => {
+    // Titles are numbered already ("1 · Your data"): the number goes on the plate.
+    const m = /^(\d+)\s*·\s*(.*)$/.exec(s.title || '');
+    return { id: s.id || `part-${i + 1}`, n: m ? +m[1] : i + 1, title: m ? m[2] : s.title || '', numbered: !!m, body: s.body };
+  });
+  const body = secs.map(s => section({ id: s.id, n: s.n, title: `${s.numbered ? '<span class="sr-only">· </span>' : ''}${esc(s.title)}`, body: md(ctx, s.body) })).join('');
+  const refs = ctx.refsHtml('References');
+  let stop = null;
   return {
     title: 'Profile analysis',
-    html: `<div class="page reading">
-      ${head('Step 1', 'Your profile analysis', 'Your data, the estimates computed from it (with methods and uncertainty), and how ambiguities were resolved.')}
-      ${(pa.sections || []).map(s => `<section><h2>${esc(s.title)}</h2>${md(ctx, s.body)}</section>`).join('')}
-      ${ctx.refsHtml('References')}
+    html: `<div class="page longread">
+      ${hero({ eyebrow: 'Step 1', title: 'Your profile analysis', lede: 'Your data, the estimates computed from it (with methods and uncertainty), and how ambiguities were resolved.', glyph: GLYPHS.profile,
+        facts: [fact(secs.length, 'sections'), fact(`${minutesToRead(...secs.map(s => s.body))} min`, 'read'), ...sourcesFact(ctx)] })}
+      ${secs.length > 1 ? toc(secs.map(s => ({ id: s.id, html: esc(s.title) })), '#/profile') : ''}
+      <div class="lr-body">${body}${refs}</div>
     </div>`,
+    after(root) { stop = mountReading(root); },
+    cleanup() { if (stop) stop(); },
   };
 }
 

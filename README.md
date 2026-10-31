@@ -20,6 +20,7 @@ js/                     Application code (ES modules)
   calc.js               Pure calculators (progression, e1RM, energy, body composition, trends)
   player.js             Guided session player with rest/hold/interval timers
   video.js              Demonstration videos on exercise pages (poster, then a YouTube player on demand)
+  reading.js            Reading pages: the steel title plate, topic marks, contents and numbered sections
   fx.js                 Spark effect when you finish something (skipped when reduced motion is set)
   views.js, tools.js    Pages and tools
   store.js              Local storage, backup and restore
@@ -162,12 +163,16 @@ All content lives in `content/*.json`; the app code does not need to change.
    - citations: `[@ReferenceId]` or `[@Id1; @Id2]` (the id must exist in `references.json`)
    - links: `[[ex:exercise-id]]`, `[[sci:article-id]]`, `[[dec:D01]]`, `[[term:rir|RIR]]`,
      `[[tool:progression]]`, `[[phase:p1]]`, `[[plan:nutrition]]`, `[[rule:double-progression]]`
+   - a paragraph that is only `**bold text**` shows as a small heading; a table of three or more
+     columns shows as one card per row on phones
+   - a plan-page section titled `Name: verdict`, where the verdict starts with keep, optional, remove,
+     avoid or do not, shows the verdict as a coloured badge (as on the supplement review)
 2. Check the JSON is valid (any JSON validator, or PowerShell:
    `Get-Content -Raw content/programme.json | ConvertFrom-Json`).
 3. Preview locally and open **Settings → Content diagnostics → Run check** (or `tests/`) to confirm
    every citation and link resolves.
-4. **Bump the version** in `sw.js` (currently `const VERSION = 'forge-v1.3.1'`; for example change it to
-   `'forge-v1.3.2'`) so installed copies fetch the new files. If you add a new file, also add it to the
+4. **Bump the version** in `sw.js` (currently `const VERSION = 'forge-v1.4.0'`; for example change it to
+   `'forge-v1.4.1'`) so installed copies fetch the new files. If you add a new file, also add it to the
    `PRECACHE` list in `sw.js`.
 5. Commit and push. Open copies show *"An updated version of the app is ready"*; tap **Reload**.
 
@@ -218,11 +223,20 @@ how to do them without equipment, shown on the exercise page and in Away-mode se
   video. Pick-ups have none, because every candidate taught faster running strides; session plans and the timed run
   and walk tests have none by design. No one watched every video in full: `VIDEOS.md` lists each choice with the
   reason, what to check when you review it, and the runner-up.
-- **App tests:** `tests/index.html` (60 checks: calculators, renderer, phase sequencing, content integrity,
+- **Reading pages (31 October 2026, version 1.4.0):** the Apply, Plan and Learn pages were redesigned: a steel
+  title plate with each topic's mark, an "In short" panel, numbered sections with contents that follow you down
+  the page, tables as cards on phones, verdict badges on the supplement review, tiled index pages, and a glossary
+  with a find box and a letter bar. No text was edited. A snapshot of every page before and after (1,295 pages:
+  101,257 blocks of text, 63,630 links, and every citation, glossary term, table and table cell) found nothing
+  missing. The only differences: contents links now point at their section (`…?s=section`), and the index pages
+  show each summary in full (clamped to three lines on screen) where they used to cut it at 140–160 characters.
+- **App tests:** `tests/index.html` (65 checks: calculators, renderer, phase sequencing, content integrity,
   every scheduled session resolving, session timings, the Away-mode return and cycling logic, every
-  phase having its colour in the stylesheet, and the demonstration videos: the data file, video ids, and an
-  exercise page loading nothing from YouTube before you press play) all pass. After the redesign (version 1.2.0),
-  and again after the videos were added (1.3.0), a crawl of 1,401 pages
+  phase having its colour in the stylesheet, the demonstration videos (the data file, video ids, and an
+  exercise page loading nothing from YouTube before you press play), and the reading pages (table cards,
+  small headings, verdict badges, every plan page's sections and contents, every article's layers)) all pass.
+  After the redesign (version 1.2.0), again after the videos were added (1.3.0) and after the reading pages
+  (1.4.0), a crawl of 1,401 pages
   at phone (412 px) and laptop (1,280 px) widths found no script errors, broken citations or links,
   unresolved placeholders, raw markup or pages wider than the screen. It covered every route, Today at every
   week of every phase, and the guided player for every session. Offline use was verified by stopping the
@@ -242,6 +256,11 @@ how to do them without equipment, shown on the exercise page and in Away-mode se
   postMessage channel (the one its IFrame Player API uses) for the player's error codes. Keep the iframe's
   default referrer policy: YouTube refuses to play embeds that do not say which site they are on. The service
   worker never touches these cross-origin requests.
+- Reading pages (`js/reading.js`): plan pages, articles, rules, decisions, references, the glossary and the
+  index pages build their title plate, "In short" panel, contents and numbered sections from it; the views pass
+  the content through unchanged. The topic marks are chosen by plan-page id or by words in a category's name
+  (`glyphFor`). On phones the contents become a strip under the top bar once you scroll past them; from 1,180 px
+  wide they are a rail beside the text. `…?s=<section id>` opens a long page at that section.
 - The back arrow (`js/app.js`, "history and the back arrow"): if you opened a page by following a link on another
   page of the app, the arrow goes back to that page in the browser history, with the same sections open and
   scrolled to where you were, so an exercise opened from a session or the guided player returns there. If you
