@@ -113,6 +113,17 @@ export function plain(md) {
     .trim();
 }
 
+/**
+ * The 11-character YouTube video id in `value`: either the id itself or any common YouTube link
+ * (watch?v=, youtu.be/, /embed/, /shorts/, /live/), so a link pasted into content/videos.json also works.
+ */
+export function youtubeId(value) {
+  const s = String(value ?? '').trim();
+  if (/^[A-Za-z0-9_-]{11}$/.test(s)) return s;
+  const m = s.match(/(?:youtu\.be\/|[?&]v=|\/(?:embed|shorts|live|v)\/)([A-Za-z0-9_-]{11})(?![A-Za-z0-9_-])/);
+  return m ? m[1] : null;
+}
+
 /** Give the app a phase's oxide colour (html[data-temper]); see the colour notes at the top of app.css. */
 export function setTemper(key) {
   const root = document.documentElement;

@@ -160,6 +160,27 @@
       const noColour = phases().filter(p => !p.color || !css.includes(`--${p.color}:`) ||
         (p.color !== 'p0' && !css.includes(`[data-temper="${p.color}"]`))).map(p => p.id);
       ok('Every phase has a temper colour and app tint in the stylesheet', noColour.length === 0, noColour.join(', '));
+      // Demonstration videos: the data file reads, every entry names a library item and a usable video, and an
+      // exercise page shows only the app's own poster (nothing from YouTube) until play is pressed.
+      const { youtubeId } = await import('../js/util.js');
+      const { viewItem } = await import('../js/views.js');
+      ok('videos.json loads', !DB.videosError, DB.videosError || '');
+      const vids = Object.entries(DB.videos);
+      const badVid = vids.filter(([k, v]) => !DB.idx.items.has(k) || !v || !youtubeId(v.id) || !v.title || !v.channel ||
+        (v.length != null && !/^\d{1,2}(:\d{2}){1,2}$/.test(v.length)) ||
+        (v.start != null && !(Number.isInteger(v.start) && v.start >= 0)) ||
+        (v.embed != null && typeof v.embed !== 'boolean')).map(([k]) => k);
+      ok(`Every video entry (${vids.length}) names a library item, a valid video id, a title and a channel`, vids.length > 0 && badVid.length === 0, badVid.join(', '));
+      ok('youtubeId reads bare ids and common YouTube links, and rejects anything else',
+        youtubeId('abcDEF_-123') === 'abcDEF_-123' && youtubeId('https://www.youtube.com/watch?v=abcDEF_-123&t=5s') === 'abcDEF_-123' &&
+        youtubeId('https://youtu.be/abcDEF_-123?si=x') === 'abcDEF_-123' && youtubeId('https://www.youtube.com/shorts/abcDEF_-123') === 'abcDEF_-123' &&
+        youtubeId('abc') === null && youtubeId('https://example.com/watch?v=abcDEF_-1234') === null);
+      const withVid = vids.find(([, v]) => v.embed !== false);
+      const vPage = withVid ? viewItem(withVid[0]).html : '';
+      ok('An exercise page shows the video poster and loads nothing from YouTube before play',
+        vPage.includes('class="demo"') && vPage.includes('data-video-play') && !/<iframe|youtube-nocookie|ytimg/.test(vPage), withVid && withVid[0]);
+      const noVid = [...DB.exercises, ...DB.drills].find(x => !DB.videos[x.id]);
+      ok('A library item without a video shows no video block', !noVid || !viewItem(noVid.id).html.includes('class="demo'), noVid && noVid.id);
       const longest = [];
       for (const p of phases()) for (const [sid] of DB.idx.sessions) {
         const s = resolveSession(p.id, 1, sid);

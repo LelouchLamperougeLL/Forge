@@ -9,7 +9,7 @@ import * as V from './views.js';
 import { viewTools, viewTool, viewSettings } from './tools.js';
 import { sparksFrom } from './fx.js';
 
-export const APP_VERSION = '1.2.0';
+export const APP_VERSION = '1.3.0';
 
 const main = $('#main');
 let currentView = null;

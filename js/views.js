@@ -7,6 +7,7 @@ import {
   getPosition, getReturnTo, isDone, weekAdherence, phaseAdherence, KIND_LABEL, DAY_NAMES, expandPart,
 } from './engine.js';
 import { renderPlayer } from './player.js';
+import { videoBlock, mountVideo } from './video.js';
 
 const md = (ctx, src) => (src ? `<div class="md">${ctx.md(src)}</div>` : '');
 const inlineMd = (ctx, src) => (src ? ctx.md(src).replace(/^<p>/, '').replace(/<\/p>$/, '') : '');
@@ -527,12 +528,14 @@ export function viewItem(id) {
   const sessions = usedIn(id);
   const errs = (x.errors || []).length ? `<ul>${x.errors.map(e => `<li><strong>${inlineMd(ctx, e.error)}</strong>${e.fix ? ' — ' + inlineMd(ctx, e.fix) : ''}</li>`).join('')}</ul>` : '';
   const alts = (x.alternatives || []).length ? `<ul>${x.alternatives.map(a => `<li>${ctx.link('ex', a.id)}${a.why ? ' — ' + inlineMd(ctx, a.why) : ''}</li>`).join('')}</ul>` : '';
+  let stopVideo = null;
   return {
     title: x.name,
     html: `<div class="page reading">
       ${head(esc(CATEGORY_LABEL[x.category] || x.category || ''), esc(x.name), '')}
       ${x.loggingName ? `<p class="small">Find it in your logging app as <strong>${esc(x.loggingName)}</strong>${(x.aliases || []).length ? ` (also called ${esc(x.aliases.join(', '))})` : ''}.</p>` : ''}
       <div class="chips">${(t.primary || []).map(m => chip(m, 'accent')).join('')}${(t.secondary || []).map(m => chip(m)).join('')}${x.system ? chip(x.system, 'info') : ''}${(x.equipment || []).map(e => chip(e)).join('')}${x.level ? chip(x.level) : ''}</div>
+      ${videoBlock(id)}
       ${x.summary ? `<div class="card" style="margin-top:12px">${md(ctx, x.summary)}</div>` : ''}
       ${x.dose ? sec('Standard dose', md(ctx, x.dose)) : ''}
       ${sec('Set-up', ol(x.setup))}
@@ -555,6 +558,8 @@ export function viewItem(id) {
       ${sessions.length ? `<div class="card tight"><h2 style="margin:4px 0">Used in</h2><ul class="list">${sessions.map(s => `<li class="list-item"><div class="li-main"><div class="li-title">${esc(s.name)}</div></div></li>`).join('')}</ul></div>` : ''}
       ${ctx.refsHtml()}
     </div>`,
+    after(root) { stopVideo = mountVideo(root); },
+    cleanup() { if (stopVideo) stopVideo(); },
   };
 }
 

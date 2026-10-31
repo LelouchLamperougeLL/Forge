@@ -19,6 +19,7 @@ js/                     Application code (ES modules)
   engine.js             Expands phases/weeks/sessions; transcription text; progress tracking
   calc.js               Pure calculators (progression, e1RM, energy, body composition, trends)
   player.js             Guided session player with rest/hold/interval timers
+  video.js              Demonstration videos on exercise pages (poster, then a YouTube player on demand)
   fx.js                 Spark effect when you finish something (skipped when reduced motion is set)
   views.js, tools.js    Pages and tools
   store.js              Local storage, backup and restore
@@ -34,10 +35,12 @@ content/                ALL programme content, as JSON (edit these to update the
   decisions.json        Decision records (question, options, evidence, choice, confidence)
   references.json       Bibliography (authors, year, journal, DOI/PMID, evidence grade)
   glossary.json         Definitions of technical terms
+  videos.json           Demonstration video for each exercise (YouTube id, title, channel); edit to swap videos
 icons/                  App icons (SVG + PNG, including a maskable icon)
 tests/index.html        In-browser unit tests (calculators, renderer, content integrity)
 tools/serve.ps1         Local preview server for Windows (PowerShell 7)
 EVIDENCE.md             Evidence appendix: sources consulted and how evidence was graded
+VIDEOS.md               Demonstration videos: each choice, why it was chosen, what to check, and the runner-up
 ```
 
 ## Deploy to GitHub Pages
@@ -70,6 +73,11 @@ stored only in this browser (localStorage). Nothing is sent anywhere. Browsers c
 clear site data, so use **Settings → Export backup** occasionally; **Import backup** restores it
 (also how you move data between phone and laptop).
 
+The one exception is the demonstration videos on exercise pages, and only when you press play: the video then
+streams from YouTube in its privacy-enhanced mode (`youtube-nocookie.com`), so YouTube sees that request like any
+video you watch. Until you press play, the page shows a poster drawn by the app and contacts nothing (no
+thumbnails are fetched).
+
 ## Away from the gym (Away mode)
 
 When you cannot get to a gym (travel, a holiday, a closed gym), open **Today → No gym, or a disrupted
@@ -83,6 +91,34 @@ gym strength session's page links to the Away sessions.
 
 Every visit to Away or Maintenance mode, and every cycle that repeats weeks, starts with fresh
 "done" ticks; the earlier ticks are archived (kept in backups), not deleted.
+
+## Demonstration videos
+
+Exercise pages open with a form-demonstration video from YouTube. The page shows a poster drawn by the app (video
+title, channel and length); pressing play loads YouTube's player in privacy-enhanced mode and starts the video.
+Offline, the page says the video needs a connection; if YouTube reports that a video has been removed or may no
+longer be embedded, the page says so and links to it on YouTube instead. Session plans (cardio sessions) and the
+timed run and walk tests have no video, as there is no single movement to demonstrate; pick-ups have none because
+no video matched how the app does them. `VIDEOS.md` lists every choice, why it was chosen, what to check, and the
+runner-up.
+
+**Swapping a video.** Edit `content/videos.json`. Entries are keyed by exercise id, the end of the exercise page's
+address (`#/ex/goblet-squat`):
+
+```json
+"goblet-squat": { "exercise": "Goblet squat", "id": "VIDEO_ID", "title": "Video title", "channel": "Channel", "length": "3:41" }
+```
+
+- `id`: the video id, the 11 characters after `v=` in a YouTube link (a whole YouTube link pasted here also works).
+- `title` and `channel` are shown on the poster; `length` (optional, `m:ss`) too.
+- `start` (optional): seconds into the video to start from.
+- `embed` (optional): `false` for a video whose owner does not allow it to play on other sites; the page then
+  links to it on YouTube instead of playing it.
+- `exercise` is a label for you and is not shown. Delete an entry to show no video for that exercise.
+
+Then run **Settings → Content diagnostics** (it reports unknown exercise ids and malformed video ids) and bump the
+version in `sw.js` as for any content change. A broken `videos.json` never stops the app: exercise pages say the
+file could not be read, and everything else works.
 
 ## Design ("Tempered")
 
@@ -130,8 +166,8 @@ All content lives in `content/*.json`; the app code does not need to change.
    `Get-Content -Raw content/programme.json | ConvertFrom-Json`).
 3. Preview locally and open **Settings → Content diagnostics → Run check** (or `tests/`) to confirm
    every citation and link resolves.
-4. **Bump the version** in `sw.js` (currently `const VERSION = 'forge-v1.2.0'`; for example change it to
-   `'forge-v1.2.1'`) so installed copies fetch the new files. If you add a new file, also add it to the
+4. **Bump the version** in `sw.js` (currently `const VERSION = 'forge-v1.3.0'`; for example change it to
+   `'forge-v1.3.1'`) so installed copies fetch the new files. If you add a new file, also add it to the
    `PRECACHE` list in `sw.js`.
 5. Commit and push. Open copies show *"An updated version of the app is ready"*; tap **Reload**.
 
@@ -171,9 +207,22 @@ how to do them without equipment, shown on the exercise page and in Away-mode se
   safety test that had you lying under an untested table, and a misread trial result), followed by a
   cross-section consistency review (22 issues: 21 fixed in review; the last, showing the Hevy "(Away)" names on
   session cards, fixed in code). The 91 new references' PMID↔DOI pairs were cross-checked when recorded.
-- **App tests:** `tests/index.html` (55 checks: calculators, renderer, phase sequencing, content integrity,
-  every scheduled session resolving, session timings, the Away-mode return and cycling logic, and every
-  phase having its colour in the stylesheet) all pass. After the redesign (version 1.2.0), a crawl of 1,401 pages
+- **Demonstration videos (31 October 2026, version 1.3.0):** 371 web searches (YouTube results only) found about
+  six candidates for each of the 105 movements. Only video ids that appeared in those search results were used, and
+  each result's title was matched against YouTube's own title for that id. All 613 distinct candidates were checked
+  with YouTube's oEmbed service (12 dropped as deleted, private or not embeddable); the other 601 were played, muted,
+  in YouTube's embedded player from the app's origin, and all played (the lengths shown come from that player).
+  For each movement a judging agent compared the candidates with the app's own technique notes and a sheet of frames
+  from each video (form accuracy first, then the source's credibility, then length and clarity); an independent
+  agent tried to refute every pick, and a referee settled the 3 disputes (all 3 picks changed). 104 movements have a
+  video. Pick-ups have none, because every candidate taught faster running strides; session plans and the timed run
+  and walk tests have none by design. No one watched every video in full: `VIDEOS.md` lists each choice with the
+  reason, what to check when you review it, and the runner-up.
+- **App tests:** `tests/index.html` (60 checks: calculators, renderer, phase sequencing, content integrity,
+  every scheduled session resolving, session timings, the Away-mode return and cycling logic, every
+  phase having its colour in the stylesheet, and the demonstration videos: the data file, video ids, and an
+  exercise page loading nothing from YouTube before you press play) all pass. After the redesign (version 1.2.0),
+  and again after the videos were added (1.3.0), a crawl of 1,401 pages
   at phone (412 px) and laptop (1,280 px) widths found no script errors, broken citations or links,
   unresolved placeholders, raw markup or pages wider than the screen. It covered every route, Today at every
   week of every phase, and the guided player for every session. Offline use was verified by stopping the
@@ -188,3 +237,8 @@ how to do them without equipment, shown on the exercise page and in Away-mode se
   by current Chrome for Android and Microsoft Edge for Windows; the optional ones degrade silently.
 - The stylesheet uses current CSS (`light-dark()`, `color-mix()`, `:has()`, container query units,
   `@property`), supported by Chrome and Edge since 2024.
+- Demonstration videos (`js/video.js`): the poster is plain HTML and CSS; pressing play inserts an iframe from
+  `https://www.youtube-nocookie.com/embed/<id>` with `enablejsapi=1`, and the page listens on YouTube's
+  postMessage channel (the one its IFrame Player API uses) for the player's error codes. Keep the iframe's
+  default referrer policy: YouTube refuses to play embeds that do not say which site they are on. The service
+  worker never touches these cross-origin requests.

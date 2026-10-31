@@ -1,0 +1,741 @@
+{
+  "about": [
+    "Demonstration videos shown at the top of exercise pages (Library, then an exercise). Edit this file to swap or remove a video.",
+    "Each entry is keyed by the exercise id used in exercises.json and drills.json (also the end of the page address, e.g. #/ex/goblet-squat).",
+    "id: the YouTube video id, the 11 characters after v= in a YouTube link (a whole YouTube link pasted here also works).",
+    "title and channel: shown on the video poster. length (optional, m:ss): shown on the poster. start (optional): seconds into the video to start from.",
+    "embed (optional): set to false for a video whose owner does not allow it to play on other sites; the page then links to it on YouTube instead.",
+    "exercise is a label for you and is not shown. Delete an entry to show no video for that exercise.",
+    "After editing: run Settings > Content diagnostics, and bump the version in sw.js so installed copies pick up the change."
+  ],
+  "videos": {
+    "goblet-squat": {
+      "exercise": "Goblet squat",
+      "id": "Q-aQ6KS8a4M",
+      "title": "Kettlebell Goblet Squat | DNA Physical Therapy",
+      "channel": "DNA Physical Therapy",
+      "length": "1:53"
+    },
+    "back-squat": {
+      "exercise": "Barbell back squat (high bar)",
+      "id": "N3QtbxeNqmg",
+      "title": "Squat Series #2: Beginner Barbell Squat Technique Guide -  How to High Bar Back Squat in 5 Steps",
+      "channel": "Alexander Bromley",
+      "length": "6:39"
+    },
+    "hack-squat": {
+      "exercise": "Hack squat (machine)",
+      "id": "-lAnEGH2blE",
+      "title": "How to Do the Hack Squat | Build Stronger Legs with Proper Form",
+      "channel": "Physio Plus Fitness",
+      "length": "1:11"
+    },
+    "leg-press": {
+      "exercise": "Leg press (deep)",
+      "id": "n2ng6LCp3yk",
+      "title": "How to: 45 Degree Leg Press",
+      "channel": "Rachel Scheer",
+      "length": "0:35"
+    },
+    "split-squat": {
+      "exercise": "Split squat (dumbbells)",
+      "id": "u705lnY8CBc",
+      "title": "Exercise Tutorial: DB Split Squat",
+      "channel": "Travis Tarrant",
+      "length": "1:59"
+    },
+    "bulgarian-split-squat": {
+      "exercise": "Bulgarian split squat",
+      "id": "-IpkZv8tZYM",
+      "title": "DB Bulgarian Split Squat (Exercise Library)",
+      "channel": "Horton Barbell",
+      "length": "1:05"
+    },
+    "reverse-lunge": {
+      "exercise": "Reverse lunge (dumbbells)",
+      "id": "jklUSipBe28",
+      "title": "DB Reverse Lunge (Exercise Library)",
+      "channel": "Horton Barbell",
+      "length": "0:24"
+    },
+    "step-up": {
+      "exercise": "Step-up (dumbbells)",
+      "id": "Zp7RG4jFScw",
+      "title": "Dumbbell Step Up - OPEX Exercise Library",
+      "channel": "OPEX Fitness",
+      "length": "0:21"
+    },
+    "db-rdl": {
+      "exercise": "Romanian deadlift (dumbbells)",
+      "id": "hQgFixeXdZo",
+      "title": "Dumbbell Romanian (RDL) Deadlift |TECHNIQUE for Beginners",
+      "channel": "Mike | J2FIT Strength & Conditioning",
+      "length": "1:19"
+    },
+    "bb-rdl": {
+      "exercise": "Romanian deadlift (barbell)",
+      "id": "_oyxCn2iSjU",
+      "title": "HOW TO DO ROMANIAN DEADLIFTS (RDLs): Build Beefy Hamstrings With Perfect Technique",
+      "channel": "Jeff Nippard",
+      "length": "6:22"
+    },
+    "sl-rdl": {
+      "exercise": "Single-leg Romanian deadlift",
+      "id": "_mOdGVYZRC8",
+      "title": "Supported Single‑Leg RDL | Assisted Hip Hinge, Glute Strength & Clean Mechanics",
+      "channel": "VP Movement Library",
+      "length": "0:48"
+    },
+    "hip-thrust": {
+      "exercise": "Hip thrust (barbell or machine)",
+      "id": "z8WwUC_UA4w",
+      "title": "How To Hip Thrust (Proper Form And Mistakes To Avoid)",
+      "channel": "Markow Training Systems",
+      "length": "2:49"
+    },
+    "back-extension": {
+      "exercise": "45-degree back extension (hip-dominant)",
+      "id": "H8Swl1N-uis",
+      "title": "STOP Doing Back Extensions Like This!",
+      "channel": "Squat University",
+      "length": "3:40"
+    },
+    "seated-leg-curl": {
+      "exercise": "Seated leg curl",
+      "id": "jq03iefZxjc",
+      "title": "How to Do a Seated Leg Curl | Exercise with PartnerMD",
+      "channel": "PartnerMD",
+      "length": "2:32"
+    },
+    "lying-leg-curl": {
+      "exercise": "Lying leg curl",
+      "id": "lUH80pneL5w",
+      "title": "How to do a Lying Leg Curl | Proper Form & Technique | NASM",
+      "channel": "National Academy of Sports Medicine (NASM)",
+      "length": "0:22"
+    },
+    "leg-extension": {
+      "exercise": "Leg extension (reclined)",
+      "id": "ljO4jkwv8wQ",
+      "title": "How To Do Leg Extensions With Perfect Technique (Grow Every Quad Head)",
+      "channel": "Jeff Nippard",
+      "length": "6:37"
+    },
+    "standing-calf-raise": {
+      "exercise": "Standing calf raise",
+      "id": "4HQ8Am9IuME",
+      "title": "Standing Calf Raise: Stop Bouncing, Start Growing",
+      "channel": "Mike | J2FIT Strength & Conditioning",
+      "length": "0:48"
+    },
+    "leg-press-calf": {
+      "exercise": "Calf press on the leg press",
+      "id": "i65uHr5RoTk",
+      "title": "FOLLOW YOUR LEG PRESSES WITH THESE!  Leg Press Calf Raise Demo with Coach Matt O'Brien |",
+      "channel": "TrYumphNationTV",
+      "length": "0:34"
+    },
+    "kb-swing": {
+      "exercise": "Kettlebell swing",
+      "id": "vek9BSHFo1c",
+      "title": "Kettlebell Swing - Two Hand - Hardstyle - Pat Flynn RKC",
+      "channel": "Pat Flynn",
+      "length": "1:07"
+    },
+    "trap-bar-deadlift": {
+      "exercise": "Trap-bar deadlift",
+      "id": "dfYIApfWS5o",
+      "title": "Trap Bar Deadlift (Exercise Library)",
+      "channel": "Horton Barbell",
+      "length": "0:53"
+    },
+    "incline-db-press": {
+      "exercise": "Incline dumbbell press (30 deg)",
+      "id": "Z6sFTftvNDM",
+      "title": "Incline Dumbbell Press Technique For Chest Hypertrophy",
+      "channel": "JPS Health & Fitness",
+      "length": "2:49"
+    },
+    "db-bench-press": {
+      "exercise": "Flat dumbbell bench press",
+      "id": "bt_wUoYecnc",
+      "title": "Dumbbell Chest Press Form (How-To in 90 Seconds)",
+      "channel": "Mike | J2FIT Strength & Conditioning",
+      "length": "1:33"
+    },
+    "machine-chest-press": {
+      "exercise": "Machine chest press",
+      "id": "H9hKFDLKnGQ",
+      "title": "Technogym Pin Loaded Chest Press - Set Up & Execution",
+      "channel": "Charlie Cuthbert",
+      "length": "2:17"
+    },
+    "smith-incline-press": {
+      "exercise": "Incline press (Smith machine)",
+      "id": "mpqE-2ypu8Q",
+      "title": "Low Incline Smith Machine Press - Set Up & Execution",
+      "channel": "Charlie Cuthbert",
+      "length": "3:10"
+    },
+    "bb-bench-press": {
+      "exercise": "Barbell bench press",
+      "id": "4Y2ZdHCOXok",
+      "title": "How to PROPERLY Bench Press for Growth (5 Easy Steps)",
+      "channel": "Jeremy Ethier",
+      "length": "8:05"
+    },
+    "push-up": {
+      "exercise": "Push-up (with progressions)",
+      "id": "M7W4NBu4MG4",
+      "title": "Push Up Exercise on the Floor",
+      "channel": "Margaret Martin, Physical Therapist",
+      "length": "1:39"
+    },
+    "db-shoulder-press": {
+      "exercise": "Seated dumbbell shoulder press",
+      "id": "hOTABpGvhBc",
+      "title": "Seated Dumbbell Shoulder Press Correct Movement Path",
+      "channel": "nutritioneering",
+      "length": "1:02"
+    },
+    "machine-shoulder-press": {
+      "exercise": "Machine shoulder press",
+      "id": "Anu8s_nkNpM",
+      "title": "How To: Seated Machine Shoulder Press",
+      "channel": "Live Lean TV Daily Exercises",
+      "length": "0:56"
+    },
+    "db-lateral-raise": {
+      "exercise": "Dumbbell lateral raise",
+      "id": "Fm8Udi6xmdw",
+      "title": "Dumbbell Lateral Raise Tutorial",
+      "channel": "Dr. Allan Bacon",
+      "length": "1:04"
+    },
+    "cable-lateral-raise": {
+      "exercise": "Cable lateral raise",
+      "id": "qghfvzcoS2I",
+      "title": "Cable Lateral Raise (Exercise Library)",
+      "channel": "Horton Barbell",
+      "length": "1:40"
+    },
+    "cable-fly": {
+      "exercise": "Cable fly (or pec deck)",
+      "id": "ua6cX6lz9JI",
+      "title": "How To: Low-to-High Cable Crossover (Upper Chest Exercise)",
+      "channel": "Osamoje",
+      "length": "0:17"
+    },
+    "oh-cable-triceps": {
+      "exercise": "Overhead cable triceps extension",
+      "id": "AUsSlsBu5eg",
+      "title": "Overhead Rope Tricep Extensions (How To)",
+      "channel": "Champion Method",
+      "length": "1:19"
+    },
+    "triceps-pushdown": {
+      "exercise": "Cable triceps pushdown",
+      "id": "K--j4Qh9d2s",
+      "title": "Cable Rope Triceps Pushdown - Proper Form",
+      "channel": "Germain Craddock's EVA",
+      "length": "0:54"
+    },
+    "assisted-dip": {
+      "exercise": "Assisted dip",
+      "id": "kbmVlw-i0Vs",
+      "title": "Exercise Tutorial: Assisted Dips",
+      "channel": "Travis Tarrant",
+      "length": "2:21"
+    },
+    "lat-pulldown": {
+      "exercise": "Lat pulldown",
+      "id": "RTNmVfnRitA",
+      "title": "How to Do Lat Pulldowns Correctly",
+      "channel": "Physical Therapy First",
+      "length": "3:28"
+    },
+    "pull-up": {
+      "exercise": "Pull-up (with assisted and negative progressions)",
+      "id": "TMnxKjdYcME",
+      "title": "How To Do A Pull Up: Correct Form & Technique | Masterclass | Myprotein",
+      "channel": "Myprotein",
+      "length": "3:05"
+    },
+    "chin-up": {
+      "exercise": "Chin-up",
+      "id": "qV7vOUcUfD4",
+      "title": "How To Do CHIN-UPS: Grip, Weighted Chin-Ups, Programming, & Fixing Common Errors",
+      "channel": "Barbell Logic",
+      "length": "2:20"
+    },
+    "seated-cable-row": {
+      "exercise": "Seated cable row",
+      "id": "XaHV_8Nbyug",
+      "title": "Seated Close Grip Cable Row (Exercise Tutorial + Form Tips) | Team Evolve",
+      "channel": "Vivian Ngo",
+      "length": "2:39"
+    },
+    "chest-supported-row": {
+      "exercise": "Chest-supported row",
+      "id": "0-DXJiceG-0",
+      "title": "Chest Supported Incline Dumbbell Row - OPEX Exercise Library",
+      "channel": "OPEX Fitness",
+      "length": "0:15"
+    },
+    "one-arm-db-row": {
+      "exercise": "One-arm dumbbell row",
+      "id": "fURsHPHgssI",
+      "title": "Single-Arm Dumbbell Row on a Bench: Perfect Form Tutorial",
+      "channel": "The Healthy Habit",
+      "length": "0:55"
+    },
+    "face-pull": {
+      "exercise": "Face pull",
+      "id": "ljgqer1ZpXg",
+      "title": "STOP F*cking Up Face Pulls (PROPER FORM!)",
+      "channel": "ATHLEAN-X™",
+      "length": "6:22"
+    },
+    "reverse-pec-deck": {
+      "exercise": "Reverse pec deck (rear-delt fly)",
+      "id": "BWtVn4DpxUI",
+      "title": "How To Do Rear Delt Flys on the Pec Deck (Perfect Form Guide)",
+      "channel": "Marcus Savard",
+      "length": "2:19"
+    },
+    "incline-db-curl": {
+      "exercise": "Incline dumbbell curl",
+      "id": "e3zNNfjJszA",
+      "title": "Incline Dumbbell Curl Form (How-To in 90 Seconds)",
+      "channel": "Mike | J2FIT Strength & Conditioning",
+      "length": "1:32"
+    },
+    "preacher-curl": {
+      "exercise": "Preacher curl",
+      "id": "jWDZIFhysNc",
+      "title": "Learn How to Do Seated Preacher Curls the RIGHT Way (Machine Tutorial)",
+      "channel": "Marcus Savard",
+      "length": "1:39"
+    },
+    "cable-curl": {
+      "exercise": "Cable curl",
+      "id": "d7friQusjF8",
+      "title": "Standing Straight Bar Cable Bicep Curls (Tutorial + Tips) | Team Evolve",
+      "channel": "Vivian Ngo",
+      "length": "2:05"
+    },
+    "hammer-curl": {
+      "exercise": "Hammer curl",
+      "id": "5FAuyZuvJFg",
+      "title": "Hammer Curls With Dumbbells [3 Form Tips For BIG GAINS]",
+      "channel": "Fit Father Project - Fitness For Busy Fathers",
+      "length": "2:22"
+    },
+    "dead-bug": {
+      "exercise": "Dead bug",
+      "id": "8NBNM8haZx0",
+      "title": "Physical Therapy - Dead Bug Exercise",
+      "channel": "ChoosePT",
+      "length": "2:45"
+    },
+    "plank": {
+      "exercise": "Plank (long-lever progression)",
+      "id": "xe8XWc9oIFo",
+      "title": "RKC Plank — Pavel Tsatsouline",
+      "channel": "Above the Bar Fitness",
+      "length": "1:22"
+    },
+    "side-plank": {
+      "exercise": "Side plank",
+      "id": "3VegcolLqgU",
+      "title": "Core Exercise - Side Plank - Zion Physical Therapy Video",
+      "channel": "Zion Physical Therapy",
+      "length": "1:31"
+    },
+    "pallof-press": {
+      "exercise": "Pallof press",
+      "id": "4C2qIiYU4Z0",
+      "title": "Standing Cable Anti Rotation Press Tutorial",
+      "channel": "Rafal Matuszewski",
+      "length": "1:29"
+    },
+    "cable-crunch": {
+      "exercise": "Cable crunch",
+      "id": "ToJeyhydUxU",
+      "title": "Cable Crunch: Do It Right!",
+      "channel": "Testosterone Nation",
+      "length": "0:26"
+    },
+    "hanging-knee-raise": {
+      "exercise": "Hanging knee raise (to leg raise)",
+      "id": "7KDDZtaUaxw",
+      "title": "How To Do A CAPTAIN'S CHAIR KNEE RAISE | Exercise Demonstration Video and Guide",
+      "channel": "Live Lean TV Daily Exercises",
+      "length": "0:52"
+    },
+    "ab-wheel": {
+      "exercise": "Ab-wheel rollout",
+      "id": "EYY9yXWcpOY",
+      "title": "How to Perform Kneeling and Standing Ab Wheel Rollouts - Exercise Tutorial",
+      "channel": "Be a Game Character",
+      "length": "3:59"
+    },
+    "farmer-carry": {
+      "exercise": "Farmer's carry",
+      "id": "D1r4dzFMIsA",
+      "title": "Farmer's Walk (Exercise Library)",
+      "channel": "Horton Barbell",
+      "length": "0:50"
+    },
+    "suitcase-carry": {
+      "exercise": "Suitcase carry (one-sided)",
+      "id": "y-hn_Ha1-RE",
+      "title": "How To Perform The Suitcase Carry",
+      "channel": "Dr. Carl Baird",
+      "length": "0:57"
+    },
+    "inverted-row": {
+      "exercise": "Inverted row (table, low bar or rings)",
+      "id": "sHeLHRd_nCs",
+      "title": "How to do an Inverted Row with Proper Form",
+      "channel": "Athletic Insight",
+      "length": "1:07"
+    },
+    "backpack-row": {
+      "exercise": "One-arm backpack row",
+      "id": "fURsHPHgssI",
+      "title": "Single-Arm Dumbbell Row on a Bench: Perfect Form Tutorial",
+      "channel": "The Healthy Habit",
+      "length": "0:55"
+    },
+    "pike-push-up": {
+      "exercise": "Pike push-up (to feet-elevated pike)",
+      "id": "CnyVIHPEdVY",
+      "title": "The REAL Pike Push-Up Tutorial (multiple angles, verbal explanation and correct form)",
+      "channel": "Maximum Potential Calisthenics",
+      "length": "1:28"
+    },
+    "bw-triceps-extension": {
+      "exercise": "Bodyweight triceps extension (counter or table)",
+      "id": "ACyLmO9wj98",
+      "title": "How to Bodyweight Tricep Extension | Calisthenics Triceps",
+      "channel": "The Bodyweight Process",
+      "length": "5:53"
+    },
+    "nordic-curl": {
+      "exercise": "Nordic hamstring curl",
+      "id": "lKYSDpJG82c",
+      "title": "Nordic Hamstring Curls (Exercise Library)",
+      "channel": "Horton Barbell",
+      "length": "1:05"
+    },
+    "sliding-leg-curl": {
+      "exercise": "Sliding leg curl (towel or socks)",
+      "id": "WpeK7Widf6I",
+      "title": "Floor Slider Leg Curls (Exercise Library)",
+      "channel": "Horton Barbell",
+      "length": "0:54"
+    },
+    "reverse-crunch": {
+      "exercise": "Reverse crunch (to lying leg raise)",
+      "id": "Lkafd6GkaPo",
+      "title": "www.EricCressey.com: Reverse Crunch Technique",
+      "channel": "Eric Cressey",
+      "length": "1:53"
+    },
+    "wu-leg-swing-fb": {
+      "exercise": "Leg swings (front-back)",
+      "id": "0XvKtEZ4i38",
+      "title": "How To Do A STANDING FRONT TO BACK LEG SWING | Exercise Demonstration Video and Guide",
+      "channel": "Live Lean TV Daily Exercises",
+      "length": "0:28"
+    },
+    "wu-leg-swing-lat": {
+      "exercise": "Leg swings (side-to-side)",
+      "id": "U3Px6O-4M1E",
+      "title": "How To: Standing Side To Side Leg Swing",
+      "channel": "Live Lean TV Daily Exercises",
+      "length": "0:33"
+    },
+    "wu-wgs": {
+      "exercise": "World's greatest stretch",
+      "id": "-CiWQ2IvY34",
+      "title": "The World's Greatest Stretch (Mobility Exercise) by Squat University",
+      "channel": "Squat University",
+      "length": "0:43"
+    },
+    "wu-bw-squat": {
+      "exercise": "Bodyweight squat with pause (prying squat)",
+      "id": "hNFa4Nemkfw",
+      "title": "Squat Pry",
+      "channel": "The Barbell Physio",
+      "length": "0:32"
+    },
+    "wu-glute-bridge": {
+      "exercise": "Glute bridge",
+      "id": "OUgsJ8-Vi0E",
+      "title": "How to Perform the Perfect Glute Bridge",
+      "channel": "Airrosti Rehab Centers",
+      "length": "2:20"
+    },
+    "wu-ankle-rock": {
+      "exercise": "Ankle rocks (knee-to-wall)",
+      "id": "NqgwyM9hXMI",
+      "title": "Knee-to-Wall Ankle Mobility Exercise",
+      "channel": "Victoria Park Osteopaths",
+      "length": "1:20"
+    },
+    "wu-cat-camel": {
+      "exercise": "Cat-camel",
+      "id": "tfDlQkIqlWs",
+      "title": "CAT CAMEL EXERCISE performed by Physio | Step-By-Step Instructions",
+      "channel": "Digital Physio",
+      "length": "1:07"
+    },
+    "wu-open-book": {
+      "exercise": "Thoracic open book",
+      "id": "KsNImpCEd34",
+      "title": "Active Thoracic Mobility \"Open Book\" Exercise | Pro Physio",
+      "channel": "Pro Physio",
+      "length": "1:58"
+    },
+    "wu-band-pull-apart": {
+      "exercise": "Band pull-apart",
+      "id": "lmvedD1PFD8",
+      "title": "How to Do a Band Pull Apart | Exercise with PartnerMD",
+      "channel": "PartnerMD",
+      "length": "1:47"
+    },
+    "wu-band-dislocate": {
+      "exercise": "Band or stick pass-through (shoulder dislocate)",
+      "id": "krN22Iv6r2w",
+      "title": "PVC Pipe Pass Through Stretch [Shoulder Mobility Exercise]",
+      "channel": "Tuscaloosa Fitness - Jake Barnett CSCS",
+      "length": "1:12"
+    },
+    "wu-scap-pushup": {
+      "exercise": "Scapular push-up",
+      "id": "LeMk15TN0No",
+      "title": "Exercise With an Athletic Trainer: Scapular Pushups",
+      "channel": "Children's Hospital Colorado",
+      "length": "1:12"
+    },
+    "wu-hip-9090": {
+      "exercise": "90/90 hip switches",
+      "id": "HUZimFZJZWU",
+      "title": "How to Do the 90/90 Switch for Hip Mobility (Step-by-Step Tutorial)",
+      "channel": "Alejandro Matias",
+      "length": "2:32"
+    },
+    "wu-jump-rope": {
+      "exercise": "Jump rope (easy)",
+      "id": "Y3wzaWE9QRY",
+      "title": "Jump rope tutorial for beginners: the basic bounce",
+      "channel": "Karina Inkster",
+      "length": "4:07"
+    },
+    "wu-run-drills": {
+      "exercise": "Running drills (A-skip, carioca, high knees)",
+      "id": "c8il_EjiBWQ",
+      "title": "Running Drill - A's - Running Drills - A March & A Skip",
+      "channel": "Dr. Brian Abelson",
+      "length": "1:44"
+    },
+    "bal-sls": {
+      "exercise": "Single-leg stance (balance practice)",
+      "id": "T6Dc8ewTJ9A",
+      "title": "Single Leg Balance Progression",
+      "channel": "BSR Physical Therapy",
+      "length": "1:04"
+    },
+    "bal-sl-reach": {
+      "exercise": "Single-leg reach (star excursion)",
+      "id": "UoMSMdMKfBY",
+      "title": "Star Excursion Balance Exercise",
+      "channel": "Rehab My Patient",
+      "length": "0:55"
+    },
+    "st-ham-supine": {
+      "exercise": "Supine hamstring stretch (strap)",
+      "id": "Il1L75v6gq0",
+      "title": "Hamstring Stretch with a Strap, Supine - Ask Doctor Jo",
+      "channel": "AskDoctorJo",
+      "length": "0:39"
+    },
+    "st-ham-bench": {
+      "exercise": "Standing hamstring stretch (heel on bench)",
+      "id": "J8-B53uJBXA",
+      "title": "Standing Hamstring Stretch | Improve Hip Hinge & Flexibility",
+      "channel": "Peak Functional",
+      "length": "0:21"
+    },
+    "st-hip-flexor": {
+      "exercise": "Half-kneeling hip-flexor stretch",
+      "id": "fnQbF1AVshM",
+      "title": "The Half Kneeling Hip Flexor Stretch",
+      "channel": "The Move Better Project",
+      "length": "3:13"
+    },
+    "st-calf-wall": {
+      "exercise": "Wall calf stretch (straight and bent knee)",
+      "id": "xDhzGbQ6dmM",
+      "title": "How to stretch your calf muscles properly - Gastocnemius and Soleus muscle stretches.",
+      "channel": "PhysioMSK – Expert Musculoskeletal Advice",
+      "length": "1:56"
+    },
+    "st-quad": {
+      "exercise": "Standing quadriceps stretch",
+      "id": "zi5__zBRzYc",
+      "title": "Standing Quadricep Stretch",
+      "channel": "Baptist Health",
+      "length": "0:44"
+    },
+    "st-glute-fig4": {
+      "exercise": "Figure-4 glute stretch",
+      "id": "-g0nuyTHMrI",
+      "title": "Piriformis Figure 4 Stretch - Ask Doctor Jo",
+      "channel": "AskDoctorJo",
+      "length": "0:35"
+    },
+    "st-adductor": {
+      "exercise": "Adductor rock-back stretch",
+      "id": "yF8o6I6aSZg",
+      "title": "Adductor Quadruped Rockback - Hip Mobility Drill",
+      "channel": "Mike Reinold",
+      "length": "0:45"
+    },
+    "st-pec-doorway": {
+      "exercise": "Doorway chest stretch",
+      "id": "Dmm8_S23I74",
+      "title": "Doorway Pec and Shoulder Stretch with Dr. Raz",
+      "channel": "Center For Total Back Care",
+      "length": "1:29"
+    },
+    "st-lat-bench": {
+      "exercise": "Kneeling lat stretch (bench)",
+      "id": "V57t3gbD8wo",
+      "title": "Bench Lat Stretch to Relieve Tight Lats and Improve Shoulder Mobility",
+      "channel": "Momenta Chiropractic",
+      "length": "2:39"
+    },
+    "st-triceps-oh": {
+      "exercise": "Overhead triceps stretch",
+      "id": "Uvk1Y8O1_yM",
+      "title": "Tricep Stretch",
+      "channel": "Baptist Health",
+      "length": "0:41"
+    },
+    "plyo-pogo": {
+      "exercise": "Pogo hops",
+      "id": "hjprPAnfqoQ",
+      "title": "Pogo Hops",
+      "channel": "Drs. Mike & Kelly Swann",
+      "length": "0:16"
+    },
+    "plyo-box-jump": {
+      "exercise": "Box jump (low box, step down)",
+      "id": "W5QzqIbEWvk",
+      "title": "Box Jump Step Down - OPEX Exercise Library",
+      "channel": "OPEX Fitness",
+      "length": "0:14"
+    },
+    "plyo-broad-jump": {
+      "exercise": "Standing broad jump",
+      "id": "BiaUluYAjNM",
+      "title": "Testing Standing Broad Jump | Tips to Jump Farther",
+      "channel": "Simple Speed Coach",
+      "length": "3:48"
+    },
+    "plyo-lateral-bound": {
+      "exercise": "Lateral bound (skater jump)",
+      "id": "Biqvx8sMuvs",
+      "title": "How To Perform The Lateral Bound and Stick",
+      "channel": "Exercise Healthcare Australia",
+      "length": "0:27"
+    },
+    "plyo-mb-throw": {
+      "exercise": "Medicine-ball throws (chest pass and rotational)",
+      "id": "2IBj2r0wd0Y",
+      "title": "Med Ball Side Throw (Exercise Library)",
+      "channel": "Horton Barbell",
+      "length": "0:51"
+    },
+    "agi-ladder": {
+      "exercise": "Agility ladder drills",
+      "id": "2EgSMN6cNDs",
+      "title": "Agility Ladder Drills: NSCAA Technical Training Series Presented by Kwik Goal",
+      "channel": "United Soccer Coaches",
+      "length": "2:10"
+    },
+    "agi-shuffle": {
+      "exercise": "Cone shuffle and 5-10-5 drill",
+      "id": "fZoJVVuqY3U",
+      "title": "How To Do The 5-10-5 Shuttle Run Drill | Exercise Demonstration Video and Guide",
+      "channel": "Live Lean TV Daily Exercises",
+      "length": "0:52"
+    },
+    "test-rhr": {
+      "exercise": "Resting heart rate (manual)",
+      "id": "U9t3y_0Vm48",
+      "title": "How to Check Your Pulse | IHF",
+      "channel": "Irish Heart Foundation",
+      "length": "2:46"
+    },
+    "test-pushup": {
+      "exercise": "Push-up test (max reps)",
+      "id": "jmX0cRpp0nc",
+      "title": "Push Up Test",
+      "channel": "Loudoun Sheriff",
+      "length": "0:56"
+    },
+    "test-pullup": {
+      "exercise": "Pull-up test (max reps)",
+      "id": "rVRiy_HVz2g",
+      "title": "The Strict Pull-Up Technique and Progression",
+      "channel": "OPEX Fitness",
+      "length": "4:00"
+    },
+    "test-plank": {
+      "exercise": "Plank hold test (optional)",
+      "id": "yeKv5oX_6GY",
+      "title": "Basic Forward Plank & Common Faults",
+      "channel": "Nicklaus Children's Hospital",
+      "length": "1:19"
+    },
+    "test-broad-jump": {
+      "exercise": "Standing broad jump test",
+      "id": "T2pfyXfDja4",
+      "title": "Test Your Child’s Explosive Strength with Broad Jump",
+      "channel": "Developing Young Athletes Network",
+      "length": "1:41"
+    },
+    "test-sls": {
+      "exercise": "Single-leg stance test",
+      "id": "XatOxgkYPJc",
+      "title": "Timed Single Leg Stance Test",
+      "channel": "theMTDC",
+      "length": "0:51"
+    },
+    "test-ftf": {
+      "exercise": "Fingertip-to-floor (toe-touch) test",
+      "id": "fVDDr5nA0SM",
+      "title": "Range of Motion Measurement: Thoracolumbar Flexion - Fingertip to Floor",
+      "channel": "Physical Therapy Education Solutions",
+      "length": "1:10"
+    },
+    "test-knee-wall": {
+      "exercise": "Knee-to-wall ankle test",
+      "id": "XaUP8h_VnBA",
+      "title": "The Knee to Wall Test",
+      "channel": "Zoomers Physio & Health Solutions",
+      "length": "2:49"
+    },
+    "test-girths": {
+      "exercise": "Tape measurements and progress photos",
+      "id": "LoL_QTatGhU",
+      "title": "How To Measure Your Gains! Arm, Chest, Shoulder, Waist, Hip, Thigh, Forearm, Calf, & Neck!",
+      "channel": "ScottHermanFitness",
+      "length": "5:05"
+    }
+  }
+}

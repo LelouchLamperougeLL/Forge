@@ -1,7 +1,7 @@
 // Loads the JSON content files, indexes them, and builds rendering contexts
 // (citation numbering, cross-links, glossary terms) for the markdown renderer.
 
-import { esc, byId } from './util.js';
+import { esc, byId, youtubeId } from './util.js';
 import { renderMarkdown, scanTokens } from './md.js';
 
 export const CONTENT_FILES = [
@@ -11,10 +11,32 @@ export const CONTENT_FILES = [
 export const DB = {
   meta: {}, programme: { phases: [], sessions: {} },
   exercises: [], drills: [], rules: [], ruleParams: {}, pages: [], articles: [], decisions: [], references: [], terms: [],
+  videos: {}, videosError: null,
   idx: {},
 };
 
+/**
+ * Demonstration videos (content/videos.json) are optional and the file most likely to be edited by hand,
+ * so a missing or broken file never stops the app: exercise pages say what went wrong instead.
+ */
+async function loadVideos() {
+  const url = new URL('../content/videos.json', import.meta.url).href;
+  try {
+    const res = await fetch(url, { cache: 'no-cache' });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const text = await res.text();
+    let data;
+    try { data = JSON.parse(text); } catch (e) { throw new Error(`not valid JSON: ${e.message}`); }
+    const videos = data && data.videos;
+    if (!videos || typeof videos !== 'object' || Array.isArray(videos)) throw new Error('it has no "videos" object');
+    return { videos, error: null };
+  } catch (e) {
+    return { videos: {}, error: e.message };
+  }
+}
+
 export async function loadContent() {
+  const videosLoaded = loadVideos();
   const results = await Promise.all(CONTENT_FILES.map(async name => {
     // Resolve relative to this module so the tests page (in tests/) loads the same files.
     const url = new URL(`../content/${name}.json`, import.meta.url).href;
@@ -45,6 +67,9 @@ export async function loadContent() {
   DB.decisions = (raw.decisions && raw.decisions.decisions) || [];
   DB.references = (raw.references && raw.references.references) || [];
   DB.terms = (raw.glossary && raw.glossary.terms) || [];
+  const v = await videosLoaded;
+  DB.videos = v.videos;
+  DB.videosError = v.error;
 
   DB.exercises.forEach(x => { x._kind = 'exercise'; });
   DB.drills.forEach(x => { x._kind = 'drill'; });
@@ -236,5 +261,13 @@ export function integrityReport() {
   }
   for (const d of DB.decisions) for (const id of d.refs || []) if (!DB.idx.refs.has(id)) problems.push(`decision ${d.id}: unknown ref ${id}`);
   for (const a of DB.articles) for (const id of a.refs || []) if (!DB.idx.refs.has(id)) problems.push(`science ${a.id}: unknown ref ${id}`);
+
+  // Demonstration videos: each entry belongs to a library item and names a usable YouTube video.
+  if (DB.videosError) problems.push(`videos.json could not be read: ${DB.videosError}`);
+  for (const [key, v] of Object.entries(DB.videos || {})) {
+    if (!DB.idx.items.has(key)) problems.push(`videos.json: "${key}" is not an exercise or drill id`);
+    if (!v || !youtubeId(v.id)) problems.push(`videos.json: ${key} has no valid YouTube video id`);
+    else if (!v.title || !v.channel) problems.push(`videos.json: ${key} needs a title and a channel`);
+  }
   return problems;
 }
