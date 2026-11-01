@@ -32,6 +32,16 @@
       cond ? pass++ : fail++;
     };
     const near = (a, b, tol = 0.05) => Math.abs(a - b) <= tol;
+    // Checks that write this browser's storage (restoring it afterwards) run on the local server, or with ?storage;
+    // elsewhere (the published copy on your phone) they are skipped and counted.
+    const storageTests = ['localhost', '127.0.0.1'].includes(location.hostname) || new URLSearchParams(location.search).has('storage');
+    let skipped = 0;
+    const skip = name => {
+      const li = document.createElement('li');
+      li.textContent = `SKIP · ${name} (open the tests on the local server, or add ?storage)`;
+      log.appendChild(li);
+      skipped++;
+    };
 
     // ---- strength
     const e = C.e1rm(100, 5, 0);
@@ -82,6 +92,13 @@
     ok('Adjustment: losing too fast → eat more (capped)', fast.action === 'increase' && fast.kcal > 0 && fast.kcal <= 250, JSON.stringify(fast));
     const slow = C.energyAdjustment(C.weightTrend(series.map(s => ({ ...s, kg: 80 }))), [-0.5, -0.25]);
     ok('Adjustment: not losing → eat less', slow.action === 'decrease' && slow.kcal < 0, JSON.stringify(slow));
+    // Weekly averages from a scale app: three covering two weeks are a trend; as daily weigh-ins they are too few.
+    const weeklyAvg = [0, 7, 14].map(i => ({ date: new Date(Date.UTC(2026, 10, 1 + i)).toISOString().slice(0, 10), kg: 80 - 0.05 * i }));
+    ok('Weekly averages: three covering 2 weeks give a trend (as daily weigh-ins they do not)',
+      C.weightTrend(weeklyAvg, 21, { weekly: true }).enough === true && C.weightTrend(weeklyAvg).enough === false);
+    ok('Weekly averages: two are not enough', C.weightTrend(weeklyAvg.slice(0, 2), 21, { weekly: true }).enough === false);
+    const waitWeekly = C.energyAdjustment(C.weightTrend(weeklyAvg.slice(0, 2), 21, { weekly: true }), [-0.5, -0.25]);
+    ok('Weekly averages: the "not enough data" message asks for weekly averages', waitWeekly.action === 'wait' && /weekly averages/.test(waitWeekly.message), waitWeekly.message);
 
     // ---- other
     ok('HRmax Tanaka (31 y) ≈ 186', near(C.hrMax(31).tanaka, 186.3, 0.01));
@@ -132,7 +149,8 @@
       const { store } = await import('../js/store.js');
       const KEYS = ['position', 'returnTo', 'done', 'doneArchive', 'history'];
       const snap = Object.fromEntries(KEYS.map(k => [k, store.get(k, undefined)]));
-      try {
+      if (!storageTests) skip('Away mode: return point, fresh ticks and cycling (7 checks that write storage)');
+      else try {
         const away = phases().find(p => p.optional && p.noEquipment);
         ok('Away mode exists and is optional and cyclic', !!away && !!away.cyclic);
         store.remove('returnTo'); store.set('done', {});
@@ -203,6 +221,439 @@
       const LAYER_KEYS = ['summary', 'mechanisms', 'evidence', 'practice', 'uncertainties'];
       const badArticle = DB.articles.filter(a => { const h = viewArticle(a.id).html; return LAYER_KEYS.some(k => a[k] && !h.includes(`id="sec-${k}"`)); }).map(a => a.id);
       ok(`Every article (${DB.articles.length}) can be opened at any of its layers (…?s=evidence)`, badArticle.length === 0, badArticle.join(', '));
+      // Guided player: every main item of every scheduled session is a step (the tests on test days too), and saved
+      // progress is picked up again only for the same session within RESUME_HOURS.
+      const { buildSteps, canResume, RESUME_HOURS } = await import('../js/player.js');
+      const missing = new Set();
+      for (const p of phases()) for (let w = 1; w <= p.weeks; w++) for (const d of scheduleFor(p, w)) {
+        if (!d.sessionId) continue;
+        const s = resolveSession(p.id, w, d.sessionId);
+        const inSteps = new Set(buildSteps(s).map(st => st.it));
+        for (const it of s.main.items) if (!inSteps.has(it)) missing.add(`${d.sessionId}:${it.ref}`);
+      }
+      ok('Every main item of every scheduled session is a step in the guided player', missing.size === 0, [...missing].slice(0, 10).join(', '));
+      const baseline = buildSteps(resolveSession('p0', 1, 'p0-baseline')).filter(st => st.section === 'Main training');
+      ok('The baseline test day has its 7 tests as steps, each with its instructions', baseline.length === 7 && baseline.every(st => st.target.length === 1),
+        baseline.map(st => st.title).join(', '));
+      const t0 = Date.parse('2026-11-01T18:00:00Z');
+      ok(`Player progress resumes the same session within ${RESUME_HOURS} hours, and not after`,
+        canResume({ sessionId: 'x', idx: 3, at: t0 - 3600000 }, 'x', t0) && !canResume({ sessionId: 'x', idx: 3, at: t0 - (RESUME_HOURS + 1) * 3600000 }, 'x', t0) &&
+        !canResume({ sessionId: 'y', idx: 3, at: t0 }, 'x', t0) && !canResume({ sessionId: 'x', idx: 0, at: t0 }, 'x', t0) && !canResume(null, 'x', t0));
+      // A week's own instructions (fewer sets, more reps in reserve…) are on every session page of that week.
+      const { viewSession } = await import('../js/views.js');
+      const noNotes = [];
+      for (const p of phases()) for (let w = 1; w <= p.weeks; w++) {
+        const notes = weekPlan(p, w).notes;
+        if (!notes) continue;
+        for (const d of scheduleFor(p, w)) if (d.sessionId && !viewSession(p.id, w, d.i).html.includes('<h3 style="margin-top:0">This week</h3>')) noNotes.push(`${p.id}:${w}:${d.i}`);
+      }
+      ok('Every session page in a week with its own instructions shows them', noNotes.length === 0, noNotes.slice(0, 10).join(', '));
+      // The check-in's target band and the energy tool's goal follow the phase you are in; a band you pick yourself
+      // is kept while you stay in that phase. Uses this browser's storage, so the touched keys are restored after.
+      const { viewTool } = await import('../js/tools.js');
+      const KEYS2 = ['position', 'tool:checkin', 'tool:energy'];
+      const snap2 = Object.fromEntries(KEYS2.map(k => [k, store.get(k, undefined)]));
+      if (!storageTests) skip('The check-in band and the energy goal follow the phase (2 checks that write storage)');
+      else try {
+        const selected = (html, name) => (new RegExp(`<select id="${name}"[\\s\\S]*?<option value="([^"]+)" selected`).exec(html) || [])[1];
+        const none = new URLSearchParams();
+        store.set('position', { phase: 'p2', week: 3 });
+        store.set('tool:checkin', { goal: 'calibrate', goalFor: 'p0' });
+        store.set('tool:energy', { goal: 'calibrate' });
+        const want = getPhase('p2').energyGoal;
+        const got = [selected(viewTool('checkin', none).html, 'goal'), selected(viewTool('energy', none).html, 'goal')];
+        ok('After a phase change the check-in band and the energy goal follow the new phase', got.every(g => g === want), `${got.join(' / ')}, expected ${want}`);
+        store.set('tool:checkin', { goal: 'cut', goalFor: 'p2' });
+        ok('A target band picked in the current phase is kept', selected(viewTool('checkin', none).html, 'goal') === 'cut');
+      } finally {
+        for (const k of KEYS2) { if (snap2[k] === undefined) store.remove(k); else store.set(k, snap2[k]); }
+      }
+
+      // ---- 1.5.0 checks, in their own try so a failure here cannot hide the checks above.
+      try {
+      // The player's timers survive interruptions. A fake clock drives the countdown; saved states are moved on to
+      // "now" by resumePoint, which the player uses both when it opens and when a late end is noticed.
+      const P5 = await import('../js/player.js');
+      let clock = 1000000;
+      const ends = [];
+      const cd = new P5.Countdown({ now: () => clock, onEnd: e => ends.push(e) });
+      cd.set(90); cd.start(); clock += 30000;
+      const runningSnap = cd.snapshot();
+      cd.pause();
+      const pausedSnap = cd.snapshot();
+      cd.restore({ total: 90, endAt: clock + 20000 });
+      const restoredLeft = cd.remaining();
+      cd.stop();
+      cd.restore({ total: 30, endAt: clock - 5000 });          // ended 5 s ago: the first tick ends it and says how late
+      ok('Countdown: runs on a fake clock, saves and restores running and paused timers, reports a late end',
+        runningSnap.total === 90 && runningSnap.endAt === 1090000 && pausedSnap.remainingMs === 60000 &&
+        restoredLeft === 20 && ends.length === 1 && ends[0].endAt === clock - 5000 && ends[0].lateMs === 5000 && !cd.running,
+        JSON.stringify({ runningSnap, pausedSnap, restoredLeft, ends }));
+      const cd2 = new P5.Countdown({ now: () => clock });
+      cd2.restore({ total: 60, endAt: clock + 10000 });
+      cd2.add(15); const afterAdd = cd2.remaining();
+      cd2.add(-30); const afterSub = cd2.remaining();
+      cd2.stop();
+      ok('Countdown: ±15 s on a restored timer moves its end, never to before now', afterAdd === 25 && afterSub === 0, `${afterAdd} / ${afterSub}`);
+      // Fixture: 0 a 360-s walk; 1-4 holds (2 × 30 s, both sides); 5-6 two sets (rest 90 s); 7-13 4 × 4 intervals; 14 a stretch.
+      const FS = P5.buildSteps({
+        warmup: { items: [{ name: 'Walk', timer: 360 }, { name: 'Balance', timer: { type: 'hold', seconds: 30, sets: 2, sides: true } }] },
+        main: { items: [{ name: 'Press', sets: 2, reps: '8-10', rest: 90 }] },
+        cooldown: { items: [{ name: '4 x 4', timer: { type: 'intervals', work: 240, recover: 180, reps: 4 } }, { name: 'Stretch', dose: '30 s' }] },
+      });
+      ok('Timer fixture builds as expected', FS.length === 15 && FS[1].kind === 'hold' && !FS[1].autoStart && FS[2].autoStart &&
+        FS[5].kind === 'set' && FS[5].rest === 90 && FS[7].kind === 'interval' && FS[13].kind === 'interval' && FS[14].timer === null);
+      const N = Date.parse('2026-11-01T18:00:00Z');
+      const a1 = P5.advanceRun(FS, 1, N, N + 45000), a2 = P5.advanceRun(FS, 1, N, N + 200000);
+      const a3 = P5.advanceRun(FS, 7, N, N + 610000), a4 = P5.advanceRun(FS, 7, N, N + 1560000);
+      ok('advanceRun moves a run of holds or interval blocks on by the time that passed',
+        a1.idx === 3 && a1.done.join() === '1,2' && a1.endAt === N + 60000 &&
+        a2.idx === 5 && a2.done.join() === '1,2,3,4' && a2.endAt === null && a2.endedAt === N + 90000 &&
+        a3.idx === 11 && a3.done.join() === '7,8,9,10' && a3.endAt === N + 840000 &&
+        a4.idx === 14 && a4.done.join() === '7,8,9,10,11,12,13' && a4.endAt === null && a4.endedAt === N + 1260000,
+        JSON.stringify([a1, a2, a3, a4]));
+      const base5 = { v: 2, sessionId: 'x', shape: P5.stepsShape(FS) };
+      const rp = s => P5.resumePoint({ ...base5, ...s }, FS, N);
+      const r1 = P5.resumePoint({ sessionId: 'x', idx: 6, done: [0, 1, 2, 3, 4, 5], at: N - 60000 }, FS, N);
+      ok('Saved progress from 1.4.1 (no timer) opens on its step as before', r1.idx === 6 && r1.timer === null && r1.rest === null && r1.note === null && !r1.moved, JSON.stringify(r1));
+      const rest5 = { kind: 'rest', nextIdx: 6, total: 90 };
+      const r2 = rp({ idx: 6, at: N - 50000, timer: { ...rest5, endAt: N + 40000 } });
+      const r3 = rp({ idx: 6, at: N - 210000, timer: { ...rest5, endAt: N - 120000 } });
+      const r4 = rp({ idx: 6, at: N - 32 * 60000, timer: { ...rest5, endAt: N - 31 * 60000 } });
+      const r5 = rp({ idx: 6, at: N - 10 * 60000, timer: { ...rest5, remainingMs: 52000 } });
+      const r6 = rp({ idx: 6, at: N - 31 * 60000, timer: { ...rest5, remainingMs: 52000 } });
+      ok('A saved rest reopens with the real time left, says how long ago it ended, and is dropped after 30 minutes',
+        !!r2.rest && r2.rest.seconds === 90 && r2.rest.nextIdx === 6 && r2.timer.endAt === N + 40000 &&
+        !r3.rest && r3.idx === 6 && P5.awayNote(r3.note, N) === 'Rest ended 2 min ago.' &&
+        !r4.rest && r4.note === null && r4.idx === 6 &&
+        !!r5.rest && r5.timer.remainingMs === 52000 && r5.timer.total === 90 &&
+        !r6.rest && r6.timer === null, JSON.stringify({ r2, r3, r4, r5, r6 }));
+      const step1 = { idx: 0, done: [], at: N - 120000, timer: { kind: 'step', total: 360, endAt: N + 240000 } };
+      const r7 = rp(step1);
+      const r8 = rp({ idx: 0, done: [], at: N - 540000, timer: { kind: 'step', total: 360, endAt: N - 180000 } });
+      ok('A timer started on step 1 carries on (and counts as progress to resume); one that ended shows 0:00 and when',
+        r7.idx === 0 && r7.timer.endAt === N + 240000 && P5.canResume({ ...base5, ...step1 }, 'x', N) &&
+        r8.timer.remainingMs === 0 && P5.awayNote(r8.note, N) === 'Walk ended 3 min ago.', JSON.stringify({ r7, r8 }));
+      const blk = { kind: 'step', total: 240 };
+      const before7 = [0, 1, 2, 3, 4, 5, 6];
+      const r9 = rp({ idx: 7, done: before7, at: N - 850000, timer: { ...blk, endAt: N - 610000 } });
+      const r10 = rp({ idx: 7, done: before7, at: N - 1800000, timer: { ...blk, endAt: N - 1560000 } });
+      const r11 = rp({ idx: 7, done: before7, at: N - 3360000, timer: { ...blk, endAt: N - 3120000 } });
+      ok('A run of interval blocks catches up: the block running now, or the step after the run and when it ended; not after 30 minutes',
+        r9.idx === 11 && r9.timer.endAt === N + 230000 && r9.moved && r9.done.includes(10) &&
+        P5.awayNote(r9.note, N) === '4 x 4 kept running while you were away. This is the part running now.' &&
+        r10.idx === 14 && r10.timer === null && r10.moved && r10.done.includes(13) && P5.awayNote(r10.note, N) === '4 x 4 ended 5 min ago.' &&
+        r11.idx === 7 && r11.timer === null && r11.note === null && !r11.moved, JSON.stringify({ r9, r10, r11 }));
+      const r12 = rp({ idx: 6, shape: 'other', at: N - 50000, timer: { ...rest5, endAt: N + 40000 } });
+      const r13 = rp({ idx: 6, at: N - 50000, timer: { ...rest5, nextIdx: 7, endAt: N + 40000 } });
+      const r14 = rp({ idx: 6, at: N - 50000, timer: { ...rest5, endAt: N + 600000 } });
+      const r15 = rp({ idx: 5, at: N - 30000, timer: { kind: 'step', total: 60, endAt: N + 30000 } });
+      ok('A saved timer is not put back onto different steps, a mismatched rest, a clock that went back, or a step without a timer',
+        [r12, r13, r14, r15].every(r => r.timer === null && r.rest === null) && !P5.canResume({ sessionId: 'x', idx: 0, at: N }, 'x', N),
+        JSON.stringify({ r12, r13, r14, r15 }));
+      ok('"How long ago" reads naturally',
+        [0, 4999, 5000, 40000, 60000, 1799000, 3660000].map(P5.agoLabel).join() === 'just now,just now,5 s ago,40 s ago,1 min ago,29 min ago,over an hour ago');
+
+      // The player in use (real content and storage; the touched keys are restored afterwards): it saves its timer
+      // when something changes, puts it back when it opens, shows Hevy names and the next exercise during a rest.
+      const { viewToday } = await import('../js/views.js');
+      const { demoSheetHtml, mountSheetVideo, videoFor } = await import('../js/video.js');
+      const { logAsName } = await import('../js/engine.js');
+      const { esc: escH } = await import('../js/util.js');
+      const NO_YT = /<iframe|youtube-nocookie|ytimg/;
+      const KEYS3 = ['settings', 'done', 'position', 'player:p1:1:0', 'player:p0:1:0'];
+      const snap3 = Object.fromEntries(KEYS3.map(k => [k, store.get(k, undefined)]));
+      const stops = [];
+      const mountP = (s, day) => { const box = document.createElement('div'); stops.push(P5.renderPlayer(box, s, day, { exitHref: '#/x' })); return box; };
+      const unmount = () => { const f = stops.pop(); if (f) f(); };
+      if (!storageTests) skip('The player in use (saves, reopens, Hevy names, rest card): 6 checks that write storage');
+      else try {
+        store.set('settings', { ...store.get('settings', {}), autoRest: true, wakeLock: false, sound: false, countdownBeeps: false, vibrate: false });
+        store.set('done', {});
+        const S1 = resolveSession('p1', 1, scheduleFor(getPhase('p1'), 1)[0].sessionId);
+        const ST = P5.buildSteps(S1);
+        const pk = 'player:p1:1:0';
+        store.remove(pk);
+        const k = ST.findIndex((x, i) => i > 0 && ST[i - 1].kind === 'set' && ST[i - 1].rest > 0 && !ST[i - 1].isLastSet);
+        let box = mountP(S1, 0);
+        box.querySelector(`[data-p="jump"][data-i="${k - 1}"]`).click();
+        box.querySelector('[data-p="next"]').click();
+        const e1 = store.get(pk, {});
+        const restSec = ST[k - 1].rest;
+        const w1 = e1.v === 2 && e1.idx === k && !!e1.timer && e1.timer.kind === 'rest' && e1.timer.nextIdx === k && e1.timer.total === restSec &&
+          Math.abs(e1.timer.endAt - (Date.now() + restSec * 1000)) < 1500;
+        box.querySelector('[data-p="toggle"]').click();
+        const e2 = store.get(pk, {});
+        const w2 = !!e2.timer && e2.timer.kind === 'rest' && e2.timer.endAt == null && e2.timer.remainingMs > 0;
+        box.querySelector('[data-p="skiprest"]').click();
+        const w3 = store.get(pk, {}).timer === null;
+        unmount();
+        ok('The player saves a rest with its end time, a paused rest with its time left, and no timer after Skip rest', w1 && w2 && w3, JSON.stringify({ e1, e2 }));
+
+        const at = Date.now();
+        const entry = (age, timer) => ({ v: 2, sessionId: S1.id, idx: k, done: [...Array(k).keys()], shape: P5.stepsShape(ST), at: at - age, timer });
+        store.set(pk, entry(50000, { kind: 'rest', nextIdx: k, total: 90, endAt: at + 40000 }));
+        box = mountP(S1, 0);
+        const reopened = !!box.querySelector('.player-card.is-rest') && /^0:(39|40)$/.test(box.querySelector('#pt').textContent);
+        const label1 = viewSession('p1', 1, 0).html.includes(`Resume guided session · step ${k + 1} of ${ST.length}`);
+        unmount();
+        store.set(pk, entry(210000, { kind: 'rest', nextIdx: k, total: 90, endAt: at - 120000 }));
+        box = mountP(S1, 0);
+        const endedNote = !box.querySelector('.player-card.is-rest') && (box.querySelector('.player-away') || {}).textContent === 'Rest ended 2 min ago.';
+        unmount();
+        ok('Reopening the player puts a running rest back with its time left, or says when it ended; the session page offers to resume',
+          reopened && endedNote && label1);
+
+        store.set(pk, { v: 2, sessionId: S1.id, idx: 3, done: [0, 1, 2], shape: P5.stepsShape(ST), at: Date.now(), timer: null });
+        store.set('position', { phase: 'p1', week: 1 });
+        const todayResume = viewToday().html.includes(`Resume guided session · step 4 of ${ST.length}`);
+        store.set('done', { 'p1:1:0': new Date().toISOString() });
+        const doneMid = viewSession('p1', 1, 0).html.includes(`Resume guided session · step 4 of ${ST.length}`);   // ticked done early: still resumes
+        store.set(pk, { v: 2, sessionId: S1.id, idx: ST.length, done: [...Array(ST.length).keys()], shape: P5.stepsShape(ST), at: Date.now(), timer: null });
+        const doneStarts = viewSession('p1', 1, 0).html.includes('Start guided session') && !viewSession('p1', 1, 0).html.includes('Resume guided session');
+        store.set('done', {});
+        const finishedLabel = viewSession('p1', 1, 0).html.includes('Resume guided session · all steps done');
+        ok('Today offers to resume where the player would pick up; a session ticked done still resumes unless you had finished it',
+          todayResume && doneMid && doneStarts && finishedLabel, JSON.stringify({ todayResume, doneMid, doneStarts, finishedLabel }));
+
+        // During a rest: the Hevy name of the set just finished; before a new exercise, its cues open and its Demo.
+        store.remove(pk);
+        box = mountP(S1, 0);
+        const kn = ST.findIndex((x, i) => x.kind === 'set' && x.rest > 0 && !x.isLastSet && ST[i + 1] && ST[i + 1].it !== x.it);
+        box.querySelector(`[data-p="jump"][data-i="${kn}"]`).click();
+        box.querySelector('[data-p="next"]').click();
+        const nx = ST[kn + 1];
+        const how = box.querySelector('details.player-howto');
+        const restNew = !!box.querySelector('.player-card.is-rest') &&
+          (box.querySelector('.player-card.is-rest .player-logas') || {}).textContent === `Log this set as: ${logAsName(ST[kn].it)}` &&
+          !!box.querySelector(`.player-card.is-rest [data-demo="${nx.it.item.id}"]`) === !!videoFor(nx.it.item.id) &&
+          !!how && how.open && how.querySelector('summary').textContent === `How to do it: ${nx.title}` &&
+          [...how.querySelectorAll('li')].map(li => li.textContent).join('|') === nx.it.item.cues.slice(0, 5).join('|');
+        unmount();
+        const S0 = resolveSession('p0', 1, scheduleFor(getPhase('p0'), 1)[0].sessionId);
+        const ST0 = P5.buildSteps(S0);
+        store.remove('player:p0:1:0');
+        const ks = ST0.findIndex((x, i) => x.kind === 'set' && x.rest > 0 && !x.isLastSet && ST0[i + 1] && ST0[i + 1].it === x.it);
+        box = mountP(S0, 0);
+        box.querySelector(`[data-p="jump"][data-i="${ks}"]`).click();
+        box.querySelector('[data-p="next"]').click();
+        const h2 = box.querySelector('details.player-howto');
+        const restSame = ks > 0 && !!box.querySelector('.player-card.is-rest') && !!h2 && !h2.open;
+        unmount();
+        ok('During a rest the finished set\'s Hevy name shows; the next exercise\'s cues open when it is new and stay closed before another set of the same',
+          restNew && restSame, `new ${restNew}, same ${restSame} (steps ${kn}, ${ks})`);
+
+        // Every step of a session: its Hevy name on sets and ramp-ups only, a Demo only when its movement has a video,
+        // and nothing from YouTube in the page.
+        store.remove(pk);
+        box = mountP(S1, 0);
+        const bad7 = [];
+        ST.forEach((st, i) => {
+          box.querySelector(`[data-p="jump"][data-i="${i}"]`).click();
+          const name = st.kind === 'set' || st.kind === 'ramp' ? logAsName(st.it) : '';
+          const want = !name ? '' : st.kind === 'ramp' ? `Log as: ${name}, marked as warm-up sets` : `Log as: ${name}`;
+          const shown = (box.querySelector('.player-card .player-logas') || {}).textContent || '';
+          if (shown !== want) bad7.push(`${i}: "${shown}"`);
+          if (!!box.querySelector('.player-card [data-demo]') !== !!(st.it.item && videoFor(st.it.item.id))) bad7.push(`${i}: demo`);
+          if (NO_YT.test(box.innerHTML)) bad7.push(`${i}: youtube`);
+        });
+        unmount();
+        ok(`Every step of a session (${ST.length}) shows its Hevy name on sets and ramp-ups only, a Demo only with a video, and nothing from YouTube`,
+          bad7.length === 0, bad7.slice(0, 6).join(', '));
+      } finally {
+        while (stops.length) unmount();
+        for (const k of KEYS3) { if (snap3[k] === undefined) store.remove(k); else store.set(k, snap3[k]); }
+      }
+
+      const anyName = DB.exercises.find(x => x.loggingName && x.loggingName !== x.name);
+      const plainDrill = DB.drills.find(x => !x.loggingName);
+      ok('Log as: an Away name first, else a logging name that differs from the name, else nothing',
+        logAsName({ item: anyName }) === anyName.loggingName && logAsName({ item: anyName, logAs: 'Push Up (Away)' }) === 'Push Up (Away)' &&
+        logAsName({ item: { name: 'Row', loggingName: 'Row' } }) === '' && logAsName({ ref: 'x', name: 'Inline', item: null }) === '' &&
+        logAsName({ item: plainDrill }) === '');
+      const nameMismatch = [];
+      let named = 0;
+      for (const p of phases()) for (let w = 1; w <= p.weeks; w++) for (const d of scheduleFor(p, w)) {
+        if (!d.sessionId) continue;
+        const s = resolveSession(p.id, w, d.sessionId);
+        const its = [...new Set(P5.buildSteps(s).filter(st => st.kind === 'set' || st.kind === 'ramp').map(st => st.it))];
+        const want = its.map(logAsName).filter(Boolean).map(escH).sort();
+        const got = [...viewSession(p.id, w, d.i).html.matchAll(/<div class="ex-logname">Log as: ([^<]+)<\/div>/g)].map(m => m[1]).sort();
+        named += want.length;
+        if (want.join('|') !== got.join('|')) nameMismatch.push(`${p.id}:${w}:${d.i}`);
+      }
+      ok(`The player's Hevy names (${named} across all sessions) are the ones the session pages show`, nameMismatch.length === 0, nameMismatch.slice(0, 8).join(', '));
+      const vid = Object.keys(DB.videos).find(id => DB.videos[id].embed !== false && DB.idx.items.has(id));
+      const noVideo = [...DB.exercises, ...DB.drills].find(x => !DB.videos[x.id]);
+      const dh = demoSheetHtml(vid, { clock: '0:15' });
+      ok('The Demo sheet shows the app\'s poster (and the rest left during a rest) and loads nothing from YouTube before play',
+        dh.includes('class="demo"') && dh.includes('data-video-play') && dh.includes('Next exercise · rest left <span class="mono">0:15</span>') && !NO_YT.test(dh) &&
+        !demoSheetHtml(vid).includes('demo-clock') && (!noVideo || demoSheetHtml(noVideo.id) === ''));
+      const savedVid = DB.videos[vid];
+      try {
+        DB.videos[vid] = { ...savedVid, embed: false };
+        const dn = demoSheetHtml(vid);
+        ok('A video that may not be embedded opens on YouTube from the Demo sheet, as on its exercise page',
+          /<a class="demo-poster"[^>]*target="_blank"/.test(dn) && dn.includes('Opens on YouTube') && !dn.includes('data-video-play') && !NO_YT.test(dn));
+      } finally { DB.videos[vid] = savedVid; }
+      const host = document.createElement('div');
+      host.innerHTML = demoSheetHtml(vid);
+      const undoVideo = mountSheetVideo(host);
+      host.querySelector('.demo-frame').append(document.createElement('iframe'));
+      undoVideo();
+      ok('Closing the Demo sheet removes the video player, so a playing video stops', host.querySelector('iframe') === null);
+
+      // ---- 1.5.0: calibration and kept targets (the nutrition plan's arithmetic, its targets table and reminders).
+      const { thousands } = await import('../js/util.js');
+      const { energyGoalAt } = await import('../js/engine.js');
+      const m1 = C.maintenanceFromTrend(2450, -0.2);
+      ok('Maintenance: the nutrition plan\'s example, 2,450 + 220 = 2,670', m1.kcal === 2670 && m1.correction === 220 && C.maintenanceSum(m1) === '2,450 + 220 = 2,670', JSON.stringify(m1));
+      ok('Maintenance: flat within ±0.1 kg a week; a gain is taken off; bad input gives nothing',
+        [-0.1, 0.1, -0.05].every(k => { const r = C.maintenanceFromTrend(2450, k); return r.flat && r.kcal === 2450 && C.maintenanceSum(r) === '2,450'; }) &&
+        C.maintenanceFromTrend(2450, -0.11).kcal === 2571 && C.maintenanceSum(C.maintenanceFromTrend(2450, 0.15)) === '2,450 − 165 = 2,285' &&
+        C.maintenanceFromTrend(0, -0.2) === null && C.maintenanceFromTrend(2450, NaN) === null && thousands(2670) === '2,670' && thousands(-165) === '−165');
+      const dayISO = (start, i) => new Date(Date.UTC(2026, 10, start + i)).toISOString().slice(0, 10);
+      const cal14 = Array.from({ length: 14 }, (_, i) => ({ date: dayISO(2, i), kg: 80 - (0.2 / 7) * i }));
+      const w14 = C.calibrationWindow(cal14);
+      ok('Calibration window: 14 days, the fitted trend and days 8-14 against 1-7, intake up to the day before the last weigh-in',
+        w14.from === '2026-11-02' && w14.to === '2026-11-15' && w14.intakeTo === '2026-11-14' && w14.enough && w14.kgPerWeek === -0.2 &&
+        w14.halvesKgPerWeek === -0.2 && w14.blocks.map(b => b.n).join() === '7,7' && w14.endKg === 79.7, JSON.stringify(w14));
+      const late = C.calibrationWindow(cal14.filter((_, i) => i >= 5));
+      const mwf = C.calibrationWindow(cal14.filter((_, i) => [0, 3, 6, 7, 10, 13].includes(i)));
+      const wk = C.calibrationWindow([{ date: '2026-11-08', kg: 80 }, { date: '2026-11-15', kg: 79.8 }], { weekly: true });
+      const w21 = C.calibrationWindow(Array.from({ length: 21 }, (_, i) => ({ date: dayISO(-5, i), kg: 80 - (0.2 / 7) * i })), { days: 21 });
+      ok('Calibration window: needs 3 weigh-ins a week covering the window (or a weekly average each week); 21 days compare weeks 1 and 3',
+        !late.enough && mwf.enough && wk.enough && wk.kgPerWeek === -0.2 && w21.days === 21 && w21.blocks.length === 3 && w21.halvesKgPerWeek === -0.2 && w21.enough,
+        JSON.stringify({ late: late.blocks, mwf: mwf.enough, wk, w21: w21.halvesKgPerWeek }));
+      const EP = DB.ruleParams.energy;
+      const goalBy = id => EP.goals.find(g => g.id === id);
+      const tR = C.dailyTargets({ maintenanceKcal: 2670, goal: goalBy('recomp'), basisKg: 77 }, EP);
+      const tC = C.dailyTargets({ maintenanceKcal: 2670, goal: goalBy('cut'), basisKg: 77 }, EP);
+      const tL = C.dailyTargets({ maintenanceKcal: 2670, goal: goalBy('lean-gain'), basisKg: 77 }, EP);
+      const tM = C.dailyTargets({ maintenanceKcal: 2670, goal: goalBy('maintain'), basisKg: 77 }, EP);
+      const tO = C.dailyTargets({ maintenanceKcal: 2670, goal: goalBy('recomp'), offset: -170, basisKg: 77 }, EP);
+      ok('Kept targets: maintenance plus the goal\'s range from the targets table; protein as in the table at 77 kg',
+        tR.kcal === 2520 && tR.kcalLow === 2370 && tR.kcalHigh === 2670 && tR.middle && tR.protein.low === 140 && tR.protein.high === 155 &&
+        tR.protein.floor === 125 && tR.protein.perMeal === 31 && tC.kcalLow === 2170 && tC.kcalHigh === 2370 && tC.protein.low === 155 && tC.protein.high === 185 &&
+        tL.kcalLow === 2820 && tL.kcalHigh === 2970 && tM.kcal === 2670 && tO.kcal === 2500 && tO.inRange && !tO.middle,
+        JSON.stringify({ tR, tC: [tC.kcalLow, tC.kcalHigh, tC.protein], tL: [tL.kcalLow, tL.kcalHigh], tM: tM.kcal, tO: tO.kcal }));
+      const mSaved = { to: '2026-11-15', endKg: 77 };
+      const remT = C.targetReminders({ maintenance: mSaved, basisKg: 77, avg7: 77.4, today: '2026-12-13' }, EP.calibration);
+      const remW = C.targetReminders({ maintenance: mSaved, basisKg: 77, avg7: 79.1, today: '2026-11-30' }, EP.calibration);
+      const remN = C.targetReminders({ maintenance: mSaved, basisKg: 77, avg7: 78.9, today: '2026-12-12' }, EP.calibration);
+      ok('Reminders: re-calibrate after 4 weeks or a 2 kg move; recompute protein after a 2 kg move; nothing before',
+        remT.recalibrate && remT.recalibrate.byTime && !remT.protein && remW.recalibrate && remW.recalibrate.byWeight && remW.protein &&
+        remN.recalibrate === null && remN.protein === null, JSON.stringify({ remT, remW, remN }));
+      const isAway = id => id === 'pa';
+      const spans = C.phaseSpans([{ at: '2026-11-01T10:00:00Z', phase: 'p1' }, { at: '2026-11-05T10:00:00Z', phase: 'pa' }, { at: '2026-11-08T10:00:00Z', phase: 'pa' },
+        { at: '2026-11-12T10:00:00Z', phase: 'p1' }], isAway);
+      ok('Away mode from the stored history: the trip, then a week before the trend is judged again',
+        spans.length === 1 && spans[0].from === '2026-11-05' && spans[0].to === '2026-11-12' &&
+        (C.awaySettle(spans, '2026-11-15') || {}).resumes === '2026-11-19' && C.awaySettle(spans, '2026-11-19') === null, JSON.stringify(spans));
+      const sameDay = C.phaseSpans([{ at: '2026-11-05T09:00:00Z', phase: 'p2' }, { at: '2026-11-05T09:01:00Z', phase: 'pa' }, { at: '2026-11-05T09:02:00Z', phase: 'p2' }], isAway);
+      const messy = C.phaseSpans([{ at: 'not a date', phase: 'pa' }, null, { at: '2026-11-05T09:00:00Z', phase: 'p1' }], isAway);
+      ok('A switch to Away mode undone the same day is not a trip; unreadable history is skipped',
+        C.awaySettle(sameDay, '2026-11-06') === null && messy.length === 0 && C.phaseSpans({ not: 'a list' }, isAway).length === 0, JSON.stringify({ sameDay, messy }));
+      const t2673 = C.dailyTargets({ maintenanceKcal: 2673, goal: goalBy('recomp'), offset: 2370 - 2673, basisKg: 77 }, EP);
+      const w6 = C.calibrationWindow([{ date: '2026-11-08', kg: 80 }, { date: '2026-11-14', kg: 79.8 }], { weekly: true });
+      const w12 = C.calibrationWindow(cal14.slice(2));
+      ok('A target at the shown end of its range counts as inside it; weekly averages 6 days apart are enough; intake starts at the first weigh-in',
+        t2673.kcal === 2370 && t2673.kcalLow === 2370 && t2673.inRange === true && w6.enough && w12.firstDate === '2026-11-04' && w12.from === '2026-11-02',
+        JSON.stringify({ t2673: [t2673.kcal, t2673.kcalLow, t2673.inRange], w6: w6.enough, w12: [w12.firstDate, w12.from] }));
+      // The kcal ranges added to rules.json are the nutrition page's targets table, word for word.
+      const tableText = JSON.stringify((DB.idx.pages.get('nutrition').sections || []).find(s => s.id === 'targets'));
+      const rowRange = name => { const m = new RegExp(`\\| ${name} \\| ([+-]?\\d+) to ([+-]?\\d+) kcal/day`).exec(tableText); return m ? [+m[1], +m[2]].sort((a, b) => a - b).join() : null; };
+      ok('The goals\' kcal ranges match the nutrition page\'s targets table',
+        rowRange('Recomposition') === goalBy('recomp').kcalRange.join() && rowRange('Lean gain') === goalBy('lean-gain').kcalRange.join() &&
+        rowRange('Dedicated fat loss') === goalBy('cut').kcalRange.join() && goalBy('maintain').kcalRange.join() === '0,0' && !goalBy('calibrate').kcalRange,
+        [rowRange('Recomposition'), rowRange('Lean gain'), rowRange('Dedicated fat loss')].join(' / '));
+      ok('Phase 1 weeks 1-2 are calibration weeks; week 3 starts recomposition', energyGoalAt(getPhase('p1'), 1) === 'calibrate' &&
+        energyGoalAt(getPhase('p1'), 2) === 'calibrate' && energyGoalAt(getPhase('p1'), 3) === 'recomp' && energyGoalAt(getPhase('p0'), 1) === 'calibrate');
+
+      // The tools in use (storage): goals follow the week and survive a trip; the energy tool keeps targets; the
+      // check-in pauses in Away mode and calibrates in the calibration weeks.
+      const KEYS4 = ['position', 'history', 'returnTo', 'weights', 'tool:checkin', 'tool:energy', 'energy:maintenance', 'energy:targets'];
+      const snap4 = Object.fromEntries(KEYS4.map(k => [k, store.get(k, undefined)]));
+      if (!storageTests) skip('Calibration and targets in the tools: 4 checks that write storage');
+      else try {
+        const sel = (html, name) => (new RegExp(`<select id="${name}"[\\s\\S]*?<option value="([^"]+)" selected`).exec(html) || [])[1];
+        const none = new URLSearchParams();
+        store.set('history', []);
+        store.remove('returnTo');
+        store.set('position', { phase: 'p1', week: 1 });
+        store.set('tool:checkin', {});
+        const inCal = sel(viewTool('checkin', none).html, 'goal');
+        store.set('position', { phase: 'p1', week: 3 });
+        store.set('tool:checkin', { goal: 'cut', goalFor: 'p1', goalDefault: 'recomp' });
+        const kept = sel(viewTool('checkin', none).html, 'goal');
+        store.set('returnTo', { phase: 'p1', week: 3, left: new Date().toISOString() });
+        store.set('position', { phase: 'pa', week: 2 });
+        const awayHtml = viewTool('checkin', none).html;
+        store.set('tool:checkin', { goal: 'maintain', goalFor: 'pa', goalDefault: 'maintain', mainGoal: 'cut', mainFor: 'p1', mainDefault: 'recomp' });
+        store.remove('returnTo');
+        store.set('position', { phase: 'p1', week: 3 });
+        const back = sel(viewTool('checkin', none).html, 'goal');
+        ok('Goals follow the week (Phase 1 week 1: Calibrate), a pick of your own is kept, and comes back after Away mode',
+          inCal === 'calibrate' && kept === 'cut' && sel(awayHtml, 'goal') === 'maintain' && awayHtml.includes('name="mainGoal" value="cut"') && back === 'cut',
+          JSON.stringify({ inCal, kept, away: sel(awayHtml, 'goal'), back }));
+
+        // The energy tool with 14 days of weigh-ins and a saved maintenance.
+        store.set('weights', cal14.map(e => ({ date: e.date, kg: Math.round(e.kg * 100) / 100 })));
+        store.set('energy:maintenance', { v: 1, entries: [{ kcal: 2670, intake: 2450, from: '2026-11-02', to: '2026-11-15', days: 14, endKg: 79.7, savedAt: '2026-11-15T13:00:00.000Z' }] });
+        store.set('energy:targets', { v: 1, offsets: {}, basisKg: 77, basisAt: '2026-11-15' });
+        store.set('tool:energy', { goal: 'recomp', goalFor: 'p1', goalDefault: 'recomp' });
+        const ev = viewTool('energy', none);
+        const eb = document.createElement('div');
+        eb.innerHTML = ev.html;
+        ev.after(eb);
+        const ein = eb.querySelector('#calIntake');
+        ein.value = '2450';
+        ein.dispatchEvent(new Event('input', { bubbles: true }));
+        const energyOk = (eb.querySelector('#calOut .result .big') || {}).textContent === '2,450 + 220 = 2,670' &&
+          /2,520 kcal/.test(eb.querySelector('#tgtOut').textContent) && /140–155 g/.test(eb.querySelector('#tgtOut').textContent) &&
+          (eb.querySelector('#tgtKcal') || {}).value === '2520' &&
+          eb.querySelector('[data-cal-save]').disabled === true && eb.querySelector('[data-cal-save]').textContent === 'Saved';   // the same window is already saved
+        if (ev.cleanup) ev.cleanup();
+
+        // The check-in in Away mode, in calibration weeks and in the week after a trip.
+        const checkinText = () => { const v = viewTool('checkin', none); const b = document.createElement('div'); b.innerHTML = v.html; v.after(b); const t = b.querySelector('#out').textContent; if (v.cleanup) v.cleanup(); return t; };
+        store.set('tool:checkin', {});
+        store.set('position', { phase: 'pa', week: 2 });
+        const tAway = checkinText();
+        store.set('position', { phase: 'p1', week: 1 });
+        const tCal = checkinText();
+        const ago = d => new Date(Date.now() - d * 86400000).toISOString();
+        store.set('history', [{ at: ago(10), phase: 'pa', week: 1 }, { at: ago(3), phase: 'p1', week: 5 }]);
+        store.set('position', { phase: 'p1', week: 5 });
+        const tSettle = checkinText();
+        ok('The energy tool works out the maintenance and keeps the targets; the check-in pauses in Away mode, calibrates in Phase 1 week 1, and waits a week after a trip',
+          energyOk && /Paused while you are away/.test(tAway) && /Calibrating your maintenance/.test(tCal) && !/Adjust intake/.test(tCal) && /Back from Away mode/.test(tSettle),
+          JSON.stringify({ energyOk, away: tAway.slice(0, 60), cal: tCal.slice(0, 60), settle: tSettle.slice(0, 60) }));
+
+        // After a calibration that measured a gain, the verdict does not ask for a second cut from the same weigh-ins.
+        store.set('history', []);
+        store.set('weights', cal14.map((e, i) => ({ date: e.date, kg: Math.round((80 + (0.2 / 7) * i) * 100) / 100 })));
+        store.set('position', { phase: 'p1', week: 3 });
+        store.set('tool:checkin', {});
+        const tAfter = checkinText();
+        // A target you type for the Maintenance goal is yours, not "your saved maintenance".
+        store.set('tool:energy', { goal: 'maintain', goalFor: 'p1', goalDefault: 'recomp' });
+        store.set('energy:targets', { v: 1, offsets: { maintain: 150 }, basisKg: 77, basisAt: '2026-11-15' });
+        const ev2 = viewTool('energy', none);
+        const eb2 = document.createElement('div');
+        eb2.innerHTML = ev2.html;
+        ev2.after(eb2);
+        const own = eb2.querySelector('#tgtOut').textContent;
+        if (ev2.cleanup) ev2.cleanup();
+        ok('After a calibration the check-in judges only the weigh-ins since; a typed Maintenance target is shown as your own',
+          /Not enough data yet/.test(tAfter) && /Judged from your weigh-ins after your calibration/.test(tAfter) && !/Adjust intake/.test(tAfter) &&
+          /2,820 kcal/.test(own) && /your own target/.test(own), JSON.stringify({ after: tAfter.slice(0, 160), own: own.slice(0, 160) }));
+      } finally {
+        for (const k of KEYS4) { if (snap4[k] === undefined) store.remove(k); else store.set(k, snap4[k]); }
+      }
+      } catch (err) {
+        ok('1.5.0 checks run to the end', false, err.message);
+      }
       const longest = [];
       for (const p of phases()) for (const [sid] of DB.idx.sessions) {
         const s = resolveSession(p.id, 1, sid);
@@ -214,7 +665,7 @@
       ok('Content loads', false, err.message);
     }
 
-    document.getElementById('summary').innerHTML = `<p class="${fail ? 'fail' : 'pass'}">${pass} passed, ${fail} failed</p>`;
+    document.getElementById('summary').innerHTML = `<p class="${fail ? 'fail' : 'pass'}">${pass} passed, ${fail} failed${skipped ? `, ${skipped} skipped` : ''}</p>`;
   </script>
 </body>
 </html>

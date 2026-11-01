@@ -2,7 +2,7 @@
 // (see tests/index.html). Rule parameters come from content/rules.json ("params"); the
 // defaults below are only fallbacks and are kept in sync with that file.
 
-import { roundTo, floorTo, mean, slope } from './util.js';
+import { roundTo, floorTo, mean, slope, todayISO, thousands } from './util.js';
 
 // ---------------------------------------------------------------- strength
 
@@ -202,9 +202,10 @@ export function ffmi({ weightKg, heightCm, bfPct }) {
 
 /**
  * Trend from dated weights: 7-day means and a least-squares rate over the last `windowDays`.
- * entries: [{date: 'YYYY-MM-DD', kg}]
+ * entries: [{date: 'YYYY-MM-DD', kg}]. With `weekly`, each entry is already a weekly average (from a scale
+ * app), so three of them spanning about two weeks are enough; single daily weigh-ins need eight.
  */
-export function weightTrend(entries, windowDays = 21) {
+export function weightTrend(entries, windowDays = 21, { weekly = false } = {}) {
   const pts = (entries || [])
     .filter(e => e && e.date && e.kg > 0)
     .map(e => ({ t: Date.parse(e.date + 'T12:00:00'), kg: +e.kg, date: e.date }))
@@ -222,10 +223,10 @@ export function weightTrend(entries, windowDays = 21) {
   const spanDays = win.length ? (win[win.length - 1].t - win[0].t) / 86400000 : 0;
   return {
     n: pts.length, nWindow: win.length, spanDays,
-    avg7, avgPrev7,
+    avg7, avgPrev7, weekly,
     kgPerWeek: kgPerDay * 7,
     pctPerWeek: Number.isFinite(kgPerDay) && avg7 > 0 ? (kgPerDay * 7 / avg7) * 100 : NaN,
-    enough: win.length >= 8 && spanDays >= 13,
+    enough: weekly ? win.length >= 3 && spanDays >= 12 : win.length >= 8 && spanDays >= 13,
   };
 }
 
@@ -237,7 +238,9 @@ export function weightTrend(entries, windowDays = 21) {
 export function energyAdjustment(trend, band, opts = {}) {
   const { kcalPerKg = 7700, maxStep = 250, minStep = 100, tolerancePct = 0 } = opts;
   if (!trend || !trend.enough || !Number.isFinite(trend.pctPerWeek)) {
-    return { action: 'wait', kcal: 0, message: 'Need at least 2 weeks with 8 or more weigh-ins before adjusting intake.' };
+    return { action: 'wait', kcal: 0, message: trend && trend.weekly
+      ? 'Need at least 3 weekly averages covering 2 weeks before adjusting intake.'
+      : 'Need at least 2 weeks with 8 or more weigh-ins before adjusting intake.' };
   }
   const [lo, hi] = band; // e.g. [-0.5, -0.25] for slow loss
   const rate = trend.pctPerWeek;
@@ -259,6 +262,138 @@ export function energyAdjustment(trend, band, opts = {}) {
     message: `Rate ${rate.toFixed(2)}%/week is ${rate < lo ? 'below' : 'above'} the target band (${lo} to ${hi}%/week). ` +
       `${kcal > 0 ? 'Increase' : 'Reduce'} average daily intake by about ${Math.abs(kcal)} kcal, then reassess after 2–3 weeks.`,
   };
+}
+
+// ---------------------------------------------------------------- calibration and kept targets
+
+const DAY_MS = 86400000;
+const noonT = iso => Date.parse(`${iso}T12:00:00`);     // local noon, as weightTrend does
+const isoOf = t => todayISO(new Date(t));
+const r2 = x => Math.round(x * 100) / 100;
+const round5 = x => Math.round(x / 5) * 5;
+const round10 = x => Math.round(x / 10) * 10;
+
+/**
+ * The calibration window: the last `days` days ending on the latest weigh-in, its weeks, the fitted trend and the
+ * week-on-week change (nutrition plan: "fit the weight trend across all 14 days, or compare the average of days 8-14
+ * with days 1-7"). Intake is averaged from `from` to `intakeTo`, the day before the last weigh-in, whose food log is
+ * not finished. Each week needs `minPerWeek` weigh-ins (one weekly average) and they must cover the window: the first
+ * within its first 3 days. Returns null without weigh-ins.
+ */
+export function calibrationWindow(entries, { days = 14, weekly = false, minPerWeek = 3 } = {}) {
+  const pts = (entries || []).filter(e => e && /^\d{4}-\d{2}-\d{2}$/.test(e.date) && e.kg > 0)
+    .map(e => ({ date: e.date, kg: +e.kg, t: noonT(e.date) })).filter(p => Number.isFinite(p.t)).sort((a, b) => a.t - b.t);
+  if (!pts.length) return null;
+  const to = pts[pts.length - 1].date;
+  const startT = noonT(to) - (days - 1) * DAY_MS;
+  const from = isoOf(startT);
+  const win = pts.filter(p => p.date >= from && p.date <= to).map(p => ({ ...p, day: Math.round((p.t - startT) / DAY_MS) }));
+  const nBlocks = Math.max(1, Math.floor(days / 7));
+  const blocks = Array.from({ length: nBlocks }, (_, b) => {
+    const inB = win.filter(p => Math.min(nBlocks - 1, Math.floor(p.day / 7)) === b);
+    return {
+      from: isoOf(startT + b * 7 * DAY_MS), to: isoOf(startT + (b === nBlocks - 1 ? days - 1 : b * 7 + 6) * DAY_MS), n: inB.length,
+      meanKg: inB.length ? mean(inB.map(p => p.kg)) : NaN, meanDay: inB.length ? mean(inB.map(p => p.day)) : NaN,
+    };
+  });
+  const spanDays = win.length ? win[win.length - 1].day - win[0].day : 0;
+  // Weekly averages: one a week, at least 5 days apart (the dates a scale app gives them can drift by a day or two).
+  const enough = weekly ? win.length >= nBlocks && spanDays >= 5 * (nBlocks - 1)
+    : blocks.every(b => b.n >= minPerWeek) && spanDays >= days - 3;
+  const fit = win.length >= 2 ? slope(win.map(p => p.day), win.map(p => p.kg)) * 7 : NaN;
+  const first = blocks[0], last = blocks[nBlocks - 1];
+  const halves = nBlocks > 1 && first.n && last.n && last.meanDay > first.meanDay
+    ? (last.meanKg - first.meanKg) / ((last.meanDay - first.meanDay) / 7) : NaN;
+  return {
+    from, to, days, n: win.length, spanDays, blocks: blocks.map(({ meanDay, ...b }) => b), enough,
+    firstDate: win.length ? win[0].date : null,    // the first weigh-in inside the window (intake starts there)
+    kgPerWeek: Number.isFinite(fit) ? r2(fit) : null,
+    halvesKgPerWeek: Number.isFinite(halves) ? r2(halves) : null,
+    intakeTo: isoOf(noonT(to) - DAY_MS),
+    endKg: last.n ? Math.round(last.meanKg * 10) / 10 : null,
+  };
+}
+
+/** Nutrition plan arithmetic: maintenance ≈ mean logged intake + (kg lost per week × kcalPerKg/7), or minus if you
+ *  gained; within ±flatKgPerWeek the intake is the maintenance (the page's flat rule, applied literally). */
+export function maintenanceFromTrend(intakeKcal, kgPerWeek, { kcalPerKg = 7700, flatKgPerWeek = 0.1 } = {}) {
+  if (!(intakeKcal > 0) || !Number.isFinite(kgPerWeek)) return null;
+  const intake = Math.round(intakeKcal), k = r2(kgPerWeek);
+  const flat = Math.abs(k) <= flatKgPerWeek + 1e-9;
+  const correction = flat ? 0 : Math.round(-k * kcalPerKg / 7);
+  return { intake, kgPerWeek: k, flat, correction, kcal: intake + correction };
+}
+
+/** "2,450 + 220 = 2,670" (one number when there is no correction). */
+export function maintenanceSum(r) {
+  if (!r) return '';
+  if (!r.correction) return thousands(r.kcal);
+  return `${thousands(r.intake)} ${r.correction > 0 ? '+' : '−'} ${thousands(Math.abs(r.correction))} = ${thousands(r.kcal)}`;
+}
+
+/** Kept kcal and protein targets: maintenance plus an offset inside the goal's kcalRange (null: the middle), protein
+ *  from the basis weight. kcal figures are rounded to 10. Returns null without a basis weight. */
+export function dailyTargets({ maintenanceKcal, goal, offset = null, basisKg }, E = {}) {
+  if (!goal || !(basisKg > 0)) return null;
+  const range = Array.isArray(goal.kcalRange) && goal.kcalRange.length === 2 ? [...goal.kcalRange].sort((a, b) => a - b) : null;
+  const hasM = maintenanceKcal > 0;
+  const off = range && hasM ? Math.round(Number.isFinite(offset) ? offset : (range[0] + range[1]) / 2) : null;
+  const gkg = Array.isArray(goal.proteinGkg) ? goal.proteinGkg : [E.proteinGkg || 1.8, E.proteinGkg || 1.8];
+  const kcal = off != null ? round10(maintenanceKcal + off) : null;
+  const kcalLow = range && hasM ? round10(maintenanceKcal + range[0]) : null;
+  const kcalHigh = range && hasM ? round10(maintenanceKcal + range[1]) : null;
+  return {
+    range, offset: off, kcal, kcalLow, kcalHigh,
+    inRange: kcal != null ? kcal >= kcalLow && kcal <= kcalHigh : null,    // judged on the figures shown
+    middle: off != null && off === Math.round((range[0] + range[1]) / 2),
+    protein: {
+      low: round5(gkg[0] * basisKg), high: round5(gkg[1] * basisKg), floor: round5((E.proteinFloorGkg || 1.6) * basisKg),
+      perMeal: Math.round((E.proteinPerMealGkg || 0.4) * basisKg),
+    },
+  };
+}
+
+/** The content's reminders: re-calibrate after recalibrateWeeks[0] weeks or a recalibrateKg move of the 7-day average,
+ *  recompute protein after a proteinRecomputeKg move (differences rounded to 0.01 kg first). */
+export function targetReminders({ maintenance, basisKg, avg7, today }, C = {}) {
+  const weeksAt = ((C.recalibrateWeeks || [4])[0]) * 7;
+  const moved = (a, b) => (Number.isFinite(a) && Number.isFinite(b) ? Math.round((a - b) * 100) / 100 : NaN);
+  let recalibrate = null, protein = null;
+  if (maintenance) {
+    const days = Math.round((noonT(today) - noonT(maintenance.to)) / DAY_MS);
+    const kg = moved(avg7, maintenance.endKg);
+    const byTime = days >= weeksAt, byWeight = Math.abs(kg) >= (C.recalibrateKg || 2);
+    if (byTime || byWeight) recalibrate = { byTime, byWeight, weeks: Math.floor(days / 7), kgMoved: Number.isFinite(kg) ? kg : null };
+  }
+  const pk = moved(avg7, basisKg);
+  if (Math.abs(pk) >= (C.proteinRecomputeKg || 2)) protein = { kgMoved: pk };
+  return { recalibrate, protein };
+}
+
+/** Runs of position-history entries ({at, phase, week}) whose phase matches isAway, as local dates: [{from, to}],
+ *  to being the date of the first entry after the run (null while still in it). */
+export function phaseSpans(history, isAway) {
+  const spans = [];
+  let open = null;
+  for (const e of Array.isArray(history) ? history : []) {
+    const t = e ? Date.parse(e.at) : NaN;
+    if (!Number.isFinite(t)) continue;      // an unreadable entry (a hand-edited backup) is skipped
+    const date = isoOf(t);
+    if (isAway(e.phase)) { if (!open) open = { from: date, to: null }; }
+    else if (open) { open.to = date; spans.push(open); open = null; }
+  }
+  if (open) spans.push(open);
+  return spans;
+}
+
+/** After the latest finished Away span of at least one night (a switch undone the same day is not a trip):
+ *  { returned, resumes } while today is before returned + days, else null. */
+export function awaySettle(spans, today, days = 7) {
+  const done = (spans || []).filter(s => s && s.to && s.to > s.from);
+  if (!done.length) return null;
+  const returned = done[done.length - 1].to;
+  const resumes = isoOf(noonT(returned) + days * DAY_MS);
+  return today < resumes ? { returned, resumes } : null;
 }
 
 // ---------------------------------------------------------------- heart rate

@@ -18,8 +18,8 @@ js/                     Application code (ES modules)
   md.js                 Markdown-lite renderer used for all text
   engine.js             Expands phases/weeks/sessions; transcription text; progress tracking
   calc.js               Pure calculators (progression, e1RM, energy, body composition, trends)
-  player.js             Guided session player with rest/hold/interval timers
-  video.js              Demonstration videos on exercise pages (poster, then a YouTube player on demand)
+  player.js             Guided session player with rest/hold/interval timers (kept through reloads and visits elsewhere)
+  video.js              Demonstration videos on exercise pages and in the player's Demo sheet (poster, then a YouTube player on demand)
   reading.js            Reading pages: the steel title plate, topic marks, contents and numbered sections
   fx.js                 Spark effect when you finish something (skipped when reduced motion is set)
   views.js, tools.js    Pages and tools
@@ -69,15 +69,17 @@ No server-side code or build is needed. Any static host that serves over HTTPS w
 ## Your data
 
 Position in the programme (and the week to return to after Away or Maintenance mode), "done" ticks
-(current and archived), check-in weights and waist values, checklist states and tool inputs are
+(current and archived), check-in weights and waist values, your saved maintenance figures and daily targets, the
+guided player's place and timer in a session, checklist states and tool inputs are
 stored only in this browser (localStorage). Nothing is sent anywhere. Browsers can
 clear site data, so use **Settings → Export backup** occasionally; **Import backup** restores it
-(also how you move data between phone and laptop).
+(also how you move data between phone and laptop). Importing replaces everything stored, so a calibration or
+target saved after that backup was made is replaced too.
 
 The one exception is the demonstration videos on exercise pages, and only when you press play: the video then
 streams from YouTube in its privacy-enhanced mode (`youtube-nocookie.com`), so YouTube sees that request like any
 video you watch. Until you press play, the page shows a poster drawn by the app and contacts nothing (no
-thumbnails are fetched).
+thumbnails are fetched). The guided player's Demo button opens the same video in a sheet, under the same rule.
 
 ## Away from the gym (Away mode)
 
@@ -121,6 +123,10 @@ Then run **Settings → Content diagnostics** (it reports unknown exercise ids a
 version in `sw.js` as for any content change. A broken `videos.json` never stops the app: exercise pages say the
 file could not be read, and everything else works.
 
+In the guided player, a **Demo** button on each step whose movement has a video (on the rest card, the next
+exercise's) opens that video in a sheet over the player, so the timer keeps running. Closing the sheet in any way, or
+leaving the page, stops the video.
+
 ## Design ("Tempered")
 
 When steel is tempered, its oxide film changes colour as it heats: straw, gold, bronze, plum, blue. Those
@@ -133,7 +139,9 @@ Everything else is neutral steel: pale "machine grey" in light mode, blued steel
 - **Today:** the programme year drawn as a strip of tempered steel (coloured up to your week, grey beyond it,
   a hollow marker while you are in Away or Maintenance mode), with the next session on a dark steel panel.
 - **Guided player:** a ring timer whose arc is the time left (during rest it cools from the phase colour to
-  steel), the rep target set large, and the main button fixed at the bottom of the screen on phones.
+  steel), the rep target set large, and the main button fixed at the bottom of the screen on phones. Each set shows
+  the exercise's Hevy name ("Log as", as on session cards); during a rest the card names the set you just finished
+  for logging, and the next exercise's cues are under the card (open when it is new in the session).
 - **Sparks** fly when you tick a session done, finish a week or complete a guided session (not shown when the
   device is set to reduce motion).
 - **Type:** DM Sans for text, JetBrains Mono for numbers. Both are bundled in `fonts/` (DM Sans 1.200 under the
@@ -171,8 +179,8 @@ All content lives in `content/*.json`; the app code does not need to change.
    `Get-Content -Raw content/programme.json | ConvertFrom-Json`).
 3. Preview locally and open **Settings → Content diagnostics → Run check** (or `tests/`) to confirm
    every citation and link resolves.
-4. **Bump the version** in `sw.js` (currently `const VERSION = 'forge-v1.4.0'`; for example change it to
-   `'forge-v1.4.1'`) so installed copies fetch the new files. If you add a new file, also add it to the
+4. **Bump the version** in `sw.js` (currently `const VERSION = 'forge-v1.5.0'`; for example change it to
+   `'forge-v1.5.1'`) so installed copies fetch the new files. If you add a new file, also add it to the
    `PRECACHE` list in `sw.js`.
 5. Commit and push. Open copies show *"An updated version of the app is ready"*; tap **Reload**.
 
@@ -230,17 +238,68 @@ how to do them without equipment, shown on the exercise page and in Away-mode se
   101,257 blocks of text, 63,630 links, and every citation, glossary term, table and table cell) found nothing
   missing. The only differences: contents links now point at their section (`…?s=section`), and the index pages
   show each summary in full (clamped to three lines on screen) where they used to cut it at 140–160 characters.
-- **App tests:** `tests/index.html` (65 checks: calculators, renderer, phase sequencing, content integrity,
+- **Fixes (31 October 2026, version 1.4.1):** eight bugs found in a review of the code were fixed. No programme
+  content was changed.
+  - Test days in the guided player include the tests. The four test sessions used to go from the warm-up straight
+    to the cool-down, because the tests have no sets.
+  - The check-in's target band, and the energy tool's goal, follow the phase you are in; a band you pick yourself
+    is kept until you move to another phase. If you enter weekly averages from a scale app, choose **What you
+    enter → Weekly averages**: three of them covering two weeks give a trend (daily weigh-ins still need eight).
+  - The check-in's date fields move on to today when you come back to a page left open overnight. Adding a
+    different value for a date that already has one asks first, and deleting an entry offers Undo for a few seconds.
+  - A week's own instructions (for example fewer sets, or more reps in reserve) are shown on every session page of
+    that week and in the guided player, where they are open at the first step.
+  - The guided player picks up a session you left part-way only within 12 hours. Older progress, from an earlier
+    pass through a week that repeats (Maintenance mode, Away mode, Phase 4), no longer comes back.
+  - *Short beeps in the last 3 seconds* works when *Beep when a timer ends* is off.
+  - Typing in the Library and References search boxes no longer closes the phone's keyboard.
+  - Android's back gesture closes an open citation, glossary or menu sheet instead of leaving the page under it.
+- **Guided player, calibration and targets (1 November 2026, version 1.5.0):** designed by four specialists and
+  checked by three skeptical reviewers before building, then reviewed again after building. No programme text was
+  changed; two content files gained data only (below).
+  - The player's timers carry on through a reload, a page Android closed in the background, a back swipe or a visit
+    to another page: a rest reopens with the time it really has left, a run of holds or interval blocks picks up at
+    the part running now, and a timer that ended while you were away says how long ago (it is not beeped late).
+    Timers that ended or were paused more than 30 minutes ago are not put back. After a reload, one tap anywhere
+    turns the sound back on (the player says so). If you leave the player for another page with a timer running, it
+    beeps when the timer ends and offers **Back to the player** (not when you are on Today or the session page, or
+    have ticked the session done: those count as stopping). The update banner waits until you leave the player,
+    and Today and the session page say **Resume guided session · step N of M** when the player will pick up where
+    you left off (a session you finished and ticked done starts afresh).
+  - Sets and ramp-up sets show their Hevy name ("Log as", as on session cards; ramp-ups are marked as warm-up sets).
+    During a rest the card names the set you just finished, for logging it, shows the next exercise's target and a
+    **Demo** button for its video, and has its cues under the card, open when that exercise is new in the session.
+  - The energy tool works out your maintenance from your own weigh-ins and logged intake, in the nutrition plan's
+    arithmetic (for example 2,450 + 220 = 2,670), and keeps your daily kcal and protein targets from it: the middle
+    of your goal's range in the plan's targets table unless you type your own, protein for your 7-day average, and
+    the plan's reminders to re-calibrate and to recompute protein. The estimate from equations stays, below.
+  - The goal follows the week as well as the phase: Phase 1 weeks 1–2 are calibration weeks, as the content says. While
+    you calibrate, the check-in tells you to keep eating as usual instead of suggesting intake changes; in Away mode
+    it shows the plan's pause advice; for a week after a trip it waits before judging your trend.
+  - Content data added (nothing edited): Phase 1 weeks 1–2 `"energyGoal": "calibrate"` in `programme.json`; each
+    goal's `kcalRange` (the targets table) and `proteinGkg`, `proteinFloorGkg`, `proteinPerMealGkg` and the
+    calibration numbers (`calibration`) in `rules.json` `params.energy`. A test checks the ranges against the table.
+- **App tests:** `tests/index.html` (108 checks since 1.5.0, which added the guided player's saved timers on a fake
+  clock and on real content, the rest card and Hevy names, the Demo sheet, the calibration arithmetic and window, the
+  kept targets and reminders, the goal following the week and surviving a trip, and the check-in's modes. Before
+  that, 74 checks: calculators, renderer, phase sequencing, content integrity,
   every scheduled session resolving, session timings, the Away-mode return and cycling logic, every
   phase having its colour in the stylesheet, the demonstration videos (the data file, video ids, and an
-  exercise page loading nothing from YouTube before you press play), and the reading pages (table cards,
-  small headings, verdict badges, every plan page's sections and contents, every article's layers)) all pass.
+  exercise page loading nothing from YouTube before you press play), the reading pages (table cards,
+  small headings, verdict badges, every plan page's sections and contents, every article's layers), and the
+  1.4.1 fixes (every main item of every scheduled session being a guided-player step, the resume window, weekly
+  averages, each week's instructions on its session pages, the check-in band and energy goal following the
+  phase)) all pass.
   After the redesign (version 1.2.0), again after the videos were added (1.3.0) and after the reading pages
   (1.4.0), a crawl of 1,401 pages
   at phone (412 px) and laptop (1,280 px) widths found no script errors, broken citations or links,
   unresolved placeholders, raw markup or pages wider than the screen. It covered every route, Today at every
   week of every phase, and the guided player for every session. Offline use was verified by stopping the
-  server and reloading.
+  server and reloading. After the 1.4.1 fixes, every scheduled session's page and guided player (391 sessions)
+  was opened in the app: no script errors, every player had all of its steps, and every week with its own
+  instructions showed them on the session page and in the player. After 1.5.0 the same sweep of all 391 sessions
+  again found no script errors and every player with all of its steps; with nothing saved, every session page offers
+  "Start guided session", and no player page holds anything from YouTube.
 
 ## Development notes
 
@@ -267,3 +326,30 @@ how to do them without equipment, shown on the exercise page and in Away-mode se
   arrived another way (the menu or tab bar, a bookmark, or a link up to a page above, such as the player's close
   button), it goes up to the parent page set in the router. Each history entry carries an id and the page it was
   opened from in `history.state`.
+- Sheets (`js/app.js`): while a citation, glossary or menu sheet is open, a `CloseWatcher` (current Chrome and
+  Edge) turns Android's back gesture, and Escape, into closing the sheet. Closing it any other way destroys the
+  watcher, so the next back gesture goes back as usual. Browsers without `CloseWatcher` keep the old behaviour.
+- Guided-player progress is stored as `player:<phase>:<week>:<day>` and picked up again only for the same session
+  within `RESUME_HOURS` (12, in `js/player.js`); older progress is deleted when the player opens. Since 1.5.0 the entry
+  (`v: 2`) also holds the timer that was running or paused (`{kind: 'rest', nextIdx, total, endAt | remainingMs}` or
+  `{kind: 'step', total, endAt | remainingMs}`) and `shape`, a hash of the steps' kinds, timers and rests, so a timer
+  is put back only onto the same steps. It is written when something changes, never on a tick. `resumePoint()` works
+  out where things stand now, both when the player opens and when an end is noticed late (the page slept);
+  `advanceRun()` moves a run of holds or interval blocks on; `TIMER_KEEP_MIN` (30) limits how old a finished or
+  paused timer may be. The update banner is hidden while the player is open (`body.immersive .banner`, css).
+- Sheets can carry a cleanup (the Demo sheet's video, `js/video.js` `mountSheetVideo`): it runs whenever the sheet
+  closes or is replaced, and a sheet with a cleanup also closes when the page changes.
+- Calibration and targets (`js/calc.js` `calibrationWindow`, `maintenanceFromTrend`, `dailyTargets`,
+  `targetReminders`): saved maintenance figures are kept in `energy:maintenance` (`{v: 1, entries}`, newest last) and
+  the targets in `energy:targets` (`{v: 1, offsets, basisKg, basisAt}`; the daily kcal is derived, never stored). A
+  record written by a newer version is shown as such and never overwritten. The goal defaults come from
+  `energyGoalAt()` (`js/engine.js`): a week plan's `energyGoal`, else the phase's.
+- The check-in's band and the energy tool's goal default to the phase's `energyGoal`. Their forms save a hidden
+  `goalFor` (the phase the choice was made in), so a choice of your own lasts until the phase changes. Since 1.5.0
+  the default is the week's goal (`energyGoalAt`: a week plan's `energyGoal`, else the phase's), the forms also save
+  `goalDefault` (the default the choice was made against), so a choice lasts until the phase or the week's goal
+  changes, and in Away or Maintenance mode they carry the main-sequence choice (`mainGoal`, `mainFor`,
+  `mainDefault`) so it comes back when you return.
+- `tests/index.html`: checks that write this browser's storage (restoring it afterwards) run only on the local server
+  (localhost) or with `?storage`; on the published copy they are skipped and counted, so opening the tests on your
+  phone never touches your data.

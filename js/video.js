@@ -1,6 +1,7 @@
-// Demonstration videos on exercise pages (content/videos.json). Nothing contacts YouTube until you press
-// play: the page shows a poster drawn by the app, and only then loads the player from youtube-nocookie.com
-// (YouTube's privacy-enhanced mode). If the video cannot play, the page says why and links to it on YouTube.
+// Demonstration videos on exercise pages and in the guided player's Demo sheet (content/videos.json). Nothing
+// contacts YouTube until you press play: the page shows a poster drawn by the app, and only then loads the player
+// from youtube-nocookie.com (YouTube's privacy-enhanced mode). If the video cannot play, the page says why and
+// links to it on YouTube.
 
 import { esc, ICONS, youtubeId } from './util.js';
 import { DB } from './content.js';
@@ -67,6 +68,24 @@ export function mountVideo(root) {
   };
   block.addEventListener('click', onClick);
   return () => { if (stop) stop(); block.removeEventListener('click', onClick); };
+}
+
+/** The guided player's Demo sheet (opened by js/app.js): the exercise page's block and, during a rest, the time
+ *  left above it, which the player keeps up to date ([data-player-clock]). '' when the item has no video. */
+export function demoSheetHtml(itemId, { clock = '' } = {}) {
+  const block = videoBlock(itemId);
+  if (!block) return '';
+  return `${clock ? `<p class="demo-clock" data-player-clock>Next exercise · rest left <span class="mono">${esc(clock)}</span></p>` : ''}${block}`;
+}
+
+/** mountVideo for a block in a sheet, which is hidden rather than replaced when it closes: the cleanup also
+ *  removes the YouTube player, so a playing video stops at once. */
+export function mountSheetVideo(root) {
+  const stop = mountVideo(root);
+  return () => {
+    if (stop) stop();
+    root.querySelectorAll('.demo-frame iframe').forEach(f => f.remove());
+  };
 }
 
 function message(frame, title, text, actions) {

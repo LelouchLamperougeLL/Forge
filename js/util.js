@@ -32,6 +32,14 @@ export function fmtSigned(x, decimals = 1) {
   return (x > 0 ? '+' : x < 0 ? '−' : '±') + fmt(Math.abs(x), decimals);
 }
 
+/** A whole number with thousands separators, as the nutrition plan writes it: 2670 → "2,670", −165 → "−165". */
+export function thousands(x) {
+  if (x == null || !Number.isFinite(x)) return '–';
+  const n = Math.round(x);
+  const s = String(Math.abs(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return n < 0 ? `−${s}` : s;
+}
+
 /** Seconds -> "m:ss" (or "h:mm:ss"). */
 export function mmss(totalSeconds) {
   const s = Math.max(0, Math.round(totalSeconds));
@@ -137,10 +145,25 @@ export function syncThemeColor() {
   if (meta && document.body) meta.setAttribute('content', getComputedStyle(document.body).backgroundColor);
 }
 
-export function toast(message, ms = 2400) {
+/** A short message at the bottom of the screen. `action` ({label, run}) adds a button to it, such as Undo. */
+export function toast(message, ms = 2400, action = null) {
   const el = document.getElementById('toast');
   if (!el) return;
   el.textContent = message;
+  el.classList.toggle('has-action', !!action);
+  if (action) {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'toast-action';
+    b.textContent = action.label;
+    b.addEventListener('click', () => {
+      if (!el.classList.contains('show')) return;   // already faded out
+      clearTimeout(toast._t);
+      el.classList.remove('show');
+      action.run();
+    });
+    el.append(b);
+  }
   el.classList.add('show');
   clearTimeout(toast._t);
   toast._t = setTimeout(() => el.classList.remove('show'), ms);

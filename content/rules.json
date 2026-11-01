@@ -67,6 +67,23 @@
       "fatGkg": 1.0,
       "fibrePer1000": 14,
       "trendWindowDays": 21,
+      "proteinFloorGkg": 1.6,
+      "proteinPerMealGkg": 0.4,
+      "calibration": {
+        "days": [
+          14,
+          21
+        ],
+        "flatKgPerWeek": 0.1,
+        "minWeighInsPerWeek": 3,
+        "recalibrateWeeks": [
+          4,
+          6
+        ],
+        "recalibrateKg": 2,
+        "proteinRecomputeKg": 2,
+        "awaySettleDays": 7
+      },
       "adjust": {
         "kcalPerKg": 7700,
         "maxStep": 200,
@@ -98,6 +115,10 @@
       "goals": [
         {
           "id": "calibrate",
+          "proteinGkg": [
+            1.8,
+            2.0
+          ],
           "label": "Calibrate (eat as usual)",
           "pct": 0,
           "band": [
@@ -108,6 +129,14 @@
         },
         {
           "id": "recomp",
+          "kcalRange": [
+            -300,
+            0
+          ],
+          "proteinGkg": [
+            1.8,
+            2.0
+          ],
           "label": "Recomposition (maintenance to about −300 kcal)",
           "pct": -6,
           "band": [
@@ -118,6 +147,14 @@
         },
         {
           "id": "cut",
+          "kcalRange": [
+            -500,
+            -300
+          ],
+          "proteinGkg": [
+            2.0,
+            2.4
+          ],
           "label": "Dedicated fat loss (−300 to −500 kcal)",
           "pct": -15,
           "band": [
@@ -128,6 +165,14 @@
         },
         {
           "id": "maintain",
+          "kcalRange": [
+            0,
+            0
+          ],
+          "proteinGkg": [
+            1.8,
+            2.0
+          ],
           "label": "Maintenance",
           "pct": 0,
           "band": [
@@ -138,6 +183,14 @@
         },
         {
           "id": "lean-gain",
+          "kcalRange": [
+            150,
+            300
+          ],
+          "proteinGkg": [
+            1.8,
+            2.0
+          ],
           "label": "Lean gain (+5–10%)",
           "pct": 7,
           "band": [

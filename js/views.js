@@ -4,9 +4,9 @@ import { esc, ICONS, restLabel, plain, todayISO } from './util.js';
 import { DB, makeCtx, refHtml, refShort, gradeClass } from './content.js';
 import {
   phases, getPhase, weekCount, weekPlan, scheduleFor, resolveSession, rxParts, effortLabel, sessionText,
-  getPosition, getReturnTo, isDone, weekAdherence, phaseAdherence, KIND_LABEL, DAY_NAMES, expandPart,
+  getPosition, getReturnTo, isDone, weekAdherence, phaseAdherence, KIND_LABEL, DAY_NAMES, expandPart, logAsName,
 } from './engine.js';
-import { renderPlayer } from './player.js';
+import { renderPlayer, resumeInfo } from './player.js';
 import { videoBlock, mountVideo } from './video.js';
 import { GLYPHS, glyphFor, minutesToRead, fact, hero, inShort, titleHtml, toc, section, mountReading } from './reading.js';
 
@@ -40,6 +40,20 @@ const plural = (n, one, many = `${one}s`) => `${n} ${n === 1 ? one : many}`;
 const sourcesFact = ctx => (ctx.order.length ? [fact(ctx.order.length, ctx.order.length === 1 ? 'source' : 'sources')] : []);
 
 function jsDayToIdx(d = new Date()) { return (d.getDay() + 6) % 7; } // Mon = 0
+
+/** The guided-session button's words: where the player would pick this session up again, or a fresh start. */
+function playLabel(s, dayIdx) {
+  const r = resumeInfo(s, dayIdx);
+  return !r ? 'Start guided session' : r.finished ? 'Resume guided session · all steps done' : `Resume guided session · step ${r.step} of ${r.of}`;
+}
+
+/** The same words for a scheduled session, for js/app.js to refresh a button in place after a "done" tick. */
+export function playLabelFor(phaseId, w, dayIdx) {
+  const phase = getPhase(phaseId);
+  const day = phase && scheduleFor(phase, w)[dayIdx];
+  const s = day && day.sessionId ? resolveSession(phaseId, w, day.sessionId) : null;
+  return s ? playLabel(s, dayIdx) : 'Start guided session';
+}
 
 // ---------------------------------------------------------------- shared fragments
 
@@ -155,7 +169,7 @@ export function viewToday() {
         <p class="next-meta"><span class="kind-tag kind-${esc(kind)}">${esc(KIND_LABEL[kind] || '')}</span>${nextS.minutes ? `<span class="next-min">≈${nextS.minutes} min</span>` : ''}</p>
         ${nextS.summary ? md(ctx, nextS.summary) : ''}
         <div class="next-actions">
-          <a class="btn primary big" href="#/play/${phase.id}/${w}/${next.i}">${ICONS.play} Start guided session</a>
+          <a class="btn primary big" href="#/play/${phase.id}/${w}/${next.i}">${ICONS.play} ${esc(playLabel(nextS, next.i))}</a>
           <a class="btn" href="#/s/${phase.id}/${w}/${next.i}">View &amp; transcribe</a>
         </div></section>`
     : `<section class="next steel all-done"><h2>All planned sessions done this week</h2>
@@ -372,7 +386,7 @@ function drillRows(ctx, items) {
 function exerciseCard(ctx, it, i, { away = false } = {}) {
   const x = it.item;
   const name = x ? x.name : (it.name || it.ref);
-  const logName = it.logAs || (x && x.loggingName && x.loggingName !== x.name ? x.loggingName : '');
+  const logName = logAsName(it);
   const rx = rxParts(it).map(p => `<span class="rx-item"><b>${esc(p)}</b></span>`).join('');
   const errs = x && (x.errors || []).length
     ? `<h4>Common errors</h4><ul>${x.errors.map(e => `<li><strong>${inlineMd(ctx, e.error)}</strong>${e.fix ? ' — ' + inlineMd(ctx, e.fix) : ''}</li>`).join('')}</ul>` : '';
@@ -428,11 +442,12 @@ export function viewSession(phaseId, w, dayIdx) {
       ${head(`<a href="#/phase/${phaseId}/${w}">${esc(phase.short || phase.name)} · Week ${w} · ${esc(day.dow)}</a>`, esc(s.name),
         `${esc(KIND_LABEL[s.kind] || s.kind)} · planned ≈${esc(s.minutes || s.estimate)} min${s.minutes && Math.abs(s.estimate - s.minutes) > 8 ? ` (timing estimate ≈${s.estimate} min)` : ''}${day.optional ? ' · optional' : ''}`)}
       <div class="row session-actions">
-        <a class="btn primary big" href="#/play/${phaseId}/${w}/${dayIdx}">${ICONS.play} Start guided session</a>
+        <a class="btn primary big" href="#/play/${phaseId}/${w}/${dayIdx}">${ICONS.play} ${esc(playLabel(s, dayIdx))}</a>
         <button class="btn" data-action="copy" data-copy-target="session-text">${ICONS.copy} Copy for logging app</button>
         <label class="done-toggle" style="margin-left:4px"><input type="checkbox" data-action="done" data-phase="${phaseId}" data-week="${w}" data-day="${dayIdx}" ${done ? 'checked' : ''}> done</label>
       </div>
       ${s.summary ? `<div class="card" style="margin-top:14px">${md(ctx, s.summary)}</div>` : ''}
+      ${s.plan.notes ? `<div class="card flat"><h3 style="margin-top:0">This week</h3>${md(ctx, s.plan.notes)}</div>` : ''}
       ${day.note ? `<p class="small muted">${esc(day.note)}</p>` : ''}
       ${noGymHint(ctx, phase, s)}
 
@@ -485,11 +500,14 @@ export function viewLibrary(query) {
   const all = [...DB.exercises, ...DB.drills];
   const cats = [...new Set(all.map(x => x.category).filter(Boolean))];
   const cat = query.get('cat') || '';
-  const q = (query.get('q') || '').toLowerCase();
-  const items = all
+  // Typing redraws only the list, so the search box keeps its focus (and a phone keeps its keyboard open).
+  const listHtml = q => all
     .filter(x => !cat || x.category === cat)
     .filter(x => !q || [x.name, x.loggingName, ...(x.aliases || []), itemSummaryLine(x)].join(' ').toLowerCase().includes(q))
-    .sort((a, b) => a.name.localeCompare(b.name));
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map(x => listItem(`#/ex/${x.id}`, esc(x.name), esc(itemSummaryLine(x)), `<span class="chip">${esc(CATEGORY_LABEL[x.category] || x.category || '')}</span>`)).join('') ||
+    '<li class="muted" style="padding:12px">No matches.</li>';
+  let t;
   return {
     title: 'Library',
     html: `<div class="page">
@@ -499,23 +517,23 @@ export function viewLibrary(query) {
         <button class="chip" data-action="lib-cat" data-cat="" aria-pressed="${!cat}">All</button>
         ${cats.map(c => `<button class="chip" data-action="lib-cat" data-cat="${esc(c)}" aria-pressed="${cat === c}">${esc(CATEGORY_LABEL[c] || c)}</button>`).join('')}
       </div>
-      <div class="card tight" style="margin-top:12px"><ul class="list">
-        ${items.map(x => listItem(`#/ex/${x.id}`, esc(x.name), esc(itemSummaryLine(x)), `<span class="chip">${esc(CATEGORY_LABEL[x.category] || x.category || '')}</span>`)).join('') || '<li class="muted" style="padding:12px">No matches.</li>'}
+      <div class="card tight" style="margin-top:12px"><ul class="list" id="libList">
+        ${listHtml((query.get('q') || '').toLowerCase())}
       </ul></div>
     </div>`,
     after(root) {
       const input = root.querySelector('#libq');
-      let t;
       input.addEventListener('input', () => {
         clearTimeout(t);
         t = setTimeout(() => {
           const p = new URLSearchParams(location.hash.split('?')[1] || '');
           if (input.value) p.set('q', input.value); else p.delete('q');
           history.replaceState(history.state, '', `#/library${p.toString() ? '?' + p : ''}`);
-          window.dispatchEvent(new Event('forge:rerender'));
+          root.querySelector('#libList').innerHTML = listHtml(input.value.toLowerCase());
         }, 250);
       });
     },
+    cleanup() { clearTimeout(t); },
   };
 }
 
@@ -752,10 +770,12 @@ export function viewDecision(id) {
 // ---------------------------------------------------------------- References
 
 export function viewRefs(query) {
-  const q = (query.get('q') || '').toLowerCase();
-  const refs = DB.references
+  // As in the library, typing redraws only the list, so the search box keeps its focus.
+  const listHtml = q => DB.references
     .filter(r => !q || [r.authors, r.title, r.journal, r.year, r.doi, r.pmid].join(' ').toLowerCase().includes(q))
-    .slice().sort((a, b) => String(a.authors).localeCompare(String(b.authors)) || (a.year - b.year));
+    .slice().sort((a, b) => String(a.authors).localeCompare(String(b.authors)) || (a.year - b.year))
+    .map(r => `<div class="ref-entry">${refHtml(r)}</div>`).join('') || '<p class="muted">No matches.</p>';
+  let t;
   return {
     title: 'References',
     html: `<div class="page reading">
@@ -763,19 +783,19 @@ export function viewRefs(query) {
         lede: `${DB.references.length} sources. Each was located and read (abstract or full text) during research${DB.meta.evidenceCutoff ? ` up to ${esc(DB.meta.evidenceCutoff)}` : ''}; identifiers were re-checked during the audit.`,
         facts: [fact(DB.references.length, 'sources'), fact(DB.references.filter(r => r.doi || r.pmid).length, 'with a DOI or PMID')] })}
       <div class="field"><input type="search" id="refq" placeholder="Search author, title, journal, DOI, PMID…" value="${esc(query.get('q') || '')}" aria-label="Search references"></div>
-      <div class="card tight">${refs.map(r => `<div class="ref-entry">${refHtml(r)}</div>`).join('') || '<p class="muted">No matches.</p>'}</div>
+      <div class="card tight" id="refList">${listHtml((query.get('q') || '').toLowerCase())}</div>
     </div>`,
     after(root) {
       const input = root.querySelector('#refq');
-      let t;
       input.addEventListener('input', () => {
         clearTimeout(t);
         t = setTimeout(() => {
           history.replaceState(history.state, '', `#/refs${input.value ? '?q=' + encodeURIComponent(input.value) : ''}`);
-          window.dispatchEvent(new Event('forge:rerender'));
+          root.querySelector('#refList').innerHTML = listHtml(input.value.toLowerCase());
         }, 250);
       });
     },
+    cleanup() { clearTimeout(t); },
   };
 }
 

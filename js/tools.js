@@ -1,14 +1,15 @@
 // Tool pages (calculators, check-in tracker, transition checklist) and the Settings page.
 
-import { esc, fmt, fmtSigned, todayISO, toast, downloadFile, readFileAsText, ICONS, TOOL_ICONS, setTemper, syncThemeColor } from './util.js';
+import { esc, fmt, fmtSigned, thousands, todayISO, toast, downloadFile, readFileAsText, ICONS, TOOL_ICONS, setTemper, syncThemeColor } from './util.js';
 import { DB, makeCtx, integrityReport } from './content.js';
 import { hero, fact } from './reading.js';
 import { store, getSettings, setSetting } from './store.js';
 import {
   doubleProgression, rampSets, e1rm, loadForReps, energyTargets, navyBodyFat, relativeFatMass,
   deurenbergBodyFat, ffmi, weightTrend, energyAdjustment, hrMax, hrZone, breakAdjustment, runSpikeLimit,
+  calibrationWindow, maintenanceFromTrend, maintenanceSum, dailyTargets, targetReminders, phaseSpans, awaySettle,
 } from './calc.js';
-import { phases, getPhase, weekCount, getPosition, setPosition, getReturnTo, phaseAdherence, nextPosition, sequentialNeighbour } from './engine.js';
+import { phases, getPhase, weekCount, getPosition, setPosition, getReturnTo, phaseAdherence, nextPosition, sequentialNeighbour, energyGoalAt } from './engine.js';
 
 const P = () => DB.ruleParams || {};
 const profile = () => (DB.meta && DB.meta.profile) || {};
@@ -46,6 +47,99 @@ function bindForm(root, id, compute) {
 
 const saved = id => store.get(`tool:${id}`, {});
 
+// The energy tool's goal and the check-in's target band follow the phase and week you are in. A goal you pick yourself
+// is kept until the goal your phase sets for the week changes (another phase, or the end of calibration in Phase 1
+// week 3). The forms save where it was picked (goalFor) and the week's goal then (goalDefault); in Away or Maintenance
+// mode they also carry the main-sequence pick (mainGoal, mainFor, mainDefault) so it comes back when you return.
+const currentPhaseId = () => { const pos = getPosition(); return pos ? pos.phase : ''; };
+function defaultGoalNow() {
+  const pos = getPosition();
+  if (!pos) return '';
+  const ph = getPhase(pos.phase);
+  if (ph.optional) {          // Away or Maintenance mode entered during calibration weeks: still calibrating
+    const r = getReturnTo();
+    if (r && energyGoalAt(getPhase(r.phase), r.week) === 'calibrate') return 'calibrate';
+  }
+  return energyGoalAt(ph, pos.week);
+}
+// Forms saved by 1.4.x have no goalDefault: they were picked against the phase's own goal, except that a "Calibrate"
+// picked in a phase with calibration weeks (Phase 1) stood for those weeks only.
+function pickedAgainst(goal, goalFor, goalDefault) {
+  if (goalDefault != null) return goalDefault;
+  const ph = getPhase(goalFor);
+  if (!ph) return '';
+  if (goal === 'calibrate' && (ph.weekPlans || []).some(e => e.energyGoal === 'calibrate')) return 'calibrate';
+  return ph.energyGoal || '';
+}
+function phaseGoalFor(s, fallback) {
+  const pid = currentPhaseId();
+  const def = defaultGoalNow();
+  const kept = (goal, goalFor, goalDefault) => !!goal && goalFor === pid && pickedAgainst(goal, goalFor, goalDefault) === def;
+  if (kept(s.goal, s.goalFor, s.goalDefault)) return s.goal;
+  if (kept(s.mainGoal, s.mainFor, s.mainDefault)) return s.mainGoal;     // back from Away or Maintenance mode
+  return def || s.goal || fallback;
+}
+/** Hidden fields saved with the goal (see above). */
+function goalForField(s) {
+  const pid = currentPhaseId();
+  const ph = pid && getPhase(pid);
+  const hidden = (n, v) => `<input type="hidden" name="${n}" value="${esc(v ?? '')}">`;
+  let carry = '';
+  if (ph && ph.optional) {
+    const fromMain = s.goalFor && getPhase(s.goalFor) && !getPhase(s.goalFor).optional;
+    const m = fromMain ? { g: s.goal, f: s.goalFor, d: pickedAgainst(s.goal, s.goalFor, s.goalDefault) } : { g: s.mainGoal, f: s.mainFor, d: s.mainDefault };
+    if (m.g && m.f) carry = hidden('mainGoal', m.g) + hidden('mainFor', m.f) + hidden('mainDefault', m.d);
+  }
+  return hidden('goalFor', pid) + hidden('goalDefault', defaultGoalNow()) + carry;
+}
+
+// ---------------------------------------------------------------- kept maintenance and targets (energy tool, check-in)
+
+const CAL = () => (P().energy || {}).calibration || {};
+const shortDate = iso => (iso ? new Date(`${iso}T12:00:00`).toLocaleDateString(undefined, { day: 'numeric', month: 'short' }) : '');
+const shortGoal = g => (g && g.label ? g.label.replace(/\s*\(.*\)\s*$/, '') : '');
+const isAwayPhase = id => { const p = getPhase(id); return !!(p && p.optional && p.noEquipment); };
+
+/** Saved maintenance figures (energy:maintenance, newest last). A record written by a newer version is read-only. */
+function maintenanceRecord() {
+  const r = store.get('energy:maintenance', null);
+  if (!r || typeof r !== 'object') return { entries: [] };
+  if (r.v !== 1 || !Array.isArray(r.entries)) return { entries: [], newer: Number.isFinite(r.v) && r.v > 1 };
+  const iso = s => /^\d{4}-\d{2}-\d{2}$/.test(s || '');
+  return { entries: r.entries.filter(e => e && Number.isFinite(e.kcal) && e.kcal > 0 && e.kcal < 20000 && iso(e.from) && iso(e.to)) };
+}
+const currentMaintenance = () => { const m = maintenanceRecord(); return m.entries.length ? m.entries[m.entries.length - 1] : null; };
+
+/** Kept targets (energy:targets): per-goal offsets you set yourself, and the weight the protein targets use. */
+function targetsRecord() {
+  const r = store.get('energy:targets', null);
+  if (!r || typeof r !== 'object') return null;
+  if (r.v !== 1) return Number.isFinite(r.v) && r.v > 1 ? { newer: true, offsets: {} } : null;
+  return {
+    offsets: r.offsets && typeof r.offsets === 'object' ? { ...r.offsets } : {},
+    basisKg: r.basisKg > 0 ? r.basisKg : null, basisAt: typeof r.basisAt === 'string' ? r.basisAt : null,
+  };
+}
+
+/** The weight the protein targets use: the stored basis, else your 7-day average, else the weight in your profile. */
+function proteinBasis(tg) {
+  if (tg && tg.basisKg) return { kg: tg.basisKg, label: `your 7-day average on ${shortDate(tg.basisAt)}` };
+  const tr = weightTrend(store.get('weights', []), (P().energy || {}).trendWindowDays || 21, { weekly: saved('checkin').entryKind === 'weekly' });
+  if (tr && tr.avg7 > 0) return { kg: Math.round(tr.avg7 * 10) / 10, label: 'your 7-day average' };
+  const pw = profile().weightKg;
+  return pw > 0 ? { kg: pw, label: 'the weight in your profile' } : null;
+}
+
+/** The kept targets for a goal: kcal from the saved maintenance (or null), protein from the basis weight. */
+function keptTargets(goal) {
+  const tg = targetsRecord();
+  const basis = proteinBasis(tg);
+  const m = currentMaintenance();
+  const offset = tg && goal && Number.isFinite(tg.offsets[goal.id]) ? tg.offsets[goal.id] : null;
+  const t = basis ? dailyTargets({ maintenanceKcal: m ? m.kcal : null, goal, offset, basisKg: basis.kg }, P().energy || {}) : null;
+  return { t, m, tg, basis, own: offset != null };
+}
+
 // ---------------------------------------------------------------- tool index
 
 export const TOOLS = [
@@ -53,7 +147,7 @@ export const TOOLS = [
   { id: 'warmup', title: 'Ramp-up set calculator', desc: 'Warm-up sets for your first working load.' },
   { id: 'e1rm', title: 'Estimated 1RM and load table', desc: 'Strength estimate from a set; loads for other rep targets.' },
   { id: 'checkin', title: 'Weekly check-in', desc: 'Body-weight trend, waist trend and the energy-intake adjustment rule.' },
-  { id: 'energy', title: 'Energy and macronutrient targets', desc: 'Starting targets with uncertainty, before calibration from your weight trend.' },
+  { id: 'energy', title: 'Energy and macronutrient targets', desc: 'Your maintenance from your own data and your daily targets. Starting targets with uncertainty, before calibration from your weight trend.' },
   { id: 'bodycomp', title: 'Body-composition estimates', desc: 'Circumference equations, waist-to-height ratio and FFMI, with error ranges.' },
   { id: 'transition', title: 'Phase transition checklist', desc: 'Advance, repeat or step back at the end of a phase.' },
   { id: 'breaks', title: 'Returning after a break', desc: 'How to adjust loads and volume after missed training.' },
@@ -218,10 +312,31 @@ function toolEnergy() {
   const s = saved('energy');
   const goals = E.goals || [{ id: 'maintain', label: 'Maintain', pct: 0 }];
   const pals = E.pal || [{ value: 1.6, label: '1.6' }];
+  const C = CAL();
+  const kcalPerKg = (E.adjust || {}).kcalPerKg || 7700;
+  // Days-to-use options name the dates they cover, from the latest weigh-in.
+  const dayOpts = (C.days || [14, 21]).map(n => {
+    const w = calibrationWindow(store.get('weights', []), { days: n });
+    return { value: n, label: w ? `${n} days · ${shortDate(w.from)} to ${shortDate(w.to)}` : `${n} days` };
+  });
+  let alive = true;
   return {
     title: 'Energy targets',
     html: `<div class="page reading">
-      ${head('Tool', 'Energy and macronutrient targets', 'A starting estimate only. Prediction equations carry individual errors of roughly ±10%, so the weekly check-in recalibrates intake from your actual weight trend.')}
+      ${head('Tool', 'Energy and macronutrient targets', 'Work out your maintenance from your own food log and weigh-ins, and keep the daily targets that follow from it. A starting estimate from equations is at the end.')}
+      <div class="card"><h2 style="margin-top:0">Your maintenance from your own data</h2>
+        <p class="small">Log everything you eat and drink, and weigh in every morning, for 14 days (21 if the trend is unclear). The app fits your weight trend over those days and corrects your average logged intake for it, as the <a href="#/plan/nutrition?s=calibration">nutrition plan</a> describes.</p>
+        <div id="calSaved"></div>
+        <form id="calForm" class="form-grid" novalidate>
+          ${select('calDays', 'Days to use', dayOpts, dayOpts[0] ? dayOpts[0].value : 14)}
+          ${field('calIntake', 'Average logged intake (kcal a day)', '', { step: 1, min: 500, max: 10000, hint: '<span id="calHint"></span>' })}
+        </form>
+        <div id="calOut" aria-live="polite"></div>
+      </div>
+      <div class="card"><h2 style="margin-top:0">Your daily targets</h2><div id="tgtOut" aria-live="polite"></div></div>
+      <h2>Estimate from equations</h2>
+      <p class="small">A starting estimate only. Prediction equations carry individual errors of roughly ±10%, so the weekly check-in recalibrates intake from your actual weight trend.</p>
+      <div id="eqNote"></div>
       <form class="tool-form card">
         <div class="form-grid four">
           ${field('weight', 'Body weight (kg)', s.weight ?? pr.weightKg ?? 77)}
@@ -230,18 +345,231 @@ function toolEnergy() {
           ${field('bf', 'Body fat % (optional)', s.bf ?? pr.bfEstimate ?? '', { hint: 'From the body-composition tool' })}
         </div>
         ${select('pal', 'Physical activity level (PAL)', pals.map(p => ({ value: p.value, label: p.label })), s.pal ?? (E.defaultPal || pals[0].value))}
-        ${select('goal', 'Goal for this phase', goals.map(g => ({ value: g.id, label: g.label })), s.goal ?? (E.defaultGoal || goals[0].id))}
+        ${select('goal', 'Goal for this phase', goals.map(g => ({ value: g.id, label: g.label })), phaseGoalFor(s, E.defaultGoal || goals[0].id))}
         <div class="form-grid three">
           ${field('protein', 'Protein (g/kg/day)', s.protein ?? (E.proteinGkg || 1.8), { hint: E.proteinHint || '' })}
           ${field('fat', 'Fat (g/kg/day)', s.fat ?? (E.fatGkg || 0.8))}
           ${field('fibre', 'Fibre (g per 1000 kcal)', s.fibre ?? (E.fibrePer1000 || 14))}
         </div>
+        ${goalForField(s)}
       </form>
       <div id="out" aria-live="polite"></div>
       <p><a href="#/plan/nutrition">Nutrition plan</a> · <a href="#/tool/checkin">Weekly check-in</a></p>
     </div>`,
     after(root) {
+      const $ = sel => root.querySelector(sel);
+      let goalId = null;    // the goal card 2 was last drawn for (the equations form's select)
+      const goalNow = () => goals.find(g => g.id === goalId) || goals[0];
+
+      // ---- card 1: maintenance from your own data
+      let cal = null;       // { w, r } behind the Save button
+      const renderCal = () => {
+        const m = maintenanceRecord();
+        const cur = m.entries.length ? m.entries[m.entries.length - 1] : null;
+        const earlier = m.entries.slice(0, -1).reverse();
+        $('#calSaved').innerHTML = m.newer
+          ? '<p class="small">Calibrations saved on this device come from a newer version of Forge. Update the app to see them.</p>'
+          : cur ? `<p>Saved: <strong>${thousands(cur.kcal)} kcal a day</strong>, from ${esc(shortDate(cur.from))} to ${esc(shortDate(cur.to))}${cur.savedAt ? ` (saved ${esc(shortDate(todayISO(new Date(cur.savedAt))))})` : ''}.</p>
+            ${earlier.length ? `<details><summary>Earlier calibrations</summary><div class="details-body"><ul>${earlier.map(e => `<li>${thousands(e.kcal)} kcal a day · ${esc(shortDate(e.from))} to ${esc(shortDate(e.to))}</li>`).join('')}</ul></div></details>` : ''}` : '';
+        const days = +$('#calDays').value === 21 ? 21 : 14;
+        const weekly = saved('checkin').entryKind === 'weekly';
+        const w = calibrationWindow(store.get('weights', []), { days, weekly, minPerWeek: C.minWeighInsPerWeek || 3 });
+        // Intake covers the days from the first weigh-in in the window (never days before you started logging) to
+        // the day before the last one, whose food log is not finished.
+        const intakeFrom = w && w.firstDate && w.firstDate > w.from ? w.firstDate : w && w.from;
+        $('#calHint').textContent = w
+          ? `From your food app: your average a day from ${shortDate(intakeFrom)} to ${shortDate(w.intakeTo)}. Leave out ${shortDate(w.to)}, the day of your last weigh-in: its food log is not finished.`
+          : 'From your food app: your average a day over the same days as your weigh-ins.';
+        const out = $('#calOut');
+        cal = null;
+        if (!w) { out.innerHTML = '<p class="small">Add your morning weigh-ins in the <a href="#/tool/checkin">weekly check-in</a> first.</p>'; return; }
+        if (!w.enough) {
+          const so = w.blocks.map((b, i) => `days ${i * 7 + 1}–${i === w.blocks.length - 1 ? days : i * 7 + 7}: ${b.n}`).join(', ');
+          out.innerHTML = `<p class="small">${weekly
+            ? `Not enough weekly averages yet for these ${days} days: you need one in each week, at least 5 days apart.`
+            : `Not enough weigh-ins yet for these ${days} days. You need at least 3 in each week, starting in the first 3 days (so far: ${so}).`}</p>`;
+          return;
+        }
+        const last = w.blocks.length;
+        const kgw = x => `${fmtSigned(x, 2)} kg a week`;
+        const stats = `<div class="result"><div class="row" style="gap:22px">
+            <div class="stat"><span class="k">Weight trend</span><span class="v">${kgw(w.kgPerWeek)}</span><span class="tiny muted">fitted to ${w.n} weigh-in${w.n === 1 ? '' : 's'} over ${days} days</span></div>
+            ${w.halvesKgPerWeek != null ? `<div class="stat"><span class="k">Days ${(last - 1) * 7 + 1}–${days} against days 1–7</span><span class="v">${kgw(w.halvesKgPerWeek)}</span></div>` : ''}
+          </div></div>`;
+        const raw = $('#calIntake').value;
+        const intake = num(raw);
+        if (raw === '') { out.innerHTML = `${stats}<p class="small">Enter your average logged intake for these days.</p>`; return; }
+        if (!(intake >= 500 && intake <= 10000)) { out.innerHTML = `${stats}<p class="small">Enter a daily average between 500 and 10,000 kcal.</p>`; return; }
+        const r = maintenanceFromTrend(intake, w.kgPerWeek, { kcalPerKg, flatKgPerWeek: C.flatKgPerWeek ?? 0.1 });
+        if (!r) { out.innerHTML = stats; return; }
+        // A mistyped weigh-in can make the arithmetic absurd: refuse to save it (and say why).
+        if (!(r.kcal >= 1000 && r.kcal <= 6000)) {
+          out.innerHTML = `${stats}<p class="small">This comes to ${thousands(r.kcal)} kcal a day, which is not plausible: check your weigh-ins and the intake you entered.</p>`;
+          return;
+        }
+        cal = { w, r, weekly };
+        const k = Math.abs(r.kgPerWeek).toFixed(2), factor = thousands(kcalPerKg / 7);
+        const reading = r.flat
+          ? `Your weight held steady (within ${C.flatKgPerWeek ?? 0.1} kg a week either way), so your average logged intake is your maintenance.`
+          : r.correction > 0
+            ? `You lost ${k} kg a week, so ${thousands(r.correction)} kcal (${k} × ${factor}) is added to your average logged intake.`
+            : `You gained ${k} kg a week, so ${thousands(-r.correction)} kcal (${k} × ${factor}) is taken off your average logged intake.`;
+        const same = cur && cur.from === w.from && cur.to === w.to && cur.intake === r.intake && cur.kcal === r.kcal;
+        out.innerHTML = `${stats}
+          <div class="result"><p style="margin:0"><strong>Your maintenance: about ${thousands(r.kcal)} kcal a day</strong></p>
+            <div class="big cal-sum">${maintenanceSum(r)}</div><p class="small" style="margin:6px 0 0">${reading}</p></div>
+          ${Math.abs(r.kgPerWeek) > 0.5 ? '<div class="callout warn"><div class="callout-title">A fast change</div><p>Your weight moved more than 0.5 kg a week over these days. Before saving, check whether you started or stopped creatine, or were ill or travelling: these move water and the scale.</p></div>' : ''}
+          <p class="small muted">This holds only while your logging habits stay the same: keep the same scale, food app and routine.</p>
+          ${days === 14 ? '<p class="small muted">From the nutrition plan: “If illness, travel or a festival week falls inside the window, extend it to 21 days rather than guessing.”</p>' : ''}
+          <p><button type="button" class="btn primary" data-cal-save ${same || m.newer ? 'disabled' : ''}>${same ? 'Saved' : 'Save as my maintenance'}</button></p>`;
+      };
+      const saveCal = () => {
+        if (!cal) return;
+        const m = maintenanceRecord(), tg = targetsRecord();
+        if (m.newer || (tg && tg.newer)) return;
+        const m0 = store.get('energy:maintenance', null), t0 = store.get('energy:targets', null);
+        const { w, r, weekly } = cal;
+        const pos = getPosition();
+        const entry = {
+          kcal: r.kcal, intake: r.intake, intakeTo: w.intakeTo, kgPerWeek: r.kgPerWeek, halvesKgPerWeek: w.halvesKgPerWeek,
+          flat: r.flat, correction: r.correction, from: w.from, to: w.to, days: w.days, weighIns: w.n, weekly, endKg: w.endKg,
+          phase: pos ? pos.phase : '', week: pos ? pos.week : null, savedAt: new Date().toISOString(),
+        };
+        const kept = m0 && m0.v === 1 && Array.isArray(m0.entries) ? m0.entries : [];
+        store.set('energy:maintenance', { v: 1, entries: [...kept, entry] });
+        // A new maintenance restarts every goal's target from the middle of its range (an adjustment made for the old
+        // maintenance would otherwise count twice); the protein basis stays until you recompute it.
+        const hadOffsets = !!(tg && Object.keys(tg.offsets).length);
+        store.set('energy:targets', { v: 1, offsets: {}, basisKg: (tg && tg.basisKg) || entry.endKg, basisAt: (tg && tg.basisAt) || entry.to });
+        renderAll();
+        focusIn('#calSaved');
+        toast(`Maintenance saved: ${thousands(entry.kcal)} kcal a day${hadOffsets ? '. Daily targets start again from the middle of each range.' : ''}`, 6000, {
+          label: 'Undo',
+          run: () => {
+            if (m0 == null) store.remove('energy:maintenance'); else store.set('energy:maintenance', m0);
+            if (t0 == null) store.remove('energy:targets'); else store.set('energy:targets', t0);
+            if (alive) renderAll();
+            toast('Removed the new maintenance');
+          },
+        });
+      };
+
+      // ---- card 2: your daily targets
+      const renderTargets = () => {
+        const goal = goalNow();
+        const { t, m, tg, basis, own } = keptTargets(goal);
+        const out = $('#tgtOut');
+        const eq = $('#eqNote');
+        eq.innerHTML = m ? `<p class="small muted">Your daily targets above use your saved maintenance from your own data (${thousands(m.kcal)} kcal a day). This estimate is kept for comparison.</p>` : '';
+        if (maintenanceRecord().newer || (tg && tg.newer)) {
+          out.innerHTML = '<p class="small">Calibrations saved on this device come from a newer version of Forge. Update the app to see them.</p>';
+          return;
+        }
+        const protein = t ? `<div class="stat"><span class="k">Protein</span><span class="v">${t.protein.low}–${t.protein.high} g</span><span class="tiny muted">at least ${t.protein.floor} g as a 7-day average; ${t.protein.perMeal} g or more in each meal</span></div>` : '';
+        const basisLine = basis ? `<p class="small muted">Protein is for ${fmt(basis.kg, 1)} kg, ${esc(basis.label)}.</p>` : '';
+        const goalLine = `<p>Goal: <strong>${esc(goal.label)}</strong> <button type="button" class="btn small ghost" data-goto-goal>Change the goal</button></p>`;
+        if (goal.id === 'calibrate') {
+          out.innerHTML = `${goalLine}<p>While you calibrate there is no energy target: eat as you normally do and log everything.${m ? ` Your saved maintenance: ${thousands(m.kcal)} kcal a day.` : ''}</p>
+            ${protein ? `<div class="row" style="gap:22px">${protein}</div>` : ''}${basisLine}`;
+          return;
+        }
+        if (!m) {
+          out.innerHTML = `${goalLine}<p class="small">Save your maintenance above and your daily targets appear here. Until then, the nutrition plan's provisional targets and the estimate from equations below are your guide.</p>
+            ${protein ? `<div class="row" style="gap:22px">${protein}</div>` : ''}${basisLine}`;
+          return;
+        }
+        if (!t || !t.range) {
+          out.innerHTML = `${goalLine}<p class="small">No energy range is set for this goal.</p>${protein ? `<div class="row" style="gap:22px">${protein}</div>` : ''}${basisLine}`;
+          return;
+        }
+        const [lo, hi] = t.range;
+        const name = shortGoal(goal);
+        const hint = lo === 0 && hi === 0 ? `${name}: ${thousands(t.kcalLow)} kcal (your saved maintenance).`
+          : `${name}: ${thousands(t.kcalLow)} to ${thousands(t.kcalHigh)} kcal (${hi <= 0 ? (hi === 0 ? `maintenance to ${-lo} below` : `${-hi} to ${-lo} below maintenance`) : `${lo} to ${hi} above maintenance`}).`;
+        const why = own ? 'your own target' : lo === 0 && hi === 0 ? 'your saved maintenance' : `the middle of ${thousands(t.kcalLow)} to ${thousands(t.kcalHigh)}`;
+        const away = isAwayPhase(currentPhaseId());
+        const wts = store.get('weights', []);
+        const tr = weightTrend(wts, E.trendWindowDays || 21, { weekly: saved('checkin').entryKind === 'weekly' });
+        const rem = away ? { recalibrate: null, protein: null } : targetReminders({ maintenance: m, basisKg: tg && tg.basisKg, avg7: tr ? tr.avg7 : NaN, today: todayISO() }, C);
+        const avgNow = tr && Number.isFinite(tr.avg7) ? fmt(tr.avg7, 1) : '';
+        const routine = 'Re-calibrate every 4-6 weeks and after every 2-3 kg change in weight, using the routine under <a href="#/plan/nutrition?s=adjusting">Adjusting over time</a>.';
+        const reminders = [
+          rem.recalibrate && rem.recalibrate.byWeight ? `<div class="callout"><div class="callout-title">Time to re-calibrate</div><p>Your 7-day average (${avgNow} kg) has moved ${fmt(Math.abs(rem.recalibrate.kgMoved), 1)} kg since you calibrated. ${routine}</p></div>`
+            : rem.recalibrate ? `<p class="small muted">It is ${rem.recalibrate.weeks} weeks since your last calibration. ${routine}</p>` : '',
+          rem.protein ? `<div class="callout"><div class="callout-title">Recompute protein</div><p>Your 7-day average (${avgNow} kg) has moved ${fmt(Math.abs(rem.protein.kgMoved), 1)} kg from the ${fmt(tg.basisKg, 1)} kg your protein was set for. Recompute protein whenever your 7-day average weight moves by 2 kg or more.</p>
+            <p><button type="button" class="btn small" data-recompute>Recompute for ${avgNow} kg</button></p></div>` : '',
+        ].join('');
+        out.innerHTML = `${goalLine}
+          <div class="row" style="gap:22px">
+            <div class="stat"><span class="k">Energy</span><span class="v">${thousands(t.kcal)} kcal</span><span class="tiny muted">${why}</span></div>
+            ${protein}
+          </div>
+          <form id="tgtForm" class="form-grid" novalidate>${field('tgtKcal', 'Your daily target (kcal)', t.kcal, { step: 10, hint: esc(hint) })}</form>
+          ${t.inRange ? '' : '<p class="small">This is outside the range for your saved maintenance. If your check-ins keep moving it outside, re-calibrate.</p>'}
+          ${basisLine}
+          <p class="small">Fat, carbohydrate and fibre: see the <a href="#/plan/nutrition?s=targets">nutrition plan's targets</a>.</p>
+          ${reminders}`;
+      };
+      const setTarget = value => {
+        const goal = goalNow(), m = currentMaintenance(), tg = targetsRecord();
+        if (!m || !tg || tg.newer || !goal.kcalRange) return;
+        const before = keptTargets(goal).t;
+        if (!(value >= 1000 && value <= 6000)) { toast('Enter your daily target in kcal, between 1,000 and 6,000'); renderTargets(); return; }
+        const v = Math.round(value / 10) * 10;    // targets are shown to the nearest 10 kcal
+        const t0 = store.get('energy:targets', null);
+        store.set('energy:targets', { ...t0, v: 1, offsets: { ...tg.offsets, [goal.id]: v - m.kcal } });
+        renderTargets();
+        toast(`Daily target set: ${thousands(v)} kcal`, 6000, {
+          label: 'Undo',
+          run: () => {
+            store.set('energy:targets', t0);
+            if (alive) renderTargets();
+            toast(`Daily target back to ${thousands(before ? before.kcal : value)} kcal`);
+          },
+        });
+      };
+      const recompute = () => {
+        const tg = targetsRecord();
+        const wts = store.get('weights', []);
+        const tr = weightTrend(wts, E.trendWindowDays || 21, { weekly: saved('checkin').entryKind === 'weekly' });
+        if (!tg || tg.newer || !tr || !(tr.avg7 > 0)) return;
+        const t0 = store.get('energy:targets', null);
+        const kg = Math.round(tr.avg7 * 10) / 10;
+        store.set('energy:targets', { ...t0, v: 1, basisKg: kg, basisAt: wts.length ? wts[wts.length - 1].date : todayISO() });
+        renderTargets();
+        focusIn('#tgtOut');
+        toast(`Protein targets now for ${fmt(kg, 1)} kg`, 6000, {
+          label: 'Undo',
+          run: () => {
+            store.set('energy:targets', t0);
+            if (alive) renderTargets();
+            toast(`Protein targets back to ${fmt(tg.basisKg, 1)} kg`);
+          },
+        });
+      };
+      const renderAll = () => { renderCal(); renderTargets(); };
+      // The button you pressed is redrawn away: keep keyboard and screen-reader focus on what it changed.
+      const focusIn = sel => {
+        const el = $(sel) && ($(sel).querySelector('p, .stat') || $(sel));
+        if (!el) return;
+        el.setAttribute('tabindex', '-1');
+        el.focus({ preventScroll: true });
+      };
+
+      $('#calForm').addEventListener('submit', e => e.preventDefault());
+      $('#calForm').addEventListener('input', renderCal);
+      $('#calForm').addEventListener('change', renderCal);
+      $('#calOut').addEventListener('click', e => { if (e.target.closest('[data-cal-save]')) saveCal(); });
+      $('#tgtOut').addEventListener('click', e => {
+        if (e.target.closest('[data-goto-goal]')) { const g = $('#goal'); g.scrollIntoView({ block: 'center' }); g.focus(); }
+        if (e.target.closest('[data-recompute]')) recompute();
+      });
+      $('#tgtOut').addEventListener('submit', e => { e.preventDefault(); if (e.target.id === 'tgtForm') setTarget(num(e.target.querySelector('#tgtKcal').value)); });
+      $('#tgtOut').addEventListener('change', e => { if (e.target.id === 'tgtKcal') setTarget(num(e.target.value)); });
+      renderCal();
+
       bindForm(root, 'energy', d => {
+        if (d.goal !== goalId) { goalId = d.goal; renderTargets(); }
         const goal = goals.find(g => g.id === d.goal) || goals[0];
         const r = energyTargets({
           weightKg: num(d.weight), heightCm: num(d.height), age: num(d.age), sex: 'male', bfPct: num(d.bf),
@@ -252,13 +580,13 @@ function toolEnergy() {
         const bmrRows = Object.entries(r.bmrs).map(([k, v]) => `<tr><td>${esc({ mifflin: 'Mifflin–St Jeor', katch: 'Katch–McArdle (uses FFM)', cunningham: 'Cunningham (uses FFM)' }[k])}</td><td class="num">${fmt(v)}</td></tr>`).join('');
         out.innerHTML = `<div class="result">
           <div class="row" style="gap:22px">
-            <div class="stat"><span class="k">Maintenance (TDEE)</span><span class="v">${fmt(Math.round(r.tdee / 10) * 10)} kcal</span><span class="tiny muted">plausible ${fmt(r.tdeeLow)}–${fmt(r.tdeeHigh)}</span></div>
-            <div class="stat"><span class="k">Target · ${esc(goal.label)}</span><span class="v">${fmt(Math.round(r.target / 50) * 50)} kcal</span></div>
+            <div class="stat"><span class="k">Maintenance (TDEE)</span><span class="v">${thousands(Math.round(r.tdee / 10) * 10)} kcal</span><span class="tiny muted">plausible ${thousands(r.tdeeLow)}–${thousands(r.tdeeHigh)}</span></div>
+            <div class="stat"><span class="k">Target · ${esc(goal.label)}</span><span class="v">${thousands(Math.round(r.target / 50) * 50)} kcal</span></div>
           </div></div>
           <div class="table-wrap"><table><thead><tr><th>Daily target</th><th class="num">Grams</th><th class="num">kcal</th></tr></thead><tbody>
-            <tr><td>Protein</td><td class="num">${fmt(r.protein)}</td><td class="num">${fmt(r.protein * 4)}</td></tr>
-            <tr><td>Fat</td><td class="num">${fmt(r.fat)}</td><td class="num">${fmt(r.fat * 9)}</td></tr>
-            <tr><td>Carbohydrate (remainder)</td><td class="num">${fmt(r.carbs)}</td><td class="num">${fmt(r.carbs * 4)}</td></tr>
+            <tr><td>Protein</td><td class="num">${fmt(r.protein)}</td><td class="num">${thousands(r.protein * 4)}</td></tr>
+            <tr><td>Fat</td><td class="num">${fmt(r.fat)}</td><td class="num">${thousands(r.fat * 9)}</td></tr>
+            <tr><td>Carbohydrate (remainder)</td><td class="num">${fmt(r.carbs)}</td><td class="num">${thousands(r.carbs * 4)}</td></tr>
             <tr><td>Fibre</td><td class="num">≥ ${fmt(r.fibre)}</td><td class="num">–</td></tr>
           </tbody></table></div>
           <details><summary>Resting energy estimates</summary><div class="details-body"><div class="table-wrap"><table><tbody>${bmrRows}</tbody></table></div>
@@ -266,6 +594,7 @@ function toolEnergy() {
           ${goal.note ? `<p class="small">${esc(goal.note)}</p>` : ''}`;
       });
     },
+    cleanup() { alive = false; },
   };
 }
 
@@ -274,16 +603,20 @@ function toolEnergy() {
 function toolCheckin() {
   const E = P().energy || {};
   const goals = E.goals || [];
-  const pos = getPosition();
-  const phaseGoal = pos ? (getPhase(pos.phase).energyGoal || '') : '';
   const s = saved('checkin');
+  const goalId = phaseGoalFor(s, goals[0] && goals[0].id);
+  let filled = todayISO();   // the date the date fields were filled in with
+  let alive = true;
+  let onVisible = null;
+  const awayNow = isAwayPhase(currentPhaseId());
   return {
     title: 'Check-in',
     html: `<div class="page reading">
       ${head('Tool', 'Weekly check-in', 'Weigh daily (or most days) under the standard protocol, enter the numbers here or weekly averages from your scale app, and measure your waist every 2 weeks. Decisions use trends, never single readings.')}
       <div class="card"><h2 style="margin-top:0">Add a weigh-in</h2>
+        ${awayNow ? '<p class="small muted">Away mode: pause weigh-ins until you are back on your own scale.</p>' : ''}
         <form id="wform" class="form-grid three" style="align-items:end">
-          ${field('wdate', 'Date', todayISO(), { type: 'date' })}
+          ${field('wdate', 'Date', filled, { type: 'date' })}
           ${field('wkg', 'Weight (kg)', '', { attrs: 'required placeholder="77.0"' })}
           <div class="field"><button class="btn primary" type="submit">Add</button></div>
         </form>
@@ -294,13 +627,16 @@ function toolCheckin() {
       </div>
       <div class="card"><h2 style="margin-top:0">Add waist measurements</h2>
         <form id="waform" class="form-grid four" style="align-items:end">
-          ${field('wadate', 'Date', todayISO(), { type: 'date' })}
+          ${field('wadate', 'Date', filled, { type: 'date' })}
           ${field('navel', 'Waist at navel (cm)', '')}
           ${field('natural', 'Narrowest waist (cm)', '')}
           <div class="field"><button class="btn primary" type="submit">Add</button></div>
         </form>
       </div>
-      <form class="tool-form card">${select('goal', 'Target band for this phase', goals.map(g => ({ value: g.id, label: `${g.label} (${g.band ? g.band.join(' to ') + ' %/week' : 'n/a'})` })), s.goal || phaseGoal || (goals[0] && goals[0].id))}</form>
+      <form class="tool-form card"><div class="form-grid">
+        ${select('goal', 'Target band for this phase', goals.map(g => ({ value: g.id, label: `${g.label} (${g.band ? g.band.join(' to ') + ' %/week' : 'n/a'})` })), goalId)}
+        ${select('entryKind', 'What you enter', [{ value: 'daily', label: 'Daily weigh-ins' }, { value: 'weekly', label: 'Weekly averages from a scale app' }], s.entryKind || 'daily')}
+        </div>${goalForField(s)}</form>
       <div id="out" aria-live="polite"></div>
       <div class="card tight"><h2 style="margin:6px 0">Recent entries</h2><div id="entries"></div></div>
       <p><a href="#/rule/energy-adjustment">The adjustment rule and why it works this way</a> · <a href="#/plan/monitoring">Measurement protocols</a></p>
@@ -313,10 +649,69 @@ function toolCheckin() {
         next.push({ date, kg });
         return next.sort((a, b) => a.date.localeCompare(b.date));
       });
+      // The last three entries each about a week apart: probably weekly averages entered as daily weigh-ins.
+      const spacedOut = arr => { const r = arr.slice(-3); return r.length === 3 && r.every((e, i) => !i || Date.parse(e.date) - Date.parse(r[i - 1].date) >= 5 * 86400000); };
+      // The energy tool's goal: the kept targets shown here are that tool's.
+      const energyGoal = () => { const id = phaseGoalFor(saved('energy'), E.defaultGoal || (goals[0] && goals[0].id)); return goals.find(g => g.id === id) || null; };
+      const awayCallout = () => {
+        const m = currentMaintenance();
+        const b = proteinBasis(targetsRecord());
+        const floor = b ? Math.round(((E.proteinFloorGkg || 1.6) * b.kg) / 5) * 5 : null;
+        return `<div class="callout"><div class="callout-title">Paused while you are away</div>
+          <p>Pause daily weigh-ins until you are back on your own scale: another scale may read differently. While you are away the check-in suggests no change to your intake.</p>
+          <p>Eat at maintenance${m ? ` (${thousands(m.kcal)} kcal a day)` : ''}${floor ? ` and keep protein at or above ${floor} g a day` : ''}.</p>
+          <p><a href="#/plan/nutrition?s=away">Eating while away</a></p></div>`;
+      };
+      const settleCallout = st => `<div class="callout"><div class="callout-title">Back from Away mode</div>
+        <p>Restart daily weigh-ins. In the first week after a trip, extra carbohydrate can raise your weight through stored glycogen and the water it holds, so the check-in judges your trend again from ${esc(st.resumes)}.</p></div>`;
+      const calibratingCallout = (weekly, hintHtml, goal) => {
+        const w = calibrationWindow(weights(), { days: 14, weekly, minPerWeek: CAL().minWeighInsPerWeek || 3 });
+        const m = currentMaintenance();
+        const so = w && !weekly ? ` (so far: ${w.blocks.map((b, i) => `days ${i * 7 + 1}–${i * 7 + 7}: ${b.n}`).join(', ')})` : '';
+        const ready = w && w.enough
+          ? '<p>You have enough weigh-ins for a 14-day calibration. Work out your maintenance from them in the energy tool.</p><p><a class="btn small primary" href="#/tool/energy">Work out my maintenance</a></p>'
+          : `<p>${weekly ? 'When you have a weekly average for each of the last 2 weeks, work out your maintenance in the <a href="#/tool/energy">energy tool</a>.'
+            : `When you have 14 days of weigh-ins, at least 3 in each week${so}, work out your maintenance in the <a href="#/tool/energy">energy tool</a>.`}</p>`;
+        return `<div class="callout"><div class="callout-title">Calibrating your maintenance</div>
+          <p>Eat as you normally do, log everything you eat and drink, and weigh in every morning. Do not change your intake because of the trend: while you calibrate, the trend is the data.</p>
+          ${ready}
+          ${m ? `<p>Your saved maintenance: ${thousands(m.kcal)} kcal a day, from ${esc(m.from)} to ${esc(m.to)}.</p>` : ''}
+          ${goal && goal.note ? `<p class="small">${esc(goal.note)}</p>` : ''}${hintHtml}</div>`;
+      };
+      const targetsLine = () => {
+        const g = energyGoal();
+        const { t, m } = keptTargets(g);
+        if (!m || !t) return '';
+        const protein = `<strong>${t.protein.low}–${t.protein.high} g</strong>`;
+        return `<p class="small">${t.kcal != null ? `Your daily targets (${esc(shortGoal(g))}): <strong>${thousands(t.kcal)} kcal</strong> and ${protein} protein.` : `Your daily protein: ${protein}.`} <a href="#/tool/energy">Energy tool</a></p>`;
+      };
+      const reminderLine = weekly => {
+        const m = currentMaintenance();
+        if (!m) return '';
+        const tg = targetsRecord();
+        const tr = weightTrend(weights(), E.trendWindowDays || 21, { weekly });
+        const rem = targetReminders({ maintenance: m, basisKg: tg && tg.basisKg, avg7: tr ? tr.avg7 : NaN, today: todayISO() }, CAL());
+        const parts = [];
+        if (rem.recalibrate) {
+          parts.push(rem.recalibrate.byWeight
+            ? `re-calibrate (your 7-day average has moved ${fmtSigned(rem.recalibrate.kgMoved, 1)} kg since you calibrated)`
+            : `re-calibrate (${rem.recalibrate.weeks} weeks since your last calibration)`);
+        }
+        if (rem.protein) parts.push(`recompute protein (your 7-day average has moved ${fmtSigned(rem.protein.kgMoved, 1)} kg)`);
+        return parts.length ? `<p class="small muted">Reminder: ${parts.join(' · ')}. <a href="#/tool/energy">Open the energy tool</a></p>` : '';
+      };
       const render = (data) => {
         const goal = goals.find(g => g.id === data.goal) || goals[0];
-        const tr = weightTrend(weights(), (E.trendWindowDays || 21));
-        const adj = goal && goal.band ? energyAdjustment(tr, goal.band, E.adjust || {}) : null;
+        const weekly = data.entryKind === 'weekly';
+        const tr = weightTrend(weights(), (E.trendWindowDays || 21), { weekly });
+        // After a calibration your targets already allow for the trend it measured: the verdict judges only the
+        // weigh-ins since (the numbers above still show the latest 3 weeks).
+        const calib = currentMaintenance();
+        const since = calib && goal && goal.id !== 'calibrate' ? calib.to : null;
+        const trJ = since ? weightTrend(weights().filter(e => e.date > since), (E.trendWindowDays || 21), { weekly }) : tr;
+        const adj = goal && goal.band ? energyAdjustment(trJ, goal.band, E.adjust || {}) : null;
+        const hint = adj && adj.action === 'wait' && !weekly && spacedOut(weights())
+          ? '<p class="small">These look like weekly averages: choose <strong>Weekly averages</strong> under "What you enter" above.</p>' : '';
         const wa = waists();
         let waistHtml = '';
         if (wa.length >= 2) {
@@ -326,12 +721,18 @@ function toolCheckin() {
           waistHtml = `<div class="stat"><span class="k">Waist (navel) change</span><span class="v">${fmtSigned(dn, 1)} cm</span><span class="tiny muted">since ${esc(ref.date)}</span></div>`;
         }
         const out = root.querySelector('#out');
-        out.innerHTML = tr ? `<div class="result"><div class="row" style="gap:22px">
-            <div class="stat"><span class="k">7-day average</span><span class="v">${fmt(tr.avg7, 1)} kg</span></div>
-            <div class="stat"><span class="k">Trend</span><span class="v">${fmtSigned(tr.kgPerWeek, 2)} kg/wk</span><span class="tiny muted">${Number.isFinite(tr.pctPerWeek) ? fmtSigned(tr.pctPerWeek, 2) + ' %/wk' : ''} · ${tr.nWindow} weigh-ins over ${fmt(tr.spanDays)} days</span></div>
-            ${waistHtml}</div></div>
-          ${adj ? `<div class="callout ${adj.action === 'keep' ? 'ok' : adj.action === 'wait' || adj.action === 'recheck' ? '' : 'warn'}"><div class="callout-title">${adj.action === 'wait' ? 'Not enough data yet' : adj.action === 'keep' ? 'On target' : adj.action === 'recheck' ? 'Borderline: re-check in 2 weeks' : 'Adjust intake'}</div><p>${esc(adj.message)}</p>${goal && goal.note ? `<p class="small">${esc(goal.note)}</p>` : ''}</div>` : ''}`
-          : '<div class="result muted">No weigh-ins yet.</div>';
+        const statsHtml = tr ? `<div class="result"><div class="row" style="gap:22px">
+            <div class="stat"><span class="k">${weekly ? 'Latest weekly average' : '7-day average'}</span><span class="v">${fmt(tr.avg7, 1)} kg</span></div>
+            <div class="stat"><span class="k">Trend</span><span class="v">${fmtSigned(tr.kgPerWeek, 2)} kg/wk</span><span class="tiny muted">${Number.isFinite(tr.pctPerWeek) ? fmtSigned(tr.pctPerWeek, 2) + ' %/wk' : ''} · ${tr.nWindow} ${weekly ? 'weekly averages' : 'weigh-ins'} over ${fmt(tr.spanDays)} days</span></div>
+            ${waistHtml}</div></div>` : '<div class="result muted">No weigh-ins yet.</div>';
+        const verdictHtml = tr && adj ? `<div class="callout ${adj.action === 'keep' ? 'ok' : adj.action === 'wait' || adj.action === 'recheck' ? '' : 'warn'}"><div class="callout-title">${adj.action === 'wait' ? 'Not enough data yet' : adj.action === 'keep' ? 'On target' : adj.action === 'recheck' ? 'Borderline: re-check in 2 weeks' : 'Adjust intake'}</div><p>${esc(adj.message)}</p>${since ? `<p class="small">Judged from your weigh-ins after your calibration, which ended on ${esc(since)}.</p>` : ''}${hint}${goal && goal.note ? `<p class="small">${esc(goal.note)}</p>` : ''}</div>` : '';
+        // Where you are decides what follows the numbers: in Away mode and the week after it, and while you calibrate,
+        // the check-in suggests no change to your intake (nutrition plan); otherwise the verdict as before.
+        const settle = awayNow ? null : awaySettle(phaseSpans(store.get('history', []), isAwayPhase), todayISO(), CAL().awaySettleDays || 7);
+        const mode = awayNow ? 'away' : settle ? 'settle' : goal && goal.id === 'calibrate' ? 'calibrate' : 'normal';
+        out.innerHTML = statsHtml +
+          (mode === 'away' ? awayCallout() : mode === 'settle' ? settleCallout(settle) : mode === 'calibrate' ? calibratingCallout(weekly, hint, goal) : verdictHtml) +
+          (mode === 'normal' || mode === 'settle' ? targetsLine() : '') + (mode === 'normal' ? reminderLine(weekly) : '');
         const rows = weights().slice(-28).reverse().map(e => `<tr><td>${esc(e.date)}</td><td class="num">${fmt(e.kg, 1)}</td><td><button class="btn small ghost" data-del-w="${esc(e.date)}" aria-label="Delete ${esc(e.date)}">✕</button></td></tr>`).join('');
         const wrows = wa.slice(-12).reverse().map(e => `<tr><td>${esc(e.date)}</td><td class="num">${fmt(e.navel, 1)}</td><td class="num">${fmt(e.natural, 1)}</td><td><button class="btn small ghost" data-del-wa="${esc(e.date)}" aria-label="Delete waist ${esc(e.date)}">✕</button></td></tr>`).join('');
         root.querySelector('#entries').innerHTML =
@@ -340,45 +741,92 @@ function toolCheckin() {
       };
       let current = saved('checkin');
       bindForm(root, 'checkin', d => { current = d; render(d); });
+      // A page left open overnight still shows yesterday in its date fields: move them on to today when you come
+      // back to it. A date you changed yourself stays as it is.
+      const refreshDates = () => {
+        const today = todayISO();
+        if (today === filled) return;
+        for (const id of ['wdate', 'wadate']) {
+          const el = root.querySelector(`#${id}`);
+          if (el && el.value === filled) el.value = today;
+        }
+        filled = today;
+      };
+      onVisible = () => { if (document.visibilityState === 'visible') refreshDates(); };
+      document.addEventListener('visibilitychange', onVisible);
+      root.querySelector('#wform').addEventListener('focusin', refreshDates);
+      root.querySelector('#waform').addEventListener('focusin', refreshDates);
       root.querySelector('#wform').addEventListener('submit', e => {
         e.preventDefault();
+        refreshDates();
         const date = root.querySelector('#wdate').value;
         const kg = num(root.querySelector('#wkg').value);
         if (!date || !(kg > 20 && kg < 300)) { toast('Enter a date and a weight in kg'); return; }
+        const old = weights().find(x => x.date === date);
+        if (old && old.kg !== kg && !confirm(`${date} already has a weigh-in of ${fmt(old.kg, 1)} kg. Replace it with ${fmt(kg, 1)} kg?`)) return;
         upsertWeight(date, kg);
         root.querySelector('#wkg').value = '';
-        toast('Weigh-in saved');
+        toast(`Weigh-in saved for ${date}`);
         render(current);
       });
       root.querySelector('#bulkAdd').addEventListener('click', () => {
-        let n = 0;
+        const rows = [];
         for (const line of root.querySelector('#bulk').value.split(/\n/)) {
           const m = /(\d{4}-\d{2}-\d{2})\s*[,;\t ]\s*(\d+(?:[.,]\d+)?)/.exec(line);
-          if (m) { const kg = +m[2].replace(',', '.'); if (kg > 20 && kg < 300) { upsertWeight(m[1], kg); n++; } }
+          if (m) { const kg = +m[2].replace(',', '.'); if (kg > 20 && kg < 300) rows.push([m[1], kg]); }
         }
+        const have = new Map(weights().map(x => [x.date, x.kg]));
+        const clash = rows.filter(([date, kg]) => have.has(date) && have.get(date) !== kg).length;
+        if (clash && !confirm(clash === 1
+          ? '1 of these dates already has a different weigh-in. Replace it with the pasted value?'
+          : `${clash} of these dates already have a different weigh-in. Replace them with the pasted values?`)) return;
+        rows.forEach(([date, kg]) => upsertWeight(date, kg));
+        const n = rows.length;
         root.querySelector('#bulk').value = '';
         toast(`${n} weigh-in${n === 1 ? '' : 's'} added`);
         render(current);
       });
       root.querySelector('#waform').addEventListener('submit', e => {
         e.preventDefault();
+        refreshDates();
         const date = root.querySelector('#wadate').value;
         const navel = num(root.querySelector('#navel').value);
         const natural = num(root.querySelector('#natural').value);
         if (!date || !(navel > 40 || natural > 40)) { toast('Enter a date and at least one waist value'); return; }
-        store.update('waist', [], arr => [...arr.filter(x => x.date !== date), { date, navel: navel || null, natural: natural || null }].sort((a, b) => a.date.localeCompare(b.date)));
+        const entry = { date, navel: navel || null, natural: natural || null };
+        const old = waists().find(x => x.date === date);
+        if (old && (old.navel !== entry.navel || old.natural !== entry.natural) &&
+          !confirm(`${date} already has waist measurements (${fmt(old.navel, 1)} / ${fmt(old.natural, 1)} cm). Replace them?`)) return;
+        store.update('waist', [], arr => [...arr.filter(x => x.date !== date), entry].sort((a, b) => a.date.localeCompare(b.date)));
         root.querySelector('#navel').value = '';
         root.querySelector('#natural').value = '';
-        toast('Waist saved');
+        toast(`Waist saved for ${date}`);
         render(current);
       });
+      // Deleting is immediate, with a few seconds to undo it.
       root.querySelector('#entries').addEventListener('click', e => {
         const w = e.target.closest('[data-del-w]');
         const wa = e.target.closest('[data-del-wa]');
-        if (w) store.update('weights', [], arr => arr.filter(x => x.date !== w.dataset.delW));
-        if (wa) store.update('waist', [], arr => arr.filter(x => x.date !== wa.dataset.delWa));
-        if (w || wa) render(current);
+        if (!w && !wa) return;
+        const [key, date, what] = w ? ['weights', w.dataset.delW, 'weigh-in'] : ['waist', wa.dataset.delWa, 'waist measurements'];
+        const gone = store.get(key, []).find(x => x.date === date);
+        store.update(key, [], arr => arr.filter(x => x.date !== date));
+        render(current);
+        if (gone) {
+          toast(`Deleted the ${what} for ${date}`, 6000, {
+            label: 'Undo',
+            run: () => {
+              store.update(key, [], arr => [...arr.filter(x => x.date !== date), gone].sort((a, b) => a.date.localeCompare(b.date)));
+              if (alive) render(current);
+              toast(`Restored the ${what} for ${date}`);
+            },
+          });
+        }
       });
+    },
+    cleanup() {
+      alive = false;
+      if (onVisible) document.removeEventListener('visibilitychange', onVisible);
     },
   };
 }

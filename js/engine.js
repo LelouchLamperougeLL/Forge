@@ -34,6 +34,11 @@ export function weekPlan(phase, w) {
   return out;
 }
 
+/** The energy goal for week w of a phase: the week plan's own (Phase 1 weeks 1–2: calibrate), else the phase's. */
+export function energyGoalAt(phase, w) {
+  return phase ? (weekPlan(phase, w).energyGoal || phase.energyGoal || '') : '';
+}
+
 /** Replace {{param}} placeholders. A string that is exactly "{{x}}" returns the raw value (keeps numbers numeric). */
 export function resolveValue(v, params) {
   if (typeof v === 'string') {
@@ -140,6 +145,13 @@ export function resolveSession(phaseId, w, sessionId) {
 // is logged as its "(Away)" copy so the gym history stays clean).
 function itemName(it) {
   return it.logAs || (it.item && (it.item.loggingName || it.item.name)) || it.name || it.ref;
+}
+
+/** The name to show after "Log as" for a session item: its own Away name (logAs), else the exercise's logging
+ *  name when it differs from the name shown; '' when there is nothing to add. Session cards and the player use it. */
+export function logAsName(it) {
+  const x = it && it.item;
+  return (it && it.logAs) || (x && x.loggingName && x.loggingName !== x.name ? x.loggingName : '');
 }
 
 function timerSeconds(t) {

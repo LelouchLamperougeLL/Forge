@@ -426,6 +426,10 @@ textarea { min-height: 120px; resize: vertical; font-family: var(--num); font-va
 .form-grid { display: grid; gap: 0 12px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .form-grid.wide-first { grid-template-columns: minmax(0, 2.4fr) minmax(0, 1fr); }
 @media (min-width: 720px) { .form-grid.three { grid-template-columns: repeat(3, minmax(0, 1fr)); } .form-grid.four { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+/* The energy tool's calibration and daily-target forms (js/tools.js): one column on phones, so the dates in the
+   options and the hints have room. The maintenance sum ("2,450 + 220 = 2,670") stays on one line. */
+@media (max-width: 519px) { #calForm, #tgtForm { grid-template-columns: minmax(0, 1fr); } }
+.result .big.cal-sum { white-space: nowrap; font-size: clamp(1.25rem, 5.6vw, 1.625rem); }
 
 /* Checkboxes: square steel stamps that take the phase colour when ticked. */
 .check { display: flex; gap: 12px; align-items: flex-start; padding: 9px 0; cursor: pointer; }
@@ -881,9 +885,19 @@ a.cite.missing, a.xref.missing { color: var(--danger); }
   opacity: 0; pointer-events: none; transition: opacity .2s, transform .2s; z-index: 80; max-width: min(90vw, 480px);
 }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
+.toast.has-action { display: flex; align-items: center; gap: 14px; padding-right: 10px; }
+.toast.has-action.show { pointer-events: auto; }
+.toast-action {
+  flex: none; min-height: 36px; padding: 4px 10px; border: 0; border-radius: 10px; background: transparent; color: inherit;
+  font: inherit; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; cursor: pointer;
+}
+.toast-action:focus-visible { outline: 2px solid currentColor; outline-offset: 1px; }
 @media (min-width: 960px) { .toast { bottom: 28px; } }
 
 .banner { display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 10px 16px; background: var(--temper-soft); border-bottom: 1px solid var(--line); font-weight: 500; }
+/* A new version waits while the guided player is open, so reloading is never offered mid-session; the banner
+   shows again when you leave the player. */
+body.immersive .banner { display: none !important; }
 
 .loading { display: grid; place-items: center; align-content: center; gap: 4px; min-height: 60vh; color: var(--ink-2); text-align: center; }
 .loading-mark { width: 64px; height: 64px; color: var(--ink); }
@@ -897,6 +911,10 @@ a.cite.missing, a.xref.missing { color: var(--danger); }
    The app draws the poster itself, so nothing loads from YouTube until you press play. The play disc is
    the phase's oxide colour, glowing like metal in the forge. */
 .demo { margin: 16px 0 18px; }
+/* The guided player's Demo sheet (js/video.js): the rest's time left, above the video. */
+.demo-clock { margin: -4px 0 12px; font-size: .9375rem; color: var(--ink-2); }
+.demo-clock .mono { font-weight: 700; color: var(--ink); }
+.sheet .demo { margin-bottom: 0; }
 .demo-frame {
   position: relative; display: grid; aspect-ratio: 16 / 9; border-radius: var(--r-panel); overflow: hidden;
   container-type: inline-size;
@@ -973,6 +991,19 @@ a.cite.missing, a.xref.missing { color: var(--danger); }
 .player-dose { margin: 12px 0 4px; font-size: 1.0625rem; line-height: 1.5; color: var(--ink); max-width: 46ch; }
 .player-next { margin: 4px 0 0; text-align: center; color: var(--ink-2); font-weight: 500; }
 .player-next strong { color: var(--ink); }
+/* The guided player's Demo button (js/player.js): opens the movement's video in a sheet over the player, so its
+   timer keeps running. The disc is the video poster's play disc in miniature, in the phase's colour. */
+.player-head-end { display: flex; align-items: center; gap: 8px; }
+.player-head .player-demo { margin: -7px -8px -7px 0; }
+.player-demo.btn { gap: 8px; padding: 4px 14px 4px 4px; border-radius: 999px; }
+.player-demo.btn svg { width: 30px; height: 30px; padding: 8px 7px 8px 9px; border-radius: 50%; background: var(--temper); color: var(--temper-ink); stroke: none; }
+/* The name to log a set under in the logging app, as on session cards ("Log as"). */
+.player-logas { margin: 6px 0 0; font-size: .9375rem; line-height: 1.4; color: var(--ink-2); }
+.player-logas b { color: var(--ink); font-weight: 700; }
+.player-card.is-rest .player-logas { margin: 2px 0 0; text-align: center; }
+/* What the timers did while you were away, and the request for a tap after a reload (sound needs one). */
+.player-away { margin: 8px 0 0; font-size: .9375rem; font-weight: 500; color: var(--ink-2); }
+.player-tap { margin: 10px 0 0; text-align: center; font-size: .875rem; color: var(--ink-2); }
 .player-card.is-rest .player-target { justify-content: center; }
 .player-card.is-rest .player-dose { margin-left: auto; margin-right: auto; text-align: center; font-size: .9375rem; color: var(--ink-2); }
 

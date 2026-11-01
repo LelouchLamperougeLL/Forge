@@ -9,8 +9,9 @@ import * as V from './views.js';
 import { viewTools, viewTool, viewSettings } from './tools.js';
 import { sparksFrom } from './fx.js';
 import { GLYPHS, glyphFor } from './reading.js';
+import { demoSheetHtml, mountSheetVideo } from './video.js';
 
-export const APP_VERSION = '1.4.0';
+export const APP_VERSION = '1.5.0';
 
 const main = $('#main');
 let currentView = null;
@@ -125,6 +126,8 @@ function arrive(from = '') {
 }
 
 function onHashChange() {
+  // A page change closes a sheet that holds something running (the Demo sheet's video), so it stops.
+  if (sheetCleanup) closeSheet({ restoreFocus: false });
   if (entryId) {
     places.set(entryId, { y: window.scrollY, open: [...main.querySelectorAll('details')].map(d => d.open) });
     if (places.size > 100) places.delete(places.keys().next().value);
@@ -212,17 +215,59 @@ function markNav(tab, route) {
 
 // ---------------------------------------------------------------- sheet (popover)
 
-function openSheet(html, title = '') {
+// While a sheet is open, Android's back gesture (and Escape) closes it instead of leaving the page under it.
+// This uses the browser's CloseWatcher (current Chrome and Edge); elsewhere the back gesture works as before.
+let sheetWatcher = null;
+// A sheet may set something up when it opens (the Demo sheet's video): its cleanup runs whenever the sheet
+// closes or is replaced. sheetReturn gives the element to focus again when it closes (the Demo button).
+let sheetCleanup = null;
+let sheetReturn = null;
+
+function runSheetCleanup() {
+  const c = sheetCleanup;
+  sheetCleanup = null;
+  if (c) { try { c(); } catch (e) { console.error(e); } }
+}
+
+function openSheet(html, title = '', { mount = null, returnFocus = null } = {}) {
+  runSheetCleanup();
   const sheet = $('#sheet');
   sheet.innerHTML = `<button class="icon-btn sheet-close" type="button" data-close-sheet aria-label="Close">${ICONS.close}</button>${title ? `<h2 id="sheetTitle">${title}</h2>` : ''}${html}`;
   sheet.hidden = false;
   $('#sheetBackdrop').hidden = false;
   sheet.querySelector('[data-close-sheet]').focus();
+  if (!sheetWatcher && 'CloseWatcher' in window) {
+    try {
+      sheetWatcher = new CloseWatcher();
+      sheetWatcher.addEventListener('close', () => { sheetWatcher = null; closeSheet(); });
+    } catch (e) { sheetWatcher = null; }
+  }
+  sheetCleanup = mount ? mount(sheet) : null;
+  sheetReturn = returnFocus;
 }
 
-function closeSheet() {
+function closeSheet({ restoreFocus = true } = {}) {
+  runSheetCleanup();
   $('#sheet').hidden = true;
   $('#sheetBackdrop').hidden = true;
+  // Closed some other way (the ✕, the backdrop, a link): let the next back gesture go back again.
+  if (sheetWatcher) { const w = sheetWatcher; sheetWatcher = null; w.destroy(); }
+  const back = sheetReturn;
+  sheetReturn = null;
+  const el = restoreFocus && back ? back() : null;
+  if (el) el.focus({ preventScroll: true });
+}
+
+/** The guided player's Demo button: the movement's video in a sheet over the player, whose timer keeps running. */
+function openDemo(btn) {
+  const id = btn.dataset.demo;
+  const x = DB.idx.items.get(id);
+  // During a rest the sheet shows the time left, which the player then keeps up to date.
+  const pt = btn.hasAttribute('data-demo-rest') ? document.querySelector('#player-root #pt') : null;
+  openSheet(demoSheetHtml(id, { clock: pt ? pt.textContent : '' }), esc(x ? x.name : 'Demonstration video'), {
+    mount: mountSheetVideo,
+    returnFocus: () => (btn.isConnected ? btn : main.querySelector(`button[data-demo="${CSS.escape(id)}"]`) || main),
+  });
 }
 
 function showMenu() {
@@ -235,7 +280,7 @@ function showMenu() {
 function onClick(e) {
   const t = e.target;
   if (t.closest('[data-close-sheet]') || t.id === 'sheetBackdrop') { closeSheet(); return; }
-  if (t.closest('#sheet a[href^="#"]')) closeSheet();
+  if (t.closest('#sheet a[href^="#"]')) closeSheet({ restoreFocus: false });
 
   const cite = t.closest('a.cite[data-ref]');
   if (cite) {
@@ -251,6 +296,8 @@ function onClick(e) {
     openSheet(def ? `<div class="md">${makeCtx().md(def.definition)}</div><p class="small"><a href="#/glossary">Glossary</a></p>` : '<p>Definition not found.</p>', esc(def ? def.term : id));
     return;
   }
+  const demo = t.closest('button[data-demo]');
+  if (demo) { openDemo(demo); return; }
   const act = t.closest('[data-action]');
   if (!act) return;
   const action = act.dataset.action;
@@ -293,6 +340,11 @@ function onChange(e) {
     setDone(t.dataset.phase, +t.dataset.week, +t.dataset.day, t.checked);
     toast(t.checked ? 'Marked done' : 'Unmarked');
     if (parseHash().parts[0] === 'today' || !parseHash().parts.length) render({ keepScroll: true });
+    else {
+      // The session page's start button says whether the player would resume; ticking done can change that.
+      const link = main.querySelector(`.session-actions a[href="#/play/${t.dataset.phase}/${t.dataset.week}/${t.dataset.day}"]`);
+      if (link && link.lastChild) link.lastChild.textContent = ` ${V.playLabelFor(t.dataset.phase, +t.dataset.week, +t.dataset.day)}`;
+    }
   }
 }
 
